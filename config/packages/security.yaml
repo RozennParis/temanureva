@@ -4,14 +4,34 @@ security:
         App\Entity\User: bcrypt
 
     providers:
-        in_memory: { memory: ~ }
+        # in_memory: { memory: ~ }
+        database_users:
+            entity: { class: App\Entity\User, property: username }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            # all urls for this firewalls
+            pattern: ^/
+
             anonymous: true
 
+            form_login:
+                # Name of the road login page
+                check_path: security_login
+                # If a user tries to access a protected page without having the rights, it will be redirected to this login page
+                login_path: security_login
+                # Securing forms
+                csrf_token_generator: security.csrf.token_manager
+                # Default page after login success
+                default_target_path: profil
+
+            logout:
+                # the road where the disconnection process is
+                path: security_logout
+                # The route on which the user must be redirected after a disconnection
+                target: homepage
             # activate different ways to authenticate
 
             # http_basic: true
@@ -23,5 +43,5 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/profil, roles: [ROLE_USER, ROLE_ADMIN] }
         # - { path: ^/profile, roles: ROLE_USER }
