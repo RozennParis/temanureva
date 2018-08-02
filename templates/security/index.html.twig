@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if error %}
+        <div>
+            {{ error.messageKey }}
+        </div>
+    {% endif %}
+
+<div>
+    <form action="{{ path('security_login') }}" method="post">
+        <fieldset>
+            <legend>Connexion</legend>
+            <div>
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" />
+            </div>
+            <br/>
+            <div>
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="_password" />
+            </div>
+            <br/>
+            <button type="submit">
+                Je me connecte
+            </button>
+        </fieldset>
+    </form>
+</div>

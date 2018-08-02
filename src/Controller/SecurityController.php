@@ -20,7 +20,10 @@ class SecurityController extends Controller
         ]);
     }
 
-
+    /**
+     * @throws \Exception
+     * @Route("/deconnexion", name="security_logout")
+     */
     public function logout(): void
     {
         throw new \Exception('Never be reached');
