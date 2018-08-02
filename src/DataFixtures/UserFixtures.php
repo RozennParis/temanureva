@@ -21,7 +21,7 @@ class UserFixtures extends Fixture
     {
         foreach ($this->getUserData() as [$roles, $lastname, $firstname, $username, $email, $password, $registration_date]) {
             $user = new User();
-            $user->setRoles($roles);
+            $user->setRoles([$roles]);
             $user->setLastname($lastname);
             $user->setFirstname($firstname);
             $user->setUsername($username);
@@ -38,7 +38,7 @@ class UserFixtures extends Fixture
     public function getUserData(): array
     {
         return [
-            [['ROLE_ADMIN'], 'KAVERA', 'Augustin', 'Jesdax', 'admin@outlook.fr', 'hello', new \DateTime('NOW')],
+            ['ROLE_ADMIN', 'KAVERA', 'Augustin', 'Jesdax', 'admin@outlook.fr', 'hello', new \DateTime('NOW')],
         ];
     }
 }

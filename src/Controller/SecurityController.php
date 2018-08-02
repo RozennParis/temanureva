@@ -10,6 +10,8 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends Controller
 {
     /**
+     * @param AuthenticationUtils $helper
+     * @return Response
      * @Route("/connexion", name="security_login")
      */
     public function index(AuthenticationUtils $helper): Response

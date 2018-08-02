@@ -18,9 +18,9 @@ class User implements UserInterface, \Serializable
     private $id;
 
     /**
-     * @ORM\Column(type="json", nullable=true)
+     * @ORM\Column(type="json")
      */
-    private $roles = [];
+    private $roles;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -82,6 +82,9 @@ class User implements UserInterface, \Serializable
         return $this->id;
     }
 
+    /**
+     * @return array role
+     */
     public function getRoles(): array
     {
         $roles = $this->roles;
@@ -93,6 +96,9 @@ class User implements UserInterface, \Serializable
         return array_unique($roles);
     }
 
+    /**
+     * @param array $roles
+     */
     public function setRoles(array $roles): void
     {
         $this->roles = $roles;
@@ -248,6 +254,6 @@ class User implements UserInterface, \Serializable
 
     public function unserialize($serialized)
     {
-        [$this->id, $this->username, $this->password] = $this->unserialize($serialized, ['allowed_classes' => false]);
+        [$this->id, $this->username, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
     }
 }
