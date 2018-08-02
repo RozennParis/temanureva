@@ -23,7 +23,7 @@ class UserFixtures extends Fixture
             $user = new User();
             $user->setRoles($roles);
             $user->setLastname($lastname);
-            $user->setFirstname($lastname);
+            $user->setFirstname($firstname);
             $user->setUsername($username);
             $user->setEmail($email);
             $user->setPassword($this->passwordEncoder->encodePassword($user, $password));

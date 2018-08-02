@@ -21,9 +21,12 @@
                 <input type="password" id="password" name="_password" />
             </div>
             <br/>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
             <button type="submit">
                 Je me connecte
             </button>
         </fieldset>
     </form>
 </div>
+
+{% endblock %}

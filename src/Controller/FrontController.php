@@ -9,7 +9,7 @@ class FrontController extends Controller
 {
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/front", name="homepage")
+     * @Route("/", name="homepage")
      */
     public function index()
     {
