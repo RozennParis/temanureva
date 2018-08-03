@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Page d'inscription {% endblock %}
+
+{% block body %}
+
+    <div>
+        {{ form_start(form) }}
+        <fieldset>
+            <legend>Inscription</legend>
+
+            {{ form_row(form.lastname) }}
+            {{ form_row(form.firstname) }}
+            {{ form_row(form.username) }}
+            {{ form_row(form.date_of_birth) }}
+            {{ form_row(form.gender) }}
+            {{ form_row(form.email.first) }}
+            {{ form_row(form.email.second) }}
+            {{ form_row(form.password.first) }}
+            {{ form_row(form.password.second) }}
+
+            <button type="submit"> S'inscrire</button>
+        </fieldset>
+        {{ form_end(form) }}
+        <a href="{{ path('homepage') }}"><button type="button">Retour sur la page d'accueil</button></a>
+    </div>
+
+
+
+
+{% endblock %}
