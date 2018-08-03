@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+
+class User implements UserInterface, \Serializable
+
 {
     /**
      * @ORM\Id()
@@ -16,10 +20,11 @@ class User
      */
     private $id;
 
+
     /**
-     * @ORM\Column(type="json_array", nullable=true)
+     * @ORM\Column(type="json")
      */
-    private $role;
+    private $roles;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -81,16 +86,26 @@ class User
         return $this->id;
     }
 
-    public function getRole()
+    /**
+     * @return array role
+     */
+    public function getRoles(): array
     {
-        return $this->role;
+        $roles = $this->roles;
+
+        // In order to be sure that a user always has at least 1 role.
+        if (empty($roles)) {
+            $roles[] = 'ROLE_USER';
+        }
+        return array_unique($roles);
     }
 
-    public function setRole($role): self
+    /**
+     * @param array $roles
+     */
+    public function setRoles(array $roles): void
     {
-        $this->role = $role;
-
-        return $this;
+        $this->roles = $roles;
     }
 
     public function getLastname(): ?string
@@ -224,4 +239,26 @@ class User
 
         return $this;
     }
+
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
+    public function eraseCredentials(): void
+    {
+        // We do not need this method at the moment but it is mandatory because it is included in the UserInterface interface
+        // $this->plainPassword = null;
+    }
+
+    public function serialize(): string
+    {
+        return serialize([$this->id, $this->username, $this->password]);
+    }
+
+    public function unserialize($serialized)
+    {
+        [$this->id, $this->username, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
 }

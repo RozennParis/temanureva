@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - NAO{% endblock %}
+
+{% block body %}
+    <div>
+        <h1>Bienvenue sur la page d'acceuil de NAO test</h1>
+        <br/>
+        <p>
+            Vous souhaitez une brochette d'oiseaux ? Alors n'attendez plus !
+        </p>
+        <br/>
+        <a href="{{ path('security_login') }}"><button type="button">Se connecter</button></a>
+    </div>
+
+{% endblock %}
