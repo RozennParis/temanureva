@@ -67,7 +67,7 @@ class Bird
     private $lb_name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $lb_author;
 
@@ -82,72 +82,72 @@ class Bird
     private $valid_name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $vernacular_name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $vernacular_name_eng;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $france;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $french_guiana;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $martinique;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $guadeloupe;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $st_martin;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $st_barthelemy;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $st_pierre_miquelon;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $mayotte;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $scattered_island;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $reunion;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $sub_antarctic_island;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $adelie_land;
 
@@ -157,24 +157,35 @@ class Bird
     private $new_caledonia;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $wallis_futuna;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $french_polynesia;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $clipperton;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Habitat")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $habitat;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
+     */
+    private $BiogeographicStatus;
 
     public function getId()
     {
@@ -561,6 +572,30 @@ class Bird
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getHabitat(): ?Habitat
+    {
+        return $this->habitat;
+    }
+
+    public function setHabitat(?Habitat $habitat): self
+    {
+        $this->habitat = $habitat;
+
+        return $this;
+    }
+
+    public function getBiogeographicStatus(): ?BiogeographicStatus
+    {
+        return $this->BiogeographicStatus;
+    }
+
+    public function setBiogeographicStatus(?BiogeographicStatus $BiogeographicStatus): self
+    {
+        $this->BiogeographicStatus = $BiogeographicStatus;
 
         return $this;
     }
