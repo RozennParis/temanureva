@@ -3,15 +3,59 @@
 {% block title %}Accueil - NAO{% endblock %}
 
 {% block body %}
-    <div>
-        <h1>Bienvenue sur la page d'acceuil de NAO test</h1>
-        <br/>
-        <p>
-            Vous souhaitez une brochette d'oiseaux ? Alors n'attendez plus !
-        </p>
-        <br/>
-        <a href="{{ path('security_login') }}"><button type="button">Se connecter</button></a>
-        <a href="{{ path('user_registration') }}"><button type="button">S'inscrire</button></a>
+    <div class="col">
+        {% block slider %}
+            <div class="slider">
+                <ul class="slides">
+                    <li>
+                        <img src="{{ asset('assets/img/bg-accueil.jpg') }}" alt="Accueil"> <!-- Accueil image -->
+                        <div class="caption center-align">
+                            <h3>Nos Amis les Oiseaux</h3><br/>
+                            <div class="center-align">
+                                <button class="btn btn-homepage">Inscrivez-vous ></button>
+                                <button class="btn btn-homepage">Découvrir ></button>
+                                <br/>
+                                <a class="circle-homepage section scrollspy" href="#commentCaMarche"><i class="medium material-icons">arrow_drop_down_circle</i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="{{ asset('assets/img/bg-restez-informes.jpg') }}" alt="Restez informer"> <!-- Informez vous image -->
+                        <div class="caption left-align">
+                            <h3>Left Aligned Caption</h3>
+                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="{{ asset('assets/img/bg-suivez-nous.jpg') }}" alt="Suivez nous"> <!-- Suivez nous image -->
+                        <div class="caption right-align">
+                            <h3>Right Aligned Caption</h3>
+                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        {% endblock %}
     </div>
 
+    {% block commentCaMarche %}
+
+        <div class="col">
+            <div class="center">
+                <h2 id="#commentCaMarche">Comment ça marche ?</h2>
+            </div>
+            <div class="container">
+                <div class="col s12">
+                    <img class="circle circle-img-homepage" src="{{ asset('assets/img/img_mes_observations.jpg') }}" alt="Mes observations">
+                    <img class="circle circle-img-homepage" src="{{ asset('assets/img/img_mes_observations.jpg') }}" alt="Mes observations">
+                    <img class="circle circle-img-homepage" src="{{ asset('assets/img/img_mes_observations.jpg') }}" alt="Mes observations">
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    {% endblock %}
 {% endblock %}

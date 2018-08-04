@@ -1,0 +1,31 @@
+
+/*---- Navigation ----*/
+
+nav {
+    background-color: #4CAF50;
+}
+
+.logo {
+    height: 62px;
+}
+
+/*---- Slider ----*/
+
+
+.btn-homepage {
+    border-radius: 100px;
+    background-color: #a1887f;
+    width: 200px;
+}
+
+.circle-homepage {
+    color: #4CAF50;
+}
+
+/*---- Comment ça marche ----*/
+
+.circle-img-homepage {
+    width: 250px;
+    height: 250px;
+    border-radius: 1000px;
+}

@@ -6,27 +6,37 @@
             {{ error.messageKey }}
         </div>
     {% endif %}
-
-<div>
-    <form action="{{ path('security_login') }}" method="post">
-        <fieldset>
-            <legend>Connexion</legend>
-            <div>
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" />
-            </div>
-            <br/>
-            <div>
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="_password" />
-            </div>
-            <br/>
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
-            <button type="submit">
-                Je me connecte
-            </button>
-        </fieldset>
-    </form>
+<div class="center">
+    <h1>Connexion</h1>
 </div>
+<div>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="col s12">
+                <a href="{{ path('homepage') }}" class="breadcrumb">Accueil</a>
+                <a href="{{ path('security_login') }}" class="breadcrumb">Connexion</a>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    <div class="col s12">
+        <form action="{{ path('security_login') }}" method="post" class="col s12">
+        <div class="col s6">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" />
+        </div>
+        <div class="col s6">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="_password" />
+        </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+            <button class="btn" type="submit">Valider</button>
+        </form>
+    </div>
+</div>
+
+
+
 
 {% endblock %}
