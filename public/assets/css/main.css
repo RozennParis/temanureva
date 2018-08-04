@@ -10,7 +10,9 @@ nav {
 }
 
 /*---- Slider ----*/
-
+.slider {
+    height: 864px;
+}
 
 .btn-homepage {
     border-radius: 100px;

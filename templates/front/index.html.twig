@@ -3,7 +3,6 @@
 {% block title %}Accueil - NAO{% endblock %}
 
 {% block body %}
-    <div class="col">
         {% block slider %}
             <div class="slider">
                 <ul class="slides">
@@ -22,40 +21,20 @@
                     <li>
                         <img src="{{ asset('assets/img/bg-restez-informes.jpg') }}" alt="Restez informer"> <!-- Informez vous image -->
                         <div class="caption left-align">
-                            <h3>Left Aligned Caption</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <input type="email" placeholder="Inscrivez-vous à la Newsletter">
+                            <button class="btn btn-homepage">S'inscrire</button>
                         </div>
                     </li>
                     <li>
                         <img src="{{ asset('assets/img/bg-suivez-nous.jpg') }}" alt="Suivez nous"> <!-- Suivez nous image -->
                         <div class="caption right-align">
-                            <h3>Right Aligned Caption</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <button class="btn btn-homepage">Rejoingnez-nous <i class="smal material-icons">inbox</i></button>
+                            <button class="btn btn-homepage">Suivez-nous <i class="small material-icons">info</i></button>
                         </div>
                     </li>
                 </ul>
             </div>
         {% endblock %}
-    </div>
-
-    {% block commentCaMarche %}
-
-        <div class="col">
-            <div class="center">
-                <h2 id="#commentCaMarche">Comment ça marche ?</h2>
-            </div>
-            <div class="container">
-                <div class="col s12">
-                    <img class="circle circle-img-homepage" src="{{ asset('assets/img/img_mes_observations.jpg') }}" alt="Mes observations">
-                    <img class="circle circle-img-homepage" src="{{ asset('assets/img/img_mes_observations.jpg') }}" alt="Mes observations">
-                    <img class="circle circle-img-homepage" src="{{ asset('assets/img/img_mes_observations.jpg') }}" alt="Mes observations">
-
-                </div>
-            </div>
-        </div>
 
 
-
-
-    {% endblock %}
 {% endblock %}
