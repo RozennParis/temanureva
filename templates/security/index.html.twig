@@ -10,7 +10,7 @@
     <h1>Connexion</h1>
 </div>
 <div>
-    <nav>
+    <nav class="ariane">
         <div class="nav-wrapper">
             <div class="col s12">
                 <a href="{{ path('homepage') }}" class="breadcrumb">Accueil</a>
@@ -20,19 +20,26 @@
     </nav>
 </div>
 <div class="container">
-    <div class="col s12">
+    <br/>
+    <div class="row">
         <form action="{{ path('security_login') }}" method="post" class="col s12">
         <div class="col s6">
-            <label for="username">Nom d'utilisateur</label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}" />
+            <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Nom d'utilisateur"/>
         </div>
         <div class="col s6">
-            <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="_password" />
+            <input type="password" id="password" name="_password" placeholder="Mot de passe"/>
         </div>
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
-            <button class="btn" type="submit">Valider</button>
+            <br/>
+            <div class="center">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                <button class="btn btn-connexion" type="submit">Valider</button>
+            </div>
         </form>
+    </div>
+    <div class="center">
+        <a href="#">Mot de passe oublié</a>
+        <br/>
+        <a href="{{ path('user_registration') }}">S'inscrire</a>
     </div>
 </div>
 
