@@ -4,8 +4,8 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -31,15 +31,18 @@ class UserType extends AbstractType
                 'first_options' => ['label' => 'Mot de passe'],
                 'second_options' => ['label' => 'Saisir de nouveau votre mot de passe'],
             ])
-            ->add('date_of_birth', BirthdayType::class, ['label' => 'Date de naissance'])
+            ->add('date_of_birth', DateType::class, [
+                'label' => 'Date de naissance',
+                'widget' => 'single_text',
+                'format'=> 'dd-MM-yyyy',
+            ])
             ->add('gender', ChoiceType::class, [
                 'label' => 'Genre',
                 'expanded' => true,
+                'multiple' => false,
                 'choices' => [
-                    'Masculin' => 'M',
-                    'Féminin' => 'F',
-                    'Transgenre' => 'TG',
-                    'Truc de ouf' => 'O,'
+                    'Masculin' => true,
+                    'Féminin' =>  false,
                 ]
             ])
         ;
