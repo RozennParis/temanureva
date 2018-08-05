@@ -3,14 +3,70 @@
 {% block title %}Accueil - NAO{% endblock %}
 
 {% block body %}
-    <div>
-        <h1>Bienvenue sur la page d'acceuil de NAO test</h1>
-        <br/>
-        <p>
-            Vous souhaitez une brochette d'oiseaux ? Alors n'attendez plus !
-        </p>
-        <br/>
-        <a href="{{ path('security_login') }}"><button type="button">Se connecter</button></a>
-    </div>
+        {% block slider %}
+            <div class="slider">
+                <ul class="slides">
+                    <li>
+                        <img src="{{ asset('assets/img/bg-accueil.jpg') }}" alt="Accueil"> <!-- Accueil image -->
+                        <div class="caption center-align">
+                            <h3>Nos Amis les Oiseaux</h3><br/>
+                            <div class="center-align">
+                                <button class="btn btn-homepage">Inscrivez-vous ></button>
+                                <button class="btn btn-homepage">Découvrir ></button>
+                                <br/>
+                                <a class="circle-homepage section scrollspy" href="#commentCaMarche"><i class="medium material-icons">arrow_drop_down_circle</i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="{{ asset('assets/img/bg-restez-informes.jpg') }}" alt="Restez informer"> <!-- Informez vous image -->
+                        <div class="caption left-align">
+                            <input type="email" placeholder="Inscrivez-vous à la Newsletter">
+                            <button class="btn btn-homepage">S'inscrire</button>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="{{ asset('assets/img/bg-suivez-nous.jpg') }}" alt="Suivez nous"> <!-- Suivez nous image -->
+                        <div class="caption right-align">
+                            <button class="btn btn-homepage">Rejoingnez-nous <i class="smal material-icons">inbox</i></button>
+                            <button class="btn btn-homepage">Suivez-nous <i class="small material-icons">info</i></button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        {% endblock %}
+
+        {% block commentCaMarche %}
+            <div class="container">
+                <div class="title center">
+                    <h3 id="commentCaMarche">Comment ça marche ?</h3>
+                </div>
+                <div class="row ">
+                    <div class="col s4 center">
+                        <img class="circle-img-homepage" src="{{ asset('assets/img/img_mes_observations.jpg') }}" alt="Mes observations">
+                        <h4 class="center">Je découvre une nouvelle espèce</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                    <div class="col s4 center">
+                        <img class="circle-img-homepage" src="{{ asset('assets/img/img_nouvelles_especes.jpg') }}" alt="Nouvelle espèces">
+                        <h4 class="center">J'enregistre l'observation</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                    <div class="col s4 center">
+                        <img class="circle-img-homepage" src="{{ asset('assets/img/img_validation.jpg') }}" alt="Validation">
+                        <h4 class="center">Un naturaliste valide ma saisie</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dignissimos distinctio eius est ex nulla odio possimus quasi temporibus voluptas. Debitis eum iure libero nihil quae quia ratione sit voluptatum.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        {% endblock %}
+
 
 {% endblock %}

@@ -3,10 +3,36 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">#}
+            <link rel="stylesheet" href="{{ asset('assets/css/materialize.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    {% block navigation %}
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{{ path('homepage') }}" class="brand-logo"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="logo"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                    <li><a href="#">Exploration</a></li>
+                    <li><a href="#">Espèces</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Nous contacter</a></li>
+                    <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>
+                    <li><a href="#"><i class="material-icons">search</i></a></li>
+                </ul>
+
+            </div>
+        </nav>
+    {% endblock %}
+    {% block body %}{% endblock %}
+    {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    {% endblock %}
     </body>
 </html>

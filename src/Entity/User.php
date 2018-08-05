@@ -5,9 +5,15 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraint as Assert;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(fields="email", message="Cette email est déjà utilisé")
+ * @UniqueEntity(fields="username", message="Ce nom d'utilisateur est déjà utilisé")
  */
 
 class User implements UserInterface, \Serializable
@@ -52,7 +58,7 @@ class User implements UserInterface, \Serializable
     private $password;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $registration_date;
 
@@ -81,13 +87,14 @@ class User implements UserInterface, \Serializable
      */
     private $token_date;
 
+
     public function getId()
     {
         return $this->id;
     }
 
     /**
-     * @return array role
+     * @return array roles
      */
     public function getRoles(): array
     {
@@ -168,12 +175,12 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
-    public function getRegistrationDate(): ?\DateTimeInterface
+    public function getRegistrationDate()
     {
         return $this->registration_date;
     }
 
-    public function setRegistrationDate(\DateTimeInterface $registration_date): self
+    public function setRegistrationDate($registration_date): self
     {
         $this->registration_date = $registration_date;
 

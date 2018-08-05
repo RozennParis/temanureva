@@ -1,32 +1,51 @@
 {% extends 'base.html.twig' %}
 
+{% block title %} NAO - Connexion {% endblock %}
+
 {% block body %}
     {% if error %}
         <div>
             {{ error.messageKey }}
         </div>
     {% endif %}
-
-<div>
-    <form action="{{ path('security_login') }}" method="post">
-        <fieldset>
-            <legend>Connexion</legend>
-            <div>
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" />
-            </div>
-            <br/>
-            <div>
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="_password" />
-            </div>
-            <br/>
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
-            <button type="submit">
-                Je me connecte
-            </button>
-        </fieldset>
-    </form>
+<div class="center">
+    <h1>Connexion</h1>
 </div>
+<div>
+    <nav class="ariane">
+        <div class="nav-wrapper">
+            <div class="col s12">
+                <a href="{{ path('homepage') }}" class="breadcrumb">Accueil</a>
+                <a href="{{ path('security_login') }}" class="breadcrumb">Connexion</a>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    <br/>
+    <div class="row">
+        <form action="{{ path('security_login') }}" method="post" class="col s12">
+        <div class="col s6">
+            <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Nom d'utilisateur"/>
+        </div>
+        <div class="col s6">
+            <input type="password" id="password" name="_password" placeholder="Mot de passe"/>
+        </div>
+            <br/>
+            <div class="center">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                <button class="btn btn-connexion" type="submit">Valider</button>
+            </div>
+        </form>
+    </div>
+    <div class="center">
+        <a href="#">Mot de passe oublié</a>
+        <br/>
+        <a href="{{ path('user_registration') }}">S'inscrire</a>
+    </div>
+</div>
+
+
+
 
 {% endblock %}

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="bf1725d4-2cee-4012-a2ae-d5af2b70a0e8" name="Default Changelist" comment="" />
 =======
     <list default="true" id="bf1725d4-2cee-4012-a2ae-d5af2b70a0e8" name="Default Changelist" comment="">
@@ -9,6 +10,9 @@
       <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
+>>>>>>> feature/authentication
+=======
+    <list default="true" id="bf1725d4-2cee-4012-a2ae-d5af2b70a0e8" name="Default Changelist" comment="" />
 >>>>>>> feature/authentication
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,19 +64,33 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <entry key="project.open.time.3" value="1" />
           <entry key="project.opened" value="1" />
 =======
           <entry key="project.closed" value="1" />
+=======
+          <entry key="project.closed" value="5" />
+>>>>>>> feature/authentication
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.29" value="2" />
           <entry key="project.open.time.3" value="1" />
+<<<<<<< HEAD
           <entry key="project.opened" value="2" />
+>>>>>>> feature/authentication
+=======
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="7" />
 >>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="css" value="8" />
           <entry key="env" value="1" />
+<<<<<<< HEAD
           <entry key="gitignore" value="1" />
 <<<<<<< HEAD
           <entry key="php" value="1" />
@@ -83,11 +101,22 @@
           <entry key="user" value="3" />
           <entry key="yaml" value="8" />
 >>>>>>> feature/authentication
+=======
+          <entry key="gitignore" value="4" />
+          <entry key="jpg" value="1" />
+          <entry key="js" value="5" />
+          <entry key="php" value="29" />
+          <entry key="sql" value="1" />
+          <entry key="twig" value="31" />
+          <entry key="user" value="4" />
+          <entry key="yaml" value="13" />
+>>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="1" />
+<<<<<<< HEAD
 <<<<<<< HEAD
           <entry key="PHP" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
@@ -99,11 +128,24 @@
           <entry key="Twig" value="6" />
           <entry key="YAML" value="8" />
 >>>>>>> feature/authentication
+=======
+          <entry key="CSS" value="8" />
+          <entry key="Database Element" value="4" />
+          <entry key="Image" value="1" />
+          <entry key="JavaScript" value="5" />
+          <entry key="PHP" value="29" />
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Scratch" value="1" />
+          <entry key="Twig" value="31" />
+          <entry key="YAML" value="13" />
+>>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="css" value="481" />
           <entry key="env" value="27" />
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
           <entry key="php" value="1334" />
@@ -111,23 +153,45 @@
           <entry key="txt" value="10" />
           <entry key="yaml" value="707" />
 >>>>>>> feature/authentication
+=======
+          <entry key="gitignore" value="10" />
+          <entry key="js" value="214" />
+          <entry key="php" value="3043" />
+          <entry key="twig" value="4130" />
+          <entry key="txt" value="10" />
+          <entry key="yaml" value="908" />
+>>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="27" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           <entry key="PHP" value="1334" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="Twig" value="792" />
           <entry key="YAML" value="707" />
+=======
+          <entry key="CSS" value="481" />
+          <entry key="JavaScript" value="214" />
+          <entry key="PHP" value="3043" />
+          <entry key="PLAIN_TEXT" value="20" />
+          <entry key="Twig" value="4130" />
+          <entry key="YAML" value="908" />
+>>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
           <entry key="git.branch.checkout.local" value="1" />
 >>>>>>> feature/authentication
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.new.class">
+        <counts>
+          <entry key="PHP Class.type" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -141,84 +205,35 @@
 =======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/FrontController.php">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/materialize.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+            <state relative-caret-position="740">
+              <caret line="6742" selection-start-line="6742" selection-end-line="6742" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+        <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/front/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1515">
-              <caret line="101" column="46" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
+            <state relative-caret-position="153">
+              <caret line="31" column="60" lean-forward="true" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
               <folding>
-                <element signature="e#30#62#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/security/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-              <folding>
-                <element signature="e#36#56#0#PHP" expanded="true" />
+                <element signature="e#28#48#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -234,16 +249,34 @@
       <list>
         <option value="$PROJECT_DIR$/.env" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <option value="$PROJECT_DIR$/templates/front/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/back/index.html.twig" />
+=======
+>>>>>>> feature/authentication
         <option value="$PROJECT_DIR$/src/Controller/FrontController.php" />
-        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
-        <option value="$PROJECT_DIR$/templates/security/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
+        <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
+<<<<<<< HEAD
+>>>>>>> feature/authentication
+=======
+        <option value="$PROJECT_DIR$/templates/front/index.html.twig" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/public/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/templates/back/index.html.twig" />
+        <option value="$PROJECT_DIR$/public/assets/js/main.js" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/templates/materialize.html.twig" />
+        <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
+        <option value="$PROJECT_DIR$/templates/security/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/UserType.php" />
+        <option value="$PROJECT_DIR$/templates/front/register.html.twig" />
+        <option value="$PROJECT_DIR$/public/assets/css/materialize.css" />
+        <option value="$PROJECT_DIR$/src/Controller/RegistrationController.php" />
+        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
 >>>>>>> feature/authentication
       </list>
     </option>
@@ -364,10 +397,10 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="926" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="821" />
     <option name="y" value="25" />
-    <option name="width" value="927" />
+    <option name="width" value="1032" />
     <option name="height" value="1055" />
 >>>>>>> feature/authentication
   </component>
@@ -377,28 +410,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="temanureva" type="b2602c69:ProjectViewProjectNode" />
-              <item name="temanureva" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="temanureva" type="b2602c69:ProjectViewProjectNode" />
-              <item name="temanureva" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="temanureva" type="b2602c69:ProjectViewProjectNode" />
-              <item name="temanureva" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -423,35 +434,54 @@
             <path>
               <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+<<<<<<< HEAD
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
 >>>>>>> feature/authentication
+=======
+              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+>>>>>>> feature/authentication
+            </path>
+            <path>
+              <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+<<<<<<< HEAD
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+<<<<<<< HEAD
+=======
+              <item name="Controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+=======
+              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+>>>>>>> feature/authentication
+            </path>
+            <path>
+              <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
 <<<<<<< HEAD
+              <item name="Entity" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+>>>>>>> feature/authentication
 =======
               <item name="Controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="DataFixtures" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Entity" type="9f88c78c:ScopeViewTreeModel$FileNode" />
 >>>>>>> feature/authentication
             </path>
             <path>
               <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Migrations" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Form" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
 <<<<<<< HEAD
 =======
@@ -477,6 +507,28 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="temanureva" type="b2602c69:ProjectViewProjectNode" />
+              <item name="temanureva" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="temanureva" type="b2602c69:ProjectViewProjectNode" />
+              <item name="temanureva" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="temanureva" type="b2602c69:ProjectViewProjectNode" />
+              <item name="temanureva" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -487,9 +539,25 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
+>>>>>>> feature/authentication
+=======
+    <property name="list.type.of.created.stylesheet" value="CSS" />
 >>>>>>> feature/authentication
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/templates/form_base" />
+      <recent name="$PROJECT_DIR$/public/assets/img" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/assets/css" />
+      <recent name="$PROJECT_DIR$/public/assets/img" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -517,11 +585,20 @@
 <<<<<<< HEAD
 =======
       <workItem from="1533244152684" duration="1695000" />
+<<<<<<< HEAD
+>>>>>>> feature/authentication
+=======
+      <workItem from="1533368716701" duration="501000" />
+      <workItem from="1533376406501" duration="666000" />
+      <workItem from="1533400376885" duration="3538000" />
+      <workItem from="1533404240306" duration="9138000" />
+      <workItem from="1533490172862" duration="947000" />
 >>>>>>> feature/authentication
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="1874000" />
   </component>
@@ -531,6 +608,9 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12008855" />
 =======
     <option name="totallyTimeSpent" value="16442000" />
+=======
+    <option name="totallyTimeSpent" value="50886000" />
+>>>>>>> feature/authentication
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -542,10 +622,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="926" y="25" width="927" height="1055" extended-state="4" />
-    <editor active="true" />
+    <frame x="0" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553916" />
+>>>>>>> feature/authentication
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16270061" />
 >>>>>>> feature/authentication
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -568,13 +651,17 @@
       <window_info anchor="right" id="Database" order="3" />
 =======
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32972974" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3027027" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49825174" visible="true" weight="0.2918919" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50174826" side_tool="true" weight="0.32864866" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32972974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+<<<<<<< HEAD
       <window_info anchor="right" id="Database" order="3" weight="0.20544836" />
+>>>>>>> feature/authentication
+=======
+      <window_info anchor="right" id="Database" order="3" weight="0.128943" />
 >>>>>>> feature/authentication
     </layout>
   </component>
@@ -643,14 +730,6 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/dbcd576d-d890-4d46-a16e-940f70769002/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/back/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://dbcd576d-d890-4d46-a16e-940f70769002/schema/temanureva/table/user" />
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20180801225321.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -658,27 +737,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/front/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://dbcd576d-d890-4d46-a16e-940f70769002/schema/temanureva/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="roles" languageId="JSON" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="56" column="49" selection-start-line="56" selection-start-column="49" selection-end-line="56" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/img/bg-restez-informes.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+    <entry file="file://$PROJECT_DIR$/templates/back/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        <state relative-caret-position="240">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/UserFixtures.php">
+    <entry file="file://$PROJECT_DIR$/templates/front/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding>
-            <element signature="e#36#56#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="240">
+          <caret line="16" column="164" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="164" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -689,20 +799,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+    <entry file="file://$PROJECT_DIR$/config/packages/twig.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
-          <caret line="101" column="46" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
-          <folding>
-            <element signature="e#30#62#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/materialize_layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="83" column="50" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/security/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RegistrationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -713,10 +862,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="483">
+          <caret line="46" column="78" lean-forward="true" selection-start-line="46" selection-start-column="78" selection-end-line="46" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/materialize.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="740">
+          <caret line="6742" selection-start-line="6742" selection-end-line="6742" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="31" column="60" lean-forward="true" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
+          <folding>
+            <element signature="e#28#48#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
