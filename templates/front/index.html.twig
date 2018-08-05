@@ -20,17 +20,21 @@
                     </li>
                     <li>
                         <img src="{{ asset('assets/img/bg-restez-informes.jpg') }}" alt="Restez informer"> <!-- Informez vous image -->
-                        <div class="caption left-align">
+                        <div class="caption left-align center">
                             <input type="email" placeholder="Inscrivez-vous à la Newsletter">
                             <button class="btn btn-homepage">S'inscrire</button>
                         </div>
                     </li>
                     <li>
                         <img src="{{ asset('assets/img/bg-suivez-nous.jpg') }}" alt="Suivez nous"> <!-- Suivez nous image -->
-                        <div class="caption right-align">
-                            <button class="btn btn-homepage">Rejoingnez-nous <i class="smal material-icons">inbox</i></button>
-                            <button class="btn btn-homepage">Suivez-nous <i class="small material-icons">info</i></button>
+                        <div class="caption right-align center">
+                            <button class="btn btn-homepage fb">Rejoingnez-nous <i class="smal material-icons">inbox</i></button>
+                            <button class="btn btn-homepage insta">Suivez-nous <i class="small material-icons">info</i></button>
+                            <div class="center">
+                                <a class="circle-homepage section scrollspy" href="#commentCaMarche"><i class="medium material-icons">arrow_drop_down_circle</i></a>
+                            </div>
                         </div>
+
                     </li>
                 </ul>
             </div>
@@ -63,10 +67,55 @@
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dignissimos distinctio eius est ex nulla odio possimus quasi temporibus voluptas. Debitis eum iure libero nihil quae quia ratione sit voluptatum.
                         </p>
                     </div>
+                </div>
+                <hr>
+            </div>
+        {% endblock %}
 
+        {% block presentation %}
+            <div>
+                <h1 class="center">Présentation</h1>
+                <div class="row">
+                    <div class="col s4">
+                        <img class="border-green" src="{{ asset('assets/img/img_presentation.jpg') }}" alt="Presentation">
+                    </div>
+                    <div class="col s6 text_align">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci distinctio dolore est eum facilis hic ipsam iure laudantium libero nobis perspiciatis possimus quae, sed sint suscipit totam, ullam, velit.
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ducimus est hic laborum officiis omnis quod similique tempora tempore. Accusamus atque aut cum laudantium, molestias mollitia nobis quidem quo rerum.
+                        </p>
+                        <br>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur cum eligendi facere optio quas repellendus sint veritatis! Accusamus alias aliquam aliquid aut ducimus, earum eos esse ipsum magni sint?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis dolorem dolores enim est maxime nobis, non optio. Doloremque et ex iste libero, nihil nulla rerum saepe sed tempora voluptate, voluptatum.
+                        </p>
+                        <br>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet esse est explicabo iure laborum minima nihil provident voluptatem! Aliquid aut eum facere inventore minima mollitia pariatur quia sequi! Fugit, quae.
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore molestias nobis sequi. A architecto corporis cum excepturi, iure nisi sunt. Culpa magni sit vitae! Aliquam corporis ipsum magnam officiis quaerat!
+                        </p>
+                    </div>
                 </div>
             </div>
         {% endblock %}
+
+    {% block participationProjet %}
+        <div class="row" id="backgroundPresentation">
+            <div>
+                <h1 class="center">Participer au projet</h1>
+                <div class="row">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi, at aut consequatur ex excepturi laborum magnam quam, quod quos sequi similique soluta totam, velit. Delectus dicta obcaecati ratione?
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eaque eius quas, quisquam ratione reiciendis? A corporis, deleniti, earum exercitationem laborum laudantium minima molestias natus nemo praesentium repudiandae totam ullam.
+                    </p>
+                </div>
+                <div class="center">
+                    <button class="btn btn-participation">S'enregistrer immédiatement ></button>
+                </div>
+
+            </div>
+        </div>
+    {% endblock %}
 
 
 {% endblock %}

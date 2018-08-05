@@ -32,6 +32,14 @@ nav {
     color: #4CAF50;
 }
 
+.fb {
+    background-color: #0D47A1;
+}
+
+.insta {
+    background-color: #af2869;
+}
+
 /*---- Comment ça marche ----*/
 
 .circle-img-homepage {
@@ -40,6 +48,30 @@ nav {
     border-radius: 1000px;
 }
 
+/*---- Présentation ----*/
+
+.btn-participation {
+    border-radius: 100px;
+    width: auto;
+    background-color: #6d4c41;
+}
+
+.border-green {
+    height: 400px !important;
+    width: 612px !important;
+    border: #0f9d58 solid 5px;
+}
+
+.text_align {
+    margin-left: 55px !important;
+}
+
+#backgroundPresentation {
+    background-image: url("../img/bg-participer-projet.jpg");
+    background-size: cover !important;
+    height: 356px !important;
+    color: white;
+}
 
 /*---- Page de connexion ----*/
 
