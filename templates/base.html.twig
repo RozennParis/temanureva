@@ -34,5 +34,33 @@
         <script src="{{ asset('assets/js/main.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     {% endblock %}
+    {% block footer %}
+        <footer class="row center">
+            <div class="col s3 center">
+                <h4>Réseaux sociaux</h4>
+                <div class="icone">
+                    <img src="{{ asset('assets/img/logo_bouton_fb.png') }}" alt="Facebook">
+                    <img class="insta" src="{{ asset('assets/img/logo_bouton_instagram.svg') }}" alt="Facebook">
+                </div>
+            </div>
+            <div class="col s2 center">
+                <h4>Qui sommes-nous ?</h4>
+                <a href="#">Association</a>
+            </div>
+            <div class="col s2 center">
+                <h4>Foire aux questions</h4>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="col s2 center">
+                <h4>Newsletter</h4>
+                <input type="email" placeholder="Inscrivez-vous à la Newsletter">
+                <button class="btn btn-homepage">S'inscrire</button>
+            </div>
+            <div class="col s3 center">
+                <h4>Informations juridiques</h4>
+                <a href="#">Mentions légales</a>
+            </div>
+        </footer>
+    {% endblock %}
     </body>
 </html>

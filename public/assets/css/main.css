@@ -80,3 +80,18 @@ nav {
     width: 200px;
     background-color: #4CAF50;
 }
+
+/*---- Footer ----*/
+
+.icone img {
+    height: 65px;
+    width: 65px;
+}
+
+footer {
+    background-color: #217d13;
+}
+
+footer a {
+    color: white;
+}
