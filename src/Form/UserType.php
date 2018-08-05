@@ -38,11 +38,12 @@ class UserType extends AbstractType
             ])
             ->add('gender', ChoiceType::class, [
                 'label' => 'Genre',
+                'attr' => ['id' => 'gender'],
                 'expanded' => true,
                 'multiple' => false,
                 'choices' => [
-                    'Masculin' => true,
-                    'Féminin' =>  false,
+                    'Masculin' => 'M',
+                    'Féminin' =>  'F',
                 ]
             ])
         ;
