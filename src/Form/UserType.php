@@ -33,6 +33,7 @@ class UserType extends AbstractType
             ])
             ->add('date_of_birth', DateType::class, [
                 'label' => 'Date de naissance',
+                'attr' => ['class' => 'datepicker'],
                 'widget' => 'single_text',
                 'format'=> 'dd-MM-yyyy',
             ])
