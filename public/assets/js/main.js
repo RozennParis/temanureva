@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.slider').slider({
-        interval: 3000,
+        interval: 2000,
         height: 864,
         indicators: false,
     });

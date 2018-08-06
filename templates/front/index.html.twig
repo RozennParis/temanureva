@@ -8,30 +8,43 @@
                 <ul class="slides">
                     <li>
                         <img src="{{ asset('assets/img/bg-accueil.jpg') }}" alt="Accueil"> <!-- Accueil image -->
-                        <div class="caption center-align">
+                        <div class="caption center-align margin-bottom-slide">
                             <h3>Nos Amis les Oiseaux</h3><br/>
-                            <div class="center-align">
+                            <div class="center-align margin-bottom-slide">
                                 <button class="btn btn-homepage">Inscrivez-vous ></button>
                                 <button class="btn btn-homepage">Découvrir ></button>
                                 <br/>
-                                <a class="circle-homepage section scrollspy" href="#commentCaMarche"><i class="medium material-icons">arrow_drop_down_circle</i></a>
+                            </div>
+                            <div>
+                                <a class="circle-homepage section scrollspy" href="#commentCaMarche"><i class="medium material-icons">expand_more</i></a>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li>
+                        <img src="{{ asset('assets/img/bg-restez-informes.jpg') }}" alt="Restez informer"> <!-- Informez vous image -->
+                        <div class="caption left-align center row">
+                            <h3>Restez informés</h3>
+                            <div class="container col s12">
+                                <div class="col s7">
+                                    <input type="email" placeholder="Inscrivez-vous à la Newsletter">
+                                </div>
+                                <div class="col s5">
+                                    <button class="btn btn-homepage">S'inscrire</button>
+                                </div>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <img src="{{ asset('assets/img/bg-restez-informes.jpg') }}" alt="Restez informer"> <!-- Informez vous image -->
-                        <div class="caption left-align center">
-                            <input type="email" placeholder="Inscrivez-vous à la Newsletter">
-                            <button class="btn btn-homepage">S'inscrire</button>
-                        </div>
-                    </li>
-                    <li>
                         <img src="{{ asset('assets/img/bg-suivez-nous.jpg') }}" alt="Suivez nous"> <!-- Suivez nous image -->
-                        <div class="caption right-align center">
-                            <button class="btn btn-homepage fb">Rejoingnez-nous <i class="smal material-icons">inbox</i></button>
-                            <button class="btn btn-homepage insta">Suivez-nous <i class="small material-icons">info</i></button>
-                            <div class="center">
-                                <a class="circle-homepage section scrollspy" href="#commentCaMarche"><i class="medium material-icons">arrow_drop_down_circle</i></a>
+                        <div class="caption right-align center margin-bottom-slide">
+                            <div class="margin-bottom-slide">
+                                <button class="btn btn-homepage fb">Rejoingnez-nous <img class="small" id="fb" src="{{ asset('assets/img/logo_bouton_fb.png') }}" alt="Facebook"></button>
+                                <button class="btn btn-homepage insta">Suivez-nous <img class="small" id="insta" src="{{ asset('assets/img/logo_bouton_instagram.svg') }}" alt="Facebook"></button>
+                            </div>
+                            <br/>
+                            <div>
+                                <a class="circle-homepage section scrollspy" href="#commentCaMarche"><i class="medium material-icons">expand_more</i></a>
                             </div>
                         </div>
 
@@ -42,45 +55,44 @@
 
         {% block commentCaMarche %}
             <div class="container">
-                <div class="title center">
-                    <h3 id="commentCaMarche">Comment ça marche ?</h3>
+                <div class="title center margin-bot-top">
+                    <h2 id="commentCaMarche">Comment ça marche ?</h2>
                 </div>
-                <div class="row ">
-                    <div class="col s4 center">
+                <div class="row margin-top">
+                    <div class="col s4 center margin-top">
                         <img class="circle-img-homepage" src="{{ asset('assets/img/img_mes_observations.jpg') }}" alt="Mes observations">
-                        <h4>Je découvre une nouvelle espèce</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <h3>Je découvre une nouvelle espèce</h3>
+                        <p class="margin-top">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </p>
                     </div>
-                    <div class="col s4 center">
+                    <div class="col s4 center margin-top">
                         <img class="circle-img-homepage" src="{{ asset('assets/img/img_nouvelles_especes.jpg') }}" alt="Nouvelle espèces">
-                        <h4>J'enregistre l'observation</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <h3>J'enregistre l'observation</h3>
+                        <p class="margin-top">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </p>
                     </div>
-                    <div class="col s4 center">
+                    <div class="col s4 center margin-top    ">
                         <img class="circle-img-homepage" src="{{ asset('assets/img/img_validation.jpg') }}" alt="Validation">
-                        <h4>Un naturaliste valide ma saisie</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dignissimos distinctio eius est ex nulla odio possimus quasi temporibus voluptas. Debitis eum iure libero nihil quae quia ratione sit voluptatum.
-                        </p>
+                        <h3>Un naturaliste valide ma saisie</h3>
+                        <p class="margin-top">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dignissimos distinctio eius est ex nulla odio possimus quasi temporibus voluptas.
                     </div>
                 </div>
-                <hr>
+                <hr class="margin-top">
             </div>
         {% endblock %}
 
         {% block presentation %}
             <div>
-                <h1 class="center">Présentation</h1>
+                <h2 class="center">Présentation</h2>
                 <div class="row">
                     <div class="col s4">
-                        <img class="border-green" src="{{ asset('assets/img/img_presentation.jpg') }}" alt="Presentation">
+                        <img class="border-green margin-top margin-left" src="{{ asset('assets/img/img_presentation.jpg') }}" alt="Presentation">
                     </div>
-                    <div class="col s6 text_align">
-                        <p>
+                    <div class="col s7 text_align margin-left margin-right">
+                        <p class="margin-top">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci distinctio dolore est eum facilis hic ipsam iure laudantium libero nobis perspiciatis possimus quae, sed sint suscipit totam, ullam, velit.
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ducimus est hic laborum officiis omnis quod similique tempora tempore. Accusamus atque aut cum laudantium, molestias mollitia nobis quidem quo rerum.
                         </p>
@@ -93,6 +105,13 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet esse est explicabo iure laborum minima nihil provident voluptatem! Aliquid aut eum facere inventore minima mollitia pariatur quia sequi! Fugit, quae.
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore molestias nobis sequi. A architecto corporis cum excepturi, iure nisi sunt. Culpa magni sit vitae! Aliquam corporis ipsum magnam officiis quaerat!
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut delectus illo magnam maxime, non nostrum repellat tempora tempore vel. Ab adipisci debitis illum, ipsum odit possimus quaerat similique tenetur.
+                        </p>
+                        <br>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus corporis culpa cupiditate dolore eveniet harum itaque obcaecati optio provident sunt. Dolore eaque harum, iure minus molestias possimus quidem voluptates? Repudiandae!
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aperiam aspernatur assumenda culpa dolorem enim, eveniet laudantium maiores nam nesciunt perferendis perspiciatis quia quos sunt suscipit tempora voluptatem voluptatibus!
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto assumenda cum distinctio dolorem eligendi error eum eveniet iste iusto nulla quas, quod rem repellendus sed tempora tempore temporibus vel.
                         </p>
                     </div>
                 </div>
@@ -100,16 +119,16 @@
         {% endblock %}
 
         {% block participationProjet %}
-            <div class="row" id="backgroundPresentation">
-                <div>
-                    <h1 class="center">Participer au projet</h1>
+            <div class="row margin-top" id="backgroundPresentation">
+                <div class="padding-top">
+                    <h2 class="center">Participer au projet</h2>
                     <div class="row">
-                        <p>
+                        <p class="margin-top">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi, at aut consequatur ex excepturi laborum magnam quam, quod quos sequi similique soluta totam, velit. Delectus dicta obcaecati ratione?
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eaque eius quas, quisquam ratione reiciendis? A corporis, deleniti, earum exercitationem laborum laudantium minima molestias natus nemo praesentium repudiandae totam ullam.
                         </p>
                     </div>
-                    <div class="center">
+                    <div class="center margin-top">
                         <button class="btn btn-participation">S'enregistrer immédiatement ></button>
                     </div>
 
@@ -118,38 +137,53 @@
         {% endblock %}
 
         {% block lastObservation %}
-                <div class="container row">
+                <div class="container row margin-top margin-bottom">
                     <h1 class="center">Dernières observations</h1>
-                    <div class="col s4 obs-home">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="{{ asset('assets/img/img_obs_1.jpg') }}">
+                    <div class="margin-top">
+                        <div class="col s4">
+                            <div class="card card-height">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" src="{{ asset('assets/img/img_obs_1.jpg') }}">
+                                </div>
+                                <div class="card-content center">
+                                    <h6>Nom de l'oiseau (Nom Scientifique)</h6>
+                                    <p>
+                                        Animal observé XX fois
+                                    </p>
+                                    <a href="#"><button class="btn btn-voir-plus" type="button">Voir plus</button></a>
+                                </div>
                             </div>
-                            <div class="card-content center">
-                                <a href="#"><button class="btn btn-connexion" type="button">Voir plus</button></a>
+                        </div>
+                        <div class="col s4">
+                            <div class="card card-height">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" src="{{ asset('assets/img/img_obs_1.jpg') }}">
+                                </div>
+                                <div class="card-content center">
+                                    <h6>Nom de l'oiseau (Nom Scientifique)</h6>
+                                    <p>
+                                        Animal observé XX fois
+                                    </p>
+                                    <a href="#"><button class="btn btn-voir-plus" type="button">Voir plus</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s4">
+                            <div class="card card-height">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" src="{{ asset('assets/img/img_obs_1.jpg') }}">
+                                </div>
+                                <div class="card-content center">
+                                    <h6>Nom de l'oiseau (Nom Scientifique)</h6>
+                                    <p>
+                                        Animal observé XX fois
+                                    </p>
+                                    <a href="#"><button class="btn btn-voir-plus" type="button">Voir plus</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col s4 obs-home">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="{{ asset('assets/img/img_obs_1.jpg') }}">
-                            </div>
-                            <div class="card-content center">
-                                <a href="#"><button class="btn btn-connexion" type="button">Voir plus</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s4 obs-home">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="{{ asset('assets/img/img_obs_1.jpg') }}">
-                            </div>
-                            <div class="card-content center">
-                                <a href="#"><button class="btn btn-connexion" type="button">Voir plus</button></a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
         {% endblock %}
 

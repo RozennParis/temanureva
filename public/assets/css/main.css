@@ -7,6 +7,14 @@
 a {
     color: #4CAF50;
 }
+.margin-top {
+    margin-top: 2.5rem ;
+}
+
+.margin-bottom {
+    margin-bottom: 2.5rem;
+}
+
 /*---- Navigation ----*/
 
 nav {
@@ -22,10 +30,27 @@ nav {
     height: 51.10vh;
 }
 
+.insta {
+    background-color: #af2840 !important;
+}
+
+#fb {
+    height: 30px;
+    width: 30px;
+    margin: 2px;
+}
+
+#insta {
+    height: 30px;
+    width: 30px;
+    margin: auto;
+}
+
 .btn-homepage {
     border-radius: 100px;
     background-color: #a1887f;
-    width: 200px;
+    width: 230px;
+    height: 49.79px;
 }
 
 .circle-homepage {
@@ -36,8 +61,8 @@ nav {
     background-color: #0D47A1;
 }
 
-.insta {
-    background-color: #af2869;
+.margin-bottom-slide {
+    margin-bottom: 3.125rem;
 }
 
 /*---- Comment ça marche ----*/
@@ -53,12 +78,13 @@ nav {
 .btn-participation {
     border-radius: 100px;
     width: auto;
+    height: 49.79px;
     background-color: #6d4c41;
 }
 
 .border-green {
-    height: 400px !important;
-    width: 612px !important;
+    height: 37.5rem !important;
+    width: 37.5rem !important;
     border: #0f9d58 solid 5px;
 }
 
@@ -66,17 +92,52 @@ nav {
     margin-left: 55px !important;
 }
 
+.margin-left {
+    margin-left: 1.25em;
+}
+
+.margin-right {
+    margin-right: 1.25rem;
+}
+
+/*---- Participer ----*/
+
 #backgroundPresentation {
     background-image: url("../img/bg-participer-projet.jpg");
     background-size: cover !important;
-    height: 356px !important;
+    height: 23rem !important;
     color: white;
+    background-position-y: center;
+}
+
+.padding-top {
+    padding-top: 2.25rem;
 }
 
 /*---- Last observation ----*/
 
-.obs-home {
-    width: 500px;
+.card-height {
+    height: 34.86rem;
+}
+
+.card-image {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card {
+    border-radius: 15px;
+}
+.card-image img{
+    height: 24.36125rem;
+    width: auto;
+}
+
+.btn-voir-plus {
+    border-radius: 100px;
+    width: 14.375rem;
+    height: 2.8125rem;
+    background-color: #01796F;
 }
 
 /*---- Page de connexion ----*/
@@ -100,4 +161,8 @@ footer {
 
 footer a, footer h4 {
     color: white;
+}
+
+.padding-bottom {
+    padding-bottom: 2.25rem;
 }
