@@ -7,5 +7,9 @@ $(document).ready(function(){
     $('.scrollspy').scrollSpy({
         scrollOffset: 1000,
     });
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        yearRange: 100,
+        firstDay: 1,
+    });
 });
