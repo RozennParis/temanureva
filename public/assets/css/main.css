@@ -140,6 +140,12 @@ nav {
     background-color: #01796F;
 }
 
+/*---- Last observation ----*/
+
+.obs-home {
+    width: 500px;
+}
+
 /*---- Page de connexion ----*/
 
 .btn-connexion {
@@ -160,6 +166,7 @@ footer {
 }
 
 footer a, footer h4 {
+
     color: white;
 }
 
