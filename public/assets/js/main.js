@@ -4,5 +4,7 @@ $(document).ready(function(){
         height: 864,
         indicators: false,
     });
-    $('.scrollspy').scrollSpy();
+    $('.scrollspy').scrollSpy({
+        scrollOffset: 1000,
+    });
 });
