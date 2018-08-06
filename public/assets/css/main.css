@@ -10,7 +10,7 @@ a {
 /*---- Navigation ----*/
 
 nav {
-    background-color: #4CAF50;
+    background-color: #01796F;
 }
 
 .logo {
@@ -73,6 +73,12 @@ nav {
     color: white;
 }
 
+/*---- Last observation ----*/
+
+.obs-home {
+    width: 500px;
+}
+
 /*---- Page de connexion ----*/
 
 .btn-connexion {
@@ -89,9 +95,9 @@ nav {
 }
 
 footer {
-    background-color: #217d13;
+    background-color: #01796F;
 }
 
-footer a {
+footer a, h4 {
     color: white;
 }

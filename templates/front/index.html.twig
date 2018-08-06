@@ -99,23 +99,58 @@
             </div>
         {% endblock %}
 
-    {% block participationProjet %}
-        <div class="row" id="backgroundPresentation">
-            <div>
-                <h1 class="center">Participer au projet</h1>
-                <div class="row">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi, at aut consequatur ex excepturi laborum magnam quam, quod quos sequi similique soluta totam, velit. Delectus dicta obcaecati ratione?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eaque eius quas, quisquam ratione reiciendis? A corporis, deleniti, earum exercitationem laborum laudantium minima molestias natus nemo praesentium repudiandae totam ullam.
-                    </p>
-                </div>
-                <div class="center">
-                    <button class="btn btn-participation">S'enregistrer immédiatement ></button>
-                </div>
+        {% block participationProjet %}
+            <div class="row" id="backgroundPresentation">
+                <div>
+                    <h1 class="center">Participer au projet</h1>
+                    <div class="row">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi, at aut consequatur ex excepturi laborum magnam quam, quod quos sequi similique soluta totam, velit. Delectus dicta obcaecati ratione?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eaque eius quas, quisquam ratione reiciendis? A corporis, deleniti, earum exercitationem laborum laudantium minima molestias natus nemo praesentium repudiandae totam ullam.
+                        </p>
+                    </div>
+                    <div class="center">
+                        <button class="btn btn-participation">S'enregistrer immédiatement ></button>
+                    </div>
 
+                </div>
             </div>
-        </div>
-    {% endblock %}
+        {% endblock %}
 
+        {% block lastObservation %}
+                <div class="container row">
+                    <h1 class="center">Dernières observations</h1>
+                    <div class="col s4 obs-home">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="{{ asset('assets/img/img_obs_1.jpg') }}">
+                            </div>
+                            <div class="card-content center">
+                                <a href="#"><button class="btn btn-connexion" type="button">Voir plus</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s4 obs-home">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="{{ asset('assets/img/img_obs_1.jpg') }}">
+                            </div>
+                            <div class="card-content center">
+                                <a href="#"><button class="btn btn-connexion" type="button">Voir plus</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s4 obs-home">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="{{ asset('assets/img/img_obs_1.jpg') }}">
+                            </div>
+                            <div class="card-content center">
+                                <a href="#"><button class="btn btn-connexion" type="button">Voir plus</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        {% endblock %}
 
 {% endblock %}
