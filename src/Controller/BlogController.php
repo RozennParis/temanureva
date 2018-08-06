@@ -1,0 +1,23 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: romain
+ * Date: 06/08/18
+ * Time: 22:17
+ */
+
+namespace App\Controller;
+
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class BlogController extends Controller
+{
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/blog", name="blog")
+     */
+    public function blogAction(){
+        return $this->render('blog/index.html.twig');
+    }
+}
