@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Observation
 {
+
+    const VALIDATION_STATUS = false;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -39,7 +41,7 @@ class Observation
     /**
      * @ORM\Column(type="boolean")
      */
-    private $status;
+    private $status = self::VALIDATION_STATUS;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
