@@ -15,9 +15,9 @@ class BlogController extends Controller
 {
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/blog", name="blog")
+     * @Route("/blog/{page}", name="blog", requirements={"page"="\d+"})
      */
-    public function blogAction(){
+    public function blogAction($page = 1){
         return $this->render('blog/index.html.twig');
     }
 
