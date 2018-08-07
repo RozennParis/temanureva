@@ -48,3 +48,10 @@ nav {
     width: 200px;
     background-color: #4CAF50;
 }
+
+/*---- card custom ----*/
+
+.card-custom{
+    padding: 5px 10px !important;
+    margin: 10px;
+}

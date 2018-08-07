@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gérer les articles - NAO{% endblock %}
+
+{% block body %}
+    <div class="row">
+        {% for i in 0..5%}
+        <div class="col s12 l4">
+            <div class="card">
+                <div class="card-content card-custom">
+                    <div class="row">
+                        <img src="http://via.placeholder.com/500x350" alt="article_" class="responsive-img">
+                        <div class="col s10">
+                            <p>Titre - 00/00/00</p>
+                            <p>En cours de validation</p>
+                        </div>
+                        <div class="col s2">
+                            <a href="" class="btn-floating btn-large"><i class="material-icons">add</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">
+                <button class="btn">
+                   Ajouter un article
+                </button>
+            </p>
+        </div>
+    </div>
+{% endblock %}
