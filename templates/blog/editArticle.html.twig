@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'materialize_layout.html.twig' %}
+
+{% block title %}Éditer article - NAO{% endblock %}
+
+{% block body %}
+    <div class="row">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

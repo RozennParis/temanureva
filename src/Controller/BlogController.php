@@ -8,6 +8,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
+use App\Form\ArticleType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -31,9 +34,25 @@ class BlogController extends Controller
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/profil/{id}/gerer-articles/{page}", name="gerer-article", requirements={"id"="\d+", "page"="\d+"})
+     * @Route("/profil/{id}/gerer-articles/{page}", name="gerer-articles", requirements={"id"="\d+", "page"="\d+"})
      */
     public function manageBlogAction($id, $page = 1){
         return $this->render('blog/manageBlog.html.twig');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/pro/{id}/article/{id_article}", name="edit-article", requirements={"id"="\d+", "id_article"="\d+"})
+     */
+    public function editArticleAction(Request $request, $id, $id_article){
+
+        $article = new Article();
+
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+
+        return $this->render('blog/editArticle.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }
