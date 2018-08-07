@@ -173,3 +173,9 @@ footer a, footer h4 {
 .padding-bottom {
     padding-bottom: 2.25rem;
 }
+
+/*---- Map ----*/
+
+#map {
+    height: 600px;
+}
