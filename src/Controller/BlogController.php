@@ -20,4 +20,12 @@ class BlogController extends Controller
     public function blogAction(){
         return $this->render('blog/index.html.twig');
     }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/blog/article/{id}", name="blog-article", requirements={"id"="\d+"})
+     */
+    public function articleAction($id){
+        return $this->render('blog/article.html.twig');
+    }
 }
