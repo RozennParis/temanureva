@@ -24,4 +24,15 @@ class FrontController extends Controller
     {
         return $this->render('back/index.html.twig');
     }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/exploration", name="exploration")
+     */
+    public function exploration()
+    {
+        return $this->render('front/exploration.html.twig');
+    }
+
+
 }

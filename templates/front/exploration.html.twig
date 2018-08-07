@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Exploration {% endblock %}
+
+{% block body %}
+    <div class="center">
+        <h1>Exploration</h1>
+    </div>
+
+    <div>
+        <nav class="ariane">
+            <div class="nav-wrapper">
+                <div class="col s12">
+                    <a href="{{ path('homepage') }}" class="breadcrumb">Accueil</a>
+                    <a href="{{ path('exploration') }}" class="breadcrumb">Exploration</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div>
+        <nav>
+            <ul>
+                <li>Rechercher</li>
+            </ul>
+        </nav>
+    </div>
+    <div>
+    <br/>
+    <div id="map"></div>
+    <br>
+
+{% endblock %}
