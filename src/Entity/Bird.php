@@ -92,8 +92,7 @@ class Bird
     private $vernacular_name_eng;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Habitat")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="integer")
      */
     private $habitat;
 

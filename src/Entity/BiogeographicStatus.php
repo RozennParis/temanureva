@@ -12,6 +12,7 @@ class BiogeographicStatus
     /**
      * @ORM\Id()
      * @ORM\Column(type="string", length=10)
+     * //represents the biogeographic status
      */
     private $id;
 
