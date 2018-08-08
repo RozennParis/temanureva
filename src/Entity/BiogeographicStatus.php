@@ -13,21 +13,21 @@ class BiogeographicStatus
      * @ORM\Id()
      * @ORM\Column(type="string", length=10)
      */
-    private $status;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $description;
 
-    public function getStatus(): ?string
+    public function getId(): ?string
     {
-        return $this->status;
+        return $this->id;
     }
 
-    public function setStatus(string $status): self
+    public function setId(string $id): self
     {
-        $this->status = $status;
+        $this->id = $id;
 
         return $this;
     }
