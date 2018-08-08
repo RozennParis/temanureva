@@ -43,7 +43,7 @@ class BlogController extends Controller
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/pro/{id}/article/{id_article}", name="edit-article", requirements={"id"="\d+", "id_article"="\d+"})
+     * @Route("/profil/{id}/article/{id_article}", name="edit-article", requirements={"id"="\d+", "id_article"="\d+"})
      */
     public function editArticleAction(Request $request, $id, $id_article){
 
@@ -52,11 +52,12 @@ class BlogController extends Controller
 
         $form = $this->createForm(ArticleType::class, $article);
 
-        //Si l'article n'est pas publié, on ajoute le bouton Publier
+        //Si l'article n'est pas publié, on ajoute le bouton 'Publier'
         if($article->getStatus() === false){
             $form->add('publish', SubmitType::class, ['label' => 'Publier article']);
         }
 
+        //Autre boutons ajoutés
         $form->add('save', SubmitType::class, ['label' => 'Enregistrer'])
             ->add('delete', SubmitType::class, ['label' => 'Supprimer']);
 

@@ -3,6 +3,16 @@
 
 {% block title %}Éditer article - NAO{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/tinymce/tinymce.min.js') }}"></script>
+    <script>
+        tinymce.init({
+            selector:'.tinymce',
+        });
+    </script>
+{% endblock %}
+
 {% block body %}
     <div class="container">
         {{ form_start(form) }}
