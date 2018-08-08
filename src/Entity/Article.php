@@ -32,7 +32,7 @@ class Article
     private $status;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $publishing_date;
 
@@ -98,7 +98,7 @@ class Article
         return $this->publishing_date;
     }
 
-    public function setPublishingDate(\DateTimeInterface $publishing_date): self
+    public function setPublishingDate(?\DateTimeInterface $publishing_date): self
     {
         $this->publishing_date = $publishing_date;
 

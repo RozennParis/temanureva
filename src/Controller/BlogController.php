@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Form\AddArticleType;
 use App\Form\ArticleType;
+use App\Service\ArticleManager;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,10 +39,20 @@ class BlogController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/profil/{id}/gerer-articles/{page}", name="gerer-articles", requirements={"id"="\d+", "page"="\d+"})
      */
-    public function manageBlogAction($id, $page = 1){
+    public function manageBlogAction($id, $page = 1, ArticleManager $articleManager, Request $request){
         $article = new Article();
 
         $form = $this->createForm(AddArticleType::class, $article);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $entityManager->persist($articleManager->getDefaultArticle());
+            $entityManager->flush();
+
+        }
 
         return $this->render('blog/manageBlog.html.twig', [
             'form' => $form->createView()
