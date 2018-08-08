@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Form\ArticleType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -47,8 +48,18 @@ class BlogController extends Controller
     public function editArticleAction(Request $request, $id, $id_article){
 
         $article = new Article();
+        $article->setStatus(false);
 
         $form = $this->createForm(ArticleType::class, $article);
+
+        //Si l'article n'est pas publié, on ajoute le bouton Publier
+        if($article->getStatus() === false){
+            $form->add('publish', SubmitType::class, ['label' => 'Publier article']);
+        }
+
+        $form->add('save', SubmitType::class, ['label' => 'Enregistrer'])
+            ->add('delete', SubmitType::class, ['label' => 'Supprimer']);
+
         $form->handleRequest($request);
 
         return $this->render('blog/editArticle.html.twig', [

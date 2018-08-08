@@ -17,7 +17,12 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, ['label' => 'Titre'])
-            ->add('content', TextareaType::class, ['label' => 'Contenu'])
+            ->add('content', TextareaType::class, [
+                'label' => 'Contenu',
+                'attr' => [
+                    'class' => 'tinymce ',
+                ],
+            ])
             ->add('image', FileType::class, ['label' => 'Photo']);
     }
 
