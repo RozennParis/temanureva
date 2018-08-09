@@ -19,6 +19,44 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    public function findById($id){
+        $qb = $this->createQueryBuilder('a')
+            ->andWhere('a.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery();
+
+        return $qb->getSingleResult();
+    }
+
+    public function findPublishedById($id){
+        $qb = $this->createQueryBuilder('a')
+            ->andWhere('a.id = :id')
+            ->andWhere('a.status = true')
+            ->setParameter('id', $id)
+            ->getQuery();
+
+        return $qb->getSingleResult();
+    }
+
+    public function findWithOffset($offset, $limit){
+        $qb = $this->createQueryBuilder('a')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->getQuery();
+
+        return $qb->getResult();
+    }
+
+    public function findPublishedWithOffset($offset, $limit){
+        $qb = $this->createQueryBuilder('a')
+            ->andWhere('a.status = true')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->getQuery();
+
+        return $qb->getResult();
+    }
+
 //    /**
 //     * @return Article[] Returns an array of Article objects
 //     */

@@ -40,10 +40,14 @@ class BlogController extends Controller
      * @Route("/profil/{id}/gerer-articles/{page}", name="gerer-articles", requirements={"id"="\d+", "page"="\d+"})
      */
     public function manageBlogAction($id, $page = 1, ArticleManager $articleManager, Request $request){
+
+        $articles = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findWithOffset(0,6);
+
+        //Formulaire
         $article = new Article();
-
         $form = $this->createForm(AddArticleType::class, $article);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
@@ -55,7 +59,8 @@ class BlogController extends Controller
         }
 
         return $this->render('blog/manageBlog.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'articles' => $articles
         ]);
     }
 
