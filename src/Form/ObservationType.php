@@ -19,7 +19,7 @@ class ObservationType extends AbstractType
                 'label'=>'Nom de l\'espèce ',
                 'required' => false,
                 'attr' =>[
-                    'id' => 'bird_research'
+                    'class' => 'bird_research'
                 ]
             ])
             ->add('observation_date', DatetimeType::class, [

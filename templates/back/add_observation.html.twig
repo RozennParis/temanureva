@@ -24,10 +24,7 @@
         {{ form_start(form) }}
         <div class="row">
             <div class="col s6">
-                {{ form_label(form.bird) }}
-                {{ form_errors(form.bird) }}
-                {{ form_widget(form.bird, {'attr': {'class': 'bird_research'}}) }}
-                {{ form_help(form.bird) }}
+                {{ form_row(form.bird) }}
 
             </div>
             <div class="col s6">
