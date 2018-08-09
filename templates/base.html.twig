@@ -13,21 +13,25 @@
     <body>
     {% block navigation %}
         <div class="navbar-fixed">
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="{{ path('homepage') }}" class="brand-logo"><img src="{{ asset('assets/img/Logo_NAO_png_3.png') }}" alt="Logo" class="logo"></a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="{{ path('homepage') }}">Accueil</a></li>
-                        <li><a href="#">Exploration</a></li>
-                        <li><a href="#">Espèces</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Nous contacter</a></li>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{{ path('homepage') }}" class="brand-logo"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="logo"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                    <li><a href="#">Exploration</a></li>
+                    <li><a href="#">Espèces</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Nous contacter</a></li>
+                    {% if is_granted(['ROLE_PARTICULAR', 'ROLE_NATURALIST', 'ROLE_EDITOR', 'ROLE_ADMIN'])  %}
+                        <li><a href="{{ path('profil') }}">Mon profil</a></li>
+                        <li><a href="{{ path('security_logout') }}">Se déconnecter</a></li>
+                    {% else %}
                         <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>
-                        <li><a href="#"><i class="material-icons">search</i></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+                    {% endif %}
+                    <li><a href="#"><i class="material-icons">search</i></a></li>
+                </ul>
+            </div>
+        </nav>
     {% endblock %}
     {% block body %}{% endblock %}
     {% block javascripts %}
