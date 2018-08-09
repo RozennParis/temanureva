@@ -42,6 +42,7 @@ class ArticleRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('a')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
+            ->orderBy('a.modification_date', 'DESC')
             ->getQuery();
 
         return $qb->getResult();
@@ -52,6 +53,7 @@ class ArticleRepository extends ServiceEntityRepository
             ->andWhere('a.status = true')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
+            ->orderBy('a.publishing_date', 'DESC')
             ->getQuery();
 
         return $qb->getResult();

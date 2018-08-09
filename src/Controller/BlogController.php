@@ -6,6 +6,8 @@
  * Time: 22:17
  */
 
+
+
 namespace App\Controller;
 
 use App\Entity\Article;
@@ -19,6 +21,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class BlogController extends Controller
 {
+    const NBR_ARTICLE_BLOG = 6;
+    const NBR_ARTICLE_MANAGE = 6;
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/blog/{page}", name="blog", requirements={"page"="\d+"})
@@ -28,7 +33,7 @@ class BlogController extends Controller
         //Requete BDD
         $articles = $this->getDoctrine()
             ->getRepository(Article::class)
-            ->findPublishedWithOffset(0,6);
+            ->findPublishedWithOffset(($page-1)*self::NBR_ARTICLE_BLOG,self::NBR_ARTICLE_BLOG);
 
         return $this->render('blog/index.html.twig', [
             'articles' => $articles
@@ -60,7 +65,7 @@ class BlogController extends Controller
         //Requete BDD
         $articles = $this->getDoctrine()
             ->getRepository(Article::class)
-            ->findWithOffset(0,6);
+            ->findWithOffset(($page-1)*self::NBR_ARTICLE_MANAGE, self::NBR_ARTICLE_MANAGE);
 
         //Formulaire
         $article = new Article();
