@@ -24,7 +24,14 @@ class BlogController extends Controller
      * @Route("/blog/{page}", name="blog", requirements={"page"="\d+"})
      */
     public function blogAction($page = 1){
-        return $this->render('blog/index.html.twig');
+
+        $articles = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findPublishedWithOffset(0,6);
+
+        return $this->render('blog/index.html.twig', [
+            'articles' => $articles
+        ]);
     }
 
     /**
@@ -70,7 +77,9 @@ class BlogController extends Controller
      */
     public function editArticleAction(Request $request, $id, $id_article){
 
-        $article = new Article();
+        $article = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findById($id);
         $article->setStatus(false);
 
         $form = $this->createForm(ArticleType::class, $article);
