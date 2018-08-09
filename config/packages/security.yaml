@@ -14,7 +14,7 @@ security:
         main:
             # all urls for this firewalls
             pattern: ^/
-
+            provider: database_users
             anonymous: true
 
             form_login:
@@ -26,6 +26,8 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 # Default page after login success
                 default_target_path: profil
+                #username_parameter: _username
+                #password_parameter: _password
 
             logout:
                 # the road where the disconnection process is
