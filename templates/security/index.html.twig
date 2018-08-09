@@ -28,10 +28,21 @@
             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
         {{ form_start(form, {'action': path('security_login'), 'method': 'POST'}) }}
-            {{ form_row(form._username) }}
-            {{ form_row(form._password) }}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
-        <button class="btn btn-connexion" type="submit">Valider</button>
+            <div class="form-group row">
+                <div class="col s6">
+                    {{ form_row(form._username) }}
+                </div>
+                <div class="col s6">
+                    {{ form_row(form._password) }}
+                </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                <div class="center">
+                    <button class="btn btn-connexion" type="submit">Valider</button>
+                </div>
+
+            </div>
+
+
         {{ form_end(form) }}
     </div>
     <div class="center">
