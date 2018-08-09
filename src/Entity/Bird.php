@@ -92,13 +92,14 @@ class Bird
     private $vernacular_name_eng;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Habitat")
      */
     private $habitat;
 
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
+     * @
      */
     private $france;
 
