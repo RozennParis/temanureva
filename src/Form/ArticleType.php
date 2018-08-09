@@ -23,7 +23,10 @@ class ArticleType extends AbstractType
                     'class' => 'tinymce ',
                 ],
             ])
-            ->add('image', FileType::class, ['label' => 'Photo']);
+            ->add('image', FileType::class, [
+                'label' => 'Photo',
+                'required' => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

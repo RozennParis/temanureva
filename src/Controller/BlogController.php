@@ -25,6 +25,7 @@ class BlogController extends Controller
      */
     public function blogAction($page = 1){
 
+        //Requete BDD
         $articles = $this->getDoctrine()
             ->getRepository(Article::class)
             ->findPublishedWithOffset(0,6);
@@ -39,7 +40,15 @@ class BlogController extends Controller
      * @Route("/blog/article/{id}", name="blog-article", requirements={"id"="\d+"})
      */
     public function articleAction($id){
-        return $this->render('blog/article.html.twig');
+
+        //Requete BDD
+        $article = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findPublishedById($id);
+
+        return $this->render('blog/article.html.twig', [
+            'article' => $article
+        ]);
     }
 
     /**
@@ -48,6 +57,7 @@ class BlogController extends Controller
      */
     public function manageBlogAction($id, $page = 1, ArticleManager $articleManager, Request $request){
 
+        //Requete BDD
         $articles = $this->getDoctrine()
             ->getRepository(Article::class)
             ->findWithOffset(0,6);
@@ -75,12 +85,12 @@ class BlogController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/profil/{id}/article/{id_article}", name="edit-article", requirements={"id"="\d+", "id_article"="\d+"})
      */
-    public function editArticleAction(Request $request, $id, $id_article){
+    public function editArticleAction(Request $request, ArticleManager $articleManager, $id, $id_article){
 
+        //Requete BDD
         $article = $this->getDoctrine()
             ->getRepository(Article::class)
-            ->findById($id);
-        $article->setStatus(false);
+            ->findById($id_article);
 
         $form = $this->createForm(ArticleType::class, $article);
 
@@ -94,6 +104,19 @@ class BlogController extends Controller
             ->add('delete', SubmitType::class, ['label' => 'Supprimer']);
 
         $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->getClickedButton()->getName() == 'delete'){
+                $articleManager->deleteArticle($article);
+            }
+            elseif ($form->getClickedButton()->getName() == 'save'){
+                $articleManager->saveArticle($article);
+            }
+            elseif ($form->getClickedButton()->getName() == 'publish'){
+                $articleManager->publishArticle($article);
+            }
+            return $this->redirectToRoute('gerer-articles', ['id' => $id]);
+        }
 
         return $this->render('blog/editArticle.html.twig', [
             'form' => $form->createView()
