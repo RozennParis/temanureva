@@ -5545,6 +5545,7 @@ button.btn-floating {
 
 .dropdown-content {
   background-color: #fff;
+  color: black;
   margin: 0;
   display: none;
   min-width: 100px;

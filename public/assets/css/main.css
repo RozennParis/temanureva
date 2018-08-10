@@ -15,6 +15,13 @@ a {
     margin-bottom: 2.5rem;
 }
 
+.search_maroon nav, .search_maroon nav li {
+    background-color: #9b6d61;
+    text-align: center;
+    float: none !important;
+
+}
+
 /*---- Navigation ----*/
 
 nav {
@@ -179,3 +186,4 @@ footer a, footer h4 {
 #map {
     height: 31.25rem;
 }
+
