@@ -24,7 +24,7 @@ class ArticleType extends AbstractType
                 ],
             ])
             ->add('image', FileType::class, [
-                'label' => 'Photo',
+                'label' => 'Photo (.PNG, .JPEG)',
                 'required' => false
             ]);
     }

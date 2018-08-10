@@ -10,16 +10,20 @@ namespace App\Service;
 
 
 use App\Entity\Article;
-use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ArticleManager
 {
     private $entityManager;
+    private $fileManager;
+    private $imageDirectory;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, FileManager $fileManager, $directory)
     {
         $this->entityManager = $entityManager;
+        $this->fileManager = $fileManager;
+        $this->imageDirectory = $directory;
     }
 
     /**
@@ -54,5 +58,10 @@ class ArticleManager
             ->setModificationDate(new \DateTime())
             ->setStatus(true);
         $this->entityManager->flush();
+    }
+
+    public function uploadImage(Article $article, UploadedFile $file){
+        $fileName = $this->fileManager->upload($file, $this->imageDirectory);
+        $article->setImage($fileName);
     }
 }

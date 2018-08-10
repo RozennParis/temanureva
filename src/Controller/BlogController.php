@@ -111,6 +111,11 @@ class BlogController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if ($article->getImage() !==  null){
+                $articleManager->uploadImage($article, $form->get('image')->getData());
+            }
+
             if ($form->getClickedButton()->getName() == 'delete'){
                 $articleManager->deleteArticle($article);
             }
