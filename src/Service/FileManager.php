@@ -27,6 +27,10 @@ class FileManager
         return $fileName;
     }
 
+    public function delete($targetDirectory){
+        unlink($this->public_directory.$targetDirectory);
+    }
+
     private function generateUniqueFileName(){
         return md5(uniqid());
     }

@@ -19,6 +19,7 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max="255", groups={"whitout_image"})
      */
     private $title;
 

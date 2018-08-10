@@ -13,7 +13,9 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Form\AddArticleType;
 use App\Form\ArticleType;
+use App\Form\ArticleWhitoutImageType;
 use App\Service\ArticleManager;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -97,7 +99,14 @@ class BlogController extends Controller
             ->getRepository(Article::class)
             ->findById($id_article);
 
-        $form = $this->createForm(ArticleType::class, $article);
+        $form = '';
+
+        if($article->getImage() === null){
+            $form = $this->createForm(ArticleType::class, $article);
+        }
+        else{
+            $form = $this->createForm(ArticleWhitoutImageType::class, $article);
+        }
 
         //Si l'article n'est pas publié, on ajoute le bouton 'Publier'
         if($article->getStatus() === false){
@@ -110,22 +119,34 @@ class BlogController extends Controller
 
         $form->handleRequest($request);
 
+        //Si le formulaire est soumis et valide
         if ($form->isSubmitted() && $form->isValid()) {
 
-            if ($article->getImage() !==  null){
-                $articleManager->uploadImage($article, $form->get('image')->getData());
+            //Supprimer image
+            if ($form->getClickedButton()->getName() == 'delete_image'){
+                $articleManager->deleteImage($article);
+                return $this->redirectToRoute('edit-article', ['id' => $id, 'id_article' => $id_article]);
             }
 
-            if ($form->getClickedButton()->getName() == 'delete'){
-                $articleManager->deleteArticle($article);
+            else{
+
+                //Upload l'image
+                if ($article->getImage() !==  null && $form->has('image')){
+                    $articleManager->uploadImage($article, $form->get('image')->getData());
+                }
+
+                //Action en fonction du bouton
+                if ($form->getClickedButton()->getName() == 'delete'){
+                    $articleManager->deleteArticle($article);
+                }
+                elseif ($form->getClickedButton()->getName() == 'save'){
+                    $articleManager->saveArticle($article);
+                }
+                elseif ($form->getClickedButton()->getName() == 'publish'){
+                    $articleManager->publishArticle($article);
+                }
+                return $this->redirectToRoute('gerer-articles', ['id' => $id]);
             }
-            elseif ($form->getClickedButton()->getName() == 'save'){
-                $articleManager->saveArticle($article);
-            }
-            elseif ($form->getClickedButton()->getName() == 'publish'){
-                $articleManager->publishArticle($article);
-            }
-            return $this->redirectToRoute('gerer-articles', ['id' => $id]);
         }
 
         return $this->render('blog/editArticle.html.twig', [

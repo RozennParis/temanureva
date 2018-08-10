@@ -18,7 +18,12 @@
         {{ form_start(form) }}
         {{ form_row(form.title) }}
         {{ form_row(form.content) }}
-        {{ form_row(form.image) }}
+        {% if form.image is defined %}
+            {{ form_widget(form.image) }}
+        {% endif %}
+        {% if form.delete_image is defined %}
+            {{ form_widget(form.delete_image) }}
+        {% endif %}
 
         <div class="row center">
             {% if form.publish is defined %}

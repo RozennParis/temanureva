@@ -64,4 +64,10 @@ class ArticleManager
         $fileName = $this->fileManager->upload($file, $this->imageDirectory);
         $article->setImage($fileName);
     }
+
+    public function deleteImage(Article $article){
+        $this->fileManager->delete($this->imageDirectory.'/'.$article->getImage());
+        $article->setImage(null);
+        $this->entityManager->flush();
+    }
 }
