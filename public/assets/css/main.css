@@ -55,3 +55,8 @@ nav {
     padding: 5px 10px !important;
     margin: 10px;
 }
+
+.height-img{
+    height: 250px;
+    max-width: 100%;
+}
