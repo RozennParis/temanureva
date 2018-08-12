@@ -8,7 +8,7 @@ $(document).ready(function(){
         scrollOffset: 1000,
     });
 
-    $(".dropdown-trigger").dropdown();
+    $('.collapsible').collapsible();
 
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy',

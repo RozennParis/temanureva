@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\ExploSearchType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -31,7 +32,9 @@ class FrontController extends Controller
      */
     public function exploration()
     {
-        return $this->render('front/exploration.html.twig');
+        $form = $this->createForm(ExploSearchType::class);
+
+        return $this->render('front/exploration.html.twig', ['form' => $form->createView()]);
     }
 
 

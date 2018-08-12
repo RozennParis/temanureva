@@ -15,11 +15,8 @@ a {
     margin-bottom: 2.5rem;
 }
 
-.search_maroon nav, .search_maroon nav li {
-    background-color: #9b6d61;
-    text-align: center;
-    float: none !important;
-
+.collapsible-header {
+    background-color: #aa7d70;
 }
 
 /*---- Navigation ----*/

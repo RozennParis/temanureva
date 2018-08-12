@@ -16,22 +16,20 @@
             </div>
         </nav>
     </div>
-    <div class="search_maroon">
-        <!-- Dropdown Structure -->
-        <div id="dropdown1" class="dropdown-content">
-            <p>
-                Remplir au moins un champ
-            </p>
-
-
-        </div>
-        <nav>
-            <ul>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Rechercher<i class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
-        </nav>
-    </div>
     <div>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header">Rechercher<i class="material-icons">expand_more</i></div>
+                <div class="collapsible-body"><span>
+                    {{ form_start(form) }}
+                    {{ form_row(form.bird) }}
+                    {{ form_row(form.location) }}
+                    {{ form_row(form.observation_date) }}
+                    {{ form_end(form) }}
+                </span></div>
+            </li>
+        </ul>
+    </div>
     <br/>
     <div id="map"></div>
     <br>
