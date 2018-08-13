@@ -11,34 +11,24 @@ class BiogeographicStatus
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=10)
+     * //represents the biogeographic status
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=10)
-     */
-    private $status;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $description;
 
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function getStatus(): ?string
+    public function setId(string $id): self
     {
-        return $this->status;
-    }
-
-    public function setStatus(string $status): self
-    {
-        $this->status = $status;
+        $this->id = $id;
 
         return $this;
     }
