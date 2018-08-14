@@ -8,19 +8,21 @@
         <div class="col s4">
             <div class="card">
                 <div class="card-image">
-                    <img src="
-                    {% if article.image is null %}
-                        http://via.placeholder.com/750x350
-                    {% else %}
-                        {{ image_article_directory }}/{{ article.image }}
-                    {% endif %}
-                " alt="article_">
+                    <div class="center">
+                        <img src="
+                        {% if article.image is null %}
+                            http://via.placeholder.com/750x350
+                        {% else %}
+                            {{ image_article_directory }}/{{ article.image }}
+                        {% endif %}
+                    " alt="article_" class="height-img">
+                    </div>
                 </div>
                 <div class="card-content">
                     <p class="center card-title">{{ article.title }}</p>
                     <p class="center">Auteur - {{ article.publishingDate|date("d/m/Y") }}</p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet eros ut nunc hendrerit pretium id eu orci. Sed tristique eros in nunc tristique tristique. Vestibulum varius nulla id nisi lobortis, ac auctor lectus aliquet. Ut rutrum volutpat.
+                        {{ article.content|slice(0,249)|striptags }}
                     </p>
                 </div>
                 <div class="center card-action">
