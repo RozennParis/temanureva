@@ -19,32 +19,49 @@ class BirdRepository extends ServiceEntityRepository
         parent::__construct($registry, Bird::class);
     }
 
-//    /**
-//     * @return Bird[] Returns an array of Bird objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return Bird[] Returns an array of Bird objects
+     */
+    public function findAllByVernacularName($term)
     {
         return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('b.vernacular_name LIKE :val')
+            ->setParameter('val', $term)
+            ->orderBy('b.vernacular_name', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Bird
     {
         return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
+            ->andWhere('b.exampleField LIKE :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+
+}*/
+    public function nomOiseau($term)
+    {
+        $qb = $this->createQueryBuilder('b');
+        $qb->addSelect('b.vernacular_name')
+            ->where('o.vernacular_name LIKE :term')
+            ->setParameter('term', '%' . $term . '%');
+
+        $arrayAss = $qb->getQuery()
+            ->getArrayResult();
+
+        $array = [];
+
+        foreach ($arrayAss as $data) {
+            $array[] = $data['vernacular_name'];
+        }
+
+        return $array;
+    }
 }

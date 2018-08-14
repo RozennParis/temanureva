@@ -3,6 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Observation;
+use App\Entity\Bird;
+use Doctrine\ORM\EntityRepository;
+use App\Repository\BirdRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -15,13 +19,25 @@ class ObservationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('bird', TextType::class, [
+            //test avec autocompletion JS et Ajax
+           ->add('bird', TextType::class, [
                 'label'=>'Nom de l\'espèce ',
                 'required' => false,
                 'attr' =>[
                     'class' => 'bird_research'
                 ]
             ])
+
+            //test avec EntityType
+           /*->add('bird', EntityType::class, [
+                'label'=>'Nom de l\'espèce ',
+                'required' => false,
+                'class' => Bird::class,
+                'choice_label' => 'vernacular_name',
+                'query_builder' => function (BirdRepository $br) {
+                    return $br->findByVernacularName($observation->getBird());
+                }
+            ])*/
             ->add('observation_date', DatetimeType::class, [
                 'widget' => 'single_text',
                 'label' => 'Date d\'observation * ',

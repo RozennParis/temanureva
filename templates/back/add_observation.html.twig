@@ -3,6 +3,7 @@
 
 {% block title %} Ajout Observation {% endblock %}
 
+
 {% block body %}
     <div class="center">
         <h1>Ajouter une observation</h1>
@@ -27,6 +28,7 @@
                 {{ form_row(form.bird) }}
 
             </div>
+            <div id="resultList" ></div>
             <div class="col s6">
                 {{ form_row(form.location) }}
             </div>
