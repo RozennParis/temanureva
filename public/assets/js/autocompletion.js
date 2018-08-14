@@ -1,20 +1,21 @@
 
-/*window.onload = function () {
+window.onload = function () {
     $('input.bird_research').keyup(function () {
         let dataBird = $('input.bird_research').val();
 
-        if (dataBird = "") return false;
+        if (dataBird == "") return false;
         console.log(dataBird);
         $.ajax({
-            method: "POST",
-            url: "{{ path('autocomplete') }}",
+            method: "GET",
+            url: "/ajout-observation/autocomplete",
+            dataType: 'json',
             data: {dataBird: dataBird}
         })
             .done(function (result) {
                $("#resultList").html(result);
             });
     });
-};*/
+};
 
 
 /*$(document).ready(function() {
@@ -27,7 +28,7 @@
                 console.log(dataBird);
                 $.ajax({
                     type: "GET",
-                    url: 'complete'.dataBird,
+                    url: '/ajout-observation/autocomplete',
                     dataType: 'json',
                     data: dataBird,
 
@@ -43,7 +44,7 @@
 });*/
 
 
-$(document).ready(function(){
+/*$(document).ready(function(){
     $('#observation_bird').autocomplete({
         data: {
             "Apple": 'Apple',
@@ -51,23 +52,23 @@ $(document).ready(function(){
             "Google": 'https://placehold.it/250x250'
         },
     });
-});
+});*/
 
 
-/*<script>
+
 //AUTOCOMPLETION
-$(function () {
-    $('#oiseau').autocomplete({
+/*$(function () {
+    $('input.bird_research').autocomplete({
         minLength: 2,
         source : function(requete, reponse){
 
-            var motcle = $('#oiseau').val();
-            var DATA = 'motcle=' + motcle;
+            var motcle = $('input.bird_research').val();
+            var dataBird = 'motcle=' + motcle;
             $.ajax({
                 type: "POST",
                 url: "{{ path('autocomp') }}",
                 dataType: 'json',
-                data: DATA,
+                data: dataBird,
 
                 success : function(donnee){
                     reponse($.map(donnee, function(objet){
@@ -77,5 +78,4 @@ $(function () {
             });
         }
     });
-});
-</script>*/
+});*/

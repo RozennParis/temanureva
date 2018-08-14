@@ -17,45 +17,21 @@ use Symfony\Component\HttpFoundation\Response;
 class AutocompletionController extends Controller
 {
     /**
-     * @Route("/autocomplete", name="autocomplete", methods={"GET", "POST"})
+     * @Route("/ajout-observation/autocomplete", name="autocomplete", methods={"GET", "POST"})
      */
-    public function autocomplete(Request $request, EntityManagerInterface $em)
+    public function autocomplete(Request $request)
     {
-       $term =$_POST['dataBird'];
-       /*$em = $this->getDoctrine()->getManager();
-       $birdsArray = $em->getRepository(Bird::class)->find($term);
-       dump($birdsArray); die;
-       return $responseBird = new JsonResponse($birdsArray);*/
-        dump($term);
-        //$term = $request->request->get('dataBird');
-        $array = $em->getRepository(Bird::class)->findByVernacularName($term);
+       $term =$_GET['dataBird'];
 
-        $response = new Response(json_encode($array));
+       $em = $this->getDoctrine()->getManager();
+       $birdsArray = $em->getRepository(Bird::class)->findAllByVernacularName($term);
 
-        $response->headers->set('Content-Type', 'application/json');
+       return $responseBird = new JsonResponse($birdsArray);
 
-        return $response;
-
+       /*$this->render('autocompletion/index.html.twig', [
+            'responseBird' => $responseBird,
+            'term' => $term,
+            'birdsArray' => $birdsArray,
+        ]);*/
     }
 }
-
-/**
- * @Route("/autocomp", name="autocomp")
- * @Method({"GET", "POST"})
- */
-/*public function autocompAction(Request $request)
-{
-
-    $em = $this->getDoctrine()->getManager();
-
-    $term = $request->request->get('motcle');
-
-    $array = $em->getRepository('AppBundle:Oiseaux')->nomOiseau($term);
-
-    $response = new Response(json_encode($array));
-
-    $response->headers->set('Content-Type', 'apllication/json');
-
-    return $response;
-
-}*/

@@ -24,14 +24,31 @@ class BirdRepository extends ServiceEntityRepository
      */
     public function findAllByVernacularName($term)
     {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.vernacular_name LIKE :val')
-            ->setParameter('val', $term)
-            ->orderBy('b.vernacular_name', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
+        $qb = $this->createQueryBuilder('b');
+        $qb->addSelect('b.vernacularName')
+            ->where('b.vernacularName LIKE :term')
+            ->setParameter('term', '%' . $term . '%')
+            ->orderBy('b.vernacularName', 'ASC');
+
+        $arrayAss = $qb->getQuery()
+            ->getArrayResult();
+
+        $array = [];
+
+        foreach ($arrayAss as $data) {
+            $array[] = $data['vernacularName'];
+        }
+
+        return $array;
     }
+
+
+    /*->andWhere('b.vernacularName LIKE :term')
+    ->setParameter('term', $term)
+    ->orderBy('b.vernacularName', 'ASC')
+    ->getQuery()
+    ->getArrayResult()
+;*/
 
 
     /*
@@ -49,8 +66,8 @@ class BirdRepository extends ServiceEntityRepository
     public function nomOiseau($term)
     {
         $qb = $this->createQueryBuilder('b');
-        $qb->addSelect('b.vernacular_name')
-            ->where('o.vernacular_name LIKE :term')
+        $qb->addSelect('b.vernacularName')
+            ->where('b.vernacularName LIKE :term')
             ->setParameter('term', '%' . $term . '%');
 
         $arrayAss = $qb->getQuery()
@@ -59,7 +76,7 @@ class BirdRepository extends ServiceEntityRepository
         $array = [];
 
         foreach ($arrayAss as $data) {
-            $array[] = $data['vernacular_name'];
+            $array[] = $data['vernacularName'];
         }
 
         return $array;
