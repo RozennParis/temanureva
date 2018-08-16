@@ -27,6 +27,9 @@ class BlogController extends Controller
     const NBR_ARTICLE_BLOG = 6;
     const NBR_ARTICLE_MANAGE = 6;
 
+    const PAGINATION_DISPLAY_BLOG = 5;
+    const PAGINATION_DISPLAY_MANAGE = 5;
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/blog/{page}", name="blog", requirements={"page"="\d+"})
@@ -38,7 +41,7 @@ class BlogController extends Controller
             ->getRepository(Article::class)
             ->findPublishedWithOffset(($page-1)*self::NBR_ARTICLE_BLOG,self::NBR_ARTICLE_BLOG);
 
-        $pagination =  new PaginationManager(5,6,self::NBR_ARTICLE_BLOG,5);
+        $pagination =  new PaginationManager($page,2,self::NBR_ARTICLE_BLOG,self::PAGINATION_DISPLAY_BLOG, 'blog');
 
         return $this->render('blog/index.html.twig', [
             'articles' => $articles,

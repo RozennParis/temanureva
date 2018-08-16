@@ -4,7 +4,7 @@
     </li>
     {% for i in paginaion.offset..(paginaion.offset+pagination.nbrePageDisplay-1) %}
         <li {% if paginaion.position == i%}class="active" {% endif %}>
-            <a href="#">{{ i }}</a>
+            <a href="{{ path(pagination.route, pagination.paramRoute|merge({'page' : i})) }}">{{ i }}</a>
         </li>
     {% endfor %}
     <li {% if pagination.last %}class="disabled" {% endif %}>

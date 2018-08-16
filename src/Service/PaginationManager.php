@@ -15,12 +15,16 @@ class PaginationManager
     private $nbreElements;
     private $nbreElementsPerPage;
     private $nbreMaxPageDisplay;
+    private $route;
+    private $paramRoute;
 
-    public function __construct(int $position, int $nbreElement, int $nbreElementPerPage, int $nbreMaxPage){
+    public function __construct(int $position, int $nbreElement, int $nbreElementPerPage, int $nbreMaxPage, string $route, array $paramRoute = []){
         $this->position = $position;
         $this->nbreElements = $nbreElement;
         $this->nbreElementsPerPage = $nbreElementPerPage;
         $this->nbreMaxPageDisplay = $nbreMaxPage;
+        $this->route = $route;
+        $this->paramRoute = $paramRoute;
     }
 
     /**
@@ -133,5 +137,51 @@ class PaginationManager
         $this->nbreMaxPageDisplay = $nbreMaxPageDisplay;
     }
 
+    /**
+     * @return string
+     */
+    public function getRoute(): string
+    {
+        return $this->route;
+    }
 
+    /**
+     * @param string $route
+     */
+    public function setRoute(string $route): void
+    {
+        $this->route = $route;
+    }
+
+    /**
+     * @return string
+     */
+    public function getParamPagination(): string
+    {
+        return $this->paramPagination;
+    }
+
+    /**
+     * @param string $paramPagination
+     */
+    public function setParamPagination(string $paramPagination): void
+    {
+        $this->paramPagination = $paramPagination;
+    }
+
+    /**
+     * @return array
+     */
+    public function getParamRoute(): array
+    {
+        return $this->paramRoute;
+    }
+
+    /**
+     * @param array $paramRoute
+     */
+    public function setParamRoute(array $paramRoute): void
+    {
+        $this->paramRoute = $paramRoute;
+    }
 }
