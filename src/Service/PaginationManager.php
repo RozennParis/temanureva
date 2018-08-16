@@ -12,17 +12,17 @@ namespace App\Service;
 class PaginationManager
 {
     private $position;
-    private $nbreElements;
-    private $nbreElementsPerPage;
-    private $nbreMaxPageDisplay;
+    private $nbrElements;
+    private $nbrElementsPerPage;
+    private $nbrMaxPageDisplay;
     private $route;
     private $paramRoute;
 
-    public function __construct(int $position, int $nbreElement, int $nbreElementPerPage, int $nbreMaxPage, string $route, array $paramRoute = []){
+    public function __construct(int $position, int $nbrElement, int $nbrElementPerPage, int $nbrMaxPage, string $route, array $paramRoute = []){
         $this->position = $position;
-        $this->nbreElements = $nbreElement;
-        $this->nbreElementsPerPage = $nbreElementPerPage;
-        $this->nbreMaxPageDisplay = $nbreMaxPage;
+        $this->nbrElements = $nbrElement;
+        $this->nbrElementsPerPage = $nbrElementPerPage;
+        $this->nbrMaxPageDisplay = $nbrMaxPage;
         $this->route = $route;
         $this->paramRoute = $paramRoute;
     }
@@ -32,18 +32,18 @@ class PaginationManager
      * @return float
      */
     public function getNbrePage(){
-        return ceil($this->nbreElements / $this->nbreElementsPerPage);
+        return ceil($this->nbrElements / $this->nbrElementsPerPage);
     }
 
     /**
      * Retoune le nombre de page à afficher
      * @return float|int
      */
-    public function getNbrePageDisplay(){
-        if($this->getNbrePage() < $this->nbreMaxPageDisplay){
+    public function getNbrPageDisplay(){
+        if($this->getNbrePage() < $this->nbrMaxPageDisplay){
             return $this->getNbrePage();
         }
-        return $this->nbreMaxPageDisplay;
+        return $this->nbrMaxPageDisplay;
     }
 
     /**
@@ -62,14 +62,14 @@ class PaginationManager
     }
 
     public function getOffset(){
-        $middle = ceil($this->nbreMaxPageDisplay/2);
+        $middle = ceil($this->nbrMaxPageDisplay/2);
 
         if($this->position <= $middle){
             return 1;
         }elseif ($this->position < $this->getNbrePage()-$middle){
-            return ($this->position - $this->nbreMaxPageDisplay + $middle);
+            return ($this->position - $this->nbrMaxPageDisplay + $middle);
         }else{
-            return ($this->getNbrePage() - $this->nbreMaxPageDisplay + 1);
+            return ($this->getNbrePage() - $this->nbrMaxPageDisplay + 1);
         }
     }
 
@@ -92,49 +92,49 @@ class PaginationManager
     /**
      * @return mixed
      */
-    public function getNbreElements()
+    public function getNbrElements()
     {
-        return $this->nbreElements;
+        return $this->nbrElements;
     }
 
     /**
-     * @param mixed $nbreElements
+     * @param mixed $nbrElements
      */
-    public function setNbreElements($nbreElements): void
+    public function setNbrElements($nbrElements): void
     {
-        $this->nbreElements = $nbreElements;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNbreElementsPerPage()
-    {
-        return $this->nbreElementsPerPage;
-    }
-
-    /**
-     * @param mixed $nbreElementsPerPage
-     */
-    public function setNbreElementsPerPage($nbreElementsPerPage): void
-    {
-        $this->nbreElementsPerPage = $nbreElementsPerPage;
+        $this->nbrElements = $nbrElements;
     }
 
     /**
      * @return mixed
      */
-    public function getNbreMaxPageDisplay()
+    public function getNbrElementsPerPage()
     {
-        return $this->nbreMaxPageDisplay;
+        return $this->nbrElementsPerPage;
     }
 
     /**
-     * @param mixed $nbreMaxPageDisplay
+     * @param mixed $nbrElementsPerPage
      */
-    public function setNbreMaxPageDisplay($nbreMaxPageDisplay): void
+    public function setNbrElementsPerPage($nbrElementsPerPage): void
     {
-        $this->nbreMaxPageDisplay = $nbreMaxPageDisplay;
+        $this->nbrElementsPerPage = $nbrElementsPerPage;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbrMaxPageDisplay()
+    {
+        return $this->nbrMaxPageDisplay;
+    }
+
+    /**
+     * @param mixed $nbrMaxPageDisplay
+     */
+    public function setNbrMaxPageDisplay($nbrMaxPageDisplay): void
+    {
+        $this->nbrMaxPageDisplay = $nbrMaxPageDisplay;
     }
 
     /**

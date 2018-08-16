@@ -4,7 +4,7 @@
             <i class="material-icons">chevron_left</i>
         </a>
     </li>
-    {% for i in paginaion.offset..(paginaion.offset+pagination.nbrePageDisplay-1) %}
+    {% for i in paginaion.offset..(paginaion.offset+pagination.nbrPageDisplay-1) %}
         <li {% if paginaion.position == i%}class="active" {% endif %}>
             <a href="{{ path(pagination.route, pagination.paramRoute|merge({'page' : i})) }}">{{ i }}</a>
         </li>
