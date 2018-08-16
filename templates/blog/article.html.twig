@@ -9,7 +9,7 @@
                 <div>
                     {{ article.content|raw }}
                 </div>
-                <p class="center">Auteur / {{ article.publishingDate|date("d/m/Y") }}</p>
+                <p class="center">{{ article.user.lastname }} {{ article.user.firstname }} - {{ article.publishingDate|date("d/m/Y") }}</p>
             </div>
         </div>
     </div>
