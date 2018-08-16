@@ -79,7 +79,7 @@ class BlogController extends Controller
 
             $entityManager->persist($articleManager->getDefaultArticle());
             $entityManager->flush();
-
+            return $this->redirectToRoute('gerer-articles', ['id' => $id]);
         }
 
         return $this->render('blog/manageBlog.html.twig', [

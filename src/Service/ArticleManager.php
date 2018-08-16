@@ -12,18 +12,21 @@ namespace App\Service;
 use App\Entity\Article;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class ArticleManager
 {
     private $entityManager;
     private $fileManager;
+    private $storage;
     private $imageDirectory;
 
-    public function __construct(EntityManagerInterface $entityManager, FileManager $fileManager, $directory)
+    public function __construct(EntityManagerInterface $entityManager, FileManager $fileManager, TokenStorageInterface $storage ,$directory)
     {
         $this->entityManager = $entityManager;
         $this->fileManager = $fileManager;
         $this->imageDirectory = $directory;
+        $this->storage = $storage;
     }
 
     /**
@@ -34,17 +37,18 @@ class ArticleManager
         $article
             ->setTitle('Votre Titre')
             ->setContent('Votre article')
-            ->setStatus('false')
+            ->setStatus(false)
             ->setImage(null)
             ->setModificationDate(new \DateTime())
             ->setPublishingDate(null)
-            ->setUser(null);
+            ->setUser($this->storage->getToken()->getUser());
 
         return $article;
     }
 
     public function deleteArticle(Article $article){
         $this->entityManager->remove($article);
+        $this->entityManager->flush();
     }
 
     public  function saveArticle(Article $article){
