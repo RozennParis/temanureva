@@ -14,21 +14,59 @@ class PaginationManager
     private $position;
     private $nbreElements;
     private $nbreElementsPerPage;
-    private $nbreMaxPage;
+    private $nbreMaxPageDisplay;
 
     public function __construct(int $position, int $nbreElement, int $nbreElementPerPage, int $nbreMaxPage){
         $this->position = $position;
         $this->nbreElements = $nbreElement;
         $this->nbreElementsPerPage = $nbreElementPerPage;
-        $this->nbreMaxPage = $nbreMaxPage;
+        $this->nbreMaxPageDisplay = $nbreMaxPage;
     }
 
+    /**
+     * Retourne le nombre de page accésible
+     * @return float
+     */
     public function getNbrePage(){
-        $nbrePage = ceil($this->nbreElements / $this->nbreElementsPerPage);
-        if($nbrePage > $this->nbreMaxPage){
-            return $nbrePage;
+        return ceil($this->nbreElements / $this->nbreElementsPerPage);
+    }
+
+    /**
+     * Retoune le nombre de page à afficher
+     * @return float|int
+     */
+    public function getNbrePageDisplay(){
+        if($this->getNbrePage() < $this->nbreMaxPageDisplay){
+            return $this->getNbrePage();
         }
-        return $nbrePage;
+        return $this->nbreMaxPageDisplay;
+    }
+
+    /**
+     *
+     * @return bool
+     */
+    public function isFirst(){
+       return ($this->position == 1);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLast(){
+        return ($this->position == $this->getNbrePage());
+    }
+
+    public function getOffset(){
+        $middle = ceil($this->nbreMaxPageDisplay/2);
+
+        if($this->position <= $middle){
+            return 1;
+        }elseif ($this->position < $this->getNbrePage()-$middle){
+            return ($this->position - $this->nbreMaxPageDisplay + $middle);
+        }else{
+            return ($this->getNbrePage() - $this->nbreMaxPageDisplay + 1);
+        }
     }
 
     /**
@@ -82,17 +120,17 @@ class PaginationManager
     /**
      * @return mixed
      */
-    public function getNbreMaxPage()
+    public function getNbreMaxPageDisplay()
     {
-        return $this->nbreMaxPage;
+        return $this->nbreMaxPageDisplay;
     }
 
     /**
-     * @param mixed $nbreMaxPage
+     * @param mixed $nbreMaxPageDisplay
      */
-    public function setNbreMaxPage($nbreMaxPage): void
+    public function setNbreMaxPageDisplay($nbreMaxPageDisplay): void
     {
-        $this->nbreMaxPage = $nbreMaxPage;
+        $this->nbreMaxPageDisplay = $nbreMaxPageDisplay;
     }
 
 

@@ -1,7 +1,13 @@
 <ul class="pagination">
-    <li><a href="#"><i class="material-icons">chevron_left</i></a></li>
-    {% for i in 1..pagination.NbrePage %}
-        <li><a href="#">{{ i }}</a></li>
+    <li {% if pagination.first %}class="disabled" {% endif %}>
+        <a href="#"><i class="material-icons">chevron_left</i></a>
+    </li>
+    {% for i in paginaion.offset..(paginaion.offset+pagination.nbrePageDisplay-1) %}
+        <li {% if paginaion.position == i%}class="active" {% endif %}>
+            <a href="#">{{ i }}</a>
+        </li>
     {% endfor %}
-    <li><a href="#"><i class="material-icons">chevron_right</i></a></li>
+    <li {% if pagination.last %}class="disabled" {% endif %}>
+        <a href="#"><i class="material-icons">chevron_right</i></a>
+    </li>
 </ul>
