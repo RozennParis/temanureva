@@ -37,11 +37,11 @@ class BlogController extends Controller
     public function blogAction($page = 1){
 
         //Requete BDD
-        $articles = $this->getDoctrine()
-            ->getRepository(Article::class)
-            ->findPublishedWithOffset(($page-1)*self::NBR_ARTICLE_BLOG,self::NBR_ARTICLE_BLOG);
+        $repository = $this->getDoctrine()->getRepository(Article::class);
+        $articles = $repository->findPublishedWithOffset(($page-1)*self::NBR_ARTICLE_BLOG,self::NBR_ARTICLE_BLOG);
+        $nbreArticle = $repository->getNumberPublishedArticle();
 
-        $pagination =  new PaginationManager($page,2,self::NBR_ARTICLE_BLOG,self::PAGINATION_DISPLAY_BLOG, 'blog');
+        $pagination =  new PaginationManager($page, $nbreArticle,self::NBR_ARTICLE_BLOG,self::PAGINATION_DISPLAY_BLOG, 'blog');
 
         return $this->render('blog/index.html.twig', [
             'articles' => $articles,
@@ -89,9 +89,16 @@ class BlogController extends Controller
             return $this->redirectToRoute('gerer-articles', ['id' => $id]);
         }
 
+        $nbreArticle = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->getNumberArticle();
+
+        $pagination =  new PaginationManager($page,$nbreArticle,self::NBR_ARTICLE_BLOG,self::PAGINATION_DISPLAY_BLOG, 'gerer-articles', ['id' => $id]);
+
         return $this->render('blog/manageBlog.html.twig', [
             'form' => $form->createView(),
-            'articles' => $articles
+            'articles' => $articles,
+            'pagination' => $pagination
         ]);
     }
 

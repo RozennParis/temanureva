@@ -51,4 +51,7 @@
             {{ form_end(form) }}
         </div>
     </div>
+    <div class="row center">
+        {{ include('common/pagination.html.twig', {'paginaion' : pagination}) }}
+    </div>
 {% endblock %}

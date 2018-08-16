@@ -59,6 +59,21 @@ class ArticleRepository extends ServiceEntityRepository
         return $qb->getResult();
     }
 
+    public function getNumberArticle(){
+        $qb = $this->createQueryBuilder('a');
+        $qb->select($qb->expr()->count('a.id'));
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    public function getNumberPublishedArticle(){
+        $qb = $this->createQueryBuilder('a');
+        $qb->where('a.status = true');
+        $qb->select($qb->expr()->count('a.id'));
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
 //    /**
 //     * @return Article[] Returns an array of Article objects
 //     */
