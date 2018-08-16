@@ -1,6 +1,8 @@
 <ul class="pagination">
     <li {% if pagination.first %}class="disabled" {% endif %}>
-        <a href="#"><i class="material-icons">chevron_left</i></a>
+        <a href="{% if not pagination.first %}{{ path(pagination.route, pagination.paramRoute|merge({'page' : (pagination.position - 1) })) }} {% endif %}">
+            <i class="material-icons">chevron_left</i>
+        </a>
     </li>
     {% for i in paginaion.offset..(paginaion.offset+pagination.nbrePageDisplay-1) %}
         <li {% if paginaion.position == i%}class="active" {% endif %}>
@@ -8,6 +10,8 @@
         </li>
     {% endfor %}
     <li {% if pagination.last %}class="disabled" {% endif %}>
-        <a href="#"><i class="material-icons">chevron_right</i></a>
+        <a href="{% if not pagination.last %} {{ path(pagination.route, pagination.paramRoute|merge({'page' : (pagination.position + 1) })) }} {% endif %}">
+            <i class="material-icons">chevron_right</i>
+        </a>
     </li>
 </ul>
