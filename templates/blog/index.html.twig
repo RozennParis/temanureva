@@ -32,4 +32,7 @@
         </div>
         {% endfor %}
     </div>
+    <div class="center-align">
+        {{ include('common/pagination.html.twig', {'paginaion' : pagination}) }}
+    </div>
 {% endblock %}

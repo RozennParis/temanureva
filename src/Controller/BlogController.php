@@ -15,6 +15,7 @@ use App\Form\AddArticleType;
 use App\Form\ArticleType;
 use App\Form\ArticleWhitoutImageType;
 use App\Service\ArticleManager;
+use App\Service\PaginationManager;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,8 +38,11 @@ class BlogController extends Controller
             ->getRepository(Article::class)
             ->findPublishedWithOffset(($page-1)*self::NBR_ARTICLE_BLOG,self::NBR_ARTICLE_BLOG);
 
+        $pagination =  new PaginationManager(5,6,self::NBR_ARTICLE_BLOG,5);
+
         return $this->render('blog/index.html.twig', [
-            'articles' => $articles
+            'articles' => $articles,
+            'pagination' => $pagination
         ]);
     }
 
