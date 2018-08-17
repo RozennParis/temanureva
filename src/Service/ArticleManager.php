@@ -47,6 +47,9 @@ class ArticleManager
     }
 
     public function deleteArticle(Article $article){
+        if($article->getImage() !== null){
+            $this->deleteImage($article);
+        }
         $this->entityManager->remove($article);
         $this->entityManager->flush();
     }
