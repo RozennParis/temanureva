@@ -17,7 +17,7 @@ var app = new Vue({
     },
     methods: {
         search (v) {
-            $('input.autocomplete').autocomplete('updateData', {});
+            // $('input.autocomplete').autocomplete('updateData', {});
             axios.get('/ajout-observation/autocomplete?dataBird='+v.target.value).then(
                 response => {
                     $('input.autocomplete').css('border-bottom', '1px solid green')
