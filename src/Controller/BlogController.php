@@ -67,9 +67,9 @@ class BlogController extends Controller
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/profil/{id}/gerer-articles/{page}", name="gerer-articles", requirements={"id"="\d+", "page"="\d+"})
+     * @Route("/profil/gerer-articles/{page}", name="gerer-articles", requirements={"page"="\d+"})
      */
-    public function manageBlogAction($id, $page = 1, ArticleManager $articleManager, Request $request){
+    public function manageBlogAction($page = 1, ArticleManager $articleManager, Request $request){
 
         //Requete BDD
         $articles = $this->getDoctrine()
@@ -86,14 +86,14 @@ class BlogController extends Controller
 
             $entityManager->persist($articleManager->getDefaultArticle());
             $entityManager->flush();
-            return $this->redirectToRoute('gerer-articles', ['id' => $id]);
+            return $this->redirectToRoute('gerer-articles');
         }
 
         $nbreArticle = $this->getDoctrine()
             ->getRepository(Article::class)
             ->getNumberArticle();
 
-        $pagination =  new PaginationManager($page,$nbreArticle,self::NBR_ARTICLE_BLOG,self::PAGINATION_DISPLAY_BLOG, 'gerer-articles', ['id' => $id]);
+        $pagination =  new PaginationManager($page,$nbreArticle,self::NBR_ARTICLE_BLOG,self::PAGINATION_DISPLAY_BLOG, 'gerer-articles');
 
         return $this->render('blog/manageBlog.html.twig', [
             'form' => $form->createView(),
@@ -104,9 +104,9 @@ class BlogController extends Controller
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/profil/{id}/article/{id_article}", name="edit-article", requirements={"id"="\d+", "id_article"="\d+"})
+     * @Route("/profil/article/{id_article}", name="edit-article", requirements={"id_article"="\d+"})
      */
-    public function editArticleAction(Request $request, ArticleManager $articleManager, $id, $id_article){
+    public function editArticleAction(Request $request, ArticleManager $articleManager, $id_article){
 
         //Requete BDD
         $article = $this->getDoctrine()
@@ -139,7 +139,7 @@ class BlogController extends Controller
             //Supprimer image
             if ($form->getClickedButton()->getName() == 'delete_image'){
                 $articleManager->deleteImage($article);
-                return $this->redirectToRoute('edit-article', ['id' => $id, 'id_article' => $id_article]);
+                return $this->redirectToRoute('edit-article', ['id_article' => $id_article]);
             }
 
             else{
@@ -159,7 +159,7 @@ class BlogController extends Controller
                 elseif ($form->getClickedButton()->getName() == 'publish'){
                     $articleManager->publishArticle($article);
                 }
-                return $this->redirectToRoute('gerer-articles', ['id' => $id]);
+                return $this->redirectToRoute('gerer-articles');
             }
         }
 
