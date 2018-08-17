@@ -3,6 +3,14 @@
 {% block title %}Article - NAO{% endblock %}
 
 {% block body %}
+    {% if article.image is null %}
+        {% set image =  'http://via.placeholder.com/750x350' %}
+    {% else %}
+        {% set image =  (image_article_directory ~ '/' ~ article.image) %}
+
+    {% endif %}
+
+    {{ include('common/header.html.twig', {'asset' : image, 'alt' : 'header_blog', 'title' : article.title}) }}
     <div class="container">
         <div class="row">
             <div class="col s12">

@@ -65,3 +65,19 @@ nav {
 .pagination li.active{
     background-color: #01796F;
 }
+
+/*---- header ----*/
+.header{
+    position: relative;
+    height: 19.68rem;
+    overflow: hidden;
+}
+
+.header-img{
+    position: absolute;
+    z-index: -1;
+}
+
+.header-text{
+    font-size: 50px;
+}

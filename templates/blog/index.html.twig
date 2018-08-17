@@ -3,6 +3,7 @@
 {% block title %}Blog - NAO{% endblock %}
 
 {% block body %}
+    {{ include('common/header.html.twig', {'asset' : 'assets/img/bg-blog.jpg', 'alt' : 'header_blog', 'title' : 'Blog'}) }}
     <div class="row">
         {% for article in articles%}
         <div class="col s4">
