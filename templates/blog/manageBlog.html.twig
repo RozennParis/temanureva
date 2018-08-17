@@ -3,6 +3,7 @@
 {% block title %}Gérer les articles - NAO{% endblock %}
 
 {% block body %}
+    {{ include('common/header.html.twig', {'title' : 'Gérer article'}) }}
     {% for i in 0..1 %}
     <div class="row">
         {% for j in 0..2%}
