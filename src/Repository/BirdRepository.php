@@ -20,12 +20,12 @@ class BirdRepository extends ServiceEntityRepository
     }
 
     /**
-    * @return Bird[] Returns an array of Bird objects
+     * @return Bird[] Returns an array of Bird objects
      */
     public function findAllByVernacularName($term)
     {
         $qb = $this->createQueryBuilder('b');
-        $qb->addSelect('b.vernacularName')
+        $qb->addSelect('b.vernacularName', 'b.lbName', 'b.id', 'b.cdRef')
             ->where('b.vernacularName LIKE :term')
             ->setParameter('term', '%' . $term . '%')
             ->orderBy('b.vernacularName', 'ASC');
@@ -33,52 +33,13 @@ class BirdRepository extends ServiceEntityRepository
         $arrayAss = $qb->getQuery()
             ->getArrayResult();
 
-        $array = [];
+        /*$array = [];
 
         foreach ($arrayAss as $data) {
-            $array[] = $data['vernacularName'];
-        }
+            $array[] = $data['vernacularName']['lbName']['id'][''];
+        }*/
 
-        return $array;
-    }
-
-
-    /*->andWhere('b.vernacularName LIKE :term')
-    ->setParameter('term', $term)
-    ->orderBy('b.vernacularName', 'ASC')
-    ->getQuery()
-    ->getArrayResult()
-;*/
-
-
-    /*
-    public function findOneBySomeField($value): ?Bird
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField LIKE :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-
-}*/
-    public function nomOiseau($term)
-    {
-        $qb = $this->createQueryBuilder('b');
-        $qb->addSelect('b.vernacularName')
-            ->where('b.vernacularName LIKE :term')
-            ->setParameter('term', '%' . $term . '%');
-
-        $arrayAss = $qb->getQuery()
-            ->getArrayResult();
-
-        $array = [];
-
-        foreach ($arrayAss as $data) {
-            $array[] = $data['vernacularName'];
-        }
-
-        return $array;
+        return $arrayAss;
     }
 }
+

@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,7 +21,7 @@ class ObservationType extends AbstractType
     {
         $builder
             //test avec autocompletion JS et Ajax
-           ->add('bird', TextType::class, [
+           ->add('bird', HiddenType::class, [
                 'label'=>'Nom de l\'espèce ',
                 'required' => false,
                 'attr' =>[
@@ -40,7 +41,7 @@ class ObservationType extends AbstractType
             ])*/
             ->add('observation_date', DatetimeType::class, [
                 'widget' => 'single_text',
-                'label' => 'Date d\'observation * ',
+                'label' => 'Date d\'observation *',
                 'format' => 'dd/MM/yyyy H:i',
                 'html5' => false,
                 'attr' => [
@@ -61,6 +62,7 @@ class ObservationType extends AbstractType
                 ],
                 'required' => false
             ])
+
         ;
     }
 

@@ -21,14 +21,14 @@ class AutocompletionController extends Controller
      */
     public function autocomplete(Request $request)
     {
-       $term =$_GET['dataBird'];
-
+        //$term = $_GET/POST ['unTruc];
+       $term = $request->request->get('motcle');
        $em = $this->getDoctrine()->getManager();
        $birdsArray = $em->getRepository(Bird::class)->findAllByVernacularName($term);
 
        return $responseBird = new JsonResponse($birdsArray);
 
-       /*$this->render('autocompletion/index.html.twig', [
+       /*return $this->render('autocompletion/index.html.twig', [
             'responseBird' => $responseBird,
             'term' => $term,
             'birdsArray' => $birdsArray,

@@ -25,6 +25,7 @@
 {% block form_label -%}
     {%- set label_attr = label_attr|merge({class: (label_attr.class|default(''))|trim}) -%}
     {{- parent() -}}
+
 {%- endblock form_label %}
 
 {% block checkbox_row -%}
@@ -103,3 +104,17 @@
         </ul>
     {%- endif -%}
 {%- endblock form_errors -%}
+
+
+{% block file_widget %}
+    <div class="file-field input-field">
+        <div class="btn">
+            <span>Image</span>
+            <input type="file">
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+        </div>
+    </div>
+
+{% endblock %}

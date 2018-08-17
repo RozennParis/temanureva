@@ -1,30 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
     <list default="true" id="bf1725d4-2cee-4012-a2ae-d5af2b70a0e8" name="Default Changelist" comment="" />
-=======
-    <list default="true" id="bf1725d4-2cee-4012-a2ae-d5af2b70a0e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-    </list>
->>>>>>> feature/authentication
-=======
-    <list default="true" id="bf1725d4-2cee-4012-a2ae-d5af2b70a0e8" name="Default Changelist" comment="" />
->>>>>>> feature/authentication
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-  </component>
-=======
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
@@ -58,50 +41,29 @@
     </expand>
     <select />
   </component>
->>>>>>> feature/authentication
   <component name="FUSProjectUsageTrigger">
     <session id="-2091412715">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="1" />
-=======
-          <entry key="project.closed" value="1" />
-=======
           <entry key="project.closed" value="5" />
->>>>>>> feature/authentication
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.29" value="2" />
           <entry key="project.open.time.3" value="1" />
-<<<<<<< HEAD
-          <entry key="project.opened" value="2" />
->>>>>>> feature/authentication
-=======
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.opened" value="7" />
->>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="8" />
           <entry key="env" value="1" />
-<<<<<<< HEAD
-          <entry key="gitignore" value="1" />
-<<<<<<< HEAD
-          <entry key="php" value="1" />
-=======
           <entry key="php" value="12" />
           <entry key="sql" value="1" />
           <entry key="twig" value="6" />
           <entry key="user" value="3" />
           <entry key="yaml" value="8" />
->>>>>>> feature/authentication
-=======
           <entry key="gitignore" value="4" />
           <entry key="jpg" value="1" />
           <entry key="js" value="5" />
@@ -110,25 +72,17 @@
           <entry key="twig" value="31" />
           <entry key="user" value="4" />
           <entry key="yaml" value="13" />
->>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="1" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <entry key="PHP" value="1" />
-          <entry key="PLAIN_TEXT" value="1" />
-=======
           <entry key="Database Element" value="3" />
           <entry key="PHP" value="12" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Scratch" value="1" />
           <entry key="Twig" value="6" />
           <entry key="YAML" value="8" />
->>>>>>> feature/authentication
-=======
           <entry key="CSS" value="8" />
           <entry key="Database Element" value="4" />
           <entry key="Image" value="1" />
@@ -138,55 +92,34 @@
           <entry key="Scratch" value="1" />
           <entry key="Twig" value="31" />
           <entry key="YAML" value="13" />
->>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="481" />
           <entry key="env" value="27" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-          <entry key="php" value="1334" />
-          <entry key="twig" value="792" />
-          <entry key="txt" value="10" />
-          <entry key="yaml" value="707" />
->>>>>>> feature/authentication
-=======
           <entry key="gitignore" value="10" />
           <entry key="js" value="214" />
           <entry key="php" value="3043" />
           <entry key="twig" value="4130" />
           <entry key="txt" value="10" />
           <entry key="yaml" value="908" />
->>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="27" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-          <entry key="PHP" value="1334" />
-          <entry key="PLAIN_TEXT" value="10" />
-          <entry key="Twig" value="792" />
-          <entry key="YAML" value="707" />
-=======
           <entry key="CSS" value="481" />
           <entry key="JavaScript" value="214" />
           <entry key="PHP" value="3043" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="Twig" value="4130" />
           <entry key="YAML" value="908" />
->>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
           <entry key="git.branch.checkout.local" value="1" />
->>>>>>> feature/authentication
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -197,12 +130,6 @@
     </session>
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
-    <leaf />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/materialize.css">
@@ -242,27 +169,17 @@
         <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
->>>>>>> feature/authentication
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.env" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        <option value="$PROJECT_DIR$/templates/front/index.html.twig" />
-        <option value="$PROJECT_DIR$/templates/back/index.html.twig" />
-=======
->>>>>>> feature/authentication
+
         <option value="$PROJECT_DIR$/src/Controller/FrontController.php" />
         <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
         <option value="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-<<<<<<< HEAD
->>>>>>> feature/authentication
-=======
         <option value="$PROJECT_DIR$/templates/front/index.html.twig" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/public/assets/css/main.css" />
@@ -277,7 +194,6 @@
         <option value="$PROJECT_DIR$/public/assets/css/materialize.css" />
         <option value="$PROJECT_DIR$/src/Controller/RegistrationController.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
->>>>>>> feature/authentication
       </list>
     </option>
   </component>
@@ -384,15 +300,6 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
-<<<<<<< HEAD
-    </include_path>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2593" />
-    <option name="y" value="27" />
-    <option name="width" value="917" />
-    <option name="height" value="789" />
-=======
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
     </include_path>
@@ -402,7 +309,6 @@
     <option name="y" value="25" />
     <option name="width" value="1032" />
     <option name="height" value="1055" />
->>>>>>> feature/authentication
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -420,9 +326,6 @@
             <path>
               <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-<<<<<<< HEAD
-              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-=======
               <item name="config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -434,22 +337,11 @@
             <path>
               <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-<<<<<<< HEAD
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
->>>>>>> feature/authentication
-=======
               <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
->>>>>>> feature/authentication
             </path>
             <path>
               <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-<<<<<<< HEAD
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-<<<<<<< HEAD
-=======
-              <item name="Controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-=======
               <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
@@ -459,7 +351,6 @@
               <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
->>>>>>> feature/authentication
             </path>
             <path>
               <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -470,12 +361,7 @@
               <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-<<<<<<< HEAD
-              <item name="Entity" type="9f88c78c:ScopeViewTreeModel$FileNode" />
->>>>>>> feature/authentication
-=======
               <item name="Controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
->>>>>>> feature/authentication
             </path>
             <path>
               <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -483,8 +369,6 @@
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="Form" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
-<<<<<<< HEAD
-=======
             <path>
               <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
@@ -502,7 +386,6 @@
               <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="security" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
->>>>>>> feature/authentication
           </expand>
           <select />
         </subPane>
@@ -532,18 +415,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-<<<<<<< HEAD
-    <property name="WebServerToolWindowFactoryState" value="false" />
-=======
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-<<<<<<< HEAD
->>>>>>> feature/authentication
-=======
     <property name="list.type.of.created.stylesheet" value="CSS" />
->>>>>>> feature/authentication
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
@@ -582,35 +458,16 @@
       <option name="presentableId" value="Default" />
       <updated>1533161896242</updated>
       <workItem from="1533161898344" duration="1439000" />
-<<<<<<< HEAD
-=======
-      <workItem from="1533244152684" duration="1695000" />
-<<<<<<< HEAD
->>>>>>> feature/authentication
-=======
       <workItem from="1533368716701" duration="501000" />
       <workItem from="1533376406501" duration="666000" />
       <workItem from="1533400376885" duration="3538000" />
       <workItem from="1533404240306" duration="9138000" />
       <workItem from="1533490172862" duration="947000" />
->>>>>>> feature/authentication
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="1874000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="1920" y="25" width="1853" height="1055" extended-state="6" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12008855" />
-=======
-    <option name="totallyTimeSpent" value="16442000" />
-=======
     <option name="totallyTimeSpent" value="50886000" />
->>>>>>> feature/authentication
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -624,12 +481,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-<<<<<<< HEAD
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553916" />
->>>>>>> feature/authentication
-=======
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16270061" />
->>>>>>> feature/authentication
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -641,15 +493,6 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32972974" />
-<<<<<<< HEAD
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.29621622" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-=======
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32972974" />
       <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49825174" visible="true" weight="0.2918919" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50174826" side_tool="true" weight="0.32864866" />
@@ -657,12 +500,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-<<<<<<< HEAD
-      <window_info anchor="right" id="Database" order="3" weight="0.20544836" />
->>>>>>> feature/authentication
-=======
       <window_info anchor="right" id="Database" order="3" weight="0.128943" />
->>>>>>> feature/authentication
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,10 +512,7 @@
         <entry key="MAIN">
           <value>
             <State>
-<<<<<<< HEAD
-=======
               <option name="SHOW_DETAILS_IN_CHANGES" value="false" />
->>>>>>> feature/authentication
               <option name="RECENTLY_FILTERED_USER_GROUPS">
                 <collection />
               </option>
@@ -709,14 +544,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20180801225321.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Migrations/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-=======
     <entry file="file://$PROJECT_DIR$/src/Migrations/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -886,6 +713,5 @@
         </state>
       </provider>
     </entry>
->>>>>>> feature/authentication
   </component>
 </project>

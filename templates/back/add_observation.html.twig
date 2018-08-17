@@ -24,11 +24,16 @@
         </p>
         {{ form_start(form) }}
         <div class="row">
+            <div class="col s6" id="observation-autocomplete">
+                <div class="input-field col s12">
+                    <input type="text" id="autocomplete-input"  @input="search" class="autocomplete">
+                    <label for="autocomplete-input">Nom de l'espèce</label>
+                </div>
+            </div>
             <div class="col s6">
                 {{ form_row(form.bird) }}
                 <div id="resultList" ></div>
             </div>
-
             <div class="col s6">
                 {{ form_row(form.location) }}
             </div>
@@ -36,15 +41,24 @@
         <div class="row">
             <div class="col s12">
                 {{ form_row(form.observation_date) }}
-                {{ form_row(form.image) }}
+                {{ form_row(form.image, {
+                    'label_attr': {'class': 'file-label'}
+                }) }}
             </div>
         </div>
-
         <button class="btn btn-connexion" type="submit"> Envoyer l'observation</button>
         {{ form_end(form) }}
     </div>
 
 
 
+
+{% endblock %}
+{% block javascript %}
+{{ parent() }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.8/jquery.autocomplete.js"></script>
+<script src="material-datetime-picker.js" charset="utf-8"></script>
 
 {% endblock %}
