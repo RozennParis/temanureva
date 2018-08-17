@@ -28,7 +28,7 @@ class PaginationManager
     }
 
     /**
-     * Retourne le nombre de page accésible
+     * Retourne le nombre de page accessible
      * @return float
      */
     public function getNbrePage(){
@@ -66,7 +66,7 @@ class PaginationManager
 
         if($this->position <= $middle){
             return 1;
-        }elseif ($this->position < $this->getNbrePage()-$middle){
+        }elseif ($this->position <= $this->getNbrePage()-$middle){
             return ($this->position - $this->nbrMaxPageDisplay + $middle);
         }else{
             return ($this->getNbrePage() - $this->nbrMaxPageDisplay + 1);
