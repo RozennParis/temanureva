@@ -15,6 +15,7 @@
 
 {% block body %}
     {{ include('common/header.html.twig', {'title' : 'Editer article'}) }}
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
     <div class="container">
         {{ form_start(form) }}
         {{ form_row(form.title) }}

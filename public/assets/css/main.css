@@ -71,6 +71,7 @@ nav {
     position: relative;
     height: 19.68rem;
     overflow: hidden;
+    margin-bottom: 0;
 }
 
 .header-img{
@@ -80,4 +81,10 @@ nav {
 
 .header-text{
     font-size: 50px;
+}
+
+/*---- breadcrumb ----*/
+.breadcrumb-bl{
+    padding: 0px 10px;
+    background-color: #725B53;
 }

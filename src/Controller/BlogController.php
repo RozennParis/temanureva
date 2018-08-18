@@ -15,7 +15,9 @@ use App\Form\AddArticleType;
 use App\Form\ArticleType;
 use App\Form\ArticleWhitoutImageType;
 use App\Service\ArticleManager;
+use App\Service\BreadcrumbManager;
 use App\Service\PaginationManager;
+use function Sodium\add;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,11 +43,18 @@ class BlogController extends Controller
         $articles = $repository->findPublishedWithOffset(($page-1)*self::NBR_ARTICLE_BLOG,self::NBR_ARTICLE_BLOG);
         $nbreArticle = $repository->getNumberPublishedArticle();
 
+        //Pagination
         $pagination =  new PaginationManager($page, $nbreArticle,self::NBR_ARTICLE_BLOG,self::PAGINATION_DISPLAY_BLOG, 'blog');
+
+        //Breadcrumb
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('blog', 'Blog');
 
         return $this->render('blog/index.html.twig', [
             'articles' => $articles,
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
     }
 
@@ -60,8 +69,15 @@ class BlogController extends Controller
             ->getRepository(Article::class)
             ->findPublishedById($id);
 
+        //Breadcrumb
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('blog', 'Blog')
+            ->add('blog-article', 'Article', array('id' => $id));
+
         return $this->render('blog/article.html.twig', [
-            'article' => $article
+            'article' => $article,
+            'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
     }
 
@@ -93,12 +109,20 @@ class BlogController extends Controller
             ->getRepository(Article::class)
             ->getNumberArticle();
 
+        //Pagination
         $pagination =  new PaginationManager($page,$nbreArticle,self::NBR_ARTICLE_BLOG,self::PAGINATION_DISPLAY_BLOG, 'gerer-articles');
+
+        //Breadcrumb
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('profil', 'Mon profil')
+            ->add('gerer-articles', 'Article');
 
         return $this->render('blog/manageBlog.html.twig', [
             'form' => $form->createView(),
             'articles' => $articles,
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
     }
 
@@ -163,8 +187,16 @@ class BlogController extends Controller
             }
         }
 
+        //Breadcrumb
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('profil', 'Mon profil')
+            ->add('gerer-articles', 'Article')
+            ->add('edit-article', 'Editer article', array('id_article' => $id_article));
+
         return $this->render('blog/editArticle.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
     }
 }

@@ -11,6 +11,7 @@
     {% endif %}
 
     {{ include('common/header.html.twig', {'asset' : image, 'alt' : 'header_blog', 'title' : article.title}) }}
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
     <div class="container">
         <div class="row">
             <div class="col s12">
