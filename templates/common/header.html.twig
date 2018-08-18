@@ -1,4 +1,4 @@
-<div class="row header valign-wrapper">
+<div class="row header {% if asset is defined %}header-w-img{% endif %} valign-wrapper">
     {% if asset is defined %}
         <div class="header-img">
             <img src="{{ asset( asset ) }}" alt="{{ alt }}" class="responsive-img">
