@@ -2,12 +2,14 @@ import axios from 'axios'
 
 require('../css/app.css');
 var app = new Vue({
+    //Initialisation  of events and cycle life
     el: '#observation-autocomplete',
-    delimiters: ['${', '}'],
+    delimiters: ['${', '}'], //To
     data: {
-        autcomplete: '',
+        autocomplete: '',
         items: []
     },
+    // Mounted represents the dom in a VueJs cycle life = instance
     mounted () {
         $('input.autocomplete').autocomplete({
             onAutocomplete: (v) => {
@@ -15,9 +17,10 @@ var app = new Vue({
             }
         });
     },
+
     methods: {
         search (v) {
-            // $('input.autocomplete').autocomplete('updateData', {});
+            $('input.autocomplete').autocomplete('updateData', {});
             axios.get('/ajout-observation/autocomplete?dataBird='+v.target.value).then(
                 response => {
                     $('input.autocomplete').css('border-bottom', '1px solid green')

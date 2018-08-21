@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ObservationRepository")
@@ -49,6 +50,7 @@ class Observation
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\
      */
     private $observer;
 
@@ -59,7 +61,8 @@ class Observation
     private $validator;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Bird")
+     * @ORM\JoinColumn(name="bird", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Bird", cascade={"persist"})
      */
     private $bird;
 
@@ -68,7 +71,6 @@ class Observation
     {
         $this->addingDate = new \DateTime();
     }
-
 
     public function getId()
     {
@@ -101,7 +103,7 @@ class Observation
 
     public function getValidationDate(): ?\DateTimeInterface
     {
-        return $this->validation_date;
+        return $this->validationDate;
     }
 
     public function setValidationDate(\DateTimeInterface $validation_date): self

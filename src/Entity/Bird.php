@@ -585,4 +585,8 @@ class Bird
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->getVernacularName(). ', ('. $this->getLbName(). ')';
+    }
 }

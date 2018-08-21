@@ -13,6 +13,7 @@
         "build": "encore production"
     },
     "dependencies": {
-        "axios": "^0.18.0"
+        "axios": "^0.18.0",
+        "material-datetime-picker": "^2.4.0"
     }
 }

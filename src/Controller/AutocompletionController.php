@@ -26,6 +26,7 @@ class AutocompletionController extends Controller
        $em = $this->getDoctrine()->getManager();
        $birdsArray = $em->getRepository(Bird::class)->findAllByVernacularName($term);
 
+       //$responseBird = new JsonResponse($birdsArray);
        return $responseBird = new JsonResponse($birdsArray);
 
        /*return $this->render('autocompletion/index.html.twig', [

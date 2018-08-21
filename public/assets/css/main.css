@@ -180,3 +180,9 @@ footer a, footer h4 {
     top: -1.75em !important;
 ;
 }
+
+/*---- Page d'ajout Observation----*/
+#map{
+    width: 66.5rem;
+    height: 42.0625rem;
+}

@@ -9,6 +9,7 @@ use App\Repository\BirdRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -32,18 +33,19 @@ class ObservationType extends AbstractType
             //test avec EntityType
            /*->add('bird', EntityType::class, [
                 'label'=>'Nom de l\'espèce ',
-                'required' => false,
                 'class' => Bird::class,
-                'choice_label' => 'vernacular_name',
                 'query_builder' => function (BirdRepository $br) {
-                    return $br->findByVernacularName($observation->getBird());
-                }
+                    return $br->createQueryBuilder('b')
+                        ->orderBy('b.vernacularName', 'ASC');
+                },
+                'choice_label' => 'vernacularName',
+                'required'=> false,
             ])*/
-            ->add('observation_date', DatetimeType::class, [
+            ->add('observation_date', DateType::class, [
                 'widget' => 'single_text',
                 'label' => 'Date d\'observation *',
-                'format' => 'dd/MM/yyyy H:i',
-                'html5' => false,
+                'format' => 'dd-MM-yyyy',
+                'html5' => true,
                 'attr' => [
                     'class' => 'datepicker'
                 ],

@@ -3,10 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Observation;
+use App\Entity\Bird;
 use App\Form\ObservationType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManagerInterface; // ??? doesn't work anymore ?
 
 
@@ -26,12 +29,10 @@ class ObservationController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $observation->setBird();
-            $observation->setObservationDate();
-            $observation->setLocation();
-            $observation->setImage();
 
             $em = $this->getDoctrine()->getManager();
+            $currentObserver = $this->getUser();
+            $observation->setObserver($curentObserver);
             $em = $this->persist($observation);
             $em = $this->flush();
 
