@@ -38,13 +38,31 @@ class BirdRepository extends ServiceEntityRepository
         return $array;
     }
 
-    public function findByVernacularName()
+    public function findByLbName()
     {
         return $qb = $this->createQueryBuilder('b')
             ->select('b')
-            ->orderBy('b.vernacularName', 'ASC')
+            ->orderBy('b.lbName', 'ASC')
             ->getQuery()
             ->getResult();
+    }
+
+    public function findByDescLbName()
+    {
+        return $qb = $this->createQueryBuilder('b')
+            ->select('b')
+            ->orderBy('b.lbName', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findByNbObservation()
+    {
+
+    }
+
+    public function findByDescNbObservertion()
+    {
 
     }
 }

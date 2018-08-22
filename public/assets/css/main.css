@@ -15,6 +15,25 @@ a {
     margin-bottom: 2.5rem;
 }
 
+.big-header h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+    font-size: 300;
+    margin: auto;
+}
+
+/*---- collapsible research ----*/
+.collapsible-header {
+    background-color: #A1887F;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.collapsible {
+    margin: 0;
+    border-color: #A1887F;
+}
+
 /*---- Navigation ----*/
 
 nav {
@@ -181,8 +200,18 @@ footer a, footer h4 {
 ;
 }
 
-/*---- Page d'ajout Observation----*/
-#map{
-    width: 66.5rem;
-    height: 42.0625rem;
+/*---- Page Especes----*/
+.big-header {
+    height: 19.6875rem;
+    width: 100%;
+    background-position: center center;
+    background-size: cover!important;
+}
+
+#species_header {
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+    ),url("../img/bg-especes.jpg");
+    background-position: center center;
 }
