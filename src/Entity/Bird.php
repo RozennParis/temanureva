@@ -42,17 +42,17 @@ class Bird
     private $family;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $cd_name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $cd_taxsup;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $cd_ref;
 
@@ -92,82 +92,89 @@ class Bird
     private $vernacular_name_eng;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Habitat")
+     */
+    private $habitat;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
+     * @
      */
     private $france;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $french_guiana;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $martinique;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $guadeloupe;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $st_martin;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $st_barthelemy;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $st_pierre_miquelon;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $mayotte;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $scattered_island;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $reunion;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $sub_antarctic_island;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $adelie_land;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $new_caledonia;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $wallis_futuna;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $french_polynesia;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
     private $clipperton;
 
@@ -176,16 +183,6 @@ class Bird
      */
     private $image;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Habitat")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $habitat;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
-     */
-    private $BiogeographicStatus;
 
     public function getId()
     {
@@ -588,15 +585,4 @@ class Bird
         return $this;
     }
 
-    public function getBiogeographicStatus(): ?BiogeographicStatus
-    {
-        return $this->BiogeographicStatus;
-    }
-
-    public function setBiogeographicStatus(?BiogeographicStatus $BiogeographicStatus): self
-    {
-        $this->BiogeographicStatus = $BiogeographicStatus;
-
-        return $this;
-    }
 }

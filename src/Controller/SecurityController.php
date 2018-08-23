@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\LoginType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,9 +17,14 @@ class SecurityController extends Controller
      */
     public function index(AuthenticationUtils $helper): Response
     {
+        $error = $helper->getLastAuthenticationError();
+        $lastUsername = $helper->getLastUsername();
+        $form = $this->createForm(LoginType::class);
+
         return $this->render('security/index.html.twig', [
-            'last_username' => $helper->getLastUsername(),
-            'error' => $helper->getLastAuthenticationError(),
+            'last_username' => $lastUsername,
+            'error' => $error,
+            'form' => $form->createView(),
         ]);
     }
 
