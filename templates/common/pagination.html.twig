@@ -1,4 +1,4 @@
-<ul class="pagination">
+<ul class="pagination margin-t margin-b">
     <li {% if pagination.first %}class="disabled" {% endif %}>
         <a href="{% if not pagination.first %}{{ path(pagination.route, pagination.paramRoute|merge({'page' : (pagination.position - 1) })) }} {% endif %}">
             <i class="material-icons">chevron_left</i>
