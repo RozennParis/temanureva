@@ -5,14 +5,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\HabitatRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\BiogeographicStatusRepository")
  */
-class Habitat
+class BiogeographicStatus
 {
     /**
      * @ORM\Id()
-     //* @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=10)
+     * //represents the biogeographic status
      */
     private $id;
 
@@ -21,9 +21,16 @@ class Habitat
      */
     private $description;
 
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
+    }
+
+    public function setId(string $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getDescription(): ?string

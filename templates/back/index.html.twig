@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="center">
+        <img src="#" alt="Photo"/>
+        <h1 class="center">{{ app.user.username }}</h1>
+        <div>
+            <a href="{{ path('ajout_observation') }}"><button class="btn btn-connexion" type="button">Ajouter une observation</button></a>
+            <a href="#"><button class="btn btn-connexion" type="button">Mes observations</button></a>
+            <br>
+            <a class="circle-homepage section scrollspy" href="#"><i class="medium material-icons">arrow_drop_down_circle</i></a>
+        </div>
+    </div>
+
+    <div>
+        <table>
+
+        </table>
+    </div>
+{% endblock %}

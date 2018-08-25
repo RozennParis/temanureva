@@ -4,10 +4,20 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraint as Assert;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(fields="email", message="Cette email est déjà utilisé")
+ * @UniqueEntity(fields="username", message="Ce nom d'utilisateur est déjà utilisé")
  */
-class User
+
+class User implements UserInterface, \Serializable
+
 {
     /**
      * @ORM\Id()
@@ -16,10 +26,11 @@ class User
      */
     private $id;
 
+
     /**
-     * @ORM\Column(type="json_array", nullable=true)
+     * @ORM\Column(type="json")
      */
-    private $role;
+    private $roles;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -47,7 +58,7 @@ class User
     private $password;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $registration_date;
 
@@ -76,21 +87,32 @@ class User
      */
     private $token_date;
 
+
     public function getId()
     {
         return $this->id;
     }
 
-    public function getRole()
+    /**
+     * @return array roles
+     */
+    public function getRoles(): array
     {
-        return $this->role;
+        $roles = $this->roles;
+
+        // In order to be sure that a user always has at least 1 role.
+        if (empty($roles)) {
+            $roles[] = 'ROLE_USER';
+        }
+        return array_unique($roles);
     }
 
-    public function setRole($role): self
+    /**
+     * @param array $roles
+     */
+    public function setRoles(array $roles): void
     {
-        $this->role = $role;
-
-        return $this;
+        $this->roles = $roles;
     }
 
     public function getLastname(): ?string
@@ -153,12 +175,12 @@ class User
         return $this;
     }
 
-    public function getRegistrationDate(): ?\DateTimeInterface
+    public function getRegistrationDate()
     {
         return $this->registration_date;
     }
 
-    public function setRegistrationDate(\DateTimeInterface $registration_date): self
+    public function setRegistrationDate($registration_date): self
     {
         $this->registration_date = $registration_date;
 
@@ -224,4 +246,26 @@ class User
 
         return $this;
     }
+
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
+    public function eraseCredentials(): void
+    {
+        // We do not need this method at the moment but it is mandatory because it is included in the UserInterface interface
+        // $this->plainPassword = null;
+    }
+
+    public function serialize(): string
+    {
+        return serialize([$this->id, $this->username, $this->password]);
+    }
+
+    public function unserialize($serialized)
+    {
+        [$this->id, $this->username, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
 }
