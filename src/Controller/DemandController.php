@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Entity\Demand;
 use App\Form\DemandType;
 use App\Service\BreadcrumbManager;
+use App\Service\DemandManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +21,7 @@ class DemandController extends Controller
     /**
      * @Route("/profil/demande", name="demand")
      */
-    public function demandAction(Request $request){
+    public function demandAction(Request $request, DemandManager $demandManager){
         //Breadcrumb
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
@@ -32,11 +33,9 @@ class DemandController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
-//            $entityManager = $this->getDoctrine()->getManager();
-//
-//            $entityManager->persist($demand);
-//            $entityManager->flush();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $demandManager->uploadFile($demand, $form->get('certificate')->getData());
+            $demandManager->setDefaultDemand($demand);
             return $this->redirectToRoute('profil');
         }
 
