@@ -31,7 +31,7 @@ class DemandManager
 
     public function setDefaultDemand(Demand $demand){
         $demand
-            ->setStatus(false)
+            ->setStatus(0)
             ->setUser($this->storage->getToken()->getUser());
         $this->entityManager->persist($demand);
         $this->entityManager->flush();

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DemandRepository")
@@ -23,6 +24,9 @@ class Demand
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\File(
+     *     mimeTypes = {"image/jpeg", "image/png", "application/pdf"},
+     *     mimeTypesMessage="Veuillez selectionner fichier au format .PDF, .PNG ou .JPEG")
      */
     private $certificate;
 
@@ -33,6 +37,7 @@ class Demand
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\Date()
      */
     private $certificate_date;
 

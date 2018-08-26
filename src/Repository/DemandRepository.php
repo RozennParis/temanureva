@@ -19,6 +19,34 @@ class DemandRepository extends ServiceEntityRepository
         parent::__construct($registry, Demand::class);
     }
 
+    public function findById($id){
+        $qb = $this->createQueryBuilder('d')
+            ->andWhere('d.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery();
+
+        return $qb->getSingleResult();
+    }
+
+    public function findWithOffset($offset, $limit){
+        $qb = $this->createQueryBuilder('d')
+            ->andWhere('d.status = false')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->orderBy('d.id', 'DESC')
+            ->getQuery();
+
+        return $qb->getResult();
+    }
+
+    public function getNumberDemand(){
+        $qb = $this->createQueryBuilder('d');
+        $qb->where('d.status = false');
+        $qb->select($qb->expr()->count('d.id'));
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
 //    /**
 //     * @return Demand[] Returns an array of Demand objects
 //     */

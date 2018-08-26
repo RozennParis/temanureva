@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande naturaliste - NAO{% endblock %}
+
+{% block body %}
+    {{ include('common/header.html.twig', {'title' : 'Demande naturaliste'}) }}
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
+    <div class="row container">
+        {% for demand in demands %}
+            <div class="col s12 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="http://via.placeholder.com/750x350" alt="photo_profil">
+                    </div>
+                    <div class="card-content center">
+                        <div class="card-title">NOM Prenom</div>
+                        <p>Demande envoyé le XX/XX/XXXX</p>
+                    </div>
+                    <div class="center card-action">
+                        <a href="{{ path('certify-demand', {'id': demand.id}) }}" class="btn btn-round btn-teal">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="center-align">
+        {{ include('common/pagination.html.twig', {'paginaion' : pagination}) }}
+    </div>
+{% endblock %}
