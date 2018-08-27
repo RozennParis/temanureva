@@ -276,6 +276,14 @@ nav {
     border: #01796F 4px solid;
 }
 
+.link-teal a{
+    color: #01796F;
+}
+
+.link-teal a:hover{
+    color: #01796F;
+}
+
 .padding-15{
     padding: 15px;
 }
