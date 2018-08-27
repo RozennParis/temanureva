@@ -314,6 +314,10 @@ nav {
 
 footer {
     background-color: #01796F;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 footer a, footer h4 {
