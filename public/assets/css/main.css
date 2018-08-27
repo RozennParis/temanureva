@@ -244,18 +244,40 @@ nav {
     background-color: #645955;
 }
 
+/*---- modal ----*/
+.modal-footer{
+    text-align: center !important;
+}
+
 /*---- article ----*/
 .mce-tinymce{
     margin: 15px 0 !important;
 }
 
+/*---- certifié ----*/
+.title-certify{
+    font-size: 40px;
+}
+
 /*---- commun ----*/
-.margin-t, .container{
+.container{
+    padding-top: 2.5rem;
+}
+
+.margin-t{
     margin-top: 2.5rem;
 }
 
 .margin-b{
     margin-bottom: 2.5rem;
+}
+
+.border-teal{
+    border: #01796F 4px solid;
+}
+
+.padding-15{
+    padding: 15px;
 }
 
 /*---- button ----*/

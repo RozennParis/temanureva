@@ -30,10 +30,9 @@ class DemandRepository extends ServiceEntityRepository
 
     public function findWithOffset($offset, $limit){
         $qb = $this->createQueryBuilder('d')
-            ->andWhere('d.status = false')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
-            ->orderBy('d.id', 'DESC')
+            ->orderBy('d.submit_date', 'DESC')
             ->getQuery();
 
         return $qb->getResult();
@@ -41,7 +40,6 @@ class DemandRepository extends ServiceEntityRepository
 
     public function getNumberDemand(){
         $qb = $this->createQueryBuilder('d');
-        $qb->where('d.status = false');
         $qb->select($qb->expr()->count('d.id'));
 
         return $qb->getQuery()->getSingleScalarResult();

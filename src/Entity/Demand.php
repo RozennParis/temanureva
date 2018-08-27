@@ -18,11 +18,6 @@ class Demand
     private $id;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $status;
-
-    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\File(
      *     mimeTypes = {"image/jpeg", "image/png", "application/pdf"},
@@ -42,6 +37,12 @@ class Demand
     private $certificate_date;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $submit_date;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -50,18 +51,6 @@ class Demand
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getStatus(): ?bool
-    {
-        return $this->status;
-    }
-
-    public function setStatus(bool $status): self
-    {
-        $this->status = $status;
-
-        return $this;
     }
 
     public function getCertificate(): ?string
@@ -96,6 +85,18 @@ class Demand
     public function setCertificateDate(\DateTimeInterface $certificate_date): self
     {
         $this->certificate_date = $certificate_date;
+
+        return $this;
+    }
+
+    public function getSubmitDate(): ?\DateTimeInterface
+    {
+        return $this->submit_date;
+    }
+
+    public function setSubmitDate(\DateTimeInterface $submit_date): self
+    {
+        $this->submit_date = $submit_date;
 
         return $this;
     }

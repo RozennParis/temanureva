@@ -29,11 +29,22 @@ class DemandManager
         $this->storage = $storage;
     }
 
+
     public function setDefaultDemand(Demand $demand){
         $demand
-            ->setStatus(0)
+            ->setSubmitDate(new \DateTime())
             ->setUser($this->storage->getToken()->getUser());
         $this->entityManager->persist($demand);
+        $this->entityManager->flush();
+    }
+
+    public function certified(Demand $demand){
+        $demand->getUser()->setRoles(['ROLE_NATURALIST']);
+    }
+
+    public function deleteDemand(Demand $demand){
+        $this->deleteFile($demand);
+        $this->entityManager->remove($demand);
         $this->entityManager->flush();
     }
 

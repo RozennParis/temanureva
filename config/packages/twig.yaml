@@ -6,3 +6,4 @@ twig:
         - 'materialize_layout.html.twig'
     globals:
         image_article_directory: '%image_article_directory%'
+        demand_file_directory: '%demand_file_directory%'

@@ -4,6 +4,62 @@
 {% block title %}Demande naturaliste - NAO{% endblock %}
 
 {% block body %}
-    {{ include('common/header.html.twig', {'title' : 'Demande naturaliste'}) }}
-    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
+    <div class="grey lighten-3">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m8 offset-m2 xl6 offset-xl3">
+                    <div class="row center">
+                        <div class="col s10 offset-s1 m6 offset-m3 xl6 offset-xl3">
+                            <img src="http://via.placeholder.com/500x500" alt="photo_profil" class="responsive-img circle">
+                        </div>
+                    </div>
+                    <div class="row center margin-b margin-t title-certify">
+                        NOM Prenom
+                    </div>
+                    <div class="row padding-15 border-teal white">
+                        <p><b>Numéro d'état :</b> {{ demand.nbCertificate }}</p>
+                        <p><b>Date d'obtention :</b> {{ demand.certificateDate|date("d/m/Y") }}</p>
+                        <p><b>Copie de l'attestation :</b> <a href="{{ demand_file_directory }}/{{ demand.certificate }}" target="_blank">Lien</a></p>
+                    </div>
+                </div>
+                {{ form_start(form) }}
+                <div class="col s12">
+                    <div class="center margin-t margin-b">
+                        <a href="#modal_accept" class="btn-round btn btn-brown modal-trigger">Valider la demande</a>
+                        <a href="#modal_decline" class="btn-round btn btn-brown modal-trigger">Refuser</a>
+                    </div>
+                </div>
+
+                <div id="modal_accept" class="modal">
+                    <div class="modal-content">
+                        <p class="center">Voulez vous vraiment certifier ce dossier ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        {{ form_widget(form.accept, { 'attr' : { 'class' : 'btn-round btn-teal'}}) }}
+                        <a href="#" class="modal-close btn btn-flat btn-round">Annuler</a>
+                    </div>
+                </div>
+
+                <div id="modal_decline" class="modal">
+                    <div class="modal-content">
+                        <p class="center">Voulez-vous vraiment refuser ce dossier ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        {{ form_widget(form.decline, { 'attr' : { 'class' : 'btn-round btn-teal'}}) }}
+                        <a href="#" class="modal-close btn btn-flat btn-round">Annuler</a>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+        });
+    </script>
 {% endblock %}

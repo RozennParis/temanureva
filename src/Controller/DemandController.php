@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Entity\Demand;
+use App\Form\CertifyType;
 use App\Form\DemandType;
 use App\Service\BreadcrumbManager;
 use App\Service\DemandManager;
@@ -85,15 +86,28 @@ class DemandController extends Controller
      * @Route("/profil/certification/{id}", name="certify-demand", requirements={"id"="\d+"})
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function cetifyDemandAction(){
-        //Breadcrumb
-        $breadcrumb = new BreadcrumbManager();
-        $breadcrumb
-            ->add('profil', 'Mon profil')
-            ->add('certify-demand', 'Demande naturaliste');
+    public function cetifyDemandAction($id, Request $request, DemandManager $demandManager){
+
+        $demand = $this->getDoctrine()
+            ->getRepository(Demand::class)
+            ->findById($id);
+
+        $form = $this->createForm(CertifyType::class, $demand);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+            if ($form->getClickedButton()->getName() == 'accept'){
+                $demandManager->certified($demand);
+            }
+            elseif ($form->getClickedButton()->getName() == 'decline'){
+            }
+            $demandManager->deleteDemand($demand);
+            return $this->redirectToRoute('waiting-demand');
+        }
 
         return $this->render('demand/certifyDemand.html.twig', [
-            'breadcrumb' => $breadcrumb->getBreadcrumb()
+            'form' => $form->createView(),
+            'demand' => $demand
         ]);
     }
 }
