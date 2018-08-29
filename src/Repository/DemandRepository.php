@@ -45,6 +45,16 @@ class DemandRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    public function countByID($id){
+        $qb = $this->createQueryBuilder('d')
+            ->innerJoin('d.user', 'u')
+            ->where('u.id = :id')
+            ->setParameter('id', $id);
+        $qb->select($qb->expr()->count('d.id'));
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
 //    /**
 //     * @return Demand[] Returns an array of Demand objects
 //     */

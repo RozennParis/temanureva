@@ -38,7 +38,9 @@
             </nav>
         </div>
     {% endblock %}
-    {% block body %}{% endblock %}
+    <main>
+        {% block body %}{% endblock %}
+    </main>
     {% block javascripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="{{ asset('assets/js/main.js') }}"></script>
@@ -48,27 +50,27 @@
     {% block footer %}
         <footer class="row center padding-bottom">
             <div>
-                <div class="col s3 center">
+                <div class="col m3 center">
                     <h4>Réseaux sociaux</h4>
                     <div class="icone">
                         <img src="{{ asset('assets/img/logo_bouton_fb.png') }}" alt="Facebook">
                         <img src="{{ asset('assets/img/logo_instagram.png') }}" alt="Facebook">
                     </div>
                 </div>
-                <div class="col s2 center">
+                <div class="col m2 center">
                     <h4>Qui sommes-nous ?</h4>
                     <a href="#">Association</a>
                 </div>
-                <div class="col s2 center">
+                <div class="col m2 center">
                     <h4>Foire aux questions</h4>
                     <a href="#">FAQ</a>
                 </div>
-                <div class="col s2 center">
+                <div class="col m2 center">
                     <h4>Newsletter</h4>
                     <input type="email" placeholder="Inscrivez-vous à la Newsletter">
                     <button class="btn btn-homepage">S'inscrire</button>
                 </div>
-                <div class="col s3 center">
+                <div class="col m3 center">
                     <h4>Informations juridiques</h4>
                     <a href="#">Mentions légales</a>
                 </div>

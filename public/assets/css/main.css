@@ -1,5 +1,15 @@
 /*---- Général ----*/
 
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main{
+    flex: 1 0 auto;
+}
+
 .ariane {
     background-color: rgba(45, 30, 23, 0.78);
 }
@@ -223,6 +233,9 @@ nav {
         height: 19.68rem;
         min-width: 100%;
     }
+    .header{
+        border-bottom: 1px black solid;
+    }
 }
 
 
@@ -314,10 +327,7 @@ nav {
 
 footer {
     background-color: #01796F;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
 }
 
 footer a, footer h4 {

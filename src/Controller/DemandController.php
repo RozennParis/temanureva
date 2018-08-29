@@ -45,7 +45,17 @@ class DemandController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $demandManager->uploadFile($demand, $form->get('certificate')->getData());
             $demandManager->setDefaultDemand($demand);
-            return $this->redirectToRoute('profil');
+//            return $this->redirectToRoute('profil');
+        }
+
+        $alreadySubmit= $this->getDoctrine()
+            ->getRepository(Demand::class)
+            ->countByID($this->getUser()->getId());
+
+        if($alreadySubmit > 0){
+            return $this->render('demand/alreadySubmit.html.twig', [
+                'breadcrumb' => $breadcrumb->getBreadcrumb()
+            ]);
         }
 
         return $this->render('demand/demand.html.twig', [
@@ -100,6 +110,7 @@ class DemandController extends Controller
                 $demandManager->certified($demand);
             }
             elseif ($form->getClickedButton()->getName() == 'decline'){
+                $demandManager->decline($demand);
             }
             $demandManager->deleteDemand($demand);
             return $this->redirectToRoute('waiting-demand');

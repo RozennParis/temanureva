@@ -19,13 +19,15 @@ class DemandManager
     private $entityManager;
     private $fileManager;
     private $storage;
+    private $mail;
     private $targetDirectory;
 
-    public function __construct(EntityManagerInterface $entityManager, FileManager $fileManager, TokenStorageInterface $storage ,$directory)
+    public function __construct(EntityManagerInterface $entityManager, FileManager $fileManager, TokenStorageInterface $storage, MailManager $mail ,$directory)
     {
         $this->entityManager = $entityManager;
         $this->fileManager = $fileManager;
         $this->targetDirectory = $directory;
+        $this->mail = $mail;
         $this->storage = $storage;
     }
 
@@ -36,10 +38,16 @@ class DemandManager
             ->setUser($this->storage->getToken()->getUser());
         $this->entityManager->persist($demand);
         $this->entityManager->flush();
+        $this->mail->sendDemandWaiting($demand);
     }
 
     public function certified(Demand $demand){
         $demand->getUser()->setRoles(['ROLE_NATURALIST']);
+        $this->mail->sendDemandAccept($demand);
+    }
+
+    public function decline(Demand $demand){
+        $this->mail->sendDemandDecline($demand);
     }
 
     public function deleteDemand(Demand $demand){
