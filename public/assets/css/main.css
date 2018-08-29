@@ -305,6 +305,8 @@ nav {
 .btn-brown{
     background: linear-gradient(#a1887f, #514440);
     border: 3px solid #514340;
+    font-weight: bold;
+    height: 3.12rem;
 }
 
 .btn-teal{

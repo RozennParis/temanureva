@@ -38,6 +38,12 @@ class MailManager
         $this->mailer->send($message);
     }
 
+    /**
+     * @param Demand $demand
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function sendDemandWaiting(Demand $demand){
         $to = $demand->getUser()->getEmail();
         $subject = 'Votre demande pour devenir naturaliste';
@@ -47,6 +53,12 @@ class MailManager
         $this->send($to, $subject, $body);
     }
 
+    /**
+     * @param Demand $demand
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function sendDemandAccept(Demand $demand){
         $to = $demand->getUser()->getEmail();
         $subject = 'Votre demande a été accepter';
@@ -56,11 +68,32 @@ class MailManager
         $this->send($to, $subject, $body);
     }
 
+    /**
+     * @param Demand $demand
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function sendDemandDecline(Demand $demand){
         $to = $demand->getUser()->getEmail();
         $subject = 'Votre demande a été refusé';
         $body = $this->template->render('mail/demandDecline.html.twig', [
             'demand' => $demand
+        ]);
+        $this->send($to, $subject, $body);
+    }
+
+    /**
+     * @param User $user
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function sendReInitialize(User $user){
+        $to = $user->getEmail();
+        $subject = 'Demande de ré-initialisation du mot de passe';
+        $body = $this->template->render('mail/password.html.twig',[
+            'user' => $user
         ]);
         $this->send($to, $subject, $body);
     }
