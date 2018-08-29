@@ -10,6 +10,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Observation
 {
+    const NO_VALIDATED = false;
+    const VALIDATED = true;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -35,12 +38,17 @@ class Observation
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $location;
+    private $latitude;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $longitude;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $status;
+    private $status = self::NO_VALIDATED;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -50,7 +58,6 @@ class Observation
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\
      */
     private $observer;
 
@@ -62,7 +69,7 @@ class Observation
 
     /**
      * @ORM\JoinColumn(name="bird", referencedColumnName="id")
-     * @ORM\ManyToOne(targetEntity="App\Entity\Bird", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Bird", cascade={"persist"}, )
      */
     private $bird;
 
@@ -113,14 +120,26 @@ class Observation
         return $this;
     }
 
-    public function getLocation(): ?string
+    public function getLatitude(): ?string
     {
-        return $this->location;
+        return $this->latitude;
     }
 
-    public function setLocation(string $location): self
+    public function setLatitude(string $latitude): self
     {
-        $this->location = $location;
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?string
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(string $longitude): self
+    {
+        $this->longitude = $longitude;
 
         return $this;
     }

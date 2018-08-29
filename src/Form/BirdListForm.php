@@ -47,18 +47,6 @@ class BirdListForm extends AbstractType
                  'required'=> false,
              ])*/
 
-            ->add('location', TextType::class, [
-                'label' => 'Lieu d\'observation *',
-                'required' => true,
-                // implementation of OpenStreetMap TODO
-            ])
-            ->add('image', FileType::class, [
-                'label' => 'Image de l\'observation',
-                'attr' => [
-                    'class' => 'file-field input-field'
-                ],
-                'required' => false
-            ])
 
         ;
     }

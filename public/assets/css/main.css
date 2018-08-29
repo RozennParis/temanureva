@@ -27,6 +27,9 @@ a {
     background-color: #A1887F;
     margin: 0;
     color: #FFFFFF;
+    text-align: center;
+    border-bottom: #A1887F;
+
 }
 
 .collapsible {
@@ -214,4 +217,12 @@ footer a, footer h4 {
             rgba(0, 0, 0, 0.5)
     ),url("../img/bg-especes.jpg");
     background-position: center center;
+}
+
+/*---- Map----*/
+
+#map{
+    height: 42.0625rem;
+    width: 66.5rem;
+    margin: auto;
 }

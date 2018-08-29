@@ -2,7 +2,7 @@
 var lat = 48.852969;
 var lon = 2.349903;
 var macarte = null;
-var myMarker= null;
+var myMarker = null;
 // Fonction d'initialisation de la carte
 function initMap() {
     // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
@@ -14,16 +14,12 @@ function initMap() {
         minZoom: 1,
         maxZoom: 20
     }).addTo(macarte);
+
+    myMarker = L.marker([lat, lon]).addTo(macarte);
 }
 
-function addMarker(){
-    myMarker = L.Marker([lat, lon, {
-        draggable: true,
-    }]).addTo(map);
-}
 
 window.onload = function(){
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
     initMap();
-    addMarker();
 };

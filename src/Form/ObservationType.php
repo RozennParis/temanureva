@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Form\DataTransformer\BirdToStringTransformer;
 use App\Entity\Observation;
 use App\Entity\Bird;
 use Doctrine\ORM\EntityRepository;
@@ -18,6 +19,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ObservationType extends AbstractType
 {
+    private $transformer;
+
+    public function __construct(BirdToStringTransformer $transformer)
+    {
+        $this->transformer = $transformer;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -38,7 +46,6 @@ class ObservationType extends AbstractType
                     return $br->createQueryBuilder('b')
                         ->orderBy('b.vernacularName', 'ASC');
                 },
-                'choice_label' => 'vernacularName',
                 'required'=> false,
             ])*/
             ->add('observation_date', DateType::class, [
@@ -52,11 +59,18 @@ class ObservationType extends AbstractType
                 'required' => true
 
             ])
-            ->add('location', TextType::class, [
-                'label' => 'Lieu d\'observation *',
+
+            ->add('latitude', TextType::class, [
+                'label' => 'Latitude d\'observation *',
                 'required' => true,
-                // implementation of OpenStreetMap TODO
+                // implementation of OpenStreetMap aaahTODO
             ])
+            ->add('longitude', TextType::class, [
+                'label' => 'Longitude d\'observation *',
+                'required' => true,
+                // implementation of OpenStreetMap aaahTODO
+            ])
+
             ->add('image', FileType::class, [
                 'label' => 'Image de l\'observation',
                 'attr' => [
@@ -66,6 +80,9 @@ class ObservationType extends AbstractType
             ])
 
         ;
+
+            $builder ->get('bird')
+                ->addModelTransformer($this->transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver)
