@@ -184,3 +184,72 @@ footer a, footer h4 {
     height: 31.25rem;
 }
 
+/*---- card custom ----*/
+
+.card-custom{
+    padding: 5px 10px !important;
+    margin: 10px;
+}
+
+.card-blog .card-image{
+    height: 20em;
+    overflow: hidden;
+}
+
+.card-blog img{
+    height: 20em;
+    min-width: 100%;
+    width: auto !important;
+}
+
+.height-img{
+    height: 250px;
+    max-width: 100%;
+}
+
+/*---- pagination ----*/
+.pagination li.active{
+    background-color: #01796F;
+}
+
+/*---- header ----*/
+.header{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.header-w-img{
+    height: 19.68rem;
+}
+
+@media only screen and (max-width: 600px){
+    .header-w-img img{
+        height: 19.68rem;
+        min-width: 100%;
+    }
+}
+
+
+.header-img{
+    position: absolute;
+    z-index: -1;
+    filter: brightness(50%);
+}
+
+.header-text{
+    font-family: "Roboto Mono Light", serif;
+    font-size: 50px;
+    margin: 2.5rem 0;
+}
+
+/*---- breadcrumb ----*/
+.breadcrumb-bl{
+    padding: 0px 10px;
+    background-color: #645955;
+}
+
+/*---- commun ----*/
+.margin-t, .container{
+    margin-top: 20px;
+}

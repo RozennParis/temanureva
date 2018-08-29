@@ -4,3 +4,5 @@ twig:
     strict_variables: '%kernel.debug%'
     form_themes:
         - 'materialize_layout.html.twig'
+    globals:
+        image_article_directory: '%image_article_directory%'

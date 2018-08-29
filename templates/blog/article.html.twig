@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article - NAO{% endblock %}
+
+{% block body %}
+    {% if article.image is null %}
+        {% set image =  'http://via.placeholder.com/750x350' %}
+    {% else %}
+        {% set image =  (image_article_directory ~ '/' ~ article.image) %}
+
+    {% endif %}
+
+    {{ include('common/header.html.twig', {'asset' : 'assets/img/bg-blog.jpg', 'alt' : 'header_blog', 'title' : article.title}) }}
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="center">
+                    <img src="
+                        {% if article.image is null %}
+                            http://via.placeholder.com/750x350
+                        {% else %}
+                            {{ image_article_directory }}/{{ article.image }}
+                        {% endif %}
+                    " alt="article_" class="responsive-img">
+                </div>
+                <div>
+                    {{ article.content|raw }}
+                </div>
+                <p class="center">{{ article.user.lastname }} {{ article.user.firstname }} - {{ article.publishingDate|date("d/m/Y") }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

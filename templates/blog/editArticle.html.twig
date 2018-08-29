@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'materialize_layout.html.twig' %}
+
+{% block title %}Éditer article - NAO{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/tinymce/tinymce.min.js') }}"></script>
+    <script>
+        tinymce.init({
+            selector:'.tinymce',
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    {{ include('common/header.html.twig', {'title' : 'Editer article'}) }}
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.content) }}
+        {% if form.image is defined %}
+            {{ form_widget(form.image) }}
+        {% endif %}
+        {% if form.delete_image is defined %}
+            {{ form_widget(form.delete_image) }}
+        {% endif %}
+
+        <div class="row center">
+            {% if form.publish is defined %}
+                {{ form_widget(form.publish) }}
+            {% endif %}
+            {{ form_widget(form.save) }}
+            {{ form_widget(form.delete) }}
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
