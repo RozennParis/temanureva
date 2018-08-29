@@ -17,22 +17,19 @@ use Symfony\Component\HttpFoundation\Response;
 class AutocompletionController extends Controller
 {
     /**
-     * @Route("/ajout-observation/autocomplete", name="autocomplete", methods={"GET", "POST"})
+     * @Route("/autocomplete", name="autocomplete", methods={"GET", "POST"})
      */
     public function autocomplete(Request $request)
     {
-        //$term = $_GET/POST ['unTruc];
-       $term = $request->request->get('motcle');
+       $term = $request->request->get('dataBird');
        $em = $this->getDoctrine()->getManager();
        $birdsArray = $em->getRepository(Bird::class)->findAllByVernacularName($term);
 
-       //$responseBird = new JsonResponse($birdsArray);
-       return $responseBird = new JsonResponse($birdsArray);
+       $responseBird = new JsonResponse($birdsArray);
 
-       /*return $this->render('autocompletion/index.html.twig', [
-            'responseBird' => $responseBird,
-            'term' => $term,
-            'birdsArray' => $birdsArray,
-        ]);*/
+        //$responseBird->headers->set('Content-Type', 'application/json');
+
+        return $responseBird;
+
     }
 }

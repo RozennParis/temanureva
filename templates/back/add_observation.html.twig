@@ -19,7 +19,10 @@
             </div>
         </nav>
     </div>
+
+    <div id="map"></div>
     <div class="container center">
+
         <p>
             *Champs obligatoires
         </p>
@@ -27,18 +30,20 @@
         <div class="row">
             <div class="col s6" id="observation-autocomplete">
                 <div class="input-field col s12">
-                    <input type="text" id="autocomplete-input"  @input="search" class="autocomplete">
+                    <input type="text" id="autocomplete-input"  @input="search" class="autocomplete" autocomplete="off">
                     <label for="autocomplete-input">Nom de l'espèce</label>
                 </div>
             </div>
             <div class="col s6">
                 {{ form_row(form.bird) }}
+            
             </div>
+
             <div class="col s6">
-                {{ form_row(form.location) }}
+                {{ form_row(form.latitude) }}
+                {{ form_row(form.longitude) }}
             </div>
-          <!--<div id="map">
-            </div>-->
+
         </div>
         <div class="row">
             <div class="col s12">

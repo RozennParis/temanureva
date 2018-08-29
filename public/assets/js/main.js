@@ -19,4 +19,12 @@ $(document).ready(function(){
             weekdaysAbbrev: ["D", "L", "M", "M", "J", "V", "S"]
         }
     });
+
+    $(document).ready(function(){
+        $('select').formSelect();
+    });
+
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+    });
 });

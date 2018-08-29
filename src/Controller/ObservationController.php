@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Doctrine\ORM\EntityManagerInterface; // ??? doesn't work anymore ?
+use Doctrine\ORM\EntityManagerInterface;
 
 
 
@@ -21,10 +21,11 @@ class ObservationController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function addObservation(Request $request)
+    public function addObservation(Request $request, EntityManagerInterface $em)
     {
         $observation = new Observation();
         $form = $this->createForm(ObservationType::class, $observation);
+
 
         $form->handleRequest($request);
 
@@ -32,9 +33,9 @@ class ObservationController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $currentObserver = $this->getUser();
-            $observation->setObserver($curentObserver);
-            $em = $this->persist($observation);
-            $em = $this->flush();
+            $observation->setObserver($currentObserver);
+            $em->persist($observation);
+            $em->flush();
 
             return $this->redirectToRoute('mes_observations');
         }
