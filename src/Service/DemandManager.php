@@ -42,7 +42,9 @@ class DemandManager
     }
 
     public function certified(Demand $demand){
-        $demand->getUser()->setRoles(['ROLE_NATURALIST']);
+        if($demand->getUser()->getRoles() == ['ROLE_PARTICULAR']){
+            $demand->getUser()->setRoles(['ROLE_NATURALIST']);
+        }
         $this->mail->sendDemandAccept($demand);
     }
 
