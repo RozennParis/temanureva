@@ -120,7 +120,7 @@ class Observation
 
     public function setValidationDate(\DateTimeInterface $validation_date): self
     {
-        $this->validationDate = $validationDate;
+        $this->validationDate = $validation_date;
 
         return $this;
     }
