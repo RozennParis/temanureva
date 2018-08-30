@@ -336,6 +336,10 @@ nav {
     color: black;
 }
 
+.lighter{
+    font-weight: 300;
+}
+
 .padding-15{
     padding: 15px;
 }
