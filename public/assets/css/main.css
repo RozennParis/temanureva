@@ -223,6 +223,24 @@ footer a, footer h4 {
 
 #map{
     height: 42.0625rem;
-    width: 66.5rem;
+    max-width: 66.5rem;
+    margin: auto;
+}
+
+#observation-map {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: none;
+    margin: auto;
+    background-color: #FFFFFF;
+}
+
+#bloc-map {
+    padding: 0;
+    height: 42.0625rem;
+    max-width: 66.5rem;
     margin: auto;
 }

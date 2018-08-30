@@ -15,11 +15,25 @@ function initMap() {
         maxZoom: 20
     }).addTo(macarte);
 
-    myMarker = L.marker([lat, lon]).addTo(macarte);
+    myMarker = L.marker([lat, lon], {draggable: true}, {autoPan: true}, {interactive: true}).addTo(macarte);
 }
 
 
 window.onload = function(){
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
     initMap();
+    myMarker.getLatLng();
+    console.log(myMarker.getLatLng());
+    myMarker.on('dragend', function(e) {
+        console.log('myMarker dragend event');
+        var newCoordonates = myMarker.getLatLng();
+        console.log(myMarker.getLatLng());
+        console.log(newCoordonates.lat);
+        $('#observation_latitude').val(newCoordonates.lat);
+        $('#observation_longitude').val(newCoordonates.lng);
+
+    });
+
+
 };
+

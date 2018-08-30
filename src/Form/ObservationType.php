@@ -60,13 +60,19 @@ class ObservationType extends AbstractType
 
             ])
 
+            ->add('address', TextType::class, [
+                'label' => 'Adresse',
+                'required' => false,
+                // implementation of OpenStreetMap aaahTODO
+            ])
+
             ->add('latitude', TextType::class, [
-                'label' => 'Latitude d\'observation *',
+                'label' => 'Latitude',
                 'required' => true,
                 // implementation of OpenStreetMap aaahTODO
             ])
             ->add('longitude', TextType::class, [
-                'label' => 'Longitude d\'observation *',
+                'label' => 'Longitude',
                 'required' => true,
                 // implementation of OpenStreetMap aaahTODO
             ])

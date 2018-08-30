@@ -20,11 +20,15 @@ $(document).ready(function(){
         }
     });
 
-    $(document).ready(function(){
-        $('select').formSelect();
+    $('.modal').modal();
+
+    $('.collapsible').collapsible();
+
+    $('#location-input').click(function(){
+        $('#observation-map').show();
     });
 
-    $(document).ready(function(){
-        $('.collapsible').collapsible();
+    $('#hide').click(function(){
+        $('#observation-map').hide();
     });
 });
