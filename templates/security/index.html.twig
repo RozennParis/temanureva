@@ -24,22 +24,29 @@
 <div class="container">
     <br/>
     <div class="row">
-        <form action="{{ path('security_login') }}" method="post" class="col s12">
-        <div class="col s6">
-            <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Nom d'utilisateur"/>
-        </div>
-        <div class="col s6">
-            <input type="password" id="password" name="_password" placeholder="Mot de passe"/>
-        </div>
-            <br/>
-            <div class="center">
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        {{ form_start(form, {'action': path('security_login'), 'method': 'POST'}) }}
+            <div class="form-group row">
+                <div class="col s6">
+                    {{ form_row(form._username) }}
+                </div>
+                <div class="col s6">
+                    {{ form_row(form._password) }}
+                </div>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
-                <button class="btn btn-connexion" type="submit">Valider</button>
+                <div class="center">
+                    <button class="btn btn-connexion" type="submit">Valider</button>
+                </div>
+
             </div>
-        </form>
+
+
+        {{ form_end(form) }}
     </div>
     <div class="center">
-        <a href="#">Mot de passe oublié</a>
+        <a href="{{ path('forget-password') }}">Mot de passe oublié</a>
         <br/>
         <a href="{{ path('user_registration') }}">S'inscrire</a>
     </div>

@@ -14,7 +14,7 @@ security:
         main:
             # all urls for this firewalls
             pattern: ^/
-
+            provider: database_users
             anonymous: true
 
             form_login:
@@ -26,6 +26,8 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 # Default page after login success
                 default_target_path: profil
+                #username_parameter: _username
+                #password_parameter: _password
 
             logout:
                 # the road where the disconnection process is
@@ -43,6 +45,9 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-         - { path: ^/profil, roles: [ROLE_PARTICULAR, ROLE_NATURALIST, ROLE_EDITOR, ROLE_ADMIN] }
+         - { path: ^/profil/naturalistes-attente, roles: ROLE_ADMIN}
+         - { path: ^/profil/certification, roles: ROLE_ADMIN}
+         - { path: ^/profil/demande, roles: [ROLE_PARTICULAR, ROLE_ADMIN]}
          - { path: ^/profil/gerer-articles, roles: [ROLE_EDITOR, ROLE_ADMIN] }
+         - { path: ^/profil, roles: [ROLE_PARTICULAR, ROLE_NATURALIST, ROLE_EDITOR, ROLE_ADMIN] }
         # - { path: ^/profile, roles: ROLE_USER }

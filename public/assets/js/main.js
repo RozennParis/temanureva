@@ -7,6 +7,9 @@ $(document).ready(function(){
     $('.scrollspy').scrollSpy({
         scrollOffset: 1000,
     });
+
+    $('.collapsible').collapsible();
+
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy',
         yearRange: 100,

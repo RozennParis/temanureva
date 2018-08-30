@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    public_directory: '%kernel.project_dir%/public'
+    image_article_directory: '/assets/img/articles'
+    demand_file_directory: '/assets/files/demand'
 
 services:
     # default configuration for services in *this* file
@@ -29,3 +32,12 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\FileManager:
+        arguments:
+            $public_directory: '%public_directory%'
+    App\Service\ArticleManager:
+        arguments:
+            $directory: '%image_article_directory%'
+    App\Service\DemandManager:
+            arguments:
+                $directory: '%demand_file_directory%'

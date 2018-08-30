@@ -1,0 +1,14 @@
+<div class="row header {% if asset is defined %}header-w-img{% endif %} valign-wrapper">
+    {% if asset is defined %}
+        <div class="header-img">
+            <img src="{{ asset( asset ) }}" alt="{{ alt }}" class="responsive-img">
+        </div>
+    {% endif %}
+    <div class="header-text center-align col s12">
+        {% if asset is defined %}
+            <span class="white-text center">{{ title }}</span>
+        {% else %}
+            <span class="center">{{ title }}</span>
+        {% endif %}
+    </div>
+</div>

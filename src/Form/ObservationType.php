@@ -17,8 +17,10 @@ class ObservationType extends AbstractType
         $builder
             ->add('bird', TextType::class, [
                 'label'=>'Nom de l\'espèce ',
-                'required' => false
-                //autocomplete TODO
+                'required' => false,
+                'attr' =>[
+                    'class' => 'bird_research'
+                ]
             ])
             ->add('observation_date', DatetimeType::class, [
                 'widget' => 'single_text',

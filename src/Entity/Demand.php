@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DemandRepository")
@@ -17,12 +18,10 @@ class Demand
     private $id;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $status;
-
-    /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\File(
+     *     mimeTypes = {"image/jpeg", "image/png", "application/pdf"},
+     *     mimeTypesMessage="Veuillez selectionner fichier au format .PDF, .PNG ou .JPEG")
      */
     private $certificate;
 
@@ -33,8 +32,15 @@ class Demand
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\Date()
      */
     private $certificate_date;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $submit_date;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
@@ -45,18 +51,6 @@ class Demand
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getStatus(): ?bool
-    {
-        return $this->status;
-    }
-
-    public function setStatus(bool $status): self
-    {
-        $this->status = $status;
-
-        return $this;
     }
 
     public function getCertificate(): ?string
@@ -91,6 +85,18 @@ class Demand
     public function setCertificateDate(\DateTimeInterface $certificate_date): self
     {
         $this->certificate_date = $certificate_date;
+
+        return $this;
+    }
+
+    public function getSubmitDate(): ?\DateTimeInterface
+    {
+        return $this->submit_date;
+    }
+
+    public function setSubmitDate(\DateTimeInterface $submit_date): self
+    {
+        $this->submit_date = $submit_date;
 
         return $this;
     }

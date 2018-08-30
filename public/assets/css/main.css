@@ -1,5 +1,15 @@
 /*---- Général ----*/
 
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main{
+    flex: 1 0 auto;
+}
+
 .ariane {
     background-color: rgba(45, 30, 23, 0.78);
 }
@@ -13,6 +23,10 @@ a {
 
 .margin-bottom {
     margin-bottom: 2.5rem;
+}
+
+.collapsible-header {
+    background-color: #aa7d70;
 }
 
 /*---- Navigation ----*/
@@ -154,6 +168,158 @@ nav {
     background-color: #4CAF50;
 }
 
+/*---- card custom ----*/
+
+.card-custom{
+    padding: 5px 10px !important;
+    margin: 10px;
+}
+
+.card-author{
+    margin: 15px 0 !important;
+}
+
+.card-blog .card-title{
+    height: 5rem;
+}
+
+.card-blog{
+    height: 49.5rem;
+}
+
+.card-blog .card-image{
+    height: 20em;
+    overflow: hidden;
+}
+
+.card-blog .card-action{
+    border-top: none;
+}
+
+.card-blog .card-bottom{
+    position: absolute;
+    bottom: 20px;
+}
+
+.card-blog img{
+    height: 20em;
+    min-width: 100%;
+    width: auto !important;
+}
+
+.height-img{
+    height: 250px;
+    max-width: 100%;
+}
+
+/*---- pagination ----*/
+.pagination li.active{
+    background-color: #01796F;
+}
+
+/*---- header ----*/
+.header{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.header-w-img{
+    height: 19.68rem;
+}
+
+@media only screen and (max-width: 600px){
+    .header-w-img img{
+        height: 19.68rem;
+        min-width: 100%;
+    }
+    .header{
+        border-bottom: 1px black solid;
+    }
+}
+
+
+.header-img{
+    position: absolute;
+    z-index: -1;
+    filter: brightness(50%);
+}
+
+.header-text{
+    font-family: "Roboto Mono Light", serif;
+    font-size: 50px;
+    margin: 2.5rem 0;
+}
+
+/*---- breadcrumb ----*/
+.breadcrumb-bl{
+    padding: 0 10px;
+    background-color: #645955;
+}
+
+/*---- modal ----*/
+.modal-footer{
+    text-align: center !important;
+}
+
+/*---- article ----*/
+.mce-tinymce{
+    margin: 15px 0 !important;
+}
+
+/*---- certifié ----*/
+.title-certify{
+    font-size: 40px;
+}
+
+/*---- commun ----*/
+.container{
+    padding-top: 2.5rem;
+}
+
+.margin-t{
+    margin-top: 2.5rem;
+}
+
+.margin-b{
+    margin-bottom: 2.5rem;
+}
+
+.border-teal{
+    border: #01796F 4px solid;
+}
+
+.link-teal a{
+    color: #01796F;
+}
+
+.link-teal a:hover{
+    color: #01796F;
+}
+
+.padding-15{
+    padding: 15px;
+}
+
+/*---- button ----*/
+.btn-brown{
+    background: linear-gradient(#a1887f, #514440);
+    border: 3px solid #514340;
+    font-weight: bold;
+    height: 3.12rem;
+}
+
+.btn-teal{
+    background: #01796F;
+}
+
+.btn-round{
+    border-radius: 100px;
+    min-width: 14.3rem;
+    margin: 0 1.25rem;
+    text-transform: none;
+}
+
 /*---- Footer ----*/
 
 .icone img {
@@ -163,6 +329,7 @@ nav {
 
 footer {
     background-color: #01796F;
+    width: 100%;
 }
 
 footer a, footer h4 {
@@ -173,3 +340,10 @@ footer a, footer h4 {
 .padding-bottom {
     padding-bottom: 2.25rem;
 }
+
+/*---- Map ----*/
+
+#map {
+    height: 31.25rem;
+}
+

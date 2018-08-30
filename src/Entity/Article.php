@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -18,6 +19,7 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max="255", groups={"whitout_image"})
      */
     private $title;
 
@@ -32,7 +34,7 @@ class Article
     private $status;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $publishing_date;
 
@@ -43,6 +45,9 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\File(
+     *     mimeTypes = {"image/jpeg", "image/png"},
+     *     mimeTypesMessage="Veuillez selectionner une image .PNG ou .JPEG")
      */
     private $image;
 
@@ -98,7 +103,7 @@ class Article
         return $this->publishing_date;
     }
 
-    public function setPublishingDate(\DateTimeInterface $publishing_date): self
+    public function setPublishingDate(?\DateTimeInterface $publishing_date): self
     {
         $this->publishing_date = $publishing_date;
 

@@ -1,0 +1,10 @@
+<nav class="hide-on-med-and-down">
+    <div class="nav-wrapper">
+        <div class="col s12 breadcrumb-bl">
+            <a href="{{ path('homepage') }}" class="breadcrumb">Accueil</a>
+            {% for link in breadcrumb %}
+                <a {% if not loop.last %}href="{{ path(link.route, link.parameters) }}"{% endif %} class="breadcrumb">{{ link.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</nav>

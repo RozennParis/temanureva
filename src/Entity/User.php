@@ -12,8 +12,8 @@ use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity(fields="email", message="Cette email est déjà utilisé")
- * @UniqueEntity(fields="username", message="Ce nom d'utilisateur est déjà utilisé")
+ * @UniqueEntity(fields="email", message="Cette email est déjà utilisé", groups={"registration"})
+ * @UniqueEntity(fields="username", message="Ce nom d'utilisateur est déjà utilisé", groups={"registration"})
  */
 
 class User implements UserInterface, \Serializable
@@ -78,7 +78,7 @@ class User implements UserInterface, \Serializable
     private $gender;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $token;
 
@@ -223,12 +223,12 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
-    public function getToken(): ?int
+    public function getToken(): ?string
     {
         return $this->token;
     }
 
-    public function setToken(?int $token): self
+    public function setToken(?string $token): self
     {
         $this->token = $token;
 
