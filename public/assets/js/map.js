@@ -15,11 +15,37 @@ function initMap() {
         maxZoom: 20
     }).addTo(macarte);
 
-    myMarker = L.marker([lat, lon]).addTo(macarte);
+    myMarker = L.marker([lat, lon], {draggable: true}, {interactive: true}).addTo(macarte);
 }
 
 
 window.onload = function(){
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
     initMap();
+
+    /**
+     * function to retrieve geographical coordinates
+     */
+    myMarker.on('dragend', function(e) {
+        var newCoordinates = myMarker.getLatLng();
+        $('#observation_latitude').val(newCoordinates.lat);
+        $('#observation_longitude').val(newCoordinates.lng);
+        $('#location-input').val(newCoordinates.lat + '/ ' + newCoordinates.lng);
+    });
+
+    /**
+     * to show the map when user clicks into the location-input
+     */
+    $('#location-input').click(function(){
+        $('#observation-map').show();
+        macarte.invalidateSize();
+    });
+
+    /**
+     * to hide map when user clicks on button "validate" below the map
+     */
+    $('#hide').click(function(){
+        $('#observation-map').hide();
+    });
 };
+

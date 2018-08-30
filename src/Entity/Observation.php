@@ -46,6 +46,11 @@ class Observation
     private $longitude;
 
     /**
+     * not to be registered in the db
+     */
+    private $address;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $status = self::NO_VALIDATED;
@@ -144,6 +149,17 @@ class Observation
         return $this;
     }
 
+    public function getAddress(): ?string
+    {
+        return $this->latitude;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
     public function getStatus(): ?bool
     {
         return $this->status;
