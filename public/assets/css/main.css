@@ -308,6 +308,10 @@ nav {
     min-height: 93vh;
 }
 
+.full-width{
+    width: 100%;
+}
+
 .margin-t{
     margin-top: 2.5rem;
 }

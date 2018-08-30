@@ -4,9 +4,9 @@
 
 {% block body %}
     <div class="valign-wrapper grey lighten-3 border-teal-bottom full-height padding-top padding-bottom">
-        <div class="center-block">
+        <div class="center-block full-width">
             <div class="row">
-                <div class="col offset-s2 s8 offset-l4 l4">
+                <div class="col offset-s2 s8 offset-l5 l2">
                     <img src="{% if user.image is same as(null) %}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{% endif %}" alt="Photo_profil" class="responsive-img circle"/>
                 </div>
             </div>
