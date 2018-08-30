@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bf1725d4-2cee-4012-a2ae-d5af2b70a0e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ObservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ObservationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ObservationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ObservationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/add_observation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/back/add_observation.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,13 +135,13 @@
         <counts>
           <entry key="babelrc" value="5" />
           <entry key="console" value="1" />
-          <entry key="css" value="14" />
+          <entry key="css" value="15" />
           <entry key="jpg" value="9" />
-          <entry key="js" value="40" />
+          <entry key="js" value="41" />
           <entry key="json" value="4" />
           <entry key="map" value="1" />
           <entry key="md" value="1" />
-          <entry key="php" value="75" />
+          <entry key="php" value="76" />
           <entry key="png" value="4" />
           <entry key="svg" value="1" />
           <entry key="twig" value="22" />
@@ -155,12 +150,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="14" />
+          <entry key="CSS" value="15" />
           <entry key="Image" value="13" />
           <entry key="JSON" value="9" />
-          <entry key="JavaScript" value="40" />
+          <entry key="JavaScript" value="41" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="76" />
+          <entry key="PHP" value="77" />
           <entry key="SVG" value="1" />
           <entry key="SourceMap" value="1" />
           <entry key="Twig" value="22" />
@@ -172,7 +167,7 @@
           <entry key="babelrc" value="6" />
           <entry key="css" value="760" />
           <entry key="dummy" value="10" />
-          <entry key="js" value="3333" />
+          <entry key="js" value="3376" />
           <entry key="php" value="3814" />
           <entry key="twig" value="1411" />
           <entry key="yaml" value="303" />
@@ -182,7 +177,7 @@
         <counts>
           <entry key="CSS" value="760" />
           <entry key="JSON" value="6" />
-          <entry key="JavaScript" value="3334" />
+          <entry key="JavaScript" value="3377" />
           <entry key="PHP" value="3814" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="Twig" value="1410" />
@@ -211,6 +206,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="19" column="9" lean-forward="true" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/datetimepicker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="520">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/back/add_observation.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="464">
@@ -220,33 +233,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/addObservationMap.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/js/map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="728">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="52">
+              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/js/datetimepicker.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/js/main.js">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="442">
+              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -329,8 +328,8 @@
         <option value="$PROJECT_DIR$/templates/back/add_observation.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/ObservationType.php" />
         <option value="$PROJECT_DIR$/src/Controller/ObservationController.php" />
-        <option value="$PROJECT_DIR$/public/assets/js/main.js" />
         <option value="$PROJECT_DIR$/public/assets/js/map.js" />
+        <option value="$PROJECT_DIR$/public/assets/js/main.js" />
         <option value="$PROJECT_DIR$/public/assets/js/datetimepicker.js" />
       </list>
     </option>
@@ -496,6 +495,13 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="temanureva" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -648,12 +654,12 @@
       <workItem from="1535364799146" duration="8943000" />
       <workItem from="1535443054236" duration="14047000" />
       <workItem from="1535524226056" duration="24472000" />
-      <workItem from="1535612048267" duration="25517000" />
+      <workItem from="1535612048267" duration="30170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246100000" />
+    <option name="totallyTimeSpent" value="250753000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -690,7 +696,7 @@
       <window_info anchor="right" id="Database" order="3" weight="0.1281198" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2633073" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23570521" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -703,7 +709,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32949308" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32949308" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4953868" visible="true" weight="0.31118882" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4953868" visible="true" weight="0.31118882" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5046132" side_tool="true" weight="0.3100233" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32972974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -746,13 +752,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Service/FileManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
@@ -959,20 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/addObservationMap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="238" column="1" selection-start-line="238" selection-start-column="1" selection-end-line="238" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Observation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2407">
@@ -1000,13 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/back/add_observation.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ObservationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
@@ -1017,20 +995,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/FileManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="65" lean-forward="true" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/addObservationMap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/back/add_observation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="494">
+          <caret line="19" column="9" lean-forward="true" selection-end-line="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/datetimepicker.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="520">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>

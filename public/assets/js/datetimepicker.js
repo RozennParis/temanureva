@@ -1,12 +1,5 @@
 $(document).ready(function(){
-    $('.slider').slider({
-        interval: 2000,
-        height: 864,
-        indicators: false,
-    });
-    $('.scrollspy').scrollSpy({
-        scrollOffset: 1000,
-    });
+
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy',
         yearRange: 100,
@@ -17,16 +10,16 @@ $(document).ready(function(){
             weekdays: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
             weekdaysShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
             weekdaysAbbrev: ["D", "L", "M", "M", "J", "V", "S"]
-        }
+        },
+        maxDate: "today",
     });
 
     $('.timepicker').timepicker({
-        twelveHour: false;
+        twelveHour: false,
     });
 
-    
 
-    $('.collapsible').collapsible();
+
 
 
 });
