@@ -1,20 +1,71 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="center">
-        <img src="#" alt="Photo"/>
-        <h1 class="center">{{ app.user.username }}</h1>
-        <div>
-            <a href="{{ path('ajout_observation') }}"><button class="btn btn-connexion" type="button">Ajouter une observation</button></a>
-            <a href="#"><button class="btn btn-connexion" type="button">Mes observations</button></a>
-            <br>
-            <a class="circle-homepage section scrollspy" href="#"><i class="medium material-icons">arrow_drop_down_circle</i></a>
+    <div class="valign-wrapper grey lighten-4 border-teal-bottom full-height padding-top padding-bottom">
+        <div class="center-block">
+            <div class="row">
+                <div class="col offset-s2 s8 offset-l3 l6">
+                    <img src="{% if app.user.image is same as(null) %}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{% endif %}" alt="Photo" class="responsive-img circle"/>
+                </div>
+            </div>
+            <div class="row">
+                <h1 class="center">{{ app.user.username }}</h1>
+            </div>
+            <div class="row center-align">
+                <a href="{{ path('ajout_observation') }}" class="btn btn-round btn-brown">Ajouter observation</a>
+                <a href="#" class="btn btn-round btn-brown">Mes observations</a>
+            </div>
+            <div class="row center-align">
+                <a class="section scrollspy link-black" href="#"><i class="medium material-icons">expand_more</i></a>
+            </div>
         </div>
     </div>
 
-    <div>
-        <table>
+    <div class="row margin-t">
+        <div class="col s12 l4">
+            <div class="card-panel card-profile">
+                <div class="card-title valign-wrapper ">
+                    <h5 class="center-block">
+                        Présentation
+                    </h5>
+                </div>
+                <div class="card-content">
+                    <div class="col s12">{{ app.user.lastname|upper }} {{ app.user.firstname }}</div>
+                    <div class="col s12">{{ app.user.email }}</div>
+                    <div class="col s12">Né le {{ app.user.dateOfBirth|date("d/m/Y") }}</div>
+                    <div class="col s12">{{ app.user.gender }}</div>
+                    <div class="col s12">Inscrit le {{ app.user.registrationDate|date("d/m/Y") }}</div>
+                </div>
+            </div>
+        </div>
 
-        </table>
+        <div class="col s12 l4">
+            <div class="card-panel card-profile">
+                <div class="card-title valign-wrapper">
+                    <h5 class="center-block">
+                        Dernière activité
+                    </h5>
+                </div>
+                <div class="card-content">
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 l4">
+            <div class="card-panel card-profile">
+                <div class="card-title valign-wrapper">
+                    <h5 class="center-block">
+                        Validation d'espèce
+                    </h5>
+                </div>
+                <div class="card-content">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row center margin-t margin-b">
+        <a href="#" class="btn btn-round btn-brown">Modifier le profil</a>
+        <a href="#" class="btn btn-round btn-brown">Demande naturlaiste</a>
+        <a href="#" class="btn btn-round btn-brown">Déconnexion</a>
     </div>
 {% endblock %}

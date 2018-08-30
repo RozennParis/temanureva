@@ -168,6 +168,12 @@ nav {
     background-color: #4CAF50;
 }
 
+/*---- profile ----*/
+.border-teal-bottom{
+    border-bottom: #01796F 4px solid;
+
+}
+
 /*---- card custom ----*/
 
 .card-custom{
@@ -210,6 +216,27 @@ nav {
 .height-img{
     height: 250px;
     max-width: 100%;
+}
+
+/*---- card-profile ----*/
+.card-profile{
+    padding: unset;
+}
+
+.card-profile .card-title{
+    background-color: #a1887f;
+    font-weight: l;
+    color: white;
+    height: 5rem;
+}
+
+.card-profile .card-content{
+    height: 15rem;
+    color: #807e7f;
+}
+
+.card-profile .card-content .col{
+    padding-top: 18px !important;
 }
 
 /*---- pagination ----*/
@@ -277,6 +304,10 @@ nav {
     padding-top: 2.5rem;
 }
 
+.full-height{
+    min-height: 93vh;
+}
+
 .margin-t{
     margin-top: 2.5rem;
 }
@@ -295,6 +326,14 @@ nav {
 
 .link-teal a:hover{
     color: #01796F;
+}
+
+.link-black a, a[class*="link-black"]{
+    color: black;
+}
+
+.link-black a:hover, a[class*="link-black"]:hover{
+    color: black;
 }
 
 .padding-15{
