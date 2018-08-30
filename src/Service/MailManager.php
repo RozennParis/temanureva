@@ -89,10 +89,25 @@ class MailManager
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function sendReInitialize(User $user){
+    public function sendReinitializeProcess(User $user){
         $to = $user->getEmail();
         $subject = 'Demande de ré-initialisation du mot de passe';
         $body = $this->template->render('mail/password.html.twig',[
+            'user' => $user
+        ]);
+        $this->send($to, $subject, $body);
+    }
+
+    /**
+     * @param User $user
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function sendReinitializeNotification(User $user){
+        $to = $user->getEmail();
+        $subject = 'Notification : mot de passe modifié';
+        $body = $this->template->render('mail/passwordConfimation.html.twig',[
             'user' => $user
         ]);
         $this->send($to, $subject, $body);
