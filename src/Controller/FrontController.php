@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Form\ExploSearchType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -19,11 +20,18 @@ class FrontController extends Controller
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/profil", name="profil")
+     * @Route("/profil/{id}", name="profil", requirements={"page"="\d+"})
      */
-    public function connectedInterface()
+    public function connectedInterface($id = -1)
     {
-        return $this->render('back/index.html.twig');
+        //J'ai doullé de ouf
+        if($id === -1){
+            return $this->redirectToRoute('profil',['id' => $this->getUser()->getId()]);
+        }
+
+        $user = $this->getDoctrine()->getRepository(User::class)->findById($id);
+
+        return $this->render('back/index.html.twig', ['user' => $user]);
     }
 
     /**

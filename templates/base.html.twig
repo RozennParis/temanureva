@@ -27,7 +27,7 @@
                         <li><a href="{{ path('blog') }}">Blog</a></li>
                         <li><a href="#">Nous contacter</a></li>
                         {% if is_granted(['ROLE_PARTICULAR', 'ROLE_NATURALIST', 'ROLE_EDITOR', 'ROLE_ADMIN'])  %}
-                            <li><a href="{{ path('profil') }}">Mon profil</a></li>
+                            <li><a href="{{ path('profil', {'id': app.user.id}) }}">Mon profil</a></li>
                             <li><a href="{{ path('security_logout') }}">Se déconnecter</a></li>
                         {% else %}
                             <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>

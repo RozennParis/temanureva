@@ -1,29 +1,32 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Profil - NAO{% endblock %}
+
 {% block body %}
     <div class="valign-wrapper grey lighten-3 border-teal-bottom full-height padding-top padding-bottom">
         <div class="center-block">
             <div class="row">
                 <div class="col offset-s2 s8 offset-l4 l4">
-                    <img src="{% if app.user.image is same as(null) %}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{% endif %}" alt="Photo" class="responsive-img circle"/>
+                    <img src="{% if user.image is same as(null) %}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{% endif %}" alt="Photo_profil" class="responsive-img circle"/>
                 </div>
             </div>
             <div class="row">
-                <h1 class="center lighter">{{ app.user.username }}</h1>
+                <h1 class="center lighter">{{ user.username }}</h1>
             </div>
-            <div class="row center-align">
-                {% if is_granted('ROLE_PARTICULAR') or is_granted('ROLE_EDITOR') or is_granted('ROLE_ADMIN')%}
-                    <a href="{{ path('ajout_observation') }}" class="btn btn-round btn-brown">Ajouter observation</a>
-                    <a href="#" class="btn btn-round btn-brown">Mes observations</a>
-                {% endif %}
-                {% if is_granted('ROLE_ADMIN') %}
-                    <a href="#" class="btn btn-round btn-brown">Observation en attente</a>
-                {% endif %}
-                {% if is_granted('ROLE_EDITOR') or is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('gerer-articles') }}" class="btn btn-round btn-brown">Gérer les articles</a>
-                {% endif %}
-
-            </div>
+            {% if app.user.id is same as(user.id) %}
+                <div class="row center-align">
+                    {% if is_granted('ROLE_PARTICULAR') or is_granted('ROLE_EDITOR') or is_granted('ROLE_ADMIN')%}
+                        <a href="{{ path('ajout_observation') }}" class="btn btn-round btn-brown">Ajouter observation</a>
+                        <a href="#" class="btn btn-round btn-brown">Mes observations</a>
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="#" class="btn btn-round btn-brown">Observation en attente</a>
+                    {% endif %}
+                    {% if is_granted('ROLE_EDITOR') or is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('gerer-articles') }}" class="btn btn-round btn-brown">Gérer les articles</a>
+                    {% endif %}
+                </div>
+            {% endif %}
             <div class="row center-align">
                 <a class="section scrollspy link-black" href="#"><i class="medium material-icons">expand_more</i></a>
             </div>
@@ -39,11 +42,11 @@
                     </h5>
                 </div>
                 <div class="card-content">
-                    <div class="col s12">{{ app.user.lastname|upper }} {{ app.user.firstname }}</div>
-                    <div class="col s12">{{ app.user.email }}</div>
-                    <div class="col s12">Né le {{ app.user.dateOfBirth|date("d/m/Y") }}</div>
-                    <div class="col s12">{{ app.user.gender }}</div>
-                    <div class="col s12">Inscrit le {{ app.user.registrationDate|date("d/m/Y") }}</div>
+                    <div class="col s12">{{ user.lastname|upper }} {{ user.firstname }}</div>
+                    <div class="col s12">{{ user.email }}</div>
+                    <div class="col s12">Né le {{ user.dateOfBirth|date("d/m/Y") }}</div>
+                    <div class="col s12">{{ user.gender }}</div>
+                    <div class="col s12">Inscrit le {{ user.registrationDate|date("d/m/Y") }}</div>
                 </div>
             </div>
         </div>
@@ -72,18 +75,20 @@
             </div>
         </div>
     </div>
-    <div class="row center margin-t margin-b">
-        <a href="{{ path('modify-profile') }}" class="btn btn-round btn-brown">Modifier le profil</a>
-        {% if is_granted('ROLE_PARTICULAR') %}
-            <a href="{{ path('demand') }}" class="btn btn-round btn-brown">Demande naturlaiste</a>
-        {% endif %}
-        {% if is_granted('ROLE_NATURALIST') %}
-            <a href="#" class="btn btn-round btn-brown">Observation en attente</a>
-        {% endif %}
-        {% if is_granted('ROLE_ADMIN') %}
-            <a href="#" class="btn btn-round btn-brown">Gérer Utilisateur </a>
-            <a href="{{ path('waiting-demand') }}" class="btn btn-round btn-brown">Certifier un naturlaiste</a>
-        {% endif %}
-        <a href="#" class="btn btn-round btn-brown">Déconnexion</a>
-    </div>
+    {% if app.user.id is same as(user.id) %}
+        <div class="row center margin-t margin-b">
+            <a href="{{ path('modify-profile') }}" class="btn btn-round btn-brown">Modifier le profil</a>
+            {% if is_granted('ROLE_PARTICULAR') %}
+                <a href="{{ path('demand') }}" class="btn btn-round btn-brown">Demande naturlaiste</a>
+            {% endif %}
+            {% if is_granted('ROLE_NATURALIST') %}
+                <a href="#" class="btn btn-round btn-brown">Observation en attente</a>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="#" class="btn btn-round btn-brown">Gérer Utilisateur </a>
+                <a href="{{ path('waiting-demand') }}" class="btn btn-round btn-brown">Certifier un naturlaiste</a>
+            {% endif %}
+            <a href="#" class="btn btn-round btn-brown">Déconnexion</a>
+        </div>
+    {% endif %}
 {% endblock %}
