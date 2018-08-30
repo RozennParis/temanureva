@@ -3,12 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ObservationRepository")
  */
 class Observation
 {
+    const NO_VALIDATED = false;
+    const VALIDATED = true;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -19,27 +23,37 @@ class Observation
     /**
      * @ORM\Column(type="datetime")
      */
-    private $observation_date;
+    private $observationDate;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $adding_date;
+    private $addingDate;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $validation_date;
+    private $validationDate;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $location;
+    private $latitude;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $longitude;
+
+    /**
+     * not to be registered in the db
+     */
+    private $address;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $status;
+    private $status = self::NO_VALIDATED;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -59,9 +73,16 @@ class Observation
     private $validator;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Bird")
+     * @ORM\JoinColumn(name="bird", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Bird", cascade={"persist"}, )
      */
     private $bird;
+
+
+    public function __construct()
+    {
+        $this->addingDate = new \DateTime();
+    }
 
     public function getId()
     {
@@ -70,52 +91,75 @@ class Observation
 
     public function getObservationDate(): ?\DateTimeInterface
     {
-        return $this->observation_date;
+        return $this->observationDate;
     }
 
-    public function setObservationDate(\DateTimeInterface $observation_date): self
+    public function setObservationDate(\DateTimeInterface $observationDate): self
     {
-        $this->observation_date = $observation_date;
+        $this->observationDate = $observationDate;
 
         return $this;
     }
 
     public function getAddingDate(): ?\DateTimeInterface
     {
-        return $this->adding_date;
+        return $this->addingDate;
     }
 
-    public function setAddingDate(\DateTimeInterface $adding_date): self
+    public function setAddingDate(\DateTimeInterface $addingDate): self
     {
-        $this->adding_date = $adding_date;
+        $this->addingDate = $addingDate;
 
         return $this;
     }
 
     public function getValidationDate(): ?\DateTimeInterface
     {
-        return $this->validation_date;
+        return $this->validationDate;
     }
 
     public function setValidationDate(\DateTimeInterface $validation_date): self
     {
-        $this->validation_date = $validation_date;
+        $this->validationDate = $validationDate;
 
         return $this;
     }
 
-    public function getLocation(): ?string
+    public function getLatitude(): ?string
     {
-        return $this->location;
+        return $this->latitude;
     }
 
-    public function setLocation(string $location): self
+    public function setLatitude(string $latitude): self
     {
-        $this->location = $location;
+        $this->latitude = $latitude;
 
         return $this;
     }
 
+    public function getLongitude(): ?string
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(string $longitude): self
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->latitude;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
     public function getStatus(): ?bool
     {
         return $this->status;

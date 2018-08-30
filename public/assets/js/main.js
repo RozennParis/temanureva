@@ -22,4 +22,11 @@ $(document).ready(function(){
             weekdaysAbbrev: ["D", "L", "M", "M", "J", "V", "S"]
         }
     });
+
+    $('.timepicker').timepicker({
+        twelveHour: false,
+    });
+
+    $('.collapsible').collapsible();
+
 });
