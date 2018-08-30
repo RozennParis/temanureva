@@ -19,7 +19,7 @@
     {% endblock %}
 </head>
 <body>
-    {% block navigation %}
+{% block navigation %}
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper">
@@ -27,7 +27,7 @@
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="{{ path('homepage') }}">Accueil</a></li>
                         <li><a href="{{ path('exploration') }}">Exploration</a></li>
-                        <li><a href="#">Espèces</a></li>
+                        <li><a href="{{ path('oiseaux') }}">Espèces</a></li>
                         <li><a href="{{ path('blog') }}">Blog</a></li>
                         <li><a href="#">Nous contacter</a></li>
                         {% if is_granted(['ROLE_PARTICULAR', 'ROLE_NATURALIST', 'ROLE_EDITOR', 'ROLE_ADMIN'])  %}
@@ -41,23 +41,6 @@
                 </div>
             </nav>
         </div>
-{% block navigation %}
-    <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="{{ path('homepage') }}" class="brand-logo"><img src="{{ asset('assets/img/Logo_NAO_png_3.png') }}" alt="Logo" class="logo"></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{ path('homepage') }}">Accueil</a></li>
-                    <li><a href="#">Exploration</a></li>
-                    <li><a href="{{ path('oiseaux') }}">Espèces</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Nous contacter</a></li>
-                    <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>
-                    <li><a href="#"><i class="material-icons">search</i></a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
 {% endblock %}
 {% block body %}{% endblock %}
 {% block footer %}
