@@ -24,7 +24,7 @@
                         <li><a href="{{ path('homepage') }}">Accueil</a></li>
                         <li><a href="{{ path('exploration') }}">Exploration</a></li>
                         <li><a href="#">Espèces</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="{{ path('blog') }}">Blog</a></li>
                         <li><a href="#">Nous contacter</a></li>
                         {% if is_granted(['ROLE_PARTICULAR', 'ROLE_NATURALIST', 'ROLE_EDITOR', 'ROLE_ADMIN'])  %}
                             <li><a href="{{ path('profil') }}">Mon profil</a></li>
