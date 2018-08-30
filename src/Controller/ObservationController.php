@@ -35,7 +35,7 @@ class ObservationController extends Controller
             $currentObserver = $this->getUser();
             $observation->setObserver($currentObserver);
             $em->persist($observation);
-            $em->flush();
+            //$em->flush();
 
             return $this->redirectToRoute('mes_observations');
         }

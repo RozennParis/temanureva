@@ -20,15 +20,10 @@ $(document).ready(function(){
         }
     });
 
-    $('.modal').modal();
+    $('.timepicker').timepicker({
+        twelveHour: false,
+    });
 
     $('.collapsible').collapsible();
 
-    $('#location-input').click(function(){
-        $('#observation-map').show();
-    });
-
-    $('#hide').click(function(){
-        $('#observation-map').hide();
-    });
 });
