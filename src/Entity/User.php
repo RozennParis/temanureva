@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(fields="email", message="Cette email est déjà utilisé", groups={"registration"})
- * @UniqueEntity(fields="username", message="Ce nom d'utilisateur est déjà utilisé")
+ * @UniqueEntity(fields="username", message="Ce nom d'utilisateur est déjà utilisé", groups={"registration"})
  */
 
 class User implements UserInterface, \Serializable
@@ -56,8 +56,6 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=255)
      */
     private $password;
-
-    private $confirmPassword;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -175,22 +173,6 @@ class User implements UserInterface, \Serializable
         $this->password = $password;
 
         return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getConfirmPassword()
-    {
-        return $this->confirmPassword;
-    }
-
-    /**
-     * @param mixed $confirmPassword
-     */
-    public function setConfirmPassword($confirmPassword): void
-    {
-        $this->confirmPassword = $confirmPassword;
     }
 
     public function getRegistrationDate()
