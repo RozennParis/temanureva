@@ -19,6 +19,15 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+    public function findById($id){
+        $qb = $this->createQueryBuilder('u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery();
+
+        return $qb->getOneOrNullResult();
+    }
+
     public function findByEmail($email){
         $qb = $this->createQueryBuilder('u')
             ->andWhere('u.email = :email')
