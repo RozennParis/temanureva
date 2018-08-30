@@ -73,7 +73,7 @@
         </div>
     </div>
     <div class="row center margin-t margin-b">
-        <a href="#" class="btn btn-round btn-brown">Modifier le profil</a>
+        <a href="{{ path('modify-profile') }}" class="btn btn-round btn-brown">Modifier le profil</a>
         {% if is_granted('ROLE_PARTICULAR') %}
             <a href="{{ path('demand') }}" class="btn btn-round btn-brown">Demande naturlaiste</a>
         {% endif %}
