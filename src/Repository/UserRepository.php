@@ -28,6 +28,17 @@ class UserRepository extends ServiceEntityRepository
         return $qb->getOneOrNullResult();
     }
 
+    public function findByEmailAndToken($email, $token){
+        $qb = $this->createQueryBuilder('u')
+            ->andWhere('u.email = :email')
+            ->andWhere('u.token = :token')
+            ->setParameter('email', $email)
+            ->setParameter('token', $token)
+            ->getQuery();
+
+        return $qb->getOneOrNullResult();
+    }
+
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */

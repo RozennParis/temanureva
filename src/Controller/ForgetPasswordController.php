@@ -11,6 +11,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ForgetPasswordType;
+use App\Form\ReinitializeType;
 use App\Service\BreadcrumbManager;
 use App\Service\ForgetPasswordManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -36,7 +37,7 @@ class ForgetPasswordController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()){
             $forgetPassword->beginProcess($user);
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('security_login');
         }
 
         return $this->render('front/forgetPassword.html.twig', [
@@ -48,7 +49,29 @@ class ForgetPasswordController extends Controller
     /**
      * @Route("/mdp-reinitalise/{token}", name="reinitialize-password")
      */
-    public function reInitializedAction($token){
+    public function reInitializedAction($token, Request $request, ForgetPasswordManager $forgetPassword){
+        $userTarget = new User();
+        $form = $this->createForm(ReinitializeType::class, $userTarget);
 
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $user = $this->getDoctrine()
+                ->getRepository(User::class)
+                ->findByEmailAndToken($userTarget->getEmail(),$token);
+
+            //Si la conbinaison email/token est valide
+            if($user !== null){
+                //Si le token est encore valide
+                if (!$forgetPassword->isTimeOut($user)){
+                    $forgetPassword->reinitialize($user, $userTarget);
+                    return $this->redirectToRoute('security_login');
+                }
+            }
+        }
+
+        return $this->render('front/reinitialize.html.twig',[
+            'form' => $form->createView()
+        ]);
     }
 }
