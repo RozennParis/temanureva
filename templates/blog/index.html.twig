@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog - NAO{% endblock %}
+
+{% block body %}
+    {{ include('common/header.html.twig', {'asset' : 'assets/img/bg-blog.jpg', 'alt' : 'header_blog', 'title' : 'Blog'}) }}
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
+    <div class="row margin-t">
+        {% for article in articles%}
+        <div class="col s12 l4">
+            <div class="card card-blog">
+                <div class="card-image">
+                    <div class="center">
+                        <img src="
+                        {% if article.image is null %}
+                            http://via.placeholder.com/750x350
+                        {% else %}
+                            {{ image_article_directory }}/{{ article.image }}
+                        {% endif %}
+                    " alt="article_">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="center card-title">{{ article.title }}</p>
+                    <p class="center">{{ article.user.lastname }} {{ article.user.firstname }} - {{ article.publishingDate|date("d/m/Y") }}</p>
+                    <p>
+                        {{ article.content|slice(0,249)|striptags }}
+                    </p>
+                </div>
+                <div class="center card-action">
+                    <a href="{{ path('blog-article', {'id': article.id}) }}" class="btn">Lire la suite</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="center-align">
+        {{ include('common/pagination.html.twig', {'paginaion' : pagination}) }}
+    </div>
+{% endblock %}

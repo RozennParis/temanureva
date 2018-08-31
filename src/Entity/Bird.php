@@ -256,7 +256,7 @@ class Bird
 
     public function setCdName(int $cdName): self
     {
-        $this->cdName = $cd_name;
+        $this->cdName = $cdName;
 
         return $this;
     }

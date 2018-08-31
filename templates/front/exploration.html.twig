@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Exploration {% endblock %}
+
+{% block body %}
+    <div class="center">
+        <h1>Exploration</h1>
+    </div>
+    <div>
+        <nav class="ariane">
+            <div class="nav-wrapper">
+                <div class="col s12">
+                    <a href="{{ path('homepage') }}" class="breadcrumb">Accueil</a>
+                    <a href="{{ path('exploration') }}" class="breadcrumb">Exploration</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header">Rechercher<i class="material-icons">expand_more</i></div>
+                <div class="collapsible-body">
+                    <div class="row">
+                        {{ form_start(form) }}
+                        <div class="row">
+                            {{ form_row(form.bird) }}
+                            {{ form_row(form.location) }}
+                        </div>
+                        <div class="col s6">
+                            {{ form_row(form.observation_date_start) }}
+                        </div>
+                        <div class="col s6">
+                            {{ form_row(form.observation_date_end) }}
+                        </div>
+                    </div>
+                        <button class="btn btn-connexion" type="submit">Rechercher</button>
+                    {{ form_end(form) }}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <br/>
+    <div id="map"></div>
+    <br>
+{% endblock %}

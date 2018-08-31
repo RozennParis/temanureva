@@ -2,6 +2,7 @@
 var lat = 48.852969;
 var lon = 2.349903;
 var macarte = null;
+
 var myMarker = null;
 // Fonction d'initialisation de la carte
 function initMap() {
@@ -48,4 +49,3 @@ window.onload = function(){
         $('#observation-map').hide();
     });
 };
-

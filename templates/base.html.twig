@@ -18,34 +18,31 @@
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     {% endblock %}
 </head>
-
 <body>
 {% block navigation %}
-    <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="{{ path('homepage') }}" class="brand-logo"><img src="{{ asset('assets/img/Logo_NAO_png_3.png') }}" alt="Logo" class="logo"></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{ path('homepage') }}">Accueil</a></li>
-                    <li><a href="# }}">Exploration</a></li>
-                    <li><a href="{{ path('oiseaux') }}">Espèces</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Nous contacter</a></li>
-                    <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>
-                    <li><a href="#"><i class="material-icons">search</i></a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="{{ path('homepage') }}" class="brand-logo"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="logo"></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                        <li><a href="{{ path('exploration') }}">Exploration</a></li>
+                        <li><a href="{{ path('oiseaux') }}">Espèces</a></li>
+                        <li><a href="{{ path('blog') }}">Blog</a></li>
+                        <li><a href="#">Nous contacter</a></li>
+                        {% if is_granted(['ROLE_PARTICULAR', 'ROLE_NATURALIST', 'ROLE_EDITOR', 'ROLE_ADMIN'])  %}
+                            <li><a href="{{ path('profil') }}">Mon profil</a></li>
+                            <li><a href="{{ path('security_logout') }}">Se déconnecter</a></li>
+                        {% else %}
+                            <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>
+                        {% endif %}
+                        <li><a href="#"><i class="material-icons">search</i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 {% endblock %}
 {% block body %}{% endblock %}
-{% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-    <script src="{{ asset('assets/js/autocompletion.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-
-{% endblock %}
 {% block footer %}
     <footer class="row center padding-bottom">
         <div>
@@ -76,8 +73,13 @@
         </div>
     </footer>
 {% endblock %}
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/autocompletion.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+{% endblock %}
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 <script src="{{ asset('build/app.js') }}"></script>
-
 </body>
 </html>
