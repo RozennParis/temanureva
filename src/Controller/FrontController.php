@@ -20,7 +20,7 @@ class FrontController extends Controller
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/profil/{id}", name="profil", requirements={"page"="\d+"})
+     * @Route("/profil/{id}", name="profil", requirements={"id"="\d+$"})
      */
     public function connectedInterface($id = -1)
     {
