@@ -81,11 +81,11 @@ nav {
 
 /*---- Comment ça marche ----*/
 
-.circle-img-homepage {
-    width: 300px;
-    height: 300px;
-    border-radius: 1000px;
-}
+/*.circle-img-homepage {*/
+    /*width: 300px;*/
+    /*height: 300px;*/
+    /*border-radius: 1000px;*/
+/*}*/
 
 /*---- Présentation ----*/
 
@@ -97,8 +97,6 @@ nav {
 }
 
 .border-green {
-    height: 37.5rem !important;
-    width: 37.5rem !important;
     border: #0f9d58 solid 5px;
 }
 
@@ -119,7 +117,7 @@ nav {
 #backgroundPresentation {
     background-image: url("../img/bg-participer-projet.jpg");
     background-size: cover !important;
-    height: 23rem !important;
+    min-height: 23rem !important;
     color: white;
     background-position-y: center;
 }
@@ -134,12 +132,12 @@ nav {
     height: 34.86rem;
 }
 
-.card-image {
+.card-radius .card-image {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
 
-.card {
+.card-radius{
     border-radius: 15px;
 }
 .card-image img{
@@ -166,6 +164,24 @@ nav {
     border-radius: 100px;
     width: 200px;
     background-color: #4CAF50;
+}
+
+/*---- slide ----*/
+.slider, .slides{
+    height: 93vh !important;
+}
+
+.slides > li > img{
+    filter: brightness(50%);
+}
+
+.indicators{
+    z-index: 2;
+    padding-bottom: 20px;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #a1887f;
 }
 
 /*---- profile ----*/
@@ -225,7 +241,6 @@ nav {
 
 .card-profile .card-title{
     background-color: #a1887f;
-    font-weight: l;
     color: white;
     height: 5rem;
 }
@@ -273,7 +288,7 @@ nav {
 }
 
 .header-text{
-    font-family: "Roboto Mono Light", serif;
+    /*font-family: "Roboto Mono Light", serif;*/
     font-size: 50px;
     margin: 2.5rem 0;
 }
@@ -301,7 +316,14 @@ nav {
 
 /*---- commun ----*/
 .container{
-    padding-top: 2.5rem;
+    /*padding-top: 2.5rem;*/
+}
+
+@media only screen and (min-width: 992px){
+    .container{
+        width: unset;
+        max-width: 85.375rem;
+    }
 }
 
 .full-height{

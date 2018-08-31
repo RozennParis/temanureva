@@ -5,7 +5,7 @@
 {% block body %}
     {{ include('common/header.html.twig', {'asset' : 'assets/img/bg-blog.jpg', 'alt' : 'header_blog', 'title' : 'Blog'}) }}
     {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
-    <div class="row container">
+    <div class="row container margin-t">
         {% for article in articles%}
         <div class="col s12 l4">
             <div class="card card-blog">
