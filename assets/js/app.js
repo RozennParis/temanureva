@@ -16,6 +16,7 @@ var app = new Vue({
                     return i.name === v
                 })
                 $('#observation_bird').val(item.id) // il récupère l'id pour le mettre dans  #observation-bird (champ caché)
+                //tester avec l'ajout d'un autre $('#gnagna...)
             }
         });
     },

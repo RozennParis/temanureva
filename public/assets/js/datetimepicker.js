@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
 
     $('.datepicker').datepicker({
@@ -11,15 +13,24 @@ $(document).ready(function(){
             weekdaysShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
             weekdaysAbbrev: ["D", "L", "M", "M", "J", "V", "S"]
         },
-        maxDate: "today",
+        /*maxDate: today,*/
+        onSelect: function (date) {
+            var selectedDay = date;
+            return selectedDay;
+        }
     });
 
     $('.timepicker').timepicker({
         twelveHour: false,
+        onSelect: function (hour, minute){
+            var selectedTime = hour + ':' + minute;
+            return selectedTime;
+        },
     });
 
-
-
-
-
 });
+
+window.onload = function () {
+    var selectedDate = $('.datepicker').datepicker('toString');
+    console.log(selectedDate);
+};
