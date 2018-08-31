@@ -10,7 +10,7 @@
                 <div class="col s12 m8 offset-m2 xl6 offset-xl3">
                     <div class="row center">
                         <div class="col s10 offset-s1 m6 offset-m3 xl6 offset-xl3">
-                            <img src="{% if demand.user.image is null%}http://via.placeholder.com/500x500{% else %}{{ demand.user.image }}{% endif %}" alt="photo_profil" class="responsive-img circle">
+                            <img src="{% if demand.user.image is null%}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{{ demand.user.image }}{% endif %}" alt="photo_profil" class="responsive-img circle">
                         </div>
                     </div>
                     <div class="row center margin-b margin-t title-certify">

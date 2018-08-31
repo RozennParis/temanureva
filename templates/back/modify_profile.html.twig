@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier profil - NAO{% endblock %}
+
+{% block body %}
+    {{ include('common/header.html.twig', {'title' : 'Modifier profil'}) }}
+    <div class="container">
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col s12 l6">
+                {{ form_row(form.lastname) }}
+            </div>
+            <div class="col s12 l6">
+                {{ form_row(form.firstname) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 l6">
+                {{ form_row(form.email) }}
+            </div>
+            <div class="col s12 l6">
+                {{ form_row(form.date_of_birth) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 l6">
+                {{ form_row(form.gender) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 l6">
+                {{ form_row(form.username) }}
+            </div>
+            <div class="col s12 l6">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 l6">
+                {{ form_row(form.password.first) }}
+            </div>
+            <div class="col s12 l6">
+                {{ form_row(form.password.second) }}
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
