@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\ContactType;
 use App\Form\ExploSearchType;
 use App\Service\BreadcrumbManager;
+use App\Utility\Contact;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -50,14 +53,21 @@ class FrontController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/contact-association-amis-oiseaux", name="contact")
      */
-    public function contact(){
+    public function contact(Request $request){
         //Breadcrumb
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
             ->add('contact', 'Nous contacter');
 
+        //Form
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+
+        $form->handleRequest($request);
+
         return $this->render('front/contact.html.twig',[
             'breadcrumb' => $breadcrumb->getBreadcrumb(),
+            'form' => $form->createView()
 
         ]);
     }

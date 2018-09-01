@@ -19,7 +19,28 @@
 
         </div>
     </div>
-    <div class="container">
-
+    <div class="container margin-t">
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col s12 grey-text">*Champs obligatoire</div>
+        </div>
+        <div class="row margin-t">
+            <div class="col s12 l6">{{ form_row(form.lastname) }}</div>
+            <div class="col s12 l6">{{ form_row(form.firstname) }}</div>
+        </div>
+        <div class="row margin-t">
+            <div class="col s12 l6">{{ form_row(form.email) }}</div>
+            <div class="col s12 l6">{{ form_row(form.phone) }}</div>
+        </div>
+        <div class="row margin-t">
+            <div class="col s12">{{ form_row(form.subject) }}</div>
+        </div>
+        <div class="row margin-t">
+            <div class="col s12">{{ form_row(form.message) }}</div>
+        </div>
+        <div class="row center-align margin-b margin-t">
+            <input type="submit" class="btn btn-round btn-brown" value="Envoyer">
+        </div>
+        {{ form_end(form) }}
     </div>
 {% endblock %}
