@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ExploSearchType;
+use App\Service\BreadcrumbManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -45,5 +46,19 @@ class FrontController extends Controller
         return $this->render('front/exploration.html.twig', ['form' => $form->createView()]);
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/contact-association-amis-oiseaux", name="contact")
+     */
+    public function contact(){
+        //Breadcrumb
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('contact', 'Nous contacter');
 
+        return $this->render('front/contact.html.twig',[
+            'breadcrumb' => $breadcrumb->getBreadcrumb(),
+
+        ]);
+    }
 }
