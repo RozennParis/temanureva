@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ExploSearchType;
+use App\Service\BreadcrumbManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -45,5 +46,15 @@ class FrontController extends Controller
         return $this->render('front/exploration.html.twig', ['form' => $form->createView()]);
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/presentation-association-protection-amis-oiseaux", name="presentation")
+     */
+    public function presentationAssociation(){
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('presentation', 'Notre assotion');
 
+        return $this->render('front/presentation.html.twig',['breadcrumb' => $breadcrumb->getBreadcrumb()]);
+    }
 }
