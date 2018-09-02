@@ -11,6 +11,7 @@ namespace App\Service;
 
 use App\Entity\Demand;
 use App\Entity\User;
+use App\Utility\Contact;
 
 class MailManager
 {
@@ -111,5 +112,20 @@ class MailManager
             'user' => $user
         ]);
         $this->send($to, $subject, $body);
+    }
+
+    /**
+     * @param Contact $contact
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function sendContact(Contact $contact){
+        $from = $contact->getEmail();
+        $subject = $contact->getSubject();
+        $body = $this->template->render('mail/contact.html.twig',[
+            'contact' => $contact
+        ]);
+        $this->send(self::MAIL_CONTACT, $subject, $body, $from);
     }
 }
