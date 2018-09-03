@@ -25,8 +25,28 @@ a {
     margin-bottom: 2.5rem;
 }
 
+
+.big-header h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+    font-size: 4.2rem;
+    font-weight: 400;
+    margin: auto;
+}
+
+/*---- collapsible research ----*/
 .collapsible-header {
-    background-color: #aa7d70;
+    background-color: #A1887F;
+    margin: 0;
+    color: #FFFFFF;
+    text-align: center;
+    border-bottom: #A1887F;
+
+}
+
+.collapsible {
+    margin: 0;
+    border-color: #A1887F;
 }
 
 /*---- Navigation ----*/
@@ -415,9 +435,50 @@ footer a, footer h4 {
     padding-bottom: 2.25rem;
 }
 
-/*---- Map ----*/
 
-#map {
-    height: 31.25rem;
+/*---- Page d'ajout Observation----*/
+
+.file-label {
+    top: -1.75em !important;
+;
 }
 
+/*---- Page Especes----*/
+.big-header {
+    height: 19.6875rem;
+    width: 100%;
+    background-position: center center;
+    background-size: cover!important;
+}
+
+#species_header {
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+    ),url("../img/bg-especes.jpg");
+    background-position: center center;
+}
+
+/*---- Map----*/
+
+#map{
+    height: 42.0625rem;
+    max-width: 66.5rem;
+    margin: auto;
+}
+
+#observation-map {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: none;
+    margin: auto;
+    background-color: #FFFFFF;
+}
+
+#bloc-map {
+    padding: 0;
+>>>>>>> origin/feature/observation
+}

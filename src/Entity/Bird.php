@@ -29,12 +29,12 @@ class Bird
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name_class;
+    private $nameClass;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name_order;
+    private $nameOrder;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -44,17 +44,17 @@ class Bird
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $cd_name;
+    private $cdName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $cd_taxsup;
+    private $cdTaxsup;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $cd_ref;
+    private $cdRef;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -64,12 +64,12 @@ class Bird
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lb_name;
+    private $lbName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $lb_author;
+    private $lbAuthor;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -79,17 +79,17 @@ class Bird
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $valid_name;
+    private $validName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $vernacular_name;
+    private $vernacularName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $vernacular_name_eng;
+    private $vernacularNameEng;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Habitat")
@@ -106,7 +106,7 @@ class Bird
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
-    private $french_guiana;
+    private $frenchGuiana;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
@@ -121,17 +121,17 @@ class Bird
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
-    private $st_martin;
+    private $stMartin;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
-    private $st_barthelemy;
+    private $stBarthelemy;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
-    private $st_pierre_miquelon;
+    private $stPierreMiquelon;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
@@ -141,7 +141,7 @@ class Bird
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
-    private $scattered_island;
+    private $scatteredIsland;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
@@ -151,27 +151,27 @@ class Bird
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
-    private $sub_antarctic_island;
+    private $subAntarcticIsland;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
-    private $adelie_land;
+    private $adelieLand;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
-    private $new_caledonia;
+    private $newCaledonia;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
-    private $wallis_futuna;
+    private $wallisFutuna;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
      */
-    private $french_polynesia;
+    private $frenchPolynesia;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\BiogeographicStatus")
@@ -215,24 +215,24 @@ class Bird
 
     public function getNameClass(): ?string
     {
-        return $this->name_class;
+        return $this->nameClass;
     }
 
-    public function setNameClass(string $name_class): self
+    public function setNameClass(string $nameClass): self
     {
-        $this->name_class = $name_class;
+        $this->nameClass = $nameClass;
 
         return $this;
     }
 
     public function getNameOrder(): ?string
     {
-        return $this->name_order;
+        return $this->nameOrder;
     }
 
-    public function setNameOrder(string $name_order): self
+    public function setNameOrder(string $nameOrder): self
     {
-        $this->name_order = $name_order;
+        $this->nameOrder = $nameOrder;
 
         return $this;
     }
@@ -251,36 +251,36 @@ class Bird
 
     public function getCdName(): ?int
     {
-        return $this->cd_name;
+        return $this->cdName;
     }
 
-    public function setCdName(int $cd_name): self
+    public function setCdName(int $cdName): self
     {
-        $this->cd_name = $cd_name;
+        $this->cdName = $cdName;
 
         return $this;
     }
 
     public function getCdTaxsup(): ?int
     {
-        return $this->cd_taxsup;
+        return $this->cdTaxsup;
     }
 
-    public function setCdTaxsup(int $cd_taxsup): self
+    public function setCdTaxsup(int $cdTaxsup): self
     {
-        $this->cd_taxsup = $cd_taxsup;
+        $this->cdTaxsup = $cdTaxsup;
 
         return $this;
     }
 
     public function getCdRef(): ?int
     {
-        return $this->cd_ref;
+        return $this->cdRef;
     }
 
-    public function setCdRef(int $cd_ref): self
+    public function setCdRef(int $cdRef): self
     {
-        $this->cd_ref = $cd_ref;
+        $this->cdRef = $cdRef;
 
         return $this;
     }
@@ -299,24 +299,24 @@ class Bird
 
     public function getLbName(): ?string
     {
-        return $this->lb_name;
+        return $this->lbName;
     }
 
-    public function setLbName(string $lb_name): self
+    public function setLbName(string $lbName): self
     {
-        $this->lb_name = $lb_name;
+        $this->lbName = $lbName;
 
         return $this;
     }
 
     public function getLbAuthor(): ?string
     {
-        return $this->lb_author;
+        return $this->lbAuthor;
     }
 
-    public function setLbAuthor(string $lb_author): self
+    public function setLbAuthor(string $lbAuthor): self
     {
-        $this->lb_author = $lb_author;
+        $this->lbAuthor = $lbAuthor;
 
         return $this;
     }
@@ -335,36 +335,36 @@ class Bird
 
     public function getValidName(): ?string
     {
-        return $this->valid_name;
+        return $this->validName;
     }
 
-    public function setValidName(string $valid_name): self
+    public function setValidName(string $validName): self
     {
-        $this->valid_name = $valid_name;
+        $this->validName = $validName;
 
         return $this;
     }
 
     public function getVernacularName(): ?string
     {
-        return $this->vernacular_name;
+        return $this->vernacularName;
     }
 
-    public function setVernacularName(string $vernacular_name): self
+    public function setVernacularName(string $vernacularName): self
     {
-        $this->vernacular_name = $vernacular_name;
+        $this->vernacularName = $vernacularName;
 
         return $this;
     }
 
     public function getVernacularNameEng(): ?string
     {
-        return $this->vernacular_name_eng;
+        return $this->vernacularNameEng;
     }
 
-    public function setVernacularNameEng(string $vernacular_name_eng): self
+    public function setVernacularNameEng(string $vernacularNameEng): self
     {
-        $this->vernacular_name_eng = $vernacular_name_eng;
+        $this->vernacularNameEng = $vernacularNameEng;
 
         return $this;
     }
@@ -383,12 +383,12 @@ class Bird
 
     public function getFrenchGuiana(): ?string
     {
-        return $this->french_guiana;
+        return $this->frenchGuiana;
     }
 
-    public function setFrenchGuiana(string $french_guiana): self
+    public function setFrenchGuiana(string $frenchGuiana): self
     {
-        $this->french_guiana = $french_guiana;
+        $this->frenchGuiana = $frenchGuiana;
 
         return $this;
     }
@@ -419,36 +419,36 @@ class Bird
 
     public function getStMartin(): ?string
     {
-        return $this->st_martin;
+        return $this->stMartin;
     }
 
-    public function setStMartin(string $st_martin): self
+    public function setStMartin(string $stMartin): self
     {
-        $this->st_martin = $st_martin;
+        $this->stMartin = $stMartin;
 
         return $this;
     }
 
     public function getStBarthelemy(): ?string
     {
-        return $this->st_barthelemy;
+        return $this->stBarthelemy;
     }
 
-    public function setStBarthelemy(string $st_barthelemy): self
+    public function setStBarthelemy(string $stBarthelemy): self
     {
-        $this->st_barthelemy = $st_barthelemy;
+        $this->stBarthelemy = $stBarthelemy;
 
         return $this;
     }
 
     public function getStPierreMiquelon(): ?string
     {
-        return $this->st_pierre_miquelon;
+        return $this->stPierreMiquelon;
     }
 
-    public function setStPierreMiquelon(string $st_pierre_miquelon): self
+    public function setStPierreMiquelon(string $stPierreMiquelon): self
     {
-        $this->st_pierre_miquelon = $st_pierre_miquelon;
+        $this->stPierreMiquelon = $stPierreMiquelon;
 
         return $this;
     }
@@ -467,12 +467,12 @@ class Bird
 
     public function getScatteredIsland(): ?string
     {
-        return $this->scattered_island;
+        return $this->scatteredIsland;
     }
 
-    public function setScatteredIsland(string $scattered_island): self
+    public function setScatteredIsland(string $scatteredIsland): self
     {
-        $this->scattered_island = $scattered_island;
+        $this->scatteredIsland = $scatteredIsland;
 
         return $this;
     }
@@ -491,60 +491,60 @@ class Bird
 
     public function getSubAntarcticIsland(): ?string
     {
-        return $this->sub_antarctic_island;
+        return $this->subAntarcticIsland;
     }
 
-    public function setSubAntarcticIsland(string $sub_antarctic_island): self
+    public function setSubAntarcticIsland(string $subAntarcticIsland): self
     {
-        $this->sub_antarctic_island = $sub_antarctic_island;
+        $this->subAntarcticIsland = $subAntarcticIsland;
 
         return $this;
     }
 
     public function getAdelieLand(): ?string
     {
-        return $this->adelie_land;
+        return $this->adelieLand;
     }
 
-    public function setAdelieLand(string $adelie_land): self
+    public function setAdelieLand(string $adelieLand): self
     {
-        $this->adelie_land = $adelie_land;
+        $this->adelieLand = $adelieLand;
 
         return $this;
     }
 
     public function getNewCaledonia(): ?string
     {
-        return $this->new_caledonia;
+        return $this->newCaledonia;
     }
 
-    public function setNewCaledonia(string $new_caledonia): self
+    public function setNewCaledonia(string $newCaledonia): self
     {
-        $this->new_caledonia = $new_caledonia;
+        $this->newCaledonia = $newCaledonia;
 
         return $this;
     }
 
     public function getWallisFutuna(): ?string
     {
-        return $this->wallis_futuna;
+        return $this->wallisFutuna;
     }
 
-    public function setWallisFutuna(string $wallis_futuna): self
+    public function setWallisFutuna(string $wallisFutuna): self
     {
-        $this->wallis_futuna = $wallis_futuna;
+        $this->wallisFutuna = $wallisFutuna;
 
         return $this;
     }
 
     public function getFrenchPolynesia(): ?string
     {
-        return $this->french_polynesia;
+        return $this->frenchPolynesia;
     }
 
-    public function setFrenchPolynesia(string $french_polynesia): self
+    public function setFrenchPolynesia(string $frenchPolynesia): self
     {
-        $this->french_polynesia = $french_polynesia;
+        $this->frenchPolynesia = $frenchPolynesia;
 
         return $this;
     }
@@ -585,4 +585,8 @@ class Bird
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->getVernacularName(). ', '. $this->getLbName();
+    }
 }

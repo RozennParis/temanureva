@@ -3,7 +3,9 @@
 
 {% block title %} Ajout Observation {% endblock %}
 
+
 {% block body %}
+
     <div class="center">
         <h1>Ajouter une observation</h1>
     </div>
@@ -17,32 +19,89 @@
             </div>
         </nav>
     </div>
+{{ form_start(form) }}
+    <div class="container center" id="observation-map">
+        <div class="row">
+            <div class="col s12" id="bloc-map">
+                <div id="map"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m12 l4">
+                {{ form_row(form.address) }}
+            </div>
+            <div class="col m12 l4">
+                {{ form_row(form.latitude) }}
+            </div>
+            <div class="col m12 l4">
+                {{ form_row(form.longitude) }}
+            </div>
+        </div>
+        <div class="row">
+            <button id="hide" class="btn btn-homepage" type="button">Valider</button>
+        </div>
+    </div>
     <div class="container center">
+
         <p>
             *Champs obligatoires
         </p>
-        {{ form_start(form) }}
-        <div class="row">
-            <div class="col s6">
-                {{ form_row(form.bird) }}
 
+        <div class="row">
+            <div class="col s12 m6" id="observation-autocomplete">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" id="autocomplete-input"  @input="search" class="autocomplete" autocomplete="off">
+                        <label for="autocomplete-input">Nom de l'espèce</label>
+                    </div>
+                </div>
+                {{ form_row(form.bird) }}
             </div>
-            <div class="col s6">
-                {{ form_row(form.location) }}
+
+            <div class="col s12 m6" >
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" id="location-input" autocomplete="off">
+                        <label for="location-input">Lieu d'observation*</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col s12 m6" >
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" class="datepicker "id="observation-date-input" autocomplete="off">
+                        <label for="observation-date-input">Date d'observation*</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6" >
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" class="timepicker" id="observation-time-input" autocomplete="off">
+                        <label for="observation-time-input">Heure d'observation*</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12">
+                {{ form_row(form.observation_date) }}
             </div>
         </div>
         <div class="row">
             <div class="col s12">
-                {{ form_row(form.observation_date) }}
-                {{ form_row(form.image) }}
+                {{ form_row(form.image, {
+                    'label_attr': {'class': 'file-label'}
+                }) }}
             </div>
         </div>
-
         <button class="btn btn-connexion" type="submit"> Envoyer l'observation</button>
         {{ form_end(form) }}
     </div>
 
-
-
-
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.8/jquery.autocomplete.js"></script>
 {% endblock %}

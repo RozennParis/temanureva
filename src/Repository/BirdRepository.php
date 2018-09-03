@@ -19,32 +19,55 @@ class BirdRepository extends ServiceEntityRepository
         parent::__construct($registry, Bird::class);
     }
 
-//    /**
-//     * @return Bird[] Returns an array of Bird objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Bird[] Returns an array of Bird objects
+     */
+    public function findAllByVernacularName($term)
     {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('b');
+        $qb ->select('b.vernacularName', 'b.id') //'b.nameOrder' pour afficher le champ
+            ->where('b.vernacularName LIKE :term') // ou bien machin, ou bien truc, ou bien bidule
+            ->setParameter('term', '%' . $term . '%')
+            ->orderBy('b.vernacularName', 'ASC');
+        $birds = $qb->getQuery()
+            ->getResult();
+        $result = [];
+        foreach ($birds as $bird) {
+            $res['id'] = $bird['id'];
+            $res['name'] = $bird['vernacularName'];
+            //$res['image'] = $bird['image'];
+            $result[] = $res;
+        }
 
-    /*
-    public function findOneBySomeField($value): ?Bird
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $result;
     }
-    */
+
+    public function findByLbName()
+    {
+        return $qb = $this->createQueryBuilder('b')
+            ->select('b')
+            ->orderBy('b.lbName', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findByDescLbName()
+    {
+        return $qb = $this->createQueryBuilder('b')
+            ->select('b')
+            ->orderBy('b.lbName', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findByNbObservation()
+    {
+
+    }
+
+    public function findByDescNbObservertion()
+    {
+
+    }
 }
+

@@ -15,14 +15,23 @@ class ExploSearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('bird', TextType::class, ['label' =>'Nom de l\'espèce'] )
+            ->add('bird', TextType::class, [
+                'label' =>'Nom de l\'espèce',
+                'attr' => [ 'class' => 'bird_research']
+                ] )
             ->add('location', TextType::class, ['label' => ' Localisation'])
-            ->add('observation_date', DateType::class, [
-                'label' => 'Date d\'observation',
+            ->add('observation_date_start', DateType::class, [
+                'label' => 'Date d\'observation de début',
                 'attr' => ['class' => 'datepicker'],
                 'widget' => 'single_text',
-                'format'=> 'dd-MM-yyyy',
+                'format'=> 'dd/MM/yyyy',
                 ])
+            ->add('observation_date_end', DateType::class, [
+                'label' => 'Date d\'observation de fin',
+                'attr' => ['class' => 'datepicker'],
+                'widget' => 'single_text',
+                'format' => 'dd/MM/yyyy'
+            ])
         ;
     }
 

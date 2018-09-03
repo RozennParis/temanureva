@@ -3,11 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Observation;
+use App\Entity\Bird;
 use App\Form\ObservationType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\EntityManagerInterface; // ??? doesn't work anymore ?
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Doctrine\ORM\EntityManagerInterface;
 
 
 
@@ -18,22 +21,21 @@ class ObservationController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function addObservation(Request $request)
+    public function addObservation(Request $request, EntityManagerInterface $em)
     {
         $observation = new Observation();
         $form = $this->createForm(ObservationType::class, $observation);
 
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $observation->setBird();
-            $observation->setObservationDate();
-            $observation->setLocation();
-            $observation->setImage();
 
             $em = $this->getDoctrine()->getManager();
-            $em = $this->persist($observation);
-            $em = $this->flush();
+            $currentObserver = $this->getUser();
+            $observation->setObserver($currentObserver);
+            $em->persist($observation);
+            //$em->flush();
 
             return $this->redirectToRoute('mes_observations');
         }
