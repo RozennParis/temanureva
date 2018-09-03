@@ -42,20 +42,20 @@ class BirdRepository extends ServiceEntityRepository
         return $result;
     }
 
-    public function findByLbName()
+    public function findByVernacularName()
     {
         return $qb = $this->createQueryBuilder('b')
             ->select('b')
-            ->orderBy('b.lbName', 'ASC')
+            ->orderBy('b.vernacularName', 'ASC')
             ->getQuery()
-            ->getResult();
+            ->getArrayResult();
     }
 
-    public function findByDescLbName()
+    public function findByDescVernacularName()
     {
         return $qb = $this->createQueryBuilder('b')
             ->select('b')
-            ->orderBy('b.lbName', 'DESC')
+            ->orderBy('b.vernacularName', 'DESC')
             ->getQuery()
             ->getResult();
     }
@@ -65,9 +65,16 @@ class BirdRepository extends ServiceEntityRepository
 
     }
 
-    public function findByDescNbObservertion()
+    public function findByDescNbObservation()
     {
 
+    }
+
+    public function getNumberBirds(){
+        $qb = $this->createQueryBuilder('b');
+        $qb->select($qb->expr()->count('b.id'));
+
+        return $qb->getQuery()->getSingleScalarResult();
     }
 }
 

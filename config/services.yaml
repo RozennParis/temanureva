@@ -38,3 +38,6 @@ services:
     App\Service\ArticleManager:
         arguments:
             $directory: '%image_article_directory%'
+    App\Service\ObservationManager:
+        arguments:
+            $directory: '%image_observation_directory%'

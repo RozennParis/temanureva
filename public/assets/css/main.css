@@ -312,5 +312,20 @@ footer a, footer h4 {
 
 #bloc-map {
     padding: 0;
->>>>>>> origin/feature/observation
+
+}
+
+/*---- Birds ----*/
+
+.card-species {
+    height: 23.689rem!important;
+
+}
+.image-species {
+    height: 15.5625rem!important;
+    max-width: 15.5625rem!important;
+}
+
+.title-species {
+    font-size: 1.25rem!important;
 }

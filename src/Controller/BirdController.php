@@ -27,14 +27,18 @@ class BirdController extends Controller
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/oiseaux", name="oiseaux")
+     * @Route("/liste-photos-especes-oiseaux-france", name="oiseaux")
      */
-    public function species()
+    public function showAllBirds($page = 1)
     {
         $repository = $this->getDoctrine()->getRepository(Bird::class);
 
-        $birds = $repository->findByLbName();
 
-        return $this->render('front/birds.html.twig');
+        $birds = $repository->findByvernacularName();
+        /*$nbBirds = $repository->getNumberBirds();*/
+
+        return $this->render('front/birds.html.twig', [
+            'birds' => $birds,
+        ]);
     }
 }

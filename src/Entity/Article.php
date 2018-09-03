@@ -47,7 +47,7 @@ class Article
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\File(
      *     mimeTypes = {"image/jpeg", "image/png"},
-     *     mimeTypesMessage="Veuillez selectionner une image .PNG ou .JPEG")
+     *     mimeTypesMessage="Veuillez sélectionner une image .PNG ou .JPEG")
      */
     private $image;
 

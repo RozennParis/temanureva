@@ -33,22 +33,7 @@ class BirdListForm extends AbstractType
                 'attr' =>[
                     'class' => 'bird_research'
                 ]
-            ])
-
-            //test avec EntityType
-            /*->add('bird', EntityType::class, [
-                 'label'=>'Nom de l\'espèce ',
-                 'class' => Bird::class,
-                 'query_builder' => function (BirdRepository $br) {
-                     return $br->createQueryBuilder('b')
-                         ->orderBy('b.vernacularName', 'ASC');
-                 },
-                 'choice_label' => 'vernacularName',
-                 'required'=> false,
-             ])*/
-
-
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -3,12 +3,14 @@
 namespace App\Form;
 
 use App\Form\DataTransformer\BirdToStringTransformer;
+use App\Form\DataTransformer\ObservationDateToStringTransformer;
 use App\Entity\Observation;
 use App\Entity\Bird;
 use Doctrine\ORM\EntityRepository;
 use App\Repository\BirdRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -54,29 +56,31 @@ class ObservationType extends AbstractType
                 'required' => true
 
             ])
+            /*->add('observation_date', DateTimeType::class, [
+                'label' => 'Date d\'observation *',
+                'widget'=> 'single_text',
+                'attr' => [
+                    'class' => 'datepicker'
+                ],
+                'required' => true
 
+            ])*/
             ->add('address', TextType::class, [
                 'label' => 'Adresse',
                 'required' => false,
-                // implementation of OpenStreetMap aaahTODO
             ])
 
             ->add('latitude', TextType::class, [
                 'label' => 'Latitude',
                 'required' => true,
-                // implementation of OpenStreetMap aaahTODO
             ])
             ->add('longitude', TextType::class, [
                 'label' => 'Longitude',
                 'required' => true,
-                // implementation of OpenStreetMap aaahTODO
             ])
 
             ->add('image', FileType::class, [
                 'label' => 'Image de l\'observation',
-                'attr' => [
-                    'class' => 'file-field input-field'
-                ],
                 'required' => false
             ])
 
@@ -84,6 +88,9 @@ class ObservationType extends AbstractType
 
             $builder ->get('bird')
                 ->addModelTransformer($this->transformer);
+
+            /*$builder ->get('observation_date')
+                ->addModelTransformer($this->transformer);*/
     }
 
     public function configureOptions(OptionsResolver $resolver)

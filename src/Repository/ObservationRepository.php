@@ -19,6 +19,20 @@ class ObservationRepository extends ServiceEntityRepository
         parent::__construct($registry, Observation::class);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function countByID($id){
+        $qb = $this->createQueryBuilder('o')
+            ->innerJoin('o.bird', 'b')
+            ->where('b.id = :id')
+            ->setParameter('id', $id);
+        $qb->select($qb->expr()->count('o.id'));
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
 //    /**
 //     * @return Observation[] Returns an array of Observation objects
 //     */

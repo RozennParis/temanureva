@@ -1,6 +1,8 @@
+var currentDate = new Date();
 
 
 $(document).ready(function(){
+
 
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy',
@@ -13,24 +15,30 @@ $(document).ready(function(){
             weekdaysShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
             weekdaysAbbrev: ["D", "L", "M", "M", "J", "V", "S"]
         },
-        /*maxDate: today,*/
+        maxDate: currentDate,
         onSelect: function (date) {
-            var selectedDay = date;
-            return selectedDay;
-        }
+            console.log(date)
+            var time = $('.timepicker').val()
+            if (time) {
+                $('#observation_observation_date').val(date.getFullYear()+ '-' + date.getMonth() + '-' + date.getDate() + 'T' + time +'Z')
+            }
+        },
+
     });
+
+
 
     $('.timepicker').timepicker({
         twelveHour: false,
         onSelect: function (hour, minute){
-            var selectedTime = hour + ':' + minute;
-            return selectedTime;
+           var time = hour + ':' + minute;
+            var date = $('.datepicker').val()
+            dateParts = date.split('/')
+            if (date) {
+                $('#observation_observation_date').val(dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0] + 'T' + time +'Z')
+            }
         },
     });
 
-});
 
-window.onload = function () {
-    var selectedDate = $('.datepicker').datepicker('toString');
-    console.log(selectedDate);
-};
+});
