@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notre association - NAO{% endblock %}
+
+{% block body %}
+    {{ include('common/header.html.twig', {'asset' : 'assets/img/bd-presentation.jpg', 'alt' : 'header_blog', 'title' : 'Notre association'}) }}
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
+    <div class="container margin-t">
+        <div class="row">
+            <h3 class="margin-t lighter center-align">Qui somme nous ?</h3>
+        </div>
+    </div>
+    <div class="border-teal-bottom">
+        <div class="container margin-t margin-b ">
+            <div class="row">
+                <div class="col s12 l8">
+                    <p>
+
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum mattis urna vel tincidunt. Phasellus a ornare metus, eget sodales turpis. Fusce finibus tincidunt felis id eleifend. Mauris suscipit ante sed justo volutpat auctor vehicula a neque. Etiam tempus turpis lacus, vel iaculis quam porttitor ac. Integer nisi eros, hendrerit et mauris a, ultricies cursus sem. Integer gravida orci a mollis suscipit. Morbi mi metus, placerat ac orci sed, imperdiet venenatis magna.
+
+                        Nulla ultricies et nisi at commodo. Nulla vitae porttitor lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin maximus nisi ac enim dignissim cursus. Phasellus mollis eros urna, ac semper purus rhoncus ut. Aliquam non tincidunt massa. Duis suscipit tristique congue. Aliquam congue enim sed venenatis sodales.
+
+                        In non orci metus. Quisque eleifend risus nisi, quis hendrerit justo tincidunt id. Aenean eu accumsan felis. Vestibulum molestie vehicula lorem, id pretium nulla sagittis et. Etiam sit amet magna ac ex accumsan feugiat ut eu neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus cursus, sem eu facilisis elementum, justo justo lobortis purus, at porta augue turpis et neque.
+                    </p>
+                </div>
+                <div class="col s12 l4">
+                    <img src="{{ asset('assets/img/img-qui-sommes-nous.jpg') }}" alt="img_qui_somme_nous" class="responsive-img border-teal">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container margin-t">
+        <div class="row">
+            <h3 class="margin-t lighter center-align">Objectifs de l'association</h3>
+        </div>
+    </div>
+    <div class="container margin-t">
+        <div class="row">
+            <div class="col s12 l6">
+                <div class="row center-align">
+                    <div class="col offset-s3 col s6">
+                        <img src="{{ asset('assets/img/img-biodiversite.jpg') }}" alt="img_1" class="responsive-img circle">
+                    </div>
+                </div>
+                <div class="row center-align">
+                    <p class="lighter col offset-l2 l8 s12 sub-title-presentation">Sensibilisation et protection de la biodiversité</p>
+                </div>
+                <div class="row center-align">
+                    <p class="col offset-s1 s10">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis vulputate tellus, vitae consequat felis finibus eget. Maecenas fermentum et augue a sodales. Nunc at turpis quis est rhoncus efficitur. Aliquam sit amet ex nec nulla viverra convallis. Donec posuere nibh lacinia interdum aliquet. Vivamus elit risus, egestas eu cursus ac, tincidunt quis purus. Donec malesuada vel eros eu vestibulum. Morbi pulvinar nibh ornare turpis suscipit maximus. Pellentesque quis est lorem. Ut lacinia lacinia enim, nec auctor lacus pulvinar sed. Donec vitae consequat nunc, a fermentum nibh. Sed nec massa non elit fermentum egestas. Aenean ac tincidunt magna. Nulla tempus viverra turpis in iaculis. Vestibulum quis nibh libero.
+                    </p>
+                </div>
+            </div>
+            <div class="col s12 l6">
+                <div class="row center-align">
+                    <div class="col offset-s3 col s6">
+                        <img src="{{ asset('assets/img/img-recherche-preservation.jpg') }}" alt="img_1" class="responsive-img circle">
+                    </div>
+                </div>
+                <div class="row center-align">
+                    <p class="lighter col offset-l1 l10 s12 sub-title-presentation">Mise en place d'un programme de recherche et de préservation</p>
+                </div>
+                <div class="row center-align">
+                    <p class="col offset-s1 s10">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis vulputate tellus, vitae consequat felis finibus eget. Maecenas fermentum et augue a sodales. Nunc at turpis quis est rhoncus efficitur. Aliquam sit amet ex nec nulla viverra convallis. Donec posuere nibh lacinia interdum aliquet. Vivamus elit risus, egestas eu cursus ac, tincidunt quis purus. Donec malesuada vel eros eu vestibulum. Morbi pulvinar nibh ornare turpis suscipit maximus. Pellentesque quis est lorem. Ut lacinia lacinia enim, nec auctor lacus pulvinar sed. Donec vitae consequat nunc, a fermentum nibh. Sed nec massa non elit fermentum egestas. Aenean ac tincidunt magna. Nulla tempus viverra turpis in iaculis. Vestibulum quis nibh libero.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="center-align border-teal-bottom">
+        <div class="margin-t container padding-bottom">
+            <a href="{{ path('user_registration') }}" class="btn btn-brown btn-round">Rejoignez nous</a>
+            <a href="{{ path('exploration') }}" class="btn btn-brown btn-round">Contribuez</a>
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="margin-t lighter center-align">Le mot du président</h3>
+    </div>
+    <div class="container">
+        <div class="row valign-wrapper">
+            <div class="col s12 l6">
+                <img src="{{ asset('assets/img/img-President.jpg') }}" alt="photo_president" class="left img-president">
+            </div>
+            <div class="col s12 l6 white-text grey text-president">
+                <p>
+                    Le constant est brutal et alarmant, en moins de 50 ans, l'action de l'homme a entrainé la disparition de la moitié des espèces d'oiseaux de la planète. Aujourd'hui, à travers l'association Nos Amis les oiseaux, je souhaite mener un combat de front pour contibuer à préserver notre biodiversité lavant que notre faune sauvage y laisse des plumes !
+                </p>
+                <p>
+                    Notre planète est unique, mais elle est fragile, c'est pourquoi je vous invite à contribuer, de près de ou loin, à notre service d'observation participative.
+                </p>
+                <p>
+                    Je remercie infiniment les adhérents qui oeuvrent à la sauvegarde de notre belle planète !
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

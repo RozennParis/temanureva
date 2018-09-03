@@ -210,6 +210,20 @@ nav {
 
 }
 
+/*---- presentation ----*/
+.sub-title-presentation{
+    font-size: 38px;
+    line-height: 2;
+}
+
+.img-president{
+    margin-top: -80px;
+}
+
+.text-president{
+    padding: 1.25rem;
+}
+
 /*---- card custom ----*/
 
 .card-custom{
