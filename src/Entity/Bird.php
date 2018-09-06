@@ -3,12 +3,19 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BirdRepository")
  */
 class Bird
 {
+    const SORTING_A_TO_Z = 0;
+    const SORTING_Z_TO_A = 1;
+    const SORTING_INCREASE_OBSERVATIONS = 2;
+    const SORTING_DECREASE_OBSERVATIONS = 3;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -182,6 +189,25 @@ class Bird
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @var bool
+     */
+    private $sort = self::SORTING_A_TO_Z;
+
+    /**
+     * One Bird has Many Observations.
+     * @ORM\OneToMany(targetEntity="App\Entity\Observation", mappedBy="bird")
+     */
+    private $observations;
+
+    /**
+     * Bird constructor.
+     */
+    public function __construct()
+    {
+        $this->observations = new ArrayCollection();
+    }
 
 
     public function getId()
@@ -583,6 +609,27 @@ class Bird
         $this->habitat = $habitat;
 
         return $this;
+    }
+
+    public function getSort()
+    {
+        return $this->sort;
+    }
+
+    public function setSort($sort): self
+    {
+        $this->sort = $sort;
+
+        return $this;
+    }
+
+    /**
+     * Get observations
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getObservations()
+    {
+        return $this->observations;
     }
 
     public function __toString()

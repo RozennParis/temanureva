@@ -272,7 +272,10 @@ footer a, footer h4 {
 
 .file-label {
     top: -1.75em !important;
-;
+}
+
+#date-div{
+    display: none;
 }
 
 /*---- Page Especes----*/
@@ -319,11 +322,19 @@ footer a, footer h4 {
 
 .card-species {
     height: 23.689rem!important;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 
 }
 .image-species {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.image-species img {
     height: 15.5625rem!important;
-    max-width: 15.5625rem!important;
+    /*max-width: 15.5625rem!important;*/
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .title-species {

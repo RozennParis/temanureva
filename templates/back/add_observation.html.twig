@@ -48,7 +48,7 @@
         </p>
 
         <div class="row">
-            <div class="col s12 m6" class="observation-autocomplete">
+            <div class="col s12 m6" id="observation-autocomplete">
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" id="autocomplete-input"  @input="search" class="autocomplete" autocomplete="off">
@@ -85,8 +85,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col s12">
-                {{ form_row(form.observation_date) }}
+            <div class="col s12" id="date-div">
+                {{ form_widget(form.observation_date) }}
             </div>
         </div>
         <div class="row">

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Observation;
 use App\Entity\Bird;
 use App\Form\ObservationType;
+use App\Service\BreadcrumbManager;
 use App\Service\ObservationManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -29,7 +30,7 @@ class ObservationController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
 
@@ -42,20 +43,32 @@ class ObservationController extends Controller
             /**
              * to store image in db
              */
-            $file = $form['image']->getData();
-
-            if (null !== $observation->getImage() && $form->has('image')){
+            if (null !== $observation->getImage() && $form->has('image')) {
                 $observationManager->observationUpLoadImage($observation, $form->get('image')->getData());
             }
-            dump($observation); die;
+
             $em->persist($observation);
-            //$em->flush();
+            $em->flush();
 
             return $this->redirectToRoute('mes_observations');
         }
 
+        //Insert breadcrumb
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('profil', 'Espèces');
+
         return $this->render('back/add_observation.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
+    }
+
+    /**
+     * @Route("/mes-observations", name="mes_observations")
+     */
+    public function showMyObservations()
+    {
+        return $this->render('back/my_observations.html.twig');
     }
 }

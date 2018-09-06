@@ -33,6 +33,16 @@ class ObservationRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getSingleScalarResult();
     }
+
+    public function findObservationByBirdId($id){
+       return $qb = $this->createQueryBuilder('o')
+            ->select('o')
+            ->where('o.bird = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
+
+    }
 //    /**
 //     * @return Observation[] Returns an array of Observation objects
 //     */

@@ -27,9 +27,24 @@ class AutocompletionController extends Controller
 
        $responseBird = new JsonResponse($birdsArray);
 
-        //$responseBird->headers->set('Content-Type', 'application/json');
+        return $responseBird;
+
+    }
+
+
+    /**
+     * @Route("/multi-autocomplete", name="multi-autocomplete", methods={"GET", "POST"})
+     */
+    public function multiAutocomplete(Request $request)
+    {
+        $term = $request->request->get('dataBird');
+        $em = $this->getDoctrine()->getManager();
+        $birdsArray = $em->getRepository(Bird::class)->findAllByMultipleCriteria($term);
+
+        $responseBird = new JsonResponse($birdsArray);
 
         return $responseBird;
 
     }
+
 }

@@ -6,6 +6,8 @@ use App\Form\DataTransformer\BirdToStringTransformer;
 use App\Form\DataTransformer\ObservationDateToStringTransformer;
 use App\Entity\Observation;
 use App\Entity\Bird;
+use App\Form\BirdAutocompleteSelectorType;
+use App\Form\ObservationDatetimeSelectorType;
 use Doctrine\ORM\EntityRepository;
 use App\Repository\BirdRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -30,7 +32,7 @@ class ObservationType extends AbstractType
     {
         $builder
             //test avec autocompletion JS et Ajax
-           ->add('bird', HiddenType::class, [
+           ->add('bird', BirdAutocompleteSelectorType::class, [
                 'label'=>'Nom de l\'espèce ',
                 'required' => false,
                 'attr' =>[
@@ -48,23 +50,10 @@ class ObservationType extends AbstractType
                 },
                 'required'=> false,
             ])*/
-            ->add('observation_date', HiddenType::class, [
-                'label' => 'Date d\'observation *',
-                'attr' => [
-                    'class' => 'datepicker'
-                ],
-                'required' => true
-
+            ->add('observation_date', DateTimeType::class, [
+                'widget' =>'single_text',
             ])
-            /*->add('observation_date', DateTimeType::class, [
-                'label' => 'Date d\'observation *',
-                'widget'=> 'single_text',
-                'attr' => [
-                    'class' => 'datepicker'
-                ],
-                'required' => true
 
-            ])*/
             ->add('address', TextType::class, [
                 'label' => 'Adresse',
                 'required' => false,
@@ -85,12 +74,6 @@ class ObservationType extends AbstractType
             ])
 
         ;
-
-            $builder ->get('bird')
-                ->addModelTransformer($this->transformer);
-
-            /*$builder ->get('observation_date')
-                ->addModelTransformer($this->transformer);*/
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -31,7 +31,8 @@ class Observation
     private $addingDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
+     *
      */
     private $validationDate;
 
@@ -71,13 +72,15 @@ class Observation
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     *
      */
     private $validator;
+    //@ORM\JoinColumn(nullable=false)
+
 
     /**
      * @ORM\JoinColumn(name="bird", referencedColumnName="id")
-     * @ORM\ManyToOne(targetEntity="App\Entity\Bird", cascade={"persist"}, )
+     * @ORM\ManyToOne(targetEntity="App\Entity\Bird", inversedBy="observations")
      */
     private $bird;
 

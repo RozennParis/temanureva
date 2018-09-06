@@ -14,26 +14,39 @@ use Doctrine\ORM\EntityRepository;
 use App\Repository\BirdRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-class BirdListForm extends AbstractType
+
+class BirdListType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             //test avec autocompletion JS et Ajax
-            ->add('bird', HiddenType::class, [
-                'label'=>'Nom de l\'espèce ',
+            ->add('id', HiddenType::class, [
+                'label'=>'Critère de recherche (Ordre, Famille, Nom de l\'espèce)',
                 'required' => false,
-                'attr' =>[
-                    'class' => 'bird_research'
-                ]
-            ]);
+            ])
+
+            ->add('sort', ChoiceType::class, [
+                'choices' => [
+                    'A -Z' => Bird::SORTING_A_TO_Z,
+                    'Z -A' => Bird::SORTING_Z_TO_A,
+                    'Nombre d\'observations croissant' => Bird::SORTING_INCREASE_OBSERVATIONS,
+                    'Nombre d\'observations décroissant' => Bird::SORTING_DECREASE_OBSERVATIONS
+                ],
+                'label'=> 'Trier par',
+                'expanded' => true,
+                'multiple' => false,
+            ])
+
+
+        ;
+
+
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
