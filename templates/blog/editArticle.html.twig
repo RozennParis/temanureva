@@ -9,6 +9,10 @@
     <script>
         tinymce.init({
             selector:'.tinymce',
+            height: 400,
+            plugins: 'image link lists advlist autolink media',
+            menubar: false,
+            toolbar: ' undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | cut copy paste | link image media'
         });
     </script>
 {% endblock %}
@@ -16,7 +20,7 @@
 {% block body %}
     {{ include('common/header.html.twig', {'title' : 'Editer article'}) }}
     {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
-    <div class="container">
+    <div class="container margin-t">
         {{ form_start(form) }}
         {{ form_row(form.title) }}
         {{ form_row(form.content) }}
@@ -27,12 +31,12 @@
             {{ form_widget(form.delete_image) }}
         {% endif %}
 
-        <div class="row center">
+        <div class="row center margin-t margin-b">
             {% if form.publish is defined %}
-                {{ form_widget(form.publish) }}
+                {{ form_widget(form.publish, { 'attr' : { 'class' : 'btn-round btn-brown'}}) }}
             {% endif %}
-            {{ form_widget(form.save) }}
-            {{ form_widget(form.delete) }}
+            {{ form_widget(form.save, { 'attr' : { 'class' : 'btn-round btn-brown'}}) }}
+            {{ form_widget(form.delete, { 'attr' : { 'class' : 'btn-round btn-brown'}}) }}
         </div>
 
         {{ form_end(form) }}

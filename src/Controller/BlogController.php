@@ -34,7 +34,7 @@ class BlogController extends Controller
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/blog/{page}", name="blog", requirements={"page"="\d+"})
+     * @Route("/amis-oiseaux-articles-blog-information/{page}", name="blog", requirements={"page"="\d+"})
      */
     public function blogAction($page = 1){
 
