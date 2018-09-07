@@ -93,7 +93,6 @@ class ObservationController extends Controller
         //Insert breadcrumb
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
-            ->add('profil', 'Mon profil')
             ->add('mes_observations', 'Mes observations');
 
         return $this->render('back/my_observations.html.twig',[

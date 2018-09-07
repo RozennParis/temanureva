@@ -604,3 +604,7 @@ footer a, footer h4 {
     font-family: Roboto light;
     font-style: italic;
 }
+
+.maroon {
+    background-color:#A1887F;
+}
