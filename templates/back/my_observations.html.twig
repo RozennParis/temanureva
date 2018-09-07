@@ -21,11 +21,7 @@
                     </div>
                     <div class="card-content">
                         <span class="title-card-my-observations">
-                            {% if null == observation.bird.vernacularName  %}
-                                Espèce non reconnue
-                            {% else %}
-                                {{ observation.bird.vernacularName }}
-                            {% endif%}
+                            {{ observation.bird.vernacularName }}
                         </span>
                         <p class="content-card-my-observations">{{ observation.addingDate|date("d/m/Y") }} -
                             {% if  observation.status == false %}
