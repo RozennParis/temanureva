@@ -15,7 +15,7 @@
                 <p>0X XX XX XX XX</p>
             </div>
         </div>
-        <div class="col s12 l9 grey lighten-3" style="height: 31.25rem;">
+        <div id="mapContact" class="col s12 l9 grey lighten-3" style="height: 31.25rem;">
 
         </div>
     </div>
@@ -43,4 +43,8 @@
         </div>
         {{ form_end(form) }}
     </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/mapContact.js') }}"></script>
 {% endblock %}

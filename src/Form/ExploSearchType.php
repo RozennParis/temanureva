@@ -41,13 +41,7 @@ class ExploSearchType extends AbstractType
                 'widget' => 'single_text',
                 'format'=> 'dd/MM/yyyy',
                 ])*/
-            /*->add('observationDate_start', DateType::class, [
-                'label' => 'Date de fin',
-                'required' => false,
-                'attr' => ['class' => 'datepicker'],
-                'widget' => 'single_text',
-                'format' => 'dd/MM/yyyy'
-            ])*/
+
         ;
         $builder ->get('bird')
             ->addModelTransformer($this->transformer);
