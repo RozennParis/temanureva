@@ -1,12 +1,14 @@
 $(document).ready(function(){
     $('.slider').slider({
-        interval: 2000,
+        interval: 10000,
         height: 864,
         indicators: false,
     });
     $('.scrollspy').scrollSpy({
         scrollOffset: 1000,
     });
+
+    $('.chips').chips();
 
     $('.collapsible').collapsible();
 
@@ -26,7 +28,5 @@ $(document).ready(function(){
     $('.timepicker').timepicker({
         twelveHour: false,
     });
-
-    $('.collapsible').collapsible();
 
 });

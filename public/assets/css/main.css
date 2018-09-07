@@ -42,6 +42,7 @@ a {
 /*---- Navigation ----*/
 
 nav {
+    z-index: 300;
     background-color: #01796F;
 }
 
@@ -293,12 +294,13 @@ footer a, footer h4 {
 
 /*---- Map----*/
 
-#map{
-    height: 42.0625rem;
-    max-width: 66.5rem;
+.map {
+    height: 31.25rem;
+    width: 100%;
     margin: auto;
-}
+    z-index: 1;
 
+}
 #observation-map {
     position: absolute;
     top: 5rem;
@@ -312,5 +314,4 @@ footer a, footer h4 {
 
 #bloc-map {
     padding: 0;
->>>>>>> origin/feature/observation
 }

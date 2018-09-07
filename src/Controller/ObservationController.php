@@ -30,7 +30,7 @@ class ObservationController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-
+            dump($form['bird']->getData()); die;
             $em = $this->getDoctrine()->getManager();
             $currentObserver = $this->getUser();
             $observation->setObserver($currentObserver);
