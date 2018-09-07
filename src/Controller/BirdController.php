@@ -14,6 +14,7 @@ use App\Form\BirdListType;
 use App\Service\BreadcrumbManager;
 use App\Service\PaginationManager;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -158,4 +159,23 @@ class BirdController extends Controller
             'observation' => $observation,
         ]);
     }
+
+    /**
+     * functionality for search the name bird with the id in the url for the testing
+     * @param null $id
+     * @return Response
+     * @Route("/oiseaux/rechercher/{id}", name="bird_search_id", requirements={"id": "\d+"})
+     */
+    public function searchBirdIdAction($id = null)
+    {
+        $bird = $this->getDoctrine()->getRepository(Bird::class)->find($id);
+
+        if ($bird) {
+            $name = $bird->getVernacularName() . '(' . $bird->getLbName() . ')';
+            return new Response($name);
+        }
+        return new Response('');
+    }
+
+
 }

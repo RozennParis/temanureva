@@ -60,6 +60,7 @@ a {
 /*---- Navigation ----*/
 
 nav {
+    z-index: 300;
     background-color: #01796F;
 }
 
@@ -432,6 +433,12 @@ nav {
     margin: 0;
 }
 
+.map {
+    height: 31.25rem;
+    width: 100%;
+    margin: auto;
+    z-index: 1;
+}
 #observation-map {
     position: absolute;
     top: 5rem;

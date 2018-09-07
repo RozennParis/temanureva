@@ -8,6 +8,8 @@ $(document).ready(function(){
         scrollOffset: 1000,
     });
 
+    $('.chips').chips();
+
     $('.collapsible').collapsible();
 
     $('select').formSelect();

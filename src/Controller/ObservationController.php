@@ -39,8 +39,8 @@ class ObservationController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-
+        if ($form->isSubmitted() && $form->isValid()){
+            //dump($form['bird']->getData()); die;
             $em = $this->getDoctrine()->getManager();
 
             /**
@@ -104,8 +104,12 @@ class ObservationController extends Controller
     }
 
     /**
-     * @Route("/observation/{id}", name="view_observation")
      * @param Request $request
+     * @param AuthorizationCheckerInterface $checker
+     * @param ObservationManager $observationManager
+     * @param $id
+     * @return Response
+     * @Route("/observation/{id}", name="view_observation")
      */
     public function viewObservation(Request $request, AuthorizationCheckerInterface $checker, ObservationManager $observationManager,$id){
         $breadcrumb = new BreadcrumbManager();
@@ -121,7 +125,7 @@ class ObservationController extends Controller
                 $form->handleRequest($request);
                 if ($form->isSubmitted() && $form->isValid()){
                     if ($form->getClickedButton()->getName() == 'valide'){
-                        $obsrevationManager->valide($observation);
+                        $observationManager->valide($observation);
                         $this->redirectToRoute('profil');
                     }
                     elseif ($form->getClickedButton()->getName() == 'delete'){

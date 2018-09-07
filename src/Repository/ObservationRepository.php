@@ -102,4 +102,23 @@ class ObservationRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByBirdId($id)
+    {
+        return $this->createQueryBuilder('o')
+            ->where('o.bird = :id', 'o.status = 1')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findAllValidateBirds()
+    {
+        return $this->createQueryBuilder('o')
+            ->where('o.status = 1')
+            ->orderBy('o.observationDate', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
 }
