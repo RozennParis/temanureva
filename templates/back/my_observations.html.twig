@@ -20,7 +20,13 @@
                         <a class="btn-floating btn-large halfway-fab waves-effect waves-light maroon"  href="{{ path('view_observation', {'id': observation.id}) }}"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
-                        <span class="title-card-my-observations">{{ observation.bird.vernacularName }}</span>
+                        <span class="title-card-my-observations">
+                            {% if null == observation.bird.vernacularName  %}
+                                Espèce non reconnue
+                            {% else %}
+                                {{ observation.bird.vernacularName }}
+                            {% endif%}
+                        </span>
                         <p class="content-card-my-observations">{{ observation.addingDate|date("d/m/Y") }} -
                             {% if  observation.status == false %}
                                 En cours de validation
@@ -32,6 +38,11 @@
                 </div>
             </div>
         {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="center-align">
+            {{ include('common/pagination.html.twig', {'paginaion' : pagination}) }}
         </div>
     </div>
 {% endblock %}
