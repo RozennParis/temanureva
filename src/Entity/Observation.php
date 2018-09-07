@@ -31,7 +31,8 @@ class Observation
     private $addingDate;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
+     *
      */
     private $validationDate;
 
@@ -57,6 +58,9 @@ class Observation
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\File(
+     *     mimeTypes = {"image/jpeg", "image/png"},
+     *     mimeTypesMessage="Veuillez sélectionner une image .PNG ou .JPEG")bin
      */
     private $image;
 
@@ -68,13 +72,15 @@ class Observation
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     *
      */
     private $validator;
+    //@ORM\JoinColumn(nullable=false)
+
 
     /**
      * @ORM\JoinColumn(name="bird", referencedColumnName="id")
-     * @ORM\ManyToOne(targetEntity="App\Entity\Bird", cascade={"persist"}, )
+     * @ORM\ManyToOne(targetEntity="App\Entity\Bird", inversedBy="observations", cascade={"persist"} )
      */
     private $bird;
 

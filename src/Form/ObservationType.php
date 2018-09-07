@@ -3,12 +3,16 @@
 namespace App\Form;
 
 use App\Form\DataTransformer\BirdToStringTransformer;
+use App\Form\DataTransformer\ObservationDateToStringTransformer;
 use App\Entity\Observation;
 use App\Entity\Bird;
+use App\Form\BirdAutocompleteSelectorType;
+use App\Form\ObservationDatetimeSelectorType;
 use Doctrine\ORM\EntityRepository;
 use App\Repository\BirdRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -28,7 +32,7 @@ class ObservationType extends AbstractType
     {
         $builder
             //test avec autocompletion JS et Ajax
-           ->add('bird', HiddenType::class, [
+           ->add('bird', BirdAutocompleteSelectorType::class, [
                 'label'=>'Nom de l\'espèce ',
                 'required' => false,
                 'attr' =>[
@@ -46,44 +50,30 @@ class ObservationType extends AbstractType
                 },
                 'required'=> false,
             ])*/
-            ->add('observation_date', HiddenType::class, [
-                'label' => 'Date d\'observation *',
-                'attr' => [
-                    'class' => 'datepicker'
-                ],
-                'required' => true
-
+            ->add('observation_date', DateTimeType::class, [
+                'widget' =>'single_text',
             ])
 
             ->add('address', TextType::class, [
                 'label' => 'Adresse',
                 'required' => false,
-                // implementation of OpenStreetMap aaahTODO
             ])
 
             ->add('latitude', TextType::class, [
                 'label' => 'Latitude',
                 'required' => true,
-                // implementation of OpenStreetMap aaahTODO
             ])
             ->add('longitude', TextType::class, [
                 'label' => 'Longitude',
                 'required' => true,
-                // implementation of OpenStreetMap aaahTODO
             ])
 
             ->add('image', FileType::class, [
                 'label' => 'Image de l\'observation',
-                'attr' => [
-                    'class' => 'file-field input-field'
-                ],
                 'required' => false
             ])
 
         ;
-
-            $builder ->get('bird')
-                ->addModelTransformer($this->transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver)

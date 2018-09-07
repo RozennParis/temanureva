@@ -7,17 +7,10 @@
 {% block body %}
 
     <div class="center">
-        <h1>Ajouter une observation</h1>
+        <h1 class="header-text">Ajouter une observation</h1>
     </div>
-    <div>
-        <nav class="ariane">
-            <div class="nav-wrapper">
-                <div class="col s12">
-                    <a href="#" class="breadcrumb">Accueil</a>
-                    <a href="#" class="breadcrumb">Mon profil</a>
-                </div>
-            </div>
-        </nav>
+    <div class="margin-bottom">
+        {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
     </div>
 {{ form_start(form) }}
     <div class="container center" id="observation-map">
@@ -38,7 +31,7 @@
             </div>
         </div>
         <div class="row">
-            <button id="hide" class="btn btn-homepage" type="button">Valider</button>
+            <button id="hide" class="btn btn-homepage margin-bottom-light" type="button">Enregistrer les infos</button>
         </div>
     </div>
     <div class="container center">
@@ -72,7 +65,7 @@
             <div class="col s12 m6" >
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" class="datepicker "id="observation-date-input" autocomplete="off">
+                        <input type="text" class="datepicker " id="observation-date-input" autocomplete="off">
                         <label for="observation-date-input">Date d'observation*</label>
                     </div>
                 </div>
@@ -85,8 +78,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col s12">
-                {{ form_row(form.observation_date) }}
+            <div class="col s12" id="date-div">
+                {{ form_widget(form.observation_date) }}
             </div>
         </div>
         <div class="row">
@@ -96,12 +89,19 @@
                 }) }}
             </div>
         </div>
-        <button class="btn btn-connexion" type="submit"> Envoyer l'observation</button>
+        <button class="btn btn-homepage margin-bottom" type="submit"> Envoyer l'observation</button>
         {{ form_end(form) }}
     </div>
 
 {% endblock %}
 {% block javascript %}
     {{ parent() }}
+    <script type="text/javascript">
+     var dateControl = document.getElementById('observation-date-input');
+         dateControl.addEventListener("change", function(){
+             document.getElementById("stock").value = dateControl.value;
+
+         })
+     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.8/jquery.autocomplete.js"></script>
 {% endblock %}

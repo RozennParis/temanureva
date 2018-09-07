@@ -42,3 +42,6 @@ services:
     App\Service\DemandManager:
             arguments:
                 $directory: '%demand_file_directory%'
+    App\Service\ObservationManager:
+        arguments:
+            $directory: '%image_observation_directory%'
