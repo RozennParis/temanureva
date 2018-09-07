@@ -98,7 +98,7 @@ class ObservationController extends Controller
 
         return $this->render('back/my_observations.html.twig',[
             'observations' => $observations,
-            'breadcrumb' => $breadcrumb,
+            'breadcrumb' => $breadcrumb->getBreadcrumb(),
             'pagination' => $pagination
         ]);
     }
@@ -116,13 +116,17 @@ class ObservationController extends Controller
         $breadcrumb
             ->add('exploration', 'Exploration')
             ->add('view_observation', 'Observation');
+
         $observation = $this->getDoctrine()
             ->getRepository(Observation::class)
             ->findById($id);
+
         if ($observation->getStatus() == 0){
             if (true === $checker->isGranted(['ROLE_ADMIN', 'ROLE_NATURALIST'])){
                 $form = $this->createForm(ValideObservationType::class, $observation);
+
                 $form->handleRequest($request);
+
                 if ($form->isSubmitted() && $form->isValid()){
                     if ($form->getClickedButton()->getName() == 'valide'){
                         $observationManager->valide($observation);
