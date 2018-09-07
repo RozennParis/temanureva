@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter - NAO{% endblock %}
+
+{% block body %}
+    {{ include('common/header.html.twig', {'asset' : 'assets/img/bg-contact.jpg', 'alt' : 'header_blog', 'title' : 'Nous contacter'}) }}
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
+    <div class="row valign-wrapper">
+        <div class="col s12 l3 center-align grey-text">
+            <div>
+                <p>10 rue de la résistance</p>
+                <p>17000 BORDEAUX</p>
+            </div>
+            <div class="padding-top">
+                <p>0X XX XX XX XX</p>
+            </div>
+        </div>
+        <div class="col s12 l9 grey lighten-3" style="height: 31.25rem;">
+
+        </div>
+    </div>
+    <div class="container margin-t">
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col s12 grey-text">*Champs obligatoire</div>
+        </div>
+        <div class="row margin-t">
+            <div class="col s12 l6">{{ form_row(form.lastname) }}</div>
+            <div class="col s12 l6">{{ form_row(form.firstname) }}</div>
+        </div>
+        <div class="row margin-t">
+            <div class="col s12 l6">{{ form_row(form.email) }}</div>
+            <div class="col s12 l6">{{ form_row(form.phone) }}</div>
+        </div>
+        <div class="row margin-t">
+            <div class="col s12">{{ form_row(form.subject) }}</div>
+        </div>
+        <div class="row margin-t">
+            <div class="col s12">{{ form_row(form.message) }}</div>
+        </div>
+        <div class="row center-align margin-b margin-t">
+            <input type="submit" class="btn btn-round btn-brown" value="Envoyer">
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
