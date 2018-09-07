@@ -97,6 +97,7 @@ class FrontController extends Controller
     /**
      * @param Request $request
      * @param MailManager $mail
+     * @return Response
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
@@ -108,15 +109,17 @@ class FrontController extends Controller
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
             ->add('contact', 'Nous contacter');
-
         //Form
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
-
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()){
             $mail->sendContact($contact);
         }
+        return $this->render('front/contact.html.twig',[
+            'breadcrumb' => $breadcrumb->getBreadcrumb(),
+            'form' => $form->createView()
+        ]);
 
     }
 
