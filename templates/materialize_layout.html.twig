@@ -2,7 +2,7 @@
 
 {% block form_row -%}
     <div class="row{% if (not compound or force_error|default(false)) and not valid %} has-error{% endif %}">
-        <div class="input-field col s12">
+        <div class="input-field col s12 input-form">
             {{- form_widget(form) -}}
             {{- form_label(form) -}}
             {{- form_errors(form) -}}
@@ -108,7 +108,7 @@
 
 {% block file_widget %}
     <div class="file-field input-field">
-        <div class="btn">
+        <div class="btn file-btn">
             <span>Image</span>
             {{- form_widget(form) -}}
         </div>

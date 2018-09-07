@@ -15,6 +15,9 @@ a {
     margin-bottom: 2.5rem;
 }
 
+.margin-bottom-light {
+    margin-bottom: 1.25rem;
+}
 
 .big-header h1 {
     font-family: 'Roboto', sans-serif;
@@ -22,6 +25,11 @@ a {
     font-size: 4.2rem;
     font-weight: 400;
     margin: auto;
+}
+
+.input-form {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
 }
 
 /*---- collapsible research ----*/
@@ -271,9 +279,14 @@ footer a, footer h4 {
 /*---- Page d'ajout Observation----*/
 
 .file-label {
-    top: -1.75em !important;
+    top: 0px!important;
 }
 
+.file-btn {
+    height: 1.75rem!important;
+    line-height: 1.75rem!important;
+    margin-top: 1.25rem;
+}
 #date-div{
     display: none;
 }
@@ -299,7 +312,7 @@ footer a, footer h4 {
 #map{
     height: 42.0625rem;
     max-width: 66.5rem;
-    margin: auto;
+    margin: 0;
 }
 
 #observation-map {
@@ -311,6 +324,7 @@ footer a, footer h4 {
     display: none;
     margin: auto;
     background-color: #FFFFFF;
+    max-width: 66.5rem;
 }
 
 #bloc-map {
@@ -339,4 +353,21 @@ footer a, footer h4 {
 
 .title-species {
     font-size: 1.25rem!important;
+}
+
+/*---- Mes observations ----*/
+
+.container-my-observations {
+    max-width: 1366px;
+    margin: auto;
+}
+.title-card-my-observations {
+    font-size: 1.25em;
+    font-family: Roboto light;
+}
+
+.content-card-my-observations {
+    font-size: 1.25em;
+    font-family: Roboto light;
+    font-style: italic;
 }

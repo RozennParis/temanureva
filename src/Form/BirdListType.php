@@ -38,8 +38,8 @@ class BirdListType extends AbstractType
                     'Nombre d\'observations décroissant' => Bird::SORTING_DECREASE_OBSERVATIONS
                 ],
                 'label'=> 'Trier par',
-                'expanded' => true,
-                'multiple' => false,
+                /*'expanded' => true,
+                'multiple' => false,*/
             ])
 
 

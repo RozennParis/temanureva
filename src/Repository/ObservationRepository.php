@@ -19,12 +19,21 @@ class ObservationRepository extends ServiceEntityRepository
         parent::__construct($registry, Observation::class);
     }
 
+    public function findById($id){
+        $qb = $this->createQueryBuilder('o')
+            ->andWhere('o.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery();
+        return $qb->getSingleResult();
+    }
+
+
     /**
      * @param $id
      * @return mixed
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function countByID($id){
+    public function countById($id){
         $qb = $this->createQueryBuilder('o')
             ->innerJoin('o.bird', 'b')
             ->where('b.id = :id')
@@ -33,6 +42,28 @@ class ObservationRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getSingleScalarResult();
     }
+
+    public function getNumberObservationsByUserId($id){
+        $qb = $this->createQueryBuilder('o')
+            ->where('o.observer = :id')
+            ->setParameter('id', $id);
+        $qb->select($qb->expr()->count('o.id'));
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    public function findAllByUserId($id, $offset, $limit){
+        return $qb = $this->createQueryBuilder('o')
+            ->select('o')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->where('o.observer = :id')
+            ->setParameter('id', $id)
+            ->orderBy('o.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
 
     public function findObservationByBirdId($id){
        return $qb = $this->createQueryBuilder('o')

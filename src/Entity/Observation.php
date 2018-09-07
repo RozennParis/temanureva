@@ -80,7 +80,7 @@ class Observation
 
     /**
      * @ORM\JoinColumn(name="bird", referencedColumnName="id")
-     * @ORM\ManyToOne(targetEntity="App\Entity\Bird", inversedBy="observations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Bird", inversedBy="observations", cascade={"persist"} )
      */
     private $bird;
 

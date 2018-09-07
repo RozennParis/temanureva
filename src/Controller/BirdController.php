@@ -22,11 +22,11 @@ class BirdController extends Controller
     const NBR_BIRDS_PER_PAGE = 30;
 
     const PAGINATION_DISPLAY_BIRDS = 5;
-    CONST PAGINATION_DISPLAY_MANAGE = 5;
+    const PAGINATION_DISPLAY_MANAGE = 5;
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/liste-photos-especes-oiseaux-france/{page}", name="oiseaux")
+     * @Route("/liste-photos-especes-oiseaux-france/{page}", name="oiseaux", requirements={"page"="\d+"})
      */
     public function showAllBirds($page = 1, Request $request)
     {

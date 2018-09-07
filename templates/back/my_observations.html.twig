@@ -1,5 +1,45 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Mes observations{% endblock %}
 {% block body %}
-    vous êtes arrivés sur la bonne page !!!
+
+    <div class="center">
+        <h1 class="header-text">Mes observations</h1>
+    </div>
+    <div class="margin-bottom">
+        {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
+    </div>
+    <div class="container-my-observations">
+        <div class="row">
+        {% for observation in observations %}
+
+                <div class="col s12 m6 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <div>
+                            <img src="{{ image_observation_directory}}/{{ observation.image }}">
+                            <a href="{{ path('view_observation', {'id': observation.id}) }}" class="btn-floating btn-large waves-effect waves-light maroon"><i class="material-icons">add</i></a>
+                            </div>
+                        </div>
+                        <div class="card-content ">
+                            <p class="title-card-my-observations">
+                                {{ observation.bird.vernacularName }}
+                            </p>
+
+                            <br/>
+                            <p class="content-card-my-observations">
+                                {{ observation.addingDate|date("d/m/Y") }} -
+                                    {% if  observation.status == false %}
+                                        En cours de validation
+                                    {% else %}
+                                        Observation validée
+                                    {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}

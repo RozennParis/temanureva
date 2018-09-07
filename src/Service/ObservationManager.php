@@ -34,4 +34,11 @@ class ObservationManager
         $fileName = $this->fileManager->upload($file, $this->imageDirectory);
         $observation->setImage($fileName);
     }
+
+    public function valide(Observation $observation){
+        $observation
+            ->setValidationDate(new \DateTime())
+            ->setValidator($this->storage->getToken()->getUser());
+//        $this->entityManager->flush();
+    }
 }

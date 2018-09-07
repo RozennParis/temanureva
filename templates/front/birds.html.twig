@@ -40,8 +40,7 @@
         {% for bird in birds %}
             <div class="col s12 m4 l2">
                 <div class="card "><!--card-species-->
-                    <div class="card-image"> <!--image-species center-->
-                        <div class="center">
+                    <div class="materialboxed card-image waves-effect waves-block waves-light"> <!--image-species center-->
                             <img src="
                                 {% if bird.image %}
                                     {{ image_birds_directory}}/{{ bird.image }}
@@ -49,9 +48,8 @@
                                     {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}
                                 {% endif %}
                             ">
-                        </div>
                     </div>
-                    <div class="card-content "><!--content-species center-->
+                    <div class="card-content center"><!--content-species center-->
                         <h6 class="center card-title">{{ bird.vernacularName }}</h6>
                         <p class="center">Animal observé XX fois</p>
                         <a href="{{ path('oiseau', {'id': bird.id}) }}"  class="waves-effect waves-light btn-small btn-species">Voir plus</a>
