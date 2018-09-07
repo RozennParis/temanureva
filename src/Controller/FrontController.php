@@ -51,10 +51,16 @@ class FrontController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param MailManager $mail
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      * @Route("/contact-association-amis-oiseaux", name="contact")
      */
-    public function contact(Request $request, MailManager $mail){
+    public function contact(Request $request, MailManager $mail)
+    {
         //Breadcrumb
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
@@ -65,14 +71,25 @@ class FrontController extends Controller
         $form = $this->createForm(ContactType::class, $contact);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $mail->sendContact($contact);
         }
 
-        return $this->render('front/contact.html.twig',[
+        return $this->render('front/contact.html.twig', [
             'breadcrumb' => $breadcrumb->getBreadcrumb(),
             'form' => $form->createView()
 
         ]);
+    }
+
+    /**
+     * @Route("/presentation-association-protection-amis-oiseaux", name="presentation")
+     */
+    public function presentationAssociation(){
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('presentation', 'Notre assotion');
+
+        return $this->render('front/presentation.html.twig',['breadcrumb' => $breadcrumb->getBreadcrumb()]);
     }
 }
