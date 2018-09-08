@@ -25,10 +25,6 @@ a {
     margin-bottom: 2.5rem;
 }
 
-.margin-bottom-light {
-    margin-bottom: 1.25rem;
-}
-
 .big-header h1 {
     font-family: 'Roboto', sans-serif;
     color: #FFFFFF;
@@ -400,11 +396,7 @@ nav {
     top: 0px!important;
 }
 
-.file-btn {
-    height: 1.75rem!important;
-    line-height: 1.75rem!important;
-    margin-top: 1.25rem;
-}
+
 #date-div{
     display: none;
 }
@@ -543,6 +535,17 @@ nav {
     width: 200px;
     background-color: #01796F;
 }
+
+.file-btn {
+    height: 1.75rem!important;
+    line-height: 1.75rem!important;
+    margin-top: 1.25rem!important;
+}
+
+.margin-bottom-light {
+    margin-bottom: 1.25rem!important;
+}
+
 /*---- Footer ----*/
 
 .icone img {
