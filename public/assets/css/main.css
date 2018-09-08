@@ -38,6 +38,10 @@ a {
     margin-bottom: 1.25rem;
 }
 
+footer {
+    margin-bottom: 0 !important;
+}
+
 /*---- collapsible research ----*/
 .collapsible-header {
     background-color: #A1887F;
