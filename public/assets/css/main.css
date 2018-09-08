@@ -42,6 +42,10 @@ footer {
     margin-bottom: 0 !important;
 }
 
+footer h4 {
+    font-size: 1.25rem;
+}
+
 /*---- collapsible research ----*/
 .collapsible-header {
     background-color: #A1887F;
@@ -199,13 +203,20 @@ nav {
 /*---- Footer ----*/
 
 .icone img {
-    height: 65px;
-    width: 65px;
+    height: 4rem;
+    width: 4rem;
+}
+
+.icone, img {
+    border-radius: 15px;
+}
+
+footer a {
+    font-size: 16px;
 }
 /*---- slide ----*/
 .slider, .slides{
     height: 93vh !important;
->>>>>>> ab9c5a6ca69f942bc3f118c37c9b2f8f80c6090c
 }
 
 .slides > li > img{
