@@ -26,10 +26,10 @@ a {
 }
 
 .big-header h1 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono light', sans-serif;
     color: #FFFFFF;
     font-size: 4.2rem;
-    font-weight: 400;
+    /*font-weight: 400;*/
     margin: auto;
 }
 
@@ -284,7 +284,8 @@ footer a {
 }
 
 .card-author{
-    margin: 15px 0 !important;
+    padding-top: 1.25rem;
+    padding-bottom: 2.5rem;
 }
 
 .card-blog .card-title{
@@ -306,7 +307,9 @@ footer a {
 
 .card-blog .card-bottom{
     position: absolute;
-    bottom: 20px;
+    padding-top: 2.5rem;
+    height: 29.5rem;
+    /*bottom: 20px;*/
 }
 
 .card-blog img{
@@ -318,6 +321,11 @@ footer a {
 .height-img{
     height: 250px;
     max-width: 100%;
+}
+
+card-title-blog{
+    margin-top: 2.5rem!important;
+    margin-bottom: 1.25rem!important;
 }
 
 /*---- card-profile ----*/
