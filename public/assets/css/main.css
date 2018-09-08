@@ -51,7 +51,6 @@ footer h4 {
     background-color: #A1887F;
     margin: 0;
     color: #FFFFFF;
-    text-align: center;
     border-bottom: #A1887F;
 
 }
@@ -105,7 +104,7 @@ nav {
 }
 
 .fb {
-    background-color: #0D47A1;
+    background-color: #1E2D4C;
 }
 
 .margin-bottom-slide {
@@ -205,14 +204,15 @@ nav {
 .icone img {
     height: 4rem;
     width: 4rem;
-}
-
-.icone, img {
     border-radius: 15px;
 }
 
 footer a {
     font-size: 16px;
+}
+
+.block-footer {
+    width: 20%;
 }
 /*---- slide ----*/
 .slider, .slides{
@@ -353,7 +353,7 @@ footer a {
 }
 
 .header-w-img{
-    height: 19.68rem;
+    height: 19.6875rem;
 }
 
 @media only screen and (max-width: 600px){
