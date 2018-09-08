@@ -58,7 +58,7 @@ class FrontController extends Controller
 
         /*if ($form->isSubmitted() && $form->isValid()) {
 
-            $birdId = $form['bird']->getData();
+            $birdId = (int) $form['bird'];
 
             $result = [];
 
@@ -130,6 +130,7 @@ class FrontController extends Controller
      */
     public function explorationSearchBirdAction(Request $request)
     {
+
         $birdId = (int) $request->request->get('explo_search_bird');
         $result = [];
 

@@ -38,7 +38,8 @@ class UserFixtures extends Fixture
     public function getUserData(): array
     {
         return [
-            ['ROLE_ADMIN', 'KAVERA', 'Augustin', 'Jesdax', 'admin@outlook.fr', 'hello', new \DateTime('NOW')],
+            ['ROLE_ADMIN', 'Dujardin', 'Michel', 'Michel_Dujardin', 'dujardin.m@outlook.fr', 'dujardin', new \DateTime('NOW')],
+            ['ROLE_ADMIN', 'KAVERA', 'Augustin', 'Jesdax', 'admin@outlook.fr', 'hello', new \DateTime('NOW')]
         ];
     }
 }

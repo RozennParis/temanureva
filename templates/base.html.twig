@@ -24,6 +24,7 @@
             <nav>
                 <div class="nav-wrapper">
                     <a href="{{ path('homepage') }}" class="brand-logo"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="logo"></a>
+                    <a href="#" data-target="mobile-menu" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="{{ path('homepage') }}">Accueil</a></li>
                         <li><a href="{{ path('explorer') }}">Exploration</a></li>
@@ -36,11 +37,27 @@
                         {% else %}
                             <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>
                         {% endif %}
+                        <li><a href="#">Faire un don</a></li>
                         <li><div class="observation-autocomplete"><a href="#"><i class="material-icons">search</i></a></div></li>
                     </ul>
                 </div>
             </nav>
         </div>
+
+    <ul class="sidenav" id="mobile-menu">
+        <li><a href="{{ path('homepage') }}">Accueil</a></li>
+        <li><a href="{{ path('explorer') }}">Exploration</a></li>
+        <li><a href="{{ path('oiseaux') }}">Espèces</a></li>
+        <li><a href="{{ path('blog') }}">Blog</a></li>
+        <li><a href="{{ path('contact') }}">Nous contacter</a></li>
+        {% if is_granted(['ROLE_PARTICULAR', 'ROLE_NATURALIST', 'ROLE_EDITOR', 'ROLE_ADMIN'])  %}
+            <li><a href="{{ path('profil', {'id': app.user.id}) }}">Mon profil</a></li>
+            <li><a href="{{ path('security_logout') }}">Se déconnecter</a></li>
+        {% else %}
+            <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>
+        {% endif %}
+        <li><a href="#">Faire un don</a></li>
+    </ul>
     {% endblock %}
     <main>
         {% block body %}{% endblock %}
