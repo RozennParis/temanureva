@@ -40,6 +40,7 @@ class RegistrationController extends Controller
             $user->setPassword($password);
 
             $user->setRoles(['ROLE_PARTICULAR']);
+            $user->setRegistrationDate(new \DateTime());
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
