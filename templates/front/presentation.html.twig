@@ -17,11 +17,11 @@
                     <p class="text-justify">
                         L’association à but non lucratif (loi 1901) à vocation scientifique, Nos Amis les Oiseaux, est née de la volonté du Dr Michel Dujardin, docteur en ornithologie, de tout mettre en oeuvre pour préserver les oiseaux et de sensibiliser un maximum d'utilisateurs à la protection de la biodiversité grâce à un système d'observation participative.
                         <br>
-                        L’association donne l’opportunité à chaque personne souhaitant contribuer au développement et de préserver de la biodiversité, de devenir un scientifique citoyen en participant à un programme de recherche avec le Muséum National d'Histoire Naturelle qui s'appuie sur le recensement des différentes espèces que chacun d'entre nous partageons régulièrement.
+                        L’association donne l’opportunité à chaque personne souhaitant contribuer au développement et à la préservation de la biodiversité, de devenir un scientifique citoyen, en participant à un programme de recherche, mené par le Muséum National d'Histoire Naturelle, qui s'appuie sur le recensement des différentes espèces que chacun d'entre nous partageons régulièrement.
                         <br>
-                        Ainsi où que vous soyez, naturaliste, scientifique ou particulier, vous pourrez partager vos observations et vos photos depuis votre mobile ou votre ordinateur pour enrichir notre programme d’études et être un véritable acteur de la préservation de l’environnement.
+                        Ainsi où que vous soyez naturaliste, scientifique ou particulier, vous pourrez partager vos observations et vos photos depuis votre mobile ou votre ordinateur pour enrichir notre programme d’études et être un véritable acteur de la préservation de l’environnement.
                         <br>
-                        N’hésitez pas à ajouter votre pierre à l'édifice et rejoindre nos 1200 adhérents, Nos Amis les Oiseaux, c’est la réunion de passionnés, de randonneurs, d'amoureux de la nature, de passionnés et d'ornithologues..
+                        N’hésitez pas à ajouter votre pierre à l'édifice et rejoindre nos 1200 adhérents, Nos Amis les Oiseaux, c’est la réunion de passionnés, de randonneurs, d'amoureux de la nature et de fous d'ornithologie.
                         <br>
                         Parce que chaque petit pas ici est un grand pas pour la biodiversité…
                     </p>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="row center-align">
                     <p class="col offset-s1 s10">
-                        L’association partage chacune de vos observations avec la base de donnée du Muséum de l’Histoire Naturelle afin de faciliter les scientifiques et les experts qui oeuvrent tous les jours à améliorer la préservation  de notre biodiversité et comprendre l’évolution des espèces en France.
+                        L’association partage chacune de vos observations avec la base de données du Muséum d’Histoire Naturelle afin de faciliter le travail des scientifiques et des experts, qui oeuvrent tous les jours à améliorer la préservation  de notre biodiversité et comprendre l’évolution des espèces en France.
                     </p>
                 </div>
             </div>
@@ -73,8 +73,13 @@
     </div>
     <div class="center-align border-teal-bottom">
         <div class="margin-t container padding-bottom">
-            <a href="{{ path('user_registration') }}" class="btn btn-brown btn-round">Rejoignez nous</a>
-            <a href="{{ path('exploration') }}" class="btn btn-brown btn-round">Contribuez</a>
+            {% if is_granted(['ROLE_PARTICULAR', 'ROLE_NATURALIST', 'ROLE_ADMIN'])  %}
+                <a href="{{ path('ajout_observation') }}" class="btn btn-brown btn-round">Contribuez</a>
+            {% elseif is_granted(['ROLE_EDITOR']) %}
+                <a href="{{ path('gerer-articles') }}" class="btn btn-brown btn-round">Contribuez</a>
+            {% else %}
+                <a href="{{ path('user_registration') }}" class="btn btn-brown btn-round">Rejoignez nous</a>
+            {% endif %}
         </div>
     </div>
     <div class="container">
@@ -90,10 +95,10 @@
             </div>
             <div class="col s12 l6 white-text grey text-president margin-b">
                 <p class="text-justify">
-                    Le constant est brutal et alarmant, en moins de 50 ans, l'action de l'homme a entrainé la disparition de la moitié des espèces d'oiseaux de la planète. Aujourd'hui, à travers l'association Nos Amis les oiseaux, je souhaite mener un combat de front pour contibuer à préserver notre biodiversité lavant que notre faune sauvage y laisse des plumes !
+                    Le constant est brutal et alarmant, en moins de 50 ans, l'action de l'homme a entrainé la disparition de la moitié des espèces d'oiseaux de la planète. Aujourd'hui, à travers l'association "Nos Amis les oiseaux", je souhaite mener un combat de front pour préserver notre biodiversité, sachant que notre faune sauvage y laisse des plumes !
                 </p>
                 <p class="text-justify">
-                    Notre planète est unique, mais elle est fragile, c'est pourquoi je vous invite à contribuer, de près de ou loin, à notre service d'observation participative.
+                    Notre planète est unique, mais elle est fragile, c'est pourquoi je vous invite à contribuer, de près ou de loin, à notre service d'observations participatives.
                 </p>
                 <p class="text-justify">
                     Je remercie infiniment les adhérents qui oeuvrent à la sauvegarde de notre belle planète !
