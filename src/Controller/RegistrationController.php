@@ -11,6 +11,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Service\BreadcrumbManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -47,8 +48,13 @@ class RegistrationController extends Controller
             return $this->redirectToRoute('profil');
         }
 
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('user_registration', 'Inscription');
+
         return $this->render('front/register.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
 
     }

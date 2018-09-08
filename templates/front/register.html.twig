@@ -7,16 +7,7 @@
     <div class="center">
         <h1>Inscription</h1>
     </div>
-    <div>
-        <nav class="ariane">
-            <div class="nav-wrapper">
-                <div class="col s12">
-                    <a href="{{ path('homepage') }}" class="breadcrumb">Accueil</a>
-                    <a href="{{ path('security_login') }}" class="breadcrumb">Inscription</a>
-                </div>
-            </div>
-        </nav>
-    </div>
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
     <div class="container center">
         <p>
             *Champs obligatoires
