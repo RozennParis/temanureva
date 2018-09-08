@@ -48,7 +48,7 @@ class FrontController extends Controller
     /**
      *
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/observer-carte-oiseaux", name="exploration")
+     * @Route("/observer-carte-oiseaux", name="explorer")
      */
     public function exploration(Request $request)
     {
