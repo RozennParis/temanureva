@@ -162,7 +162,7 @@ class BirdController extends Controller
     }
 
     /**
-     * functionality for search the name bird with the id in the url for the testing
+     * functionality for search the name bird with the id in the url for my test AK
      * @param null $id
      * @return Response
      * @Route("/oiseaux/rechercher/{id}", name="bird_search_id", requirements={"id": "\d+"})

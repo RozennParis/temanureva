@@ -14,6 +14,10 @@ $(document).ready(function ({}) {
             data: {bird_id: bird_id}
         }).done(function (e) {
             console.log(e);
+
+            e.forEach(function (object) {
+                console.log(object.latitude, object.longitude, object.vernacularName)
+            })
         })
          return false;
     })
