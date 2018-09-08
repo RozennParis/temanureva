@@ -164,7 +164,7 @@ class FrontController extends Controller
     public function presentationAssociation(){
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
-            ->add('presentation', 'Notre assotion');
+            ->add('presentation', 'Notre association');
 
         return $this->render('front/presentation.html.twig',['breadcrumb' => $breadcrumb->getBreadcrumb()]);
     }

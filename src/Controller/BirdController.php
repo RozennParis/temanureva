@@ -29,6 +29,7 @@ class BirdController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/liste-photos-especes-oiseaux-france/{page}", name="oiseaux", requirements={"page"="\d+"})
      */
+    // rajouter l'ordre de tri >>> dans l'url
     public function showAllBirds($page = 1, Request $request)
     {
 
@@ -67,7 +68,7 @@ class BirdController extends Controller
                     $birds = $repository->findByvernacularName(($page-1)*self::NBR_BIRDS_PER_PAGE,self::NBR_BIRDS_PER_PAGE);
                     break;*/
 
-            }
+            } // rajouter order dans render, possible à null
             return $this->render('front/birds.html.twig', [
                 'birds' => $birds,
                 'pagination' => $pagination,
