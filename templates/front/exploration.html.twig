@@ -6,9 +6,9 @@
     {{ include('common/header.html.twig', {'asset' : 'assets/img/bg-exploration.jpg', 'alt' : 'header_exploration', 'title' : 'Exploration'}) }}
     {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
     <div>
-        <ul class="collapsible">
+        <ul class="collapsible center">
             <li>
-                <div class="collapsible-header">Rechercher<i class="material-icons">expand_more</i></div>
+                <div class="collapsible-header center">Rechercher<i class="material-icons">expand_more</i></div>
                 <div class="collapsible-body">
                     <div class="row">
                         {{ form_start(form) }}
@@ -24,11 +24,11 @@
                             </div>
                             {#{{ form_row(form.address) }}#}
                         </div>
-                        <div class="col s6">
-                            {#{{ form_row(form.observationDate) }}#}
-                        </div>
+                        {#<div class="col s6">
+                            #}{#{{ form_row(form.observationDate) }}#}{#
+                        </div>#}
                     </div>
-                        <button class="btn btn-connexion" type="submit" id="btn-search">Rechercher</button>
+                        <button class="btn btn-search" type="submit" id="btn-search">Rechercher</button>
                     {{ form_end(form) }}
                 </div>
             </li>

@@ -33,8 +33,8 @@ class ExploSearchType extends AbstractType
             /*->add('address', TextType::class, [
                 'label' => ' Localisation',
                 'required' => false,
-                ])*/
-            /*->add('observationDate', DateType::class, [
+                ])
+            ->add('observationDate', DateType::class, [
                 'label' => 'Date de début',
                 'required' => false,
                 'attr' => ['class' => 'datepicker'],

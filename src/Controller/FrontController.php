@@ -133,7 +133,7 @@ class FrontController extends Controller
         $birdId = (int) $request->request->get('explo_search_bird');
         $result = [];
 
-        dump($birdId);
+        //dump($birdId);
         if (!empty($birdId)) {
             $observations = $this->getDoctrine()
                 ->getRepository(Observation::class)
