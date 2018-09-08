@@ -11,16 +11,7 @@
 <div class="center">
     <h1>Connexion</h1>
 </div>
-<div>
-    <nav class="ariane">
-        <div class="nav-wrapper">
-            <div class="col s12">
-                <a href="{{ path('homepage') }}" class="breadcrumb">Accueil</a>
-                <a href="{{ path('security_login') }}" class="breadcrumb">Connexion</a>
-            </div>
-        </div>
-    </nav>
-</div>
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
 <div class="container">
     <br/>
     <div class="row">
