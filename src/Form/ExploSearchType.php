@@ -25,7 +25,7 @@ class ExploSearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('bird', HiddenType::class, [
+            ->add('bird', BirdAutocompleteSelectorType::class, [
                 'label' =>'Nom de l\'espèce',
                 'required' => false,
                 'attr' => [ 'class' => 'bird_research']
@@ -43,8 +43,6 @@ class ExploSearchType extends AbstractType
                 ])*/
 
         ;
-        $builder ->get('bird')
-            ->addModelTransformer($this->transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver)
