@@ -51,7 +51,6 @@ footer h4 {
     background-color: #A1887F;
     margin: 0;
     color: #FFFFFF;
-    text-align: center;
     border-bottom: #A1887F;
 
 }
@@ -105,7 +104,7 @@ nav {
 }
 
 .fb {
-    background-color: #0D47A1;
+    background-color: #1E2D4C;
 }
 
 .margin-bottom-slide {
@@ -194,25 +193,25 @@ nav {
 
 /*---- Page de connexion ----*/
 
-.btn-connexion {
-    border-radius: 100px;
-    width: 200px;
-    background-color: #4CAF50;
+.link-connexion a{
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: #01796F;
 }
-
 /*---- Footer ----*/
 
 .icone img {
     height: 4rem;
     width: 4rem;
-}
-
-.icone, img {
     border-radius: 15px;
 }
 
 footer a {
     font-size: 16px;
+}
+
+.block-footer {
+    width: 20%;
 }
 /*---- slide ----*/
 .slider, .slides{
@@ -361,7 +360,7 @@ card-title-blog{
 }
 
 .header-w-img{
-    height: 19.68rem;
+    height: 19.6875rem;
 }
 
 @media only screen and (max-width: 600px){
