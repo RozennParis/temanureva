@@ -193,12 +193,11 @@ nav {
 
 /*---- Page de connexion ----*/
 
-.btn-connexion {
-    border-radius: 100px;
-    width: 200px;
-    background-color: #4CAF50;
+.link-connexion a{
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: #01796F;
 }
-
 /*---- Footer ----*/
 
 .icone img {
