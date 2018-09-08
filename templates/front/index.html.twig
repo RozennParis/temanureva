@@ -11,8 +11,13 @@
                         <div class="caption center-align margin-bottom-slide">
                             <h3 class="lighter">Nos Amis les Oiseaux</h3>
                             <div class="center-align margin-bottom-slide">
-                                <button class="btn btn-round btn-brown">Inscrivez-vous ></button>
-                                <button class="btn btn-round btn-brown">Découvrir ></button>
+                                <a href="{{ path('user_registration') }}"><button class="btn btn-round btn-brown">Inscrivez-vous ></button></a>
+                                {% if is_granted(['ROLE_PARTICULAR', 'ROLE_NATURALIST', 'ROLE_EDITOR', 'ROLE_ADMIN'])  %}
+                                    <a href="{{ path('profil', {'id': app.user.id}) }}"><button class="btn btn-round btn-brown">Mon profil</button></a>
+                                {% else %}
+                                    <a href="{{ path('explorer') }}"><button class="btn btn-round btn-brown">Découvrir ></button></a>
+                                {% endif %}
+
                             </div>
                             <div>
                                 <a class="section scrollspy white-text" href="#commentCaMarche"><i class="medium material-icons">expand_more</i></a>
