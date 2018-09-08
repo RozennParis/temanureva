@@ -4,6 +4,8 @@ $(document).ready(function(){
         // height: 864,
         // indicators: false,
     });
+    $('.sidenav').sidenav();
+
     $('.scrollspy').scrollSpy({
         scrollOffset: 1000,
     });
