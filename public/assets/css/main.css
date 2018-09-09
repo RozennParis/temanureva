@@ -642,5 +642,8 @@ footer a, footer h4 {
 /* Donation*/
 
 .cadre-gris {
-    background-color: #D3D3D3;
+    background-color: rgba(219, 216, 215, 0.76);
+    text-align: center;
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
 }
