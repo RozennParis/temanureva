@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Newsletter;
+use App\Service\MailManager;
 use App\Service\NewsletterForm;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,7 +26,7 @@ class NewsletterController extends Controller
      * @Route("/abonement-newletters", name="subscribing")
      * @Method({"POST"})
      */
-    public function subscribing(Request $request, NewsletterForm $newsletterForm, EntityManagerInterface $entityManager){
+    public function subscribing(Request $request, NewsletterForm $newsletterForm, EntityManagerInterface $entityManager, MailManager $mail){
         $form = $newsletterForm->getForm();
 
         $form->handleRequest($request);
@@ -36,7 +37,7 @@ class NewsletterController extends Controller
             $newsletter->setToken($request->request->get('newsletter')['_token']);
             $entityManager->persist($newsletter);
             $entityManager->flush();
-
+            $mail->sendNewsletterValidation($newsletter);
             return $this->render('newsletter/subscribing.html.twig');
         }
         else{
@@ -46,9 +47,24 @@ class NewsletterController extends Controller
 
     /**
      * @Route("/newletters-confirmation", name="subscribe-confirmation")
+     * @Method({"GET"})
      */
-    public function confirmation(){
-
+    public function confirmation(Request $request, EntityManagerInterface $entityManager){
+        $email = $request->query->get('email');
+        $token = $request->query->get('token');
+        $newsletter =  $entityManager
+            ->getRepository(Newsletter::class)
+            ->findByEmail($email);
+        if ( $newsletter !== null && $newsletter->getToken() === $token){
+            $newsletter
+                ->setToken(null)
+                ->setSubscribingDate(new \DateTime());
+            $this->addFlash('success', 'Votre abonnement à la newsletter confirmé');
+            $entityManager->flush();
+        }else{
+            $this->addFlash('decline', "Erreur dans le processus d'abonnement");
+        }
+        return $this->redirectToRoute('security_login');
     }
 
     /**

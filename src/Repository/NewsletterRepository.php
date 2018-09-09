@@ -19,6 +19,15 @@ class NewsletterRepository extends ServiceEntityRepository
         parent::__construct($registry, Newsletter::class);
     }
 
+    public function findByEmail($email){
+        $qb = $this->createQueryBuilder('n')
+            ->andWhere('n.email = :email')
+            ->setParameter('email', $email)
+            ->getQuery();
+
+        return $qb->getOneOrNullResult();
+    }
+
 //    /**
 //     * @return Newsletter[] Returns an array of Newsletter objects
 //     */

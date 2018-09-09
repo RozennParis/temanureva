@@ -55,7 +55,7 @@ class Newsletter
         return $this->token;
     }
 
-    public function setToken(string $token): self
+    public function setToken(?string $token): self
     {
         $this->token = $token;
 
@@ -67,7 +67,7 @@ class Newsletter
         return $this->subscribingDate;
     }
 
-    public function setAddingDate(\DateTimeInterface $subscribingDate): self
+    public function setSubscribingDate(?\DateTimeInterface $subscribingDate): self
     {
         $this->subscribingDate = $subscribingDate;
 
