@@ -116,7 +116,7 @@ class BlogController extends Controller
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
             ->add('profil', 'Mon profil')
-            ->add('gerer-articles', 'Article');
+            ->add('gerer-articles', 'Gérer les articles');
 
         return $this->render('blog/manageBlog.html.twig', [
             'form' => $form->createView(),

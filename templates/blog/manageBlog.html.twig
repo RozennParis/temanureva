@@ -3,7 +3,7 @@
 {% block title %}Gérer les articles - NAO{% endblock %}
 
 {% block body %}
-    {{ include('common/header.html.twig', {'title' : 'Gérer article'}) }}
+    {{ include('common/header.html.twig', {'title' : 'Gérer les articles'}) }}
     {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
     <div class="container margin-t">
         {% for i in 0..1 %}
@@ -27,7 +27,7 @@
                                         <div class="col s9">
                                             <p>{{ articles[k].title }}</p>
                                             <p>
-                                                {{ articles[k].modificationDate|date("d/m/Y") }} - {% if not articles[k].status %}Broullion{% else %}Publié{% endif %}
+                                                {{ articles[k].modificationDate|date("d/m/Y") }} - {% if not articles[k].status %}Brouillon{% else %}Publié{% endif %}
                                             </p>
                                         </div>
                                         <div class="col s3">
