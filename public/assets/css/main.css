@@ -68,9 +68,15 @@ nav {
 }
 
 .logo {
-    height: 62px;
+    height: 58px;
 }
 
+@media (max-width: 640px){
+    nav .brand-logo {
+        left: 20%;
+}
+
+}
 /*---- Slider ----*/
 .slider {
     height: 51.10vh;
