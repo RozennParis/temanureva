@@ -644,3 +644,24 @@ footer a, footer h4 {
 .cadre-gris {
     background-color: #D3D3D3;
 }
+
+/*---- Mentions légales ----*/
+.mentions {
+    width: 80%;
+}
+
+.mentions-text {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+}
+
+.mentions-li {
+    list-style-type: disc!important;
+    margin-left: 3.75rem;
+    margin-right: 1.25rem;
+}
+
+.mentions-h4 {
+    margin-left: 2.5rem;
+    margin-right: 1.25rem;
+}
