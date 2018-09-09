@@ -5,19 +5,15 @@
 {% block body %}
     {{ include('common/header.html.twig', {'asset' : 'assets/img/bg-contact.jpg', 'alt' : 'header_blog', 'title' : 'Nous contacter'}) }}
     {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
-    <div class="row valign-wrapper">
-        <div class="col s12 l3 center-align grey-text">
-            <div>
+    <div class="row">
+        <div class="col m12 s3 center-align grey-text">
                 <p>4 rue des Oiseaux</p>
                 <p>75003 PARIS</p>
-            </div>
             <div class="padding-top">
                 <p>01 63 37 26 29</p>
             </div>
         </div>
-        <div id="mapContact" class="col s12 l9 grey lighten-3" style="height: 31.25rem;">
-
-        </div>
+        <div id="mapContact" class="col m12 s9 grey lighten-3"></div>
     </div>
     <div class="container margin-t">
         {{ form_start(form) }}

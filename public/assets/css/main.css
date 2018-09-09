@@ -465,6 +465,10 @@ card-title-blog{
     max-width: 66.5rem;
 }
 
+#mapContact {
+    height: 31.25rem;
+}
+
 #bloc-map {
     padding: 0;
 }
