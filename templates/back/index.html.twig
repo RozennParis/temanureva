@@ -15,7 +15,7 @@
             </div>
             {% if app.user.id is same as(user.id) %}
                 <div class="row center-align">
-                    {% if is_granted('ROLE_PARTICULAR') or is_granted('ROLE_EDITOR') or is_granted('ROLE_ADMIN')%}
+                    {% if is_granted('ROLE_PARTICULAR') or is_granted('ROLE_NATURALIST') or is_granted('ROLE_ADMIN')%}
                         <a href="{{ path('ajout_observation') }}" class="btn btn-round btn-brown">Ajouter observation</a>
                         <a href="{{ path('mes_observations') }}" class="btn btn-round btn-brown">Mes observations</a>
                     {% endif %}
