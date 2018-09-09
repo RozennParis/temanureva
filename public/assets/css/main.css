@@ -682,6 +682,7 @@ footer a, footer h4 {
     border: white;
 }
 
-faq-collapsible {
+.faq-collapsible {
     border-top-style: none!important;
 }
+
