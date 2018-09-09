@@ -193,4 +193,17 @@ class FrontController extends Controller
             'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
     }
+
+    /**
+     * @Route("/FAQ", name="faq")
+     */
+    public function faq() {
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('faq', 'FAQ');
+
+        return $this->render('front/faq.html.twig', [
+            'breadcrumb' => $breadcrumb->getBreadcrumb()
+        ]);
+    }
 }

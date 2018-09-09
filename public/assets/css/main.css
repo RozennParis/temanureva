@@ -652,6 +652,7 @@ footer a, footer h4 {
     padding-top: 2.5rem;
 }
 
+
 /*---- Mentions légales ----*/
 .mentions {
     width: 80%;
@@ -672,3 +673,20 @@ footer a, footer h4 {
     margin-left: 2.5rem;
     margin-right: 1.25rem;
 }
+
+/*---- collapsible faq----*/
+.for-collapsible {
+    margin-left: 1rem!important;
+}
+
+.faq {
+    background-color: white;
+    margin: 0;
+    color: #212121;
+    border: white;
+}
+
+.faq-collapsible {
+    border-top-style: none!important;
+}
+
