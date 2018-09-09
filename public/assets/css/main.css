@@ -47,12 +47,12 @@ footer h4 {
 }
 
 /*---- collapsible research ----*/
-.collapsible-header {
+
+.search {
     background-color: #A1887F;
     margin: 0;
     color: #FFFFFF;
     border-bottom: #A1887F;
-
 }
 
 .collapsible {
