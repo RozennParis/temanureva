@@ -77,19 +77,20 @@ nav {
 }
 
 .insta {
-    background-color: #af2840 !important;
+    background: linear-gradient(#ff5f62, #cb112d);
+    border: 3px solid #51030c;
+    font-weight: bold;
+    height: 3.12rem;
 }
 
 #fb {
-    height: 30px;
-    width: 30px;
-    margin: 2px;
+    height: 20px;
+    width: 20px;
 }
 
 #insta {
-    height: 30px;
-    width: 30px;
-    margin: auto;
+    height: 20px;
+    width: 20px;
 }
 
 .btn-homepage {
@@ -97,6 +98,8 @@ nav {
     background-color: #a1887f;
     width: 230px;
     height: 49.79px;
+    align-content: center;
+    padding-bottom: 15px;
 }
 
 .circle-homepage {
@@ -104,7 +107,10 @@ nav {
 }
 
 .fb {
-    background-color: #1E2D4C;
+    background: linear-gradient(#3468a1, #183acb);
+    border: 3px solid #0d0b51;
+    font-weight: bold;
+    height: 3.12rem;
 }
 
 .margin-bottom-slide {
