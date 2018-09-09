@@ -77,8 +77,8 @@ nav {
 }
 
 .insta {
-    background: linear-gradient(#ff5f62, #cb112d);
-    border: 3px solid #51030c;
+    background: linear-gradient(#C5316b, #631936);
+    border: 3px solid #631936;
     font-weight: bold;
     height: 3.12rem;
 }
@@ -107,8 +107,8 @@ nav {
 }
 
 .fb {
-    background: linear-gradient(#3468a1, #183acb);
-    border: 3px solid #0d0b51;
+    background: linear-gradient(#3B5998, #1E2DAC);
+    border: 3px solid #1E2DAC;
     font-weight: bold;
     height: 3.12rem;
 }
