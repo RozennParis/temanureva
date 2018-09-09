@@ -676,7 +676,7 @@ footer a, footer h4 {
 
 /*---- collapsible faq----*/
 .for-collapsible {
-    margin-left: 1rem!important;
+    padding-left: 1rem!important;
 }
 
 .faq {
