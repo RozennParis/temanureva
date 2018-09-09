@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Faire un don - NAO{% endblock %}
+
+{% block body %}
+    {{ include('common/header.html.twig', {'asset' : 'assets/img/bg-donation.jpg', 'alt' : 'header_donation', 'title' : 'Faire un don'}) }}
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
+
+    <div class="container">
+        <p>
+            L'association Nos Amis les Oiseaux vit exclusivement de vos dons et mécénats. En effet, chaque personne qui agit pour l'association a le statut de bénévole,
+            et c'est donc son temps libre qu'elle offre pour nous aider chaque jour de près ou de loin à faire vivre Nos Amis les Oiseaux.
+            Cependant, toutes nos actions que nous menons pour préserver et sauvegarder la biodiversité ont un coût et ces frais,
+            nous avons besoin de les amortir. C'est pourquoi, Nos Amis les Oiseaux fait appel à vous et votre aide pour continuer à mener un combat quotidien grâce à un don ou une adhésion.
+        </p>
+
+        <div class="row">
+            <h3>Faire un don</h3>
+            <p>
+                Faites nous parvenir un chèque à l'ordre " Association Nos Amis les Oiseaux " d'une valeur de votre choix à l'adresse suivante :
+            </p>
+            <div class="cadre-gris">
+                Association Nos Amis les Oiseaux <br>
+                4 Rue des Oiseaux <br>
+                75015 Paris
+            </div>
+                <p>Ou <br>
+            Utilisez le site <a target="_blank" href="http://www.helloasso.fr/nos-amis-les-oieaux">Helloasso</a> pour faire un don avec les moyens de paiement suivants :
+                </p>
+            <div class="cadre-gris">
+
+                - Carte bancaire
+                - PayPal
+            </div>
+
+            <blockquote>
+                N'oubliez pas, chaque euro c'est un oiseau de plus de sauvé. <br>
+
+                Chaque don vous fera bénéficier d'une réduction d'impôt à hauteur de 66% de votre versement.
+            </blockquote>
+
+
+
+
+        </div>
+        <div class="row">
+            <h3>Adhérer à l'association</h3>
+
+            En adhérent à l’association Nos Amis les Oiseaux, vous :
+            • Donnez force et légitimité pour faire évoluer les mentalités et les lois en faveur de la protection de la nature
+            • Soutenez le projet et les actions mises en place pour l’association
+            • Bénéficiez d’une rédaction d’impôts de 66% soit un coût final par adhérent de 3,74€
+            • Profitez de rédaction (tickets d’entrée dans des parcs ornithologues et les Musées partenaires à l’association)
+
+            Pour adhérer à l'assocation est devenu un acteur, faites-nous parvenir un chèque de 10€ à l'ordre noté ci-dessus et n'oubliez pas de joindre dans votre enveloppe,
+            votre Nom, votre Prénom et votre adresse e-mail.
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -35,7 +35,7 @@
                         {% else %}
                             <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>
                         {% endif %}
-                        <li><a target="_blank" href="https://www.leetchi.com/fr/site-appel-don-argent-association-projet">Faire un don</a></li>
+                        <li><a href="{{ path('donation') }}">Faire un don</a></li>
                         <li><div class="observation-autocomplete"><a href="#"><i class="material-icons">search</i></a></div></li>
                     </ul>
                 </div>
@@ -54,7 +54,7 @@
         {% else %}
             <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>
         {% endif %}
-        <li><a target="_blank" href="https://www.leetchi.com/fr/site-appel-don-argent-association-projet">Faire un don</a></li>
+        <li><a href="{{ path('donation') }}">Faire un don</a></li>
     </ul>
     {% endblock %}
     <main>

@@ -168,4 +168,18 @@ class FrontController extends Controller
 
         return $this->render('front/presentation.html.twig',['breadcrumb' => $breadcrumb->getBreadcrumb()]);
     }
+
+    /**
+     * @Route("/donation", name="donation")
+     */
+    public function donation() {
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb->add('donation', 'Faire un don');
+
+        return $this->render('front/donation.html.twig', [
+            'breadcrumb' => $breadcrumb->getBreadcrumb()
+        ]);
+    }
+
+
 }
