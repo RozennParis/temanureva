@@ -34,6 +34,33 @@ a {
     margin: auto;
 }
 
+/*---- popup ----*/
+.dialog{
+    padding: 15px;
+}
+
+.ui-dialog{
+    z-index: 998;
+}
+
+.ui-dialog-titlebar{
+    display: none;
+}
+
+.dialog-success{
+    color: #155724;
+    background-color: #d4edda;
+}
+.dialog-notice{
+    color: #004085;
+    background-color: #cce5ff;
+}
+
+.dialog-decline{
+    color: #721c24;
+    background-color: #f8d7da;
+}
+
 /*---- collapsible research ----*/
 .collapsible-header {
     background-color: #A1887F;

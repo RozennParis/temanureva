@@ -37,7 +37,7 @@ class ForgetPasswordController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()){
             $forgetPassword->beginProcess($user);
-            return $this->redirectToRoute('security_login');
+            $this->addFlash('success', 'Un email vous a été envoyé pour réinitailiser votre mot de passe');
         }
 
         return $this->render('front/forgetPassword.html.twig', [
@@ -55,18 +55,30 @@ class ForgetPasswordController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
-            $user = $this->getDoctrine()
-                ->getRepository(User::class)
-                ->findByEmailAndToken($userTarget->getEmail(),$token);
+        if ($form->isSubmitted()){
+            if ($form->isValid()){
+                $user = $this->getDoctrine()
+                    ->getRepository(User::class)
+                    ->findByEmailAndToken($userTarget->getEmail(),$token);
 
-            //Si la conbinaison email/token est valide
-            if($user !== null){
-                //Si le token est encore valide
-                if (!$forgetPassword->isTimeOut($user)){
-                    $forgetPassword->reinitialize($user, $userTarget);
-                    return $this->redirectToRoute('security_login');
+                //Si la conbinaison email/token est valide
+                if($user !== null){
+                    //Si le token est encore valide
+                    if (!$forgetPassword->isTimeOut($user)){
+                        $forgetPassword->reinitialize($user, $userTarget);
+                        $this->addFlash('success', 'Votre mot de passe a été réinitialisé');
+                        return $this->redirectToRoute('security_login');
+                    }
+                    else{
+                        $this->addFlash('decline', 'Le temps limite dépassé');
+                    }
                 }
+                else{
+                    $this->addFlash('decline', 'Les informations sont incorrect');
+                }
+            }
+            else{
+                $this->addFlash('decline', 'Les informations sont incorrect');
             }
         }
 

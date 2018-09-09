@@ -67,6 +67,7 @@ class FrontController extends Controller
      * @Route("/contact-association-amis-oiseaux", name="contact")
      */
     public function contact(Request $request, MailManager $mail){
+
         //Breadcrumb
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
@@ -79,6 +80,7 @@ class FrontController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $mail->sendContact($contact);
+            $this->addFlash('success', 'Votre message a été envoyé');
         }
 
         return $this->render('front/contact.html.twig',[

@@ -45,6 +45,7 @@ class DemandController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $demandManager->uploadFile($demand, $form->get('certificate')->getData());
             $demandManager->setDefaultDemand($demand);
+            $this->addFlash('success', 'Demande envoyé');
 //            return $this->redirectToRoute('profil');
         }
 
