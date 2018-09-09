@@ -5,40 +5,51 @@
 {% block body %}
     {{ include('common/header.html.twig', {'asset' : 'assets/img/bg-contact.jpg', 'alt' : 'header_blog', 'title' : 'Nous contacter'}) }}
     {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
-    <div class="row">
-        <div class="col m12 s3 center-align grey-text">
-                <p>4 rue des Oiseaux</p>
-                <p>75003 PARIS</p>
-            <div class="padding-top">
-                <p>01 63 37 26 29</p>
+    <div>
+        <div>
+            <div class="row">
+                <div class="col s12 m3 grey-text center-align margin-t">
+                    <p class="margin-t">
+                        4 rue des Oiseaux <br>
+                        75003 PARIS <br>
+                    </p>
+                    <p class="margin-t margin-b">
+                        01 63 37 26 29
+                    </p>
+
+                </div>
+                <div class="col s12 m9" id="mapContact">
+
+                </div>
             </div>
         </div>
-        <div id="mapContact" class="col m12 s9 grey lighten-3"></div>
+
+        <div>
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col s12 grey-text">*Champs obligatoire</div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6">{{ form_row(form.lastname) }}</div>
+                <div class="col s12 m6">{{ form_row(form.firstname) }}</div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6">{{ form_row(form.email) }}</div>
+                <div class="col s12 m6">{{ form_row(form.phone) }}</div>
+            </div>
+            <div class="row">
+                <div class="col s12">{{ form_row(form.subject) }}</div>
+            </div>
+            <div class="row">
+                <div class="col s12">{{ form_row(form.message) }}</div>
+            </div>
+            <div class="row center-align margin-b margin-t">
+                <input type="submit" class="btn btn-round btn-brown" value="Envoyer">
+            </div>
+            {{ form_end(form) }}
+        </div>
     </div>
-    <div class="container margin-t">
-        {{ form_start(form) }}
-        <div class="row">
-            <div class="col s12 grey-text">*Champs obligatoire</div>
-        </div>
-        <div class="row margin-t">
-            <div class="col s12 l6">{{ form_row(form.lastname) }}</div>
-            <div class="col s12 l6">{{ form_row(form.firstname) }}</div>
-        </div>
-        <div class="row margin-t">
-            <div class="col s12 l6">{{ form_row(form.email) }}</div>
-            <div class="col s12 l6">{{ form_row(form.phone) }}</div>
-        </div>
-        <div class="row margin-t">
-            <div class="col s12">{{ form_row(form.subject) }}</div>
-        </div>
-        <div class="row margin-t">
-            <div class="col s12">{{ form_row(form.message) }}</div>
-        </div>
-        <div class="row center-align margin-b margin-t">
-            <input type="submit" class="btn btn-round btn-brown" value="Envoyer">
-        </div>
-        {{ form_end(form) }}
-    </div>
+
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

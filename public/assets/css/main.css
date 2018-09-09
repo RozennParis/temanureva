@@ -467,6 +467,7 @@ card-title-blog{
 
 #mapContact {
     height: 31.25rem;
+    z-index: 300;
 }
 
 #bloc-map {
