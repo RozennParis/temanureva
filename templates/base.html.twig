@@ -65,8 +65,13 @@
             </div>
             <div class="col s12 m2 center">
                 <h4>Newsletter</h4>
-                <input type="email" placeholder="Inscrivez-vous à la Newsletter">
-                <button class="btn btn-homepage">S'inscrire</button>
+                {% set formNews = form_newsletter.getForm().createView() %}
+                {{ form_start(formNews) }}
+                {{ form_row(formNews.email) }}
+                {{ form_row(formNews.submit, { 'attr' : { 'class' : 'btn-round btn-brown'}}) }}
+                {{ form_end(formNews) }}
+                {#<input type="email" placeholder="Inscrivez-vous à la Newsletter">#}
+                {#<button class="btn btn-homepage">S'inscrire</button>#}
             </div>
             <div class="col s12 m3 center">
                 <h4>Informations juridiques</h4>

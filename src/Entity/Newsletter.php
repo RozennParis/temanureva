@@ -21,6 +21,16 @@ class Newsletter
      */
     private $email;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $subscribingDate;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $token;
+
     public function getId()
     {
         return $this->id;
@@ -34,6 +44,30 @@ class Newsletter
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(string $token): self
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    public function getSubscribingDate(): ?\DateTimeInterface
+    {
+        return $this->subscribingDate;
+    }
+
+    public function setAddingDate(\DateTimeInterface $subscribingDate): self
+    {
+        $this->subscribingDate = $subscribingDate;
 
         return $this;
     }
