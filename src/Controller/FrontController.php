@@ -181,5 +181,16 @@ class FrontController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/mentions-legales", name="mentions")
+     */
+    public function legalMentions() {
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('mentions', 'Mentions légales');
 
+        return $this->render('front/legalMentions.html.twig', [
+            'breadcrumb' => $breadcrumb->getBreadcrumb()
+        ]);
+    }
 }
