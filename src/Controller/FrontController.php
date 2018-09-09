@@ -170,7 +170,7 @@ class FrontController extends Controller
     }
 
     /**
-     * @Route("/donation", name="donation")
+     * @Route("/don-association-reduction-impots-amis-oiseaux", name="donation")
      */
     public function donation() {
         $breadcrumb = new BreadcrumbManager();

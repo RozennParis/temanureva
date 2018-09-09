@@ -642,6 +642,7 @@ footer a, footer h4 {
 /* Donation*/
 
 .cadre-gris {
+<<<<<<< HEAD
     background-color: #D3D3D3;
 }
 
@@ -665,3 +666,10 @@ footer a, footer h4 {
     margin-left: 2.5rem;
     margin-right: 1.25rem;
 }
+=======
+    background-color: rgba(219, 216, 215, 0.76);
+    text-align: center;
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+}
+>>>>>>> c693e43254d22be4a73a5326c7c1cae01f04f095
