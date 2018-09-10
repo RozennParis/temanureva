@@ -10,6 +10,8 @@ namespace App\Controller;
 
 
 use App\Entity\Newsletter;
+use App\Form\NewsletterType;
+use App\Form\UnsubscribeType;
 use App\Service\MailManager;
 use App\Service\NewsletterForm;
 use Doctrine\ORM\EntityManager;
@@ -49,7 +51,7 @@ class NewsletterController extends Controller
      * @Route("/newletters-confirmation", name="subscribe-confirmation")
      * @Method({"GET"})
      */
-    public function confirmation(Request $request, EntityManagerInterface $entityManager){
+    public function confirmation(Request $request, EntityManagerInterface $entityManager, MailManager $mail){
         $email = $request->query->get('email');
         $token = $request->query->get('token');
         $newsletter =  $entityManager
@@ -57,10 +59,12 @@ class NewsletterController extends Controller
             ->findByEmail($email);
         if ( $newsletter !== null && $newsletter->getToken() === $token){
             $newsletter
+                ->setUnsubscribeToken($newsletter->getToken())
                 ->setToken(null)
                 ->setSubscribingDate(new \DateTime());
             $this->addFlash('success', 'Votre abonnement à la newsletter confirmé');
             $entityManager->flush();
+            $mail->sendNewsletterConfirmation($newsletter);
         }else{
             $this->addFlash('decline', "Erreur dans le processus d'abonnement");
         }
@@ -68,9 +72,32 @@ class NewsletterController extends Controller
     }
 
     /**
-     * @Route("/desabonement-newletters", name="unsubscribing")
+     * @Route("/desabonement-newletters/{token}", name="unsubscribing")
      */
-    public function unsubscribing(){
+    public function unsubscribing(Request $request, EntityManagerInterface $entityManager, $token){
+        $newletterTarget = new Newsletter();
+        $form = $this->createForm(UnsubscribeType::class, $newletterTarget);
 
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $newsletter =  $entityManager
+                ->getRepository(Newsletter::class)
+                ->findByEmail($newletterTarget->getEmail());
+
+            if ($newsletter !== null && $token === $newsletter->getUnsubscribeToken()){
+                $entityManager->remove($newsletter);
+                $entityManager->flush();
+                $this->addFlash('success', 'Désabonnement effectué');
+                return $this->redirectToRoute('homepage');
+            }
+            else{
+                $this->addFlash('decline', 'erreur dans les donnée soumis');
+            }
+        }
+
+        return $this->render('newsletter/unsubscribing.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }

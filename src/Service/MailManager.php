@@ -138,8 +138,23 @@ class MailManager
      */
     public function sendNewsletterValidation(Newsletter $newsletter){
         $to = $newsletter->getEmail();
-        $subject = 'Confirmation : inscription à la newsletter';
+        $subject = 'Validation : inscription à la newsletter NAO';
         $body = $this->template->render('mail/newsletter_validation.html.twig',[
+            'newsletter' => $newsletter
+        ]);
+        $this->send($to, $subject, $body);
+    }
+
+    /**
+     * @param Newsletter $newsletter
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function sendNewsletterConfirmation(Newsletter $newsletter){
+        $to = $newsletter->getEmail();
+        $subject = 'Confirmation : inscription à la newsletter NAO';
+        $body = $this->template->render('mail/newsletterConfirmation.html.twig',[
             'newsletter' => $newsletter
         ]);
         $this->send($to, $subject, $body);

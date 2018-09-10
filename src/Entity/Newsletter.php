@@ -7,7 +7,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\NewsletterRepository")
- * @UniqueEntity(fields="email", message="Cette email est déjà utilisé")
+ * @UniqueEntity(fields="email", message="Cette email est déjà utilisé", groups={"registration"})
  */
 class Newsletter
 {
@@ -32,6 +32,11 @@ class Newsletter
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $token;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $unsubscribeToken;
 
     public function getId()
     {
@@ -58,6 +63,18 @@ class Newsletter
     public function setToken(?string $token): self
     {
         $this->token = $token;
+
+        return $this;
+    }
+
+    public function getUnsubscribeToken(): ?string
+    {
+        return $this->unsubscribeToken;
+    }
+
+    public function setUnsubscribeToken(?string $unsubscribeToken): self
+    {
+        $this->unsubscribeToken = $unsubscribeToken;
 
         return $this;
     }
