@@ -1,22 +1,24 @@
 // On initialise la latitude et la longitude de Paris (centre de la carte)
 var lat = 48.852969;
 var lon = 2.349903;
-var macarte = null;
+var myMap = null;
 
 var myMarker = null;
 // Fonction d'initialisation de la carte
 function initMap() {
     // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
-    macarte = L.map('map-observation').setView([lat, lon], 5);
+    myMap = L.map('map-observation').setView([lat, lon], 5);
     // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
-    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         // Il est toujours bien de laisser le lien vers la source des données
-        attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         minZoom: 1,
-        maxZoom: 20
-    }).addTo(macarte);
+        maxZoom: 20,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoiamVzZGF4IiwiYSI6ImNqbGlqcnJjazAxemsza3MxbGhvMTljd2UifQ.Sj-xlNYTfb_hU1R0XseFag',
+    }).addTo(myMap);
 
-    myMarker = L.marker([lat, lon], {draggable: true}, {interactive: true}).addTo(macarte);
+    myMarker = L.marker([lat, lon], {draggable: true}, {interactive: true}).addTo(myMap);
 }
 
 
@@ -39,7 +41,7 @@ window.onload = function(){
      */
     $('#location-input').click(function(){
         $('#observation-map').show();
-        macarte.invalidateSize();
+        myMap.invalidateSize();
     });
 
     /**

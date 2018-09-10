@@ -474,6 +474,7 @@ card-title-blog{
     margin: auto;
     background-color: #FFFFFF;
     max-width: 66.5rem;
+    box-shadow: 0 0 30px;
 }
 
 #mapContact {

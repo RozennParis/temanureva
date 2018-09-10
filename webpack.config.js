@@ -19,7 +19,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('exploAutocomplete', './assets/js/exploAutocomplete.js')
-    //.addEntry('page2', './assets/js/page2.js')
+    .addEntry('speciesAutocomplete', './assets/js/speciesAutocomplete.js')
 
     /*
      * FEATURE CONFIG
