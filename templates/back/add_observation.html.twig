@@ -94,14 +94,7 @@
     </div>
 
 {% endblock %}
-{% block javascript %}
-    {{ parent() }}
-    <script type="text/javascript">
-     var dateControl = document.getElementById('observation-date-input');
-         dateControl.addEventListener("change", function(){
-             document.getElementById("stock").value = dateControl.value;
 
-         })
-     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.8/jquery.autocomplete.js"></script>
+{% block autocomplete %}
+    <script src="{{ asset('build/app.js') }}"></script>
 {% endblock %}
