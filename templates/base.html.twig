@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>{% block title %}Nos amis les oiseaux{% endblock %}</title>
     {% block stylesheets %}
-        {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">#}
-        {#<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />#}
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
               integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
               crossorigin=""/>
@@ -25,24 +23,98 @@
                     <a href="{{ path('homepage') }}" class="brand-logo"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="logo"></a>
                     <a href="#" data-target="mobile-menu" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="{{ path('homepage') }}">Accueil</a></li>
-                        <li><a href="{{ path('explorer') }}">Exploration</a></li>
-                        <li><a href="{{ path('oiseaux') }}">Espèces</a></li>
-                        <li><a href="{{ path('blog') }}">Blog</a></li>
-                        <li><a href="{{ path('contact') }}">Nous contacter</a></li>
+                        <li
+                            {% if app.request.get('_route') == 'homepage' %}
+                                class="active"
+                            {% else %}
+                                class=""
+                            {% endif %}>
+                            <a href="{{ path('homepage') }}">Accueil</a>
+                        </li>
+                        <li
+                            {% if app.request.get('_route') == 'explorer' %}
+                                class="active"
+                            {% else %}
+                                class=""
+                            {% endif %}>
+                            <a href="{{ path('explorer') }}">Exploration</a>
+                        </li>
+                        <li
+                            {% if app.request.get('_route') == 'oiseaux' %}
+                                class="active"
+                            {% else %}
+                                class=""
+                            {% endif %}>
+                            <a href="{{ path('oiseaux') }}">Espèces</a>
+                        </li>
+                        <li
+                            {% if app.request.get('_route') == 'blog' %}
+                                class="active"
+                            {% else %}
+                                class=""
+                            {% endif %}>
+                            <a href="{{ path('blog') }}">Blog</a>
+                        </li>
+                        <li
+                            {% if app.request.get('_route') == 'contact' %}
+                                class="active"
+                            {% else %}
+                                class=""
+                            {% endif %}>
+                            <a href="{{ path('contact') }}">Nous contacter</a>
+                        </li>
                         {% if is_granted(['ROLE_PARTICULAR', 'ROLE_NATURALIST', 'ROLE_EDITOR', 'ROLE_ADMIN'])  %}
-                            <li><a href="{{ path('profil', {'id': app.user.id}) }}">Mon profil</a></li>
-                            <li><a href="{{ path('security_logout') }}">Se déconnecter</a></li>
+                            <li
+                                {% if app.request.get('_route') == 'profil' %}
+                                    class="active"
+                                {% else %}
+                                    class=""
+                                {% endif %}>
+                                <a href="{{ path('profil', {'id': app.user.id}) }}">Mon profil</a>
+                            </li>
+                            <li
+                                {% if app.request.get('_route') == 'security_logout' %}
+                                    class="active"
+                                {% else %}
+                                    class=""
+                                {% endif %}>
+                                <a href="{{ path('security_logout') }}">Se déconnecter</a>
+                            </li>
                         {% else %}
-                            <li><a href="{{ path('security_login') }}">Connexion / Inscription</a></li>
+                            <li
+                                {% if app.request.get('_route') == 'security_login' %}
+                                    class="active"
+                                {% else %}
+                                    class=""
+                                {% endif %}>
+                                <a href="{{ path('security_login') }}">Connexion / Inscription</a>
+                            </li>
                         {% endif %}
-                        <li><a href="{{ path('donation') }}">Faire un don</a></li>
-                        <li><div class="observation-autocomplete"><a href="#"><i class="material-icons">search</i></a></div></li>
+                        <li
+                            {% if app.request.get('_route') == 'donation' %}
+                                class="active"
+                            {% else %}
+                                class=""
+                            {% endif %}>
+                            <a href="{{ path('donation') }}">Faire un don</a>
+                        </li>
+                        <li><a href="#"><i class="material-icons">search</i></a>
+                            <!--  <form>
+                                  <div id="search-autocomplete">
+                                      <div class="input-field">
+                                          <input id="search" type="search" required>
+                                          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                          <i class="material-icons">close</i>
+                                      </div>
+                                  </div>
+                              </form>-->
+                          </li>
+                          <!--<div class="observation-autocomplete"><a href="#"><i class="material-icons">search</i></a></div>-->
+
                     </ul>
                 </div>
             </nav>
         </div>
-
     <ul class="sidenav" id="mobile-menu">
         <li><a href="{{ path('homepage') }}">Accueil</a></li>
         <li><a href="{{ path('explorer') }}">Exploration</a></li>

@@ -74,8 +74,11 @@ nav {
 @media (max-width: 640px){
     nav .brand-logo {
         left: 20%;
+    }
 }
 
+#nav-mobile .active{
+   background: rgba(0,0,0,0.1) url("../img/ligne-active.jpg") repeat-x left bottom;
 }
 /*---- Slider ----*/
 .slider {
