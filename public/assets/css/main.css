@@ -430,7 +430,6 @@ card-title-blog{
     top: 0px!important;
 }
 
-
 #date-div{
     display: none;
 }
@@ -451,9 +450,9 @@ card-title-blog{
     background-position: center center;
 }
 
-/*---- Map----*/
+/*---- Map in add_observation----*/
 
-#map{
+#map-observation {
     height: 42.0625rem;
     max-width: 66.5rem;
     margin: 0;
@@ -475,6 +474,7 @@ card-title-blog{
     margin: auto;
     background-color: #FFFFFF;
     max-width: 66.5rem;
+    box-shadow: 0 0 30px;
 }
 
 #mapContact {

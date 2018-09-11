@@ -48,7 +48,7 @@ var app = new Vue({
 })
 
 //Autocomplete for search menu >>> to be modified
-var app2 = new Vue({
+/*var app2 = new Vue({
     el: '#observation-autocomplete', // >>> changer le nom pour coller avec champ search du menu
     delimiters: ['${', '}'], // pour dire à vueJS : tu n'utilises pas ces délimiteurs utilisés par Twig >>> no conflict between VueJs and Twig
     data: {
@@ -70,7 +70,7 @@ var app2 = new Vue({
     /**
      * methods >>> on met tout ce que l'on veut exécuter
      */
-    methods: {
+   /* methods: {
         search (v) {  // "lié" à @input = search dans html.twig >>> passe l'élément en entier (v = event)
             axios.get('/autocomplete?dataBird='+v.target.value).then( //.then permet d'attendre la réponse de la fonction asynchrone axios.get
                 response => {
@@ -90,10 +90,10 @@ var app2 = new Vue({
             )
         }
     }
-})
+})*/
 // valuesObject[i.name + '[' + i.order + ']'] = '' >>> pour afficher ordre et cie
 
-$('input.autocomplete1').autocomplete({
+/*$('input.autocomplete1').autocomplete({
     onAutocomplete: (v) => { // function (v) {return v} >>> on clique, ça fait quelque chose
         let item = this.items.find(i => {
             return i.name === v
@@ -107,45 +107,6 @@ $('input.autocomplete1').autocomplete({
 var app3 = new Vue({
 
     el: '#bird-autocomplete',
-})
+})*/
 
-var exploCompletion = new Vue({
-    el: '#exploration-autocomplete',
-    delimiters: ['${', '}'],
-    data: {
-        autocomplete: '',
-        items: []
-    },
-
-    mounted () {
-        $('input.autocomplete').autocomplete({
-            onAutocomplete: (v) => {
-                let item = this.items.find(i => {
-                    return i.name === v
-                })
-                $('#explo_search_bird').val(item.id)
-            }
-        });
-    },
-    methods: {
-        search (v) {
-            axios.get('/autocomplete?dataBird='+v.target.value).then(
-                response => {
-                    $('input.autocomplete').css('border-bottom', '1px solid green')
-                    this.items = response.data
-                    if (this.items.length === 0){
-                        $('input.autocomplete').css('border-bottom', '1px solid red')
-                    }
-                    let valuesObject = {}
-                    let mapfn = i => {
-                        valuesObject[i.name] = ''
-                    }
-                    this.items.map(mapfn)
-
-                    $('input.autocomplete').autocomplete('updateData', valuesObject);
-                }
-            )
-        }
-    }
-})
 
