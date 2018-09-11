@@ -71,10 +71,10 @@ nav {
     height: 58px;
 }
 
-@media (max-width: 640px){
+@media only screen and (max-width: 640px){
     nav .brand-logo {
-        left: 20%;
-}
+        left: 20%; !important;
+    }
 
 }
 /*---- Slider ----*/
