@@ -4,13 +4,13 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ContactType;
+
+use App\Form\ExploSearchType;
+use App\Service\BreadcrumbManager;
 use App\Service\MailManager;
 use App\Utility\Contact;
 use App\Entity\Bird;
 use App\Entity\Observation;
-use App\Form\BirdListForm;
-use App\Form\ExploSearchType;
-use App\Service\BreadcrumbManager;
 use PhpParser\Node\Expr\Array_;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,8 +46,8 @@ class FrontController extends Controller
     }
 
     /**
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request
+     * @return JsonResponse|Response
      * @Route("/observer-carte-oiseaux", name="explorer")
      */
     public function exploration(Request $request)
@@ -56,9 +56,40 @@ class FrontController extends Controller
 
         $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            //dump( $form->get('bird'));die();
+
+            $birdId = $form->get('bird');
+
+            $result = [];
+
+            if (!empty($birdId)) {
+                $observations = $this->getDoctrine()
+                    ->getRepository(Observation::class)
+                    ->findByBirdId($birdId);
+            } else {
+                $observations = $this->getDoctrine()
+                    ->getRepository(Observation::class)
+                    ->findAllValidateBirds();
+            }
+
+            foreach ($observations as $observation) {
+                $result[] = [
+                    'id' => $observation->getId(),
+                    'vernacularName' => $observation->getBird()->getVernacularName(),
+                    'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
+                    'latitude' => $observation->getLatitude(),
+                    'longitude' => $observation->getLongitude(),
+                ];
+            }
+
+            dump($result);die();
+            return new JsonResponse($result);
+        }
+
         /*if ($form->isSubmitted() && $form->isValid()) {
 
-            $birdId = (int) $form['bird'];
+            $birdId = $form->get('bird')->getData();
 
             $result = [];
 
@@ -95,6 +126,18 @@ class FrontController extends Controller
     }
 
     /**
+     * @return Response
+     * @Route("/presentation-association-protection-amis-oiseaux", name="presentation")
+     */
+    public function presentationAssociation(){
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('presentation', 'Notre association');
+
+        return $this->render('front/presentation.html.twig',['breadcrumb' => $breadcrumb->getBreadcrumb()]);
+    }
+
+    /**
      * @param Request $request
      * @param MailManager $mail
      * @return Response
@@ -115,6 +158,7 @@ class FrontController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $mail->sendContact($contact);
+            $this->addFlash('success', 'Votre message a été envoyé');
         }
         return $this->render('front/contact.html.twig',[
             'breadcrumb' => $breadcrumb->getBreadcrumb(),
@@ -155,18 +199,6 @@ class FrontController extends Controller
             ];
         }
         return new JsonResponse($result);
-    }
-
-
-    /**
-     * @Route("/presentation-association-protection-amis-oiseaux", name="presentation")
-     */
-    public function presentationAssociation(){
-        $breadcrumb = new BreadcrumbManager();
-        $breadcrumb
-            ->add('presentation', 'Notre association');
-
-        return $this->render('front/presentation.html.twig',['breadcrumb' => $breadcrumb->getBreadcrumb()]);
     }
 
     /**
