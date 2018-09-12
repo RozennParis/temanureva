@@ -71,11 +71,14 @@ nav {
     height: 58px;
 }
 
-@media only screen and (max-width: 640px){
+@media only screen and (max-width: 640px) {
     nav .brand-logo {
-        left: 20%; !important;
+        left: 20%;
+        !important;
     }
-
+}
+#nav-mobile .active{
+   background: rgba(0,0,0,0.1) url("../img/ligne-active.jpg") repeat-x left bottom;
 }
 /*---- Slider ----*/
 .slider {

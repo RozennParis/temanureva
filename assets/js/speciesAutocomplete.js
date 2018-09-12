@@ -27,7 +27,7 @@ var app = new Vue({
      */
     methods: {
         search (v) {  // "lié" à @input = search dans html.twig >>> passe l'élément en entier (v = event)
-            axios.get('/autocomplete?dataBird='+v.target.value).then( //.then permet d'attendre la réponse de la fonction asynchrone axios.get
+            axios.get('/multi-autocomplete?dataBird='+v.target.value).then( //.then permet d'attendre la réponse de la fonction asynchrone axios.get
                 response => {
                     $('input.autocomplete').css('border-bottom', '1px solid green')
                     this.items = response.data // on récupère l'array d'objet
