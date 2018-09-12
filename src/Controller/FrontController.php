@@ -4,13 +4,13 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ContactType;
+
+use App\Form\ExploSearchType;
+use App\Service\BreadcrumbManager;
 use App\Service\MailManager;
 use App\Utility\Contact;
 use App\Entity\Bird;
 use App\Entity\Observation;
-use App\Form\BirdListForm;
-use App\Form\ExploSearchType;
-use App\Service\BreadcrumbManager;
 use PhpParser\Node\Expr\Array_;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,8 +46,8 @@ class FrontController extends Controller
     }
 
     /**
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request
+     * @return JsonResponse|Response
      * @Route("/observer-carte-oiseaux", name="explorer")
      */
     public function exploration(Request $request)
@@ -126,6 +126,18 @@ class FrontController extends Controller
     }
 
     /**
+     * @return Response
+     * @Route("/presentation-association-protection-amis-oiseaux", name="presentation")
+     */
+    public function presentationAssociation(){
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('presentation', 'Notre association');
+
+        return $this->render('front/presentation.html.twig',['breadcrumb' => $breadcrumb->getBreadcrumb()]);
+    }
+
+    /**
      * @param Request $request
      * @param MailManager $mail
      * @return Response
@@ -186,18 +198,6 @@ class FrontController extends Controller
             ];
         }
         return new JsonResponse($result);
-    }
-
-
-    /**
-     * @Route("/presentation-association-protection-amis-oiseaux", name="presentation")
-     */
-    public function presentationAssociation(){
-        $breadcrumb = new BreadcrumbManager();
-        $breadcrumb
-            ->add('presentation', 'Notre association');
-
-        return $this->render('front/presentation.html.twig',['breadcrumb' => $breadcrumb->getBreadcrumb()]);
     }
 
     /**
