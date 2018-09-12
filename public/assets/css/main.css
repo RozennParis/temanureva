@@ -73,6 +73,12 @@ footer h4 {
     background-color: #f8d7da;
 }
 
+/*---- newsletter ----*/
+
+.newsletter input{
+    color: white;
+}
+
 /*---- collapsible research ----*/
 
 .search {
