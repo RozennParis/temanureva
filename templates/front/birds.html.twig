@@ -23,6 +23,8 @@
                                     </div>
                                 </div>
                                 {{ form_row(form.id) }}
+                                {{ form_row(form.nameOrder) }}
+                                {{ form_row(form.family) }}
                             </div>
                         </div>
                         <div>
@@ -64,3 +66,7 @@
         </div>
     </div>
 {% endblock %}
+
+{% block autocomplete %}
+    <script src="{{ asset('build/speciesAutocomplete.js') }}"></script>
+{% endblock%}

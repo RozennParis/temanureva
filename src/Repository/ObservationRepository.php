@@ -59,7 +59,7 @@ class ObservationRepository extends ServiceEntityRepository
             ->setMaxResults($limit)
             ->where('o.observer = :id')
             ->setParameter('id', $id)
-            ->orderBy('o.id', 'ASC')
+            ->orderBy('o.id', 'DESC')
             ->getQuery()
             ->getResult();
     }

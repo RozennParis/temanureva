@@ -53,8 +53,10 @@ class BirdRepository extends ServiceEntityRepository
 
     public function findAllByMultipleCriteria($term){
         $qb = $this->createQueryBuilder('b');
-        $qb ->select('b.vernacularName', 'b.id', 'b.nameOrder', 'b.family') //'b.nameOrder' pour afficher le champ
-            ->where('b.vernacularName LIKE :term' || 'b.nameOrder LIKE :term' || 'b.family LIKE :term') // ou bien machin, ou bien truc, ou bien bidule
+        $qb ->select('b.vernacularName', 'b.id', 'b.nameOrder', 'b.family')
+            ->where('b.vernacularName LIKE :term')
+            ->orWhere('b.nameOrder LIKE :term')
+            ->orWhere('b.family LIKE :term')
             ->setParameter('term', '%' . $term . '%')
             ->orderBy('b.vernacularName', 'ASC');
         $birds = $qb->getQuery()

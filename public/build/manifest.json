@@ -2,5 +2,7 @@
   "build/app.css": "/build/app.css",
   "build/app.js": "/build/app.js",
   "build/exploAutocomplete.css": "/build/exploAutocomplete.css",
-  "build/exploAutocomplete.js": "/build/exploAutocomplete.js"
+  "build/exploAutocomplete.js": "/build/exploAutocomplete.js",
+  "build/speciesAutocomplete.css": "/build/speciesAutocomplete.css",
+  "build/speciesAutocomplete.js": "/build/speciesAutocomplete.js"
 }

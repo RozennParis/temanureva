@@ -17,7 +17,7 @@ var app = new Vue({
                 let item = this.items.find(i => {
                     return i.name === v
                 })
-                $('#bird_list_id').val(item.id) // il récupère l'id pour le mettre dans  #observation-bird (champ caché)
+                $('#bird_list_id').val(item.id) /*|| $('#bird_list_name_order').val(item.order) || $('#bird_list_family').val(item.family)*/// il récupère l'id pour le mettre dans  #observation-bird (champ caché)
                 //tester avec l'ajout d'un autre $('#gnagna...)
             }
         });
@@ -35,10 +35,12 @@ var app = new Vue({
                         $('input.autocomplete').css('border-bottom', '1px solid red')
                     }
                     let valuesObject = {} //let : variable de bloc, uniquement utilisable dans le bloc en question; ex : for, if...
-                    let mapfn = i => { //map <=> foreach, retourne une fonction avec l'élément de l'itération en paramètre
+                    let mapfn = i => { //
                         valuesObject[i.name] = ''  //pour rajouter une image >>> = i.attribut image
+                        valuesObject[i.order] = ''
+                        valuesObject[i.family] = ''
                     }
-                    this.items.map(mapfn) // il injecte l'élément en tant que paramètre de la fonction à exécuter
+                    this.items.map(mapfn) // map <=> foreach, retourne une fonction ,il injecte l'élément en tant que paramètre de la fonction à exécuter
 
                     $('input.autocomplete').autocomplete('updateData', valuesObject);
                 }
