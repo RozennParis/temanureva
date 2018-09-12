@@ -56,9 +56,40 @@ class FrontController extends Controller
 
         $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            //dump( $form->get('bird'));die();
+
+            $birdId = $form->get('bird');
+
+            $result = [];
+
+            if (!empty($birdId)) {
+                $observations = $this->getDoctrine()
+                    ->getRepository(Observation::class)
+                    ->findByBirdId($birdId);
+            } else {
+                $observations = $this->getDoctrine()
+                    ->getRepository(Observation::class)
+                    ->findAllValidateBirds();
+            }
+
+            foreach ($observations as $observation) {
+                $result[] = [
+                    'id' => $observation->getId(),
+                    'vernacularName' => $observation->getBird()->getVernacularName(),
+                    'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
+                    'latitude' => $observation->getLatitude(),
+                    'longitude' => $observation->getLongitude(),
+                ];
+            }
+
+            dump($result);die();
+            return new JsonResponse($result);
+        }
+
         /*if ($form->isSubmitted() && $form->isValid()) {
 
-            $birdId = (int) $form['bird'];
+            $birdId = $form->get('bird')->getData();
 
             $result = [];
 

@@ -1,6 +1,6 @@
 $(document).ready(function ({}) {
 
-    let url = "/observer-carte-oiseaux/rechercher";
+    let url = "/observer-carte-oiseaux";
 
     $('#btn-search').click(function () {
         console.log('yes');
@@ -19,7 +19,7 @@ $(document).ready(function ({}) {
                 console.log(object.latitude, object.longitude, object.vernacularName)
             })
         })
-         return false;
+
     })
 
 
