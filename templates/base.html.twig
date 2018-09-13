@@ -99,19 +99,18 @@
                             {% endif %}>
                             <a href="{{ path('donation') }}">Faire un don</a>
                         </li>
-                        <li><a href="#"><i class="material-icons">search</i></a>
-                            <!--  <form>
-                                  <div id="search-autocomplete">
-                                      <div class="input-field">
-                                          <input id="search" type="search" required>
-                                          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                                          <i class="material-icons">close</i>
-                                      </div>
-                                  </div>
-                              </form>-->
-                          </li>
                           <!--<div class="observation-autocomplete"><a href="#"><i class="material-icons">search</i></a></div>-->
-
+                        <li class="li-search">
+                            <form>
+                                <div id="search-autocomplete" class="right hide-on-med-and-down">
+                                    <div class="input-field">
+                                        <input id="search" type="search" required>
+                                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                        <i class="material-icons">close</i>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </nav>

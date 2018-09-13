@@ -74,27 +74,27 @@ class BirdRepository extends ServiceEntityRepository
         return $result;
     }
 
-    public function findByVernacularName($offset, $limit)
+    public function findByVernacularName($offset, $limit, $sorting)
     {
         return $qb = $this->createQueryBuilder('b')
             ->select('b')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
-            ->orderBy('b.vernacularName', 'ASC')
+            ->orderBy('b.vernacularName', $sorting)
             ->getQuery()
             ->getArrayResult();
     }
 
-    public function findByDescVernacularName($offset, $limit)
+    /*public function findByDescVernacularName($offset, $limit, $sorting)
     {
         return $qb = $this->createQueryBuilder('b')
             ->select('b')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
-            ->orderBy('b.vernacularName', 'DESC')
+            ->orderBy('b.vernacularName', $sorting)
             ->getQuery()
             ->getResult();
-    }
+    }*/
 
     public function countByID($id){
         $qb = $this->createQueryBuilder('o')
@@ -107,22 +107,29 @@ class BirdRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
-    public function findByNbObservation($offset, $limit)
+    public function findByNbObservation($offset, $limit, $sorting)
     {
-       /* $qb = $this->createQueryBuilder('b')
+       $qb = $this->createQueryBuilder('b')
             ->innerJoin('b.observations', 'o')
             ->select('b')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
-            ->orderBy('o.vernacularName', 'ASC')
+            ->orderBy(count('o.bird'), $sorting);
 
-          $qb->getQuery()->getResult();*/
+         return $qb->getQuery()->getResult();
     }
 
-    public function findByDescNbObservation($offset, $limit)
+    /*public function findByDescNbObservation($offset, $limit)
     {
+        $qb = $this->createQueryBuilder('b')
+            ->innerJoin('b.observations', 'o')
+            ->select('b')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->orderBy(count('o.bird'), 'DESC');
 
-    }
+        return $qb->getQuery()->getResult();
+    }*/
 
     public function getNumberBirds(){
         $qb = $this->createQueryBuilder('b');
