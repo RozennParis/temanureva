@@ -25,14 +25,19 @@
                         <li class="tab col s12 m4"><a href="#a-propos">&Agrave; propos</a></li>
                         <li class="tab col s12 m4"><a href="#identity">Fiche d'identité</a></li>
                     </ul>
-                    <div id="last-observations" class="col s12">Test 1</div>
+                    <div id="last-observations" class="col s12">
+                        <ul>
+                            {% for observation in observations %}
+                               <li> Observé le {{ observation.observationDate|date("d/m/Y") }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                     <div id="a-propos" class="col s12">
                         <div class="row">
-                            <div class="s6">
-                                {#<img src="{{ asset('assets/img/Logo_inpn.jpg') }}">#}
-                                crotte
+                            <div class="col s12 m6">
+                                <img src="{{ asset('assets/img/Logo_inpn.jpg') }}">
                             </div>
-                            <div class="s6">
+                            <div class="col s12 m6">
                                 <a href="https://inpn.mnhn.fr/espece/cd_nom/{{ bird.cdName }}" target="_blank"><button class="">Voir plus sur INPN</button></a>
                             </div>
                         </div>
@@ -41,7 +46,19 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            {% for observation in observations %}
+                <div class="col s6 m4 l2">
+                    <img src="{{ image_observation_directory}}/{{ observation.image }}" alt="photo-{{ observation.bird.vernacularName }}" class="border-teal specie-observation">
+                </div>
+            {% endfor %}
+
+        </div>
+
     </div>
+
+
 
 
 {% endblock %}

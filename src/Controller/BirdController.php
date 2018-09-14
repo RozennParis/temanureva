@@ -26,7 +26,8 @@ class BirdController extends Controller
     const PAGINATION_DISPLAY_BIRDS = 5;
     const PAGINATION_DISPLAY_MANAGE = 5;
 
-
+    const NBR_OBSERVATIONS_PER_PAGE = 12;
+    const BEGIN_DISPLAY_OBSERVATION = 0;
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -155,13 +156,13 @@ class BirdController extends Controller
             ->getRepository(Bird::class)
             ->findBirdById($id);
 
-        $observation = $this->getDoctrine()
+        $observations = $this->getDoctrine()
             ->getRepository(Observation::class)
-            ->findObservationByBirdId($id);
+            ->findObservationsByBirdId($id, self::BEGIN_DISPLAY_OBSERVATION , self::NBR_OBSERVATIONS_PER_PAGE);
 
         return $this->render('front/specie.html.twig', [
             'bird' => $bird,
-            'observation' => $observation,
+            'observations' => $observations,
         ]);
     }
 
