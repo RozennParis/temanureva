@@ -28,7 +28,7 @@ class ExploSearchType extends AbstractType
             ->add('bird', BirdAutocompleteSelectorType::class, [
                 'label' =>'Nom de l\'espèce',
                 'required' => false,
-                'attr' => [ 'class' => 'bird_research']
+                'attr' => [ 'class' => 'chips']
                 ] )
             /*->add('address', TextType::class, [
                 'label' => ' Localisation',
