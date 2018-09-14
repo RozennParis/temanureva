@@ -52,42 +52,12 @@ class FrontController extends Controller
      */
     public function exploration(Request $request)
     {
+
         $form = $this->createForm(ExploSearchType::class);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //dump( $form->get('bird'));die();
-
-            $birdId = $form->get('bird');
-
-            $result = [];
-
-            if (!empty($birdId)) {
-                $observations = $this->getDoctrine()
-                    ->getRepository(Observation::class)
-                    ->findByBirdId($birdId);
-            } else {
-                $observations = $this->getDoctrine()
-                    ->getRepository(Observation::class)
-                    ->findAllValidateBirds();
-            }
-
-            foreach ($observations as $observation) {
-                $result[] = [
-                    'id' => $observation->getId(),
-                    'vernacularName' => $observation->getBird()->getVernacularName(),
-                    'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
-                    'latitude' => $observation->getLatitude(),
-                    'longitude' => $observation->getLongitude(),
-                ];
-            }
-
-            dump($result);die();
-            return new JsonResponse($result);
-        }
-
-        /*if ($form->isSubmitted() && $form->isValid()) {
 
             $birdId = $form->get('bird')->getData();
 
@@ -97,24 +67,22 @@ class FrontController extends Controller
                 $observations = $this->getDoctrine()
                     ->getRepository(Observation::class)
                     ->findByBirdId($birdId);
-            } else {
-                $observations = $this->getDoctrine()
-                    ->getRepository(Observation::class)
-                    ->findAllValidateBirds();
+
+                foreach ($observations as $observation) {
+                    $result[] = [
+                        'id' => $observation->getId(),
+                        'vernacularName' => $observation->getBird()->getVernacularName(),
+                        'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
+                        'latitude' => $observation->getLatitude(),
+                        'longitude' => $observation->getLongitude(),
+                    ];
+                }
+
+                //dump($result);die();
+                return new JsonResponse($result);
             }
 
-            foreach ($observations as $observation) {
-                $result[] = [
-                    'id' => $observation->getId(),
-                    'vernacularName' => $observation->getBird()->getVernacularName(),
-                    'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
-                    'latitude' => $observation->getLatitude(),
-                    'longitude' => $observation->getLongitude(),
-                ];
-            }
-            return new JsonResponse($result);
-
-        }*/
+        }
 
 
         $breadcrumb = new BreadcrumbManager();
@@ -123,6 +91,17 @@ class FrontController extends Controller
         return $this->render('front/exploration.html.twig', [
             'form' => $form->createView(),
             'breadcrumb' => $breadcrumb->getBreadcrumb()]);
+    }
+
+    /**
+     * @param Request $request
+     * @Route("/observer-carte-oiseaux/rechercher/", name="exploration_json_bird")
+     */
+    public function explorationSearchBirdAction(Request $request)
+    {
+
+
+
     }
 
     /**
@@ -165,40 +144,6 @@ class FrontController extends Controller
             'form' => $form->createView()
         ]);
 
-    }
-
-    /**
-     * @param Request $request
-     * @return JsonResponse
-     * @Route("/observer-carte-oiseaux/rechercher", name="exploration_json_bird")
-     */
-    public function explorationSearchBirdAction(Request $request)
-    {
-
-        $birdId = (int) $request->request->get('explo_search_bird');
-        $result = [];
-
-        //dump($birdId);
-        if (!empty($birdId)) {
-            $observations = $this->getDoctrine()
-                ->getRepository(Observation::class)
-                ->findByBirdId($birdId);
-        } else {
-            $observations = $this->getDoctrine()
-                ->getRepository(Observation::class)
-                ->findAllValidateBirds();
-        }
-
-        foreach ($observations as $observation) {
-            $result[] = [
-                'id' => $observation->getId(),
-                'vernacularName' => $observation->getBird()->getVernacularName(),
-                'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
-                'latitude' => $observation->getLatitude(),
-                'longitude' => $observation->getLongitude(),
-            ];
-        }
-        return new JsonResponse($result);
     }
 
     /**
