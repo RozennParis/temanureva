@@ -17,7 +17,7 @@ a {
     color: #4CAF50;
 }
 .margin-top {
-    margin-top: 2.5rem ;
+    margin-top: 3.5rem ;
 }
 
 .margin-bottom {
@@ -489,6 +489,23 @@ card-title-blog{
     background-position: center center;
 }
 
+.height-tabs {
+    min-height: 11.9375rem;
+}
+
+#height-species-img {
+    height: 140px !important;
+}
+
+.no-mad-bot {
+    margin-bottom: 0 !important;
+}
+
+#again-mesure {
+    height: 295px;
+    width: 295px;
+}
+
 /*---- Map in add_observation----*/
 /*---- Map----*/
 
@@ -512,6 +529,11 @@ card-title-blog{
     height: 42.0625rem;
     max-width: 66.5rem;
     margin: 0;
+}
+
+#mapSpecies {
+    height: 13rem;
+    width: 100%;
 }
 
 .map {
@@ -701,6 +723,7 @@ footer a, footer h4 {
 
 .specie-picture {
     max-width: 36.25rem;
+    max-height: 36.25rem;
     overflow: hidden;
 }
 
@@ -711,8 +734,8 @@ footer a, footer h4 {
 /*---- My observations ----*/
 
 .container-my-observations {
-    max-width: 1366px;
-    margin: auto;
+    /*max-width: 1366px;*/
+    margin-top: 2.5rem;
 }
 .title-card-my-observations {
     font-size: 1.25em;
