@@ -12,7 +12,7 @@
                     {% else %}
                         {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}" alt="photo-especes" class="responsive-img border-teal"
                     {% endif %}
-                    >
+                    />
             </div>
 
             <div class="col s12 l6">
@@ -28,12 +28,11 @@
                     <div id="last-observations" class="col s12">Test 1</div>
                     <div id="a-propos" class="col s12">
                         <div class="row">
-                            <div class="s6">
-                                {#<img src="{{ asset('assets/img/Logo_inpn.jpg') }}">#}
-                                crotte
+                            <div class="col s8">
+                                <img src="{{ asset('assets/img/Logo_inpn.jpg') }}">
                             </div>
-                            <div class="s6">
-                                <a href="https://inpn.mnhn.fr/espece/cd_nom/{{ bird.cdName }}" target="_blank"><button class="">Voir plus sur INPN</button></a>
+                            <div class="col s4 center" style="margin: auto">
+                                <a href="https://inpn.mnhn.fr/espece/cd_nom/{{ bird.cdName }}" target="_blank"><button class="btn btn-brown btn-round">Voir plus sur INPN</button></a>
                             </div>
                         </div>
                     </div>
