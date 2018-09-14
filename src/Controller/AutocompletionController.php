@@ -44,7 +44,6 @@ class AutocompletionController extends Controller
         $responseBird = new JsonResponse($birdsArray);
 
         return $responseBird;
-
     }
 
 }

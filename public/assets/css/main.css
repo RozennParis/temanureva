@@ -107,6 +107,10 @@ nav {
 #nav-mobile .active{
    background: rgba(0,0,0,0.1) url("../img/ligne-active.jpg") repeat-x left bottom;
 }
+
+#nav-mobile .active .li-search {
+    background: rgba(0,0,0,0)
+}
 /*---- Slider ----*/
 .slider {
     height: 51.10vh;

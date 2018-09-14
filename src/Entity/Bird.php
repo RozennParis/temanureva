@@ -215,6 +215,13 @@ class Bird
         return $this->id;
     }
 
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     public function getReign(): ?string
     {
         return $this->reign;
@@ -632,8 +639,8 @@ class Bird
         return $this->observations;
     }
 
-    public function __toString()
+  /*  public function __toString()
     {
         return $this->getVernacularName(). ', '. $this->getLbName();
-    }
+    }*/
 }

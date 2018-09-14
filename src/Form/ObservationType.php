@@ -3,11 +3,9 @@
 namespace App\Form;
 
 use App\Form\DataTransformer\BirdToStringTransformer;
-use App\Form\DataTransformer\ObservationDateToStringTransformer;
 use App\Entity\Observation;
 use App\Entity\Bird;
 use App\Form\BirdAutocompleteSelectorType;
-use App\Form\ObservationDatetimeSelectorType;
 use Doctrine\ORM\EntityRepository;
 use App\Repository\BirdRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
