@@ -103,6 +103,10 @@ class ObservationRepository extends ServiceEntityRepository
     }
     */
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function findByBirdId($id)
     {
         return $this->createQueryBuilder('o')
@@ -112,6 +116,18 @@ class ObservationRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    public function findObservationsByBirdId($id, $offset, $limit)
+    {
+        return $this->createQueryBuilder('o')
+            ->setFirstResult( $offset )
+            ->setMaxResults( $limit )
+            ->where('o.bird = :id', 'o.status = 1')
+            ->setParameter('id', $id)
+            ->orderBy('o.observationDate', 'desc')
+            ->getQuery()
+            ->getResult();
+    }
 
     /**
      * @return mixed
