@@ -112,6 +112,11 @@ class ObservationRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    /**
+     * @return mixed
+     * For functionality test
+     */
     public function findAllValidateBirds()
     {
         return $this->createQueryBuilder('o')
