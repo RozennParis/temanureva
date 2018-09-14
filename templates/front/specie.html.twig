@@ -16,9 +16,7 @@
             </div>
 
             <div class="col s12 l6">
-                <div class="row">
-                    <h1 class="col s12">{{ bird.vernacularName }}</h1>
-                </div>
+                <h1 class="col s12">{{ bird.vernacularName }}</h1
                 <div class="row">
                     <ul class="tabs">
                         <li class="tab col s12 m4"><a href="#last-observations">Dernières observations</a></li>
@@ -42,7 +40,20 @@
                             </div>
                         </div>
                     </div>
-                    <div id="identity" class="col s12">Test 3</div>
+                    <div id="identity" class="col s12">
+
+                        <div><i class="material-icons">subdirectory_arrow_right</i> Ordre : {{ bird.nameOrder }}</div>
+                        <div class="taxo-family"><i class="material-icons">subdirectory_arrow_right</i> Famille : {{ bird.family }}</div>
+                        <div class="taxo-specie"><i class="material-icons">subdirectory_arrow_right</i>
+                            {% if bird.rank == 'ES' %}
+                                 Espèce : {{ bird.lbName }}
+                            {% else %}
+                                 Sous-espèce : {{ bird.lbName }}
+                            {% endif
+                             %}
+                        </p>
+
+                    </div>
                 </div>
             </div>
         </div>
