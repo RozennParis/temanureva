@@ -114,7 +114,7 @@ class ObservationController extends Controller
     public function viewObservation(Request $request, AuthorizationCheckerInterface $checker, ObservationManager $observationManager,$id){
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
-            ->add('exploration', 'Exploration')
+            ->add('explorer', 'Exploration')
             ->add('view_observation', 'Observation');
 
         $observation = $this->getDoctrine()

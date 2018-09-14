@@ -3,37 +3,36 @@
 {% block title %} {{ bird.lbName }} {% endblock %}
 
 {% block body %}
-    <div class="row">
-        <div class="s12 m6">
-            <img src="
-                {% if bird.image %}
-                    {{ image_birds_directory}}/{{ bird.image }}
-                {% else %}
-                    {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}
-                {% endif %}
-            ">
-        </div>
-
-        <div class="s12 m6">
-            <div class="row">
-                <div class="s12">
-                    <h1>{{ bird.vernacularName }}</h1>
-                </div>
+    <div class="row container-my-observations margin-t">
+        <div class="row">
+            <div class="col s12 l6 specie-picture responsive-img border-teal">
+                <img src="
+                    {% if bird.image %}
+                        {{ image_birds_directory}}/{{ bird.image }}" alt="photo-especes" class="responsive-img border-teal"
+                    {% else %}
+                        {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}" alt="photo-especes" class="responsive-img border-teal"
+                    {% endif %}
+                    >
             </div>
-            <div class="row">
-                <div class="s12">
+
+            <div class="col s12 l6">
+                <div class="row">
+                    <h1 class="col s12">{{ bird.vernacularName }}</h1>
+                </div>
+                <div class="row">
                     <ul class="tabs">
-                        <li class="tab col s4"><a href="#last-observations">Dernières observations</a></li>
-                        <li class="tab col s4"><a href="#a-propos">&Agrave; propos</a></li>
-                        <li class="tab col s4"><a href="#identity">Fiche d'identité</a></li>
+                        <li class="tab col s12 m4"><a href="#last-observations">Dernières observations</a></li>
+                        <li class="tab col s12 m4"><a href="#a-propos">&Agrave; propos</a></li>
+                        <li class="tab col s12 m4"><a href="#identity">Fiche d'identité</a></li>
                     </ul>
                     <div id="last-observations" class="col s12">Test 1</div>
                     <div id="a-propos" class="col s12">
                         <div class="row">
-                            <div class="s12 m6">
-                                <img src="{{ asset('assets/img/Logo_inpn.jpg') }}">
+                            <div class="s6">
+                                {#<img src="{{ asset('assets/img/Logo_inpn.jpg') }}">#}
+                                crotte
                             </div>
-                            <div class="s12 m6">
+                            <div class="s6">
                                 <a href="https://inpn.mnhn.fr/espece/cd_nom/{{ bird.cdName }}" target="_blank"><button class="">Voir plus sur INPN</button></a>
                             </div>
                         </div>
@@ -41,9 +40,6 @@
                     <div id="identity" class="col s12">Test 3</div>
                 </div>
             </div>
-        </div>
-        <div >
-
         </div>
     </div>
 
