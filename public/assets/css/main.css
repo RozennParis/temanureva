@@ -731,6 +731,15 @@ footer a, footer h4 {
     width: 100%;
     height: auto;
 }
+
+.taxo-family {
+    padding-left: 20px;
+}
+
+.taxo-specie {
+    padding-left: 40px;
+}
+
 /*---- My observations ----*/
 
 .container-my-observations {

@@ -3,70 +3,70 @@
 {% block title %} {{ bird.lbName }} {% endblock %}
 
 {% block body %}
-        <div class="container-my-observations">
-            <div class="row">
-                <div class="col s12 m5 border-real center">
-                    <!-- A supprimer le style -->
-                    <img style="height: 36.5rem; width: 36.5rem" src="
+    <div class="container-my-observations">
+        <div class="row">
+            <div class="col s12 m5 border-real center">
+                <!-- A supprimer le style -->
+                <img style="height: 36.5rem; width: 36.5rem" src="
                     {% if bird.image %}
                         {{ image_birds_directory}}/{{ bird.image }}" alt="photo-especes" class="responsive-img border-teal">
-                    {% else %}
-                        {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}" alt="photo-especes" class="responsive-img border-teal">
-                    {% endif %}
-                </div>
-                <div class="col s12 m7">
-                    <div class="row no-mad-bot">
-                        <h2>{{ bird.vernacularName }}</h2>
-                        <div class="row">
-                            <div class="height-tabs">
-                                <ul class="row tabs">
-                                    <li class="tab col m4"><a href="#last-observations">Dernières observations</a></li>
-                                    <li class="tab col m4"><a href="#a-propos">&Agrave; propos</a></li>
-                                    <li class="tab col m4"><a href="#identity">Fiche d'identité</a></li>
+                {% else %}
+                    {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}" alt="photo-especes" class="responsive-img border-teal">
+                {% endif %}
+            </div>
+            <div class="col s12 m7">
+                <div class="row no-mad-bot">
+                    <h2>{{ bird.vernacularName }}</h2>
+                    <div class="row">
+                        <div class="height-tabs">
+                            <ul class="row tabs">
+                                <li class="tab col m4"><a href="#last-observations">Dernières observations</a></li>
+                                <li class="tab col m4"><a href="#a-propos">&Agrave; propos</a></li>
+                                <li class="tab col m4"><a href="#identity">Fiche d'identité</a></li>
+                            </ul>
+                            <div id="last-observations">
+                                <ul>
+                                    {% for observation in observations %}
+                                        <li>- Observé le {{ observation.observationDate|date("d/m/Y") }}</li><br>
+                                    {% endfor %}
                                 </ul>
-                                <div id="last-observations">
-                                    <ul>
-                                        {% for observation in observations %}
-                                            <li>- Observé le {{ observation.observationDate|date("d/m/Y") }}</li><br>
-                                        {% endfor %}
-                                    </ul>
+                            </div>
+                            <div class="row" id="a-propos">
+                                <div class="col s12 m6 center">
+                                    <img id="height-species-img" class="responsive-img" src="{{ asset('assets/img/Logo_inpn.jpg') }}">
                                 </div>
-                                <div class="row" id="a-propos">
-                                    <div class="col s12 m6 center">
-                                        <img id="height-species-img" class="responsive-img" src="{{ asset('assets/img/Logo_inpn.jpg') }}">
-                                    </div>
-                                    <div class="col s12 m6 margin-top center">
-                                        <a href="https://inpn.mnhn.fr/espece/cd_nom/{{ bird.cdName }}" target="_blank">
-                                            <button class="btn btn-brown btn-round">Voir plus sur INPN</button>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row" id="identity">
-                                    <div><i class="material-icons">subdirectory_arrow_right</i>Ordre : {{ bird.nameOrder }}</div>
-                                    <div class="taxo-family"><i class="material-icons">subdirectory_arrow_right</i>Famille : {{ bird.family }}</div>
-                                    <div class="taxo-specie"><i class="material-icons">subdirectory_arrow_right</i>
-                                        {% if bird.rank == 'ES' %}
-                                            Espèce : {{ bird.lbName }}
-                                        {% else %}
-                                            Sous-espèce : {{ bird.lbName }}
-                                        {% endif %}
-                                    </div>
+                                <div class="col s12 m6 margin-top center">
+                                    <a href="https://inpn.mnhn.fr/espece/cd_nom/{{ bird.cdName }}" target="_blank">
+                                        <button class="btn btn-brown btn-round">Voir plus sur INPN</button>
+                                    </a>
                                 </div>
                             </div>
-
+                            <div class="row" id="identity">
+                                <div><i class="material-icons">subdirectory_arrow_right</i>Ordre : {{ bird.nameOrder }}</div>
+                                <div class="taxo-family"><i class="material-icons">subdirectory_arrow_right</i>Famille : {{ bird.family }}</div>
+                                <div class="taxo-specie"><i class="material-icons">subdirectory_arrow_right</i>
+                                    {% if bird.rank == 'ES' %}
+                                        Espèce : {{ bird.lbName }}
+                                    {% else %}
+                                        Sous-espèce : {{ bird.lbName }}
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
+
                     </div>
-                    <div class="" id="mapSpecies"></div>
                 </div>
-            </div>
-            <div class="row">
-                {% for observation in observations %}
-                    <div class="col s6 m4 l2">
-                        <img id="again-mesure" src="{{ image_observation_directory}}/{{ observation.image }}" alt="photo-{{ observation.bird.vernacularName }}" class="border-teal specie-observation">
-                    </div>
-                {% endfor %}
+                <div class="" id="mapSpecies"></div>
             </div>
         </div>
+        <div class="row">
+            {% for observation in observations %}
+                <div class="col s6 m4 l2">
+                    <img id="again-mesure" src="{{ image_observation_directory}}/{{ observation.image }}" alt="photo-{{ observation.bird.vernacularName }}" class="border-teal specie-observation">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
 
 
@@ -80,7 +80,6 @@
                         {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}" alt="photo-especes" class="responsive-img border-teal">
                     {% endif %}
             </div>
-
             <div class="col s12 m6">
                     <h3 class="col s12">{{ bird.vernacularName }}</h3>
                 <div class="row">
@@ -110,16 +109,13 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             {% for observation in observations %}
                 <div class="col s6 m4 l2">
                     <img src="{{ image_observation_directory}}/{{ observation.image }}" alt="photo-{{ observation.bird.vernacularName }}" class="border-teal specie-observation">
                 </div>
             {% endfor %}
-
         </div>
-
     </div>#}
 
 
@@ -135,7 +131,6 @@
             zoom: 5,
             zoomControl: false
         });
-
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
