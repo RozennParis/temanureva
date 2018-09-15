@@ -224,6 +224,7 @@ nav {
 .card-radius{
     border-radius: 15px;
 }
+
 .card-image img{
     height: 24.36125rem;
     width: auto;
@@ -399,6 +400,10 @@ card-title-blog{
     padding-top: 18px !important;
 }
 
+.card .card-content {
+    padding: 0 !important;
+}
+
 /*---- pagination ----*/
 .pagination li.active{
     background-color: #01796F;
@@ -504,6 +509,24 @@ card-title-blog{
 #again-mesure {
     height: 295px;
     width: 295px;
+}
+
+.card-image img {
+    height: 15.5625rem;
+    width: 15.5623rem;
+}
+
+@media only screen and (max-width: 640px) {
+
+    .card-image img {
+        height: inherit;
+        width: inherit;
+    }
+}
+
+.card {
+    height: 23.689rem;
+    width: 15.563rem;
 }
 
 /*---- Map in add_observation----*/
@@ -647,6 +670,10 @@ card-title-blog{
     border-radius: 100px;
     width: 200px;
     background-color: #01796F;
+}
+
+.btn-species {
+
 }
 
 .file-btn {

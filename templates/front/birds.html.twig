@@ -38,7 +38,31 @@
         </ul>
     </div>
 
+
     <div class="row">
+        {% for bird in birds %}
+        <div class="col s12 m2">
+            <div class="card">
+                <div class="card-image center">
+                    <img src="
+                                {% if bird.image %}
+                                    {{ image_birds_directory}}/{{ bird.image }}
+                                {% else %}
+                                    {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}
+                                {% endif %}
+                            ">
+                </div>
+                <div class="card-content center">
+                    <h6 class="center">{{ bird.vernacularName }}</h6>
+                    <p class="center">Animal observé XX fois</p>
+                    <a href="{{ path('oiseau', {'id': bird.id}) }}"  class="waves-effect waves-light btn-small btn-species">Voir plus</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {#<div class="row">
         {% for bird in birds %}
             <div class="col s12 m4 l2">
                 <div class="card "><!--card-species-->
@@ -52,14 +76,14 @@
                             ">
                     </div>
                     <div class="card-content center"><!--content-species center-->
-                        <h6 class="center card-title">{{ bird.vernacularName }}</h6>
+
                         <p class="center">Animal observé XX fois</p>
                         <a href="{{ path('oiseau', {'id': bird.id}) }}"  class="waves-effect waves-light btn-small btn-species">Voir plus</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
-    </div>
+    </div>#}
     <div class="row">
         <div class="center-align">
             {{ include('common/pagination.html.twig', {'paginaion' : pagination}) }}
