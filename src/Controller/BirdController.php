@@ -62,7 +62,7 @@ class BirdController extends Controller
                     $birds = $birdRepository->findByVernacularName(($page - 1) * self::NBR_BIRDS_PER_PAGE, self::NBR_BIRDS_PER_PAGE, $sorting);
                     $pagination = new PaginationManager($page, $nbBirds, self::NBR_BIRDS_PER_PAGE, self::PAGINATION_DISPLAY_BIRDS, 'oiseaux');
                     break;
-                case ($sort = 2):
+                /*case ($sort = 2):
                     $birds = $birdRepository->findByNbObservation(($page-1)*self::NBR_BIRDS_PER_PAGE,self::NBR_BIRDS_PER_PAGE, $sorting);
                     $pagination = new PaginationManager($page, $nbBirds, self::NBR_BIRDS_PER_PAGE, self::PAGINATION_DISPLAY_BIRDS, 'oiseaux');
                     break;
@@ -71,7 +71,7 @@ class BirdController extends Controller
                     $sorting = 'DESC';
                     $birds = $birdRepository->findByNbObservation(($page-1)*self::NBR_BIRDS_PER_PAGE,self::NBR_BIRDS_PER_PAGE, $sorting);
                     $pagination = new PaginationManager($page, $nbBirds, self::NBR_BIRDS_PER_PAGE, self::PAGINATION_DISPLAY_BIRDS, 'oiseaux');
-                    break;
+                    break;*/
 
             } // rajouter order dans render, possible à null
 

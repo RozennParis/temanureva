@@ -44,8 +44,8 @@ class BirdListType extends AbstractType
                 'choices' => [
                     'A -Z' => Bird::SORTING_A_TO_Z,
                     'Z -A' => Bird::SORTING_Z_TO_A,
-                    'Nombre d\'observations croissant' => Bird::SORTING_INCREASE_OBSERVATIONS,
-                    'Nombre d\'observations décroissant' => Bird::SORTING_DECREASE_OBSERVATIONS
+                    /*'Nombre d\'observations croissant' => Bird::SORTING_INCREASE_OBSERVATIONS,
+                    'Nombre d\'observations décroissant' => Bird::SORTING_DECREASE_OBSERVATIONS*/
                 ],
                 'label'=> 'Trier par',
                 /*'expanded' => true,
