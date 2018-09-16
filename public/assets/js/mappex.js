@@ -1,6 +1,6 @@
 var marker;
 var locations = [];
-var urlSearch = "/observer-carte-oiseaux/";
+var urlSearch = "/observer-carte-oiseaux";
 var map = L.map('mappex', {
     center: [46.70973594407157, 2.6367187500000004],
     zoom: 6,
@@ -10,19 +10,18 @@ var map = L.map('mappex', {
 
 $(function () {
     $(document).on('click', '#btn-search', function () {
-        var bird_id = $('#explo_search_bird').val();
+        let bird_id = $('#explo_search_bird').val();
         console.log(bird_id);
         $.ajax({
             url: urlSearch,
-            data: {"bird_id": bird_id},
-            async: true,
-            success: function (data) {
-                locations = data;
-                console.log(locations);
-            }
+            methods: "POST",
+            data: "latitude" + bird_id,
+
+        }).done(function (e) {
+            console.log(e);
         })
 
-        //return false;
+       // return false;
     })
 })
 

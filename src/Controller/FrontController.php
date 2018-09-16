@@ -57,7 +57,9 @@ class FrontController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $isAjax = $request->isXmlHttpRequest();
+
+        if (!empty($isAjax)) {
 
             $birdId = $form->get('bird')->getData();
 
@@ -77,7 +79,6 @@ class FrontController extends Controller
                         'longitude' => $observation->getLongitude(),
                     ];
                 }
-
                 //dump($result);die();
                 return new JsonResponse($result);
             }
