@@ -3,14 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Observation;
 use App\Form\ContactType;
 
 use App\Form\ExploSearchType;
+use App\Repository\ObservationRepository;
 use App\Service\BreadcrumbManager;
 use App\Service\MailManager;
 use App\Utility\Contact;
 use App\Entity\Bird;
-use App\Entity\Observation;
 use PhpParser\Node\Expr\Array_;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,12 +22,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FrontController extends Controller
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      * @Route("/", name="homepage")
      */
     public function index()
     {
-        return $this->render('front/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $observations = $em->getRepository(Observation::class)->findLastThreeObservations(0, 3);
+        /*$counts = $em->getRepository(Observation::class)->countById()*/
+        return $this->render('front/index.html.twig', [
+            'observations' => $observations
+        ]);
     }
 
     /**
