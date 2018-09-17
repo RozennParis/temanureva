@@ -96,7 +96,7 @@ class BirdRepository extends ServiceEntityRepository
             ->getResult();
     }*/
 
-    public function countByID($id){
+    /*public function countByID($id){
         $qb = $this->createQueryBuilder('o')
             ->innerJoin('o.bird', 'b')
             ->where('b.id = :id')
@@ -105,7 +105,7 @@ class BirdRepository extends ServiceEntityRepository
         $qb->select($qb->expr()->count('o.id'));
 
         return $qb->getQuery()->getSingleScalarResult();
-    }
+    }*/
 
     public function findByNbObservation($offset, $limit, $sorting)
     {
