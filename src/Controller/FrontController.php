@@ -59,11 +59,10 @@ class FrontController extends Controller
     }
 
     /**
-     * @param Request $request
      * @return JsonResponse|Response
      * @Route("/observer-carte-oiseaux", name="explorer")
      */
-    public function exploration(Request $request)
+    public function exploration()
     {
 
 
@@ -75,11 +74,10 @@ class FrontController extends Controller
     }
 
     /**
-     * @param Request $request
      * @return JsonResponse
      * @Route("/observer-carte-oiseaux/rechercher", name="exploration_json_bird", methods={"GET", "POST"})
      */
-    public function explorationSearchBirdAction(Request $request)
+    public function explorationSearchBirdAction()
     {
         $birdId = intval($_GET['dataBird']); // intval pour transformer en integer et GET pour prendre le param dataBird qui était en string
         //dump($birdId); die();

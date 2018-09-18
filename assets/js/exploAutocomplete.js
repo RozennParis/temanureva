@@ -12,7 +12,9 @@ var exploCompletion = new Vue({
         map: {}
     },
 
+
     mounted () {
+
         $('input.autocomplete').autocomplete({
             onAutocomplete: (v) => {
                 let item = this.items.find(i => {
@@ -23,7 +25,7 @@ var exploCompletion = new Vue({
                     response => {
                         let list = response.data
                         list.map(o => {
-                            this.map.addMarker({lat: o.latitude, lon: o.longitude}) //à vérifier comment c'est dans leaflet
+                            L.marker({lat: o.latitude, lon: o.longitude}).addTo(this.map); //à vérifier comment c'est dans leaflet
                         })
                     }
 
