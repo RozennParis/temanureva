@@ -66,55 +66,40 @@ class FrontController extends Controller
     public function exploration(Request $request)
     {
 
-        $form = $this->createForm(ExploSearchType::class);
-
-        $form->handleRequest($request);
-
-        $isAjax = $request->isXmlHttpRequest();
-
-        if (!empty($isAjax)) {
-
-            $birdId = $form->get('bird')->getData();
-
-            $result = [];
-
-            if (!empty($birdId)) {
-                $observations = $this->getDoctrine()
-                    ->getRepository(Observation::class)
-                    ->findByBirdId($birdId);
-
-                foreach ($observations as $observation) {
-                    $result[] = [
-                        'id' => $observation->getId(),
-                        'vernacularName' => $observation->getBird()->getVernacularName(),
-                        'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
-                        'latitude' => $observation->getLatitude(),
-                        'longitude' => $observation->getLongitude(),
-                    ];
-                }
-                //dump($result);die();
-                return new JsonResponse($result);
-            }
-
-        }
-
 
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb->add('exploration', 'Exploration');
 
         return $this->render('front/exploration.html.twig', [
-            'form' => $form->createView(),
             'breadcrumb' => $breadcrumb->getBreadcrumb()]);
     }
 
     /**
      * @param Request $request
-     * @Route("/observer-carte-oiseaux/rechercher/", name="exploration_json_bird")
+     * @return JsonResponse
+     * @Route("/observer-carte-oiseaux/rechercher", name="exploration_json_bird", methods={"GET", "POST"})
      */
     public function explorationSearchBirdAction(Request $request)
     {
+        $birdId = $request->request->get('dataBird');
 
+        $result = [];
 
+            $observations = $this->getDoctrine()
+                ->getRepository(Observation::class)
+                ->findByBirdId($birdId);
+
+            foreach ($observations as $observation) {
+                $result[] = [
+                    'id' => $observation->getId(),
+                    'vernacularName' => $observation->getBird()->getVernacularName(),
+                    'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
+                    'latitude' => $observation->getLatitude(),
+                    'longitude' => $observation->getLongitude(),
+                ];
+            }
+            dump($birdId);die();
+            return new JsonResponse($result);
     }
 
     /**
