@@ -27,18 +27,6 @@ class BirdListType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            //test avec autocompletion JS et Ajax
-            ->add('id', HiddenType::class, [
-                'required' => false,
-            ])
-
-            ->add('nameOrder', HiddenType::class, [
-                'required' => false,
-            ])
-
-            ->add('family', HiddenType::class, [
-                'required' => false,
-            ])
 
             ->add('sort', ChoiceType::class, [
                 'choices' => [
@@ -51,11 +39,7 @@ class BirdListType extends AbstractType
                 /*'expanded' => true,
                 'multiple' => false,*/
             ])
-
-
         ;
-
-
 
     }
 

@@ -36,7 +36,6 @@ class BirdController extends Controller
     // rajouter l'ordre de tri >>> dans l'url
     public function showAllBirds($page = 1, $sorting = 'ASC', Request $request, BirdRepository $birdRepository)
     {
-
         //Insert breadcrumb
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
@@ -51,17 +50,17 @@ class BirdController extends Controller
             $nbBirds = $birdRepository->getNumberBirds();
 
             $sort = $form['sort']->getData();
+            $sorting = $sort === 0 ? 'ASC' : 'DESC';
+            if (isset($_GET['famille'])){
+                //requete qui filtre par famille + nbBirds pour chaque condition
+            } else if (isset($_GET['id'])) {
+                // find bird by id
+            } else {
+                $birds = $birdRepository->findByVernacularName(($page - 1) * self::NBR_BIRDS_PER_PAGE, self::NBR_BIRDS_PER_PAGE, $sorting);
 
-            switch ($sort) {
-                case ($sort === 0) :
-                    $birds = $birdRepository->findByVernacularName(($page - 1) * self::NBR_BIRDS_PER_PAGE, self::NBR_BIRDS_PER_PAGE, $sorting);
-                    $pagination = new PaginationManager($page, $nbBirds, self::NBR_BIRDS_PER_PAGE, self::PAGINATION_DISPLAY_BIRDS, 'oiseaux');
-                    break;
-                case ($sort === 1) :
-                    $sorting = 'DESC';
-                    $birds = $birdRepository->findByVernacularName(($page - 1) * self::NBR_BIRDS_PER_PAGE, self::NBR_BIRDS_PER_PAGE, $sorting);
-                    $pagination = new PaginationManager($page, $nbBirds, self::NBR_BIRDS_PER_PAGE, self::PAGINATION_DISPLAY_BIRDS, 'oiseaux');
-                    break;
+            }
+            $pagination = new PaginationManager($page, $nbBirds, self::NBR_BIRDS_PER_PAGE, self::PAGINATION_DISPLAY_BIRDS, 'oiseaux');
+
                 /*case ($sort = 2):
                     $birds = $birdRepository->findByNbObservation(($page-1)*self::NBR_BIRDS_PER_PAGE,self::NBR_BIRDS_PER_PAGE, $sorting);
                     $pagination = new PaginationManager($page, $nbBirds, self::NBR_BIRDS_PER_PAGE, self::PAGINATION_DISPLAY_BIRDS, 'oiseaux');
@@ -73,7 +72,7 @@ class BirdController extends Controller
                     $pagination = new PaginationManager($page, $nbBirds, self::NBR_BIRDS_PER_PAGE, self::PAGINATION_DISPLAY_BIRDS, 'oiseaux');
                     break;*/
 
-            } // rajouter order dans render, possible à null
+            //} // rajouter order dans render, possible à null
 
             return $this->render('front/birds.html.twig', [
                 'birds' => $birds,

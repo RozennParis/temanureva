@@ -29,9 +29,16 @@ class FrontController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $observations = $em->getRepository(Observation::class)->findLastThreeObservations(0, 3);
-        /*$counts = $em->getRepository(Observation::class)->countById()*/
+        $observ = $em->getRepository(Observation::class);
+        foreach ($observations as $observation)
+        {
+            $id = $observation->getBird()->getId();
+            $count = $observation->count($id); //écrire requête  pour récupérer le nombre de bird id
+            dump($count);
+        }
         return $this->render('front/index.html.twig', [
-            'observations' => $observations
+            'observations' => $observations,
+            //'observ' => $observ
         ]);
     }
 
@@ -106,7 +113,6 @@ class FrontController extends Controller
      */
     public function explorationSearchBirdAction(Request $request)
     {
-
 
 
     }

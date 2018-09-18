@@ -33,7 +33,7 @@ class AutocompletionController extends Controller
 
 
     /**
-     * @Route("/multi-autocomplete", name="multi-autocomplete", methods={"GET", "POST"})
+     * @Route("/multi-autocomplete", name="multi-autocomplete", methods={"GET"})
      */
     public function multiAutocomplete(Request $request)
     {
@@ -44,6 +44,20 @@ class AutocompletionController extends Controller
         $responseBird = new JsonResponse($birdsArray);
 
         return $responseBird;
+    }
+
+    /**
+     * @Route("/familyList", name="family-list", methods={"GET"})
+     */
+    public function familyList(Request $request)
+    {
+        $term = $request->request->get('name');
+        $em = $this->getDoctrine()->getManager();
+        $familyArray = $em->getRepository(Bird::class)->findFamilyList($term);
+
+        $responseFamily = new JsonResponse($familyArray);
+
+        return $responseFamily;
     }
 
 }

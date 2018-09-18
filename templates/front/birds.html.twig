@@ -13,26 +13,23 @@
             <li>
                 <div class="collapsible-header search">Rechercher<i class="material-icons">expand_more</i></div>
                 <div class="collapsible-body">
-                    {{ form_start(form) }}
-                        <div class="row">
-                            <div class="col s12 m6" id="bird-autocomplete">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input type="text" id="autocomplete-input"  @input="search" class="autocomplete" autocomplete="off">
-                                        <label for="autocomplete-input">Critère de recherche (Nom - Famille - Ordre)</label>
-                                    </div>
-                                </div>
-                                {{ form_row(form.id) }}
-                                {{ form_row(form.nameOrder) }}
-                                {{ form_row(form.family) }}
-                            </div>
+                    <div class="row" id="bird-autocomplete">
+                        <div class="input-field col s12">
+                            <input type="text" id="family-input"  @input="searchFamily" class="autocomplete" autocomplete="off">
+                            <label for="family-input">Famille</label>
+
+                            <!--select -->
+
                         </div>
-                        <div>
-                            {{ form_label(form.sort) }}
-                            {{ form_widget(form.sort) }}
+                        <div class="input-field col s12">
+                            <input type="text" id="bird-input"  @input="search" class="autocomplete" autocomplete="off">
+                            <label for="bird-input">Critère de recherche (Nom - Famille - Ordre)</label>
+
+                            <!--select -->
+
                         </div>
-                    <button class="btn btn-connexion center-align" type="submit"> Rechercher</button>
-                    {{ form_end(form) }}
+                        <button class="btn btn-connexion center-align" type="submit"> Rechercher</button>
+                    </div>
                 </div>
             </li>
         </ul>
