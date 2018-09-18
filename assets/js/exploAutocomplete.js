@@ -15,13 +15,15 @@ var exploCompletion = new Vue({
     mounted () {
         $('input.autocomplete').autocomplete({
             onAutocomplete: (v) => {
-                axios.get('/observer-carte-oiseaux/rechercher?dataBird='+v).then( //faire la requête qui retourne la liste des observations where bird.id = id (ou v)
+                axios.get('/observer-carte-oiseaux/rechercher?dataBird='+ v).then( //faire la requête qui retourne la liste des observations where bird.id = id (ou v)
+
                     response => {
                         let list = response.data
                         list.map(o => {
                             this.map.addMarker({lat: o.latitude, lon: o.longitude}) //à vérifier comment c'est dans leaflet
                         })
                     }
+
                 )
                 console.log(v);
             }

@@ -82,24 +82,23 @@ class FrontController extends Controller
     public function explorationSearchBirdAction(Request $request)
     {
         $birdId = $request->request->get('dataBird');
-
         $result = [];
+        $observations = $this->getDoctrine()->getManager()
+            ->getRepository(Observation::class)
+            ->findByBirdId($birdId);
 
-            $observations = $this->getDoctrine()
-                ->getRepository(Observation::class)
-                ->findByBirdId($birdId);
+        foreach ($observations as $observation) {
+            $result[] = [
+                'id' => $observation->getId(),
+                'vernacularName' => $observation->getBird()->getVernacularName(),
+                'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
+                'latitude' => $observation->getLatitude(),
+                'longitude' => $observation->getLongitude(),
+            ];
+        }
+        //dump($birdId);die();
+        return new JsonResponse($result);
 
-            foreach ($observations as $observation) {
-                $result[] = [
-                    'id' => $observation->getId(),
-                    'vernacularName' => $observation->getBird()->getVernacularName(),
-                    'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
-                    'latitude' => $observation->getLatitude(),
-                    'longitude' => $observation->getLongitude(),
-                ];
-            }
-            dump($birdId);die();
-            return new JsonResponse($result);
     }
 
     /**
