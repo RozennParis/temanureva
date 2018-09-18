@@ -15,7 +15,10 @@ var exploCompletion = new Vue({
     mounted () {
         $('input.autocomplete').autocomplete({
             onAutocomplete: (v) => {
-                axios.get('/observer-carte-oiseaux/rechercher?dataBird='+ v).then( //faire la requête qui retourne la liste des observations where bird.id = id (ou v)
+                let item = this.items.find(i => {
+                    return i.name === v
+                })
+                axios.get('/observer-carte-oiseaux/rechercher?dataBird='+ item.id).then( //faire la requête qui retourne la liste des observations where bird.id = id (ou v)
 
                     response => {
                         let list = response.data
@@ -25,7 +28,6 @@ var exploCompletion = new Vue({
                     }
 
                 )
-                console.log(v);
             }
 
         });
