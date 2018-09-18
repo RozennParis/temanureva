@@ -81,7 +81,8 @@ class FrontController extends Controller
      */
     public function explorationSearchBirdAction(Request $request)
     {
-        $birdId = $request->request->get('dataBird');
+        $birdId = intval($_GET['dataBird']); // intval pour transformer en integer et GET pour prendre le param dataBird qui était en string
+        //dump($birdId); die();
         $result = [];
         $observations = $this->getDoctrine()->getManager()
             ->getRepository(Observation::class)
@@ -96,7 +97,7 @@ class FrontController extends Controller
                 'longitude' => $observation->getLongitude(),
             ];
         }
-        //dump($birdId);die();
+        //dump($result);die();
         return new JsonResponse($result);
 
     }
