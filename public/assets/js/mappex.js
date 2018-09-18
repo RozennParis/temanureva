@@ -9,7 +9,8 @@ var map = L.map('mappex', {
 
 
 $(function () {
-    $(document).on('click', '#btn-search', function () {
+    $(document).on('click', '#btn-search', function (e) {
+        e.preventDefault();
         let bird_id = $('#explo_search_bird').val();
         console.log(bird_id);
         $.ajax({
@@ -17,8 +18,8 @@ $(function () {
             methods: "POST",
             data: "latitude" + bird_id,
 
-        }).done(function (e) {
-            console.log(e);
+        }).done(function (response) {
+            console.log(response); //ajouter la fonction d'ajout de marker
         })
 
        // return false;

@@ -38,9 +38,19 @@ class ObservationRepository extends ServiceEntityRepository
             ->innerJoin('o.bird', 'b')
             ->where('b.id = :id')
             ->setParameter('id', $id);
-        $qb->select($qb->expr()->count('o.id'));
+        $qb->select($qb->expr()->count('o.bird'));
 
         return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    public function countObservation($id) {
+        return  $this->createQueryBuilder('o')
+            ->select('COUNT(o.bird)')
+            ->where('o.status = 1')
+            ->andWhere('o.bird = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 
     public function getNumberObservationsByUserId($id){
