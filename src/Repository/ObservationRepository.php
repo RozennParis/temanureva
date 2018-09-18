@@ -44,13 +44,14 @@ class ObservationRepository extends ServiceEntityRepository
     }
 
     public function countObservation($id) {
-        return  $this->createQueryBuilder('o')
-            ->select('COUNT(o.bird)')
+        $qb = $this->createQueryBuilder('o')
+            ->select('o.bird')
             ->where('o.status = 1')
             ->andWhere('o.bird = :id')
-            ->setParameter('id', $id)
-            ->getQuery()
-            ->getSingleScalarResult();
+            ->setParameter('id', $id);
+        $qb->select($qb->expr()->count('o.bird'));
+
+        return $qb->getQuery()->getSingleScalarResult();
     }
 
     public function getNumberObservationsByUserId($id){
