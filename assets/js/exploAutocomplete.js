@@ -21,11 +21,16 @@ var exploCompletion = new Vue({
                     return i.name === v
                 })
                 axios.get('/observer-carte-oiseaux/rechercher?dataBird='+ item.id).then(
-
                     response => {
                         let list = response.data
                         list.map(o => {
-                            L.marker({lat: o.latitude, lon: o.longitude}).addTo(this.map);
+                            /*L.popup()
+                                .setLatLng({lat: o.latitude, lng: o.longitude})
+                                .setContent(o.vernacularName+'<br>Observé le'+o.observationDate+'<br><a href=\'/espece/'+item.id+'\'>Voir la fiche</a>')
+                                .openOn(this.map)*/
+
+                            L.marker({lat: o.latitude, lon: o.longitude}).bindPopup(o.vernacularName+'<br>Observé le'+o.observationDate+'<br><a href=\'/espece/'+item.id+'\'>Voir la fiche</a>').addTo(this.map)
+                                ;
                         })
                     }
 
