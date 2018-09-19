@@ -6,7 +6,7 @@
     <div class="valign-wrapper big-header" id="species_header">
         <h1>Espèces</h1>
     </div>
-{#{{ include('common/header.html.twig', {'asset' : 'assets/img/bg-blog.jpg', 'alt' : 'header_blog', 'title' : 'Blog'}) }}#}
+    {#{{ include('common/header.html.twig', {'asset' : 'assets/img/bg-blog.jpg', 'alt' : 'header_blog', 'title' : 'Blog'}) }}#}
     {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
     <div>
         <ul class="collapsible">
@@ -18,22 +18,22 @@
                         <div class="input-field col s12">
                             <input type="text" id="family-input"  @input="searchFamily" class="autocomplete" autocomplete="off">
                             <label for="family-input">Famille</label>
-
-                            <!--select -->
-
                         </div>
                         <div class="input-field col s12">
                             <input type="text" id="bird-input"  @input="search" class="autocomplete" autocomplete="off">
                             <label for="bird-input">Critère de recherche (Nom - Famille - Ordre)</label>
-
+                        </div>
+                        <div>
                             <!--select -->
 
                             {{ form_row(form.sort) }}
 
 
+
                         </div>
                         <button class="btn btn-connexion center-align" type="submit"> Rechercher</button>
                         {{ form_end(form) }}
+
                     </div>
                 </div>
             </li>
@@ -43,24 +43,24 @@
 
     <div class="row">
         {% for bird in birds %}
-        <div class="col s12 m2">
-            <div class="card-species">
-                <div class="card-image-species center">
-                    <img src="
+            <div class="col s12 m2">
+                <div class="card-species">
+                    <div class="card-image-species center">
+                        <img src="
                                 {% if bird.image %}
                                     {{ image_birds_directory}}/{{ bird.image }}
                                 {% else %}
                                     {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}
                                 {% endif %}
                             ">
-                </div>
-                <div class="card-content-species center">
-                    <h6 class="center">{{ bird.vernacularName }}</h6>
-                    Animal observé XX fois
-                    <a href="{{ path('oiseau', {'id': bird.id}) }}"  class="waves-effect waves-light btn-small btn-species">Voir plus</a>
+                    </div>
+                    <div class="card-content-species center">
+                        <h6 class="center">{{ bird.vernacularName }}</h6>
+                        Animal observé XX fois
+                        <a href="{{ path('oiseau', {'id': bird.id}) }}"  class="waves-effect waves-light btn-small btn-species">Voir plus</a>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 
@@ -78,7 +78,6 @@
                             ">
                     </div>
                     <div class="card-content center"><!--content-species center-->
-
                         <p class="center">Animal observé XX fois</p>
                         <a href="{{ path('oiseau', {'id': bird.id}) }}"  class="waves-effect waves-light btn-small btn-species">Voir plus</a>
                     </div>
