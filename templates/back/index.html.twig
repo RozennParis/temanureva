@@ -33,8 +33,17 @@
         </div>
     </div>
 
-    <div class="row margin-t">
-        <div class="col s12 l4">
+    {% if app.user.id is same as(user.id) and is_granted('ROLE_NATURALIST') %}
+        {% set col_width = 4 %}
+    {% else %}
+        {% set col_width = 6 %}
+    {% endif %}
+
+    <div class="">
+    <div class="row margin-t link-teal">
+
+        {#---- Présetation ----#}
+        <div class="col s12 l{{ col_width }}">
             <div class="card-panel card-profile">
                 <div class="card-title valign-wrapper ">
                     <h5 class="center-block lighter">
@@ -45,13 +54,14 @@
                     <div class="col s12">{{ user.lastname|upper }} {{ user.firstname }}</div>
                     <div class="col s12">{{ user.email }}</div>
                     <div class="col s12">Né le {{ user.dateOfBirth|date("d/m/Y") }}</div>
-                    <div class="col s12">{{ user.gender }}</div>
+                    <div class="col s12">{% if user.gender == true %}Masculin{% else %}Feminin{% endif %}</div>
                     <div class="col s12">Inscrit le {{ user.registrationDate|date("d/m/Y") }}</div>
                 </div>
             </div>
         </div>
 
-        <div class="col s12 l4">
+        {#---- Dernier activité ----#}
+        <div class="col s12 l{{ col_width }}">
             <div class="card-panel card-profile">
                 <div class="card-title valign-wrapper">
                     <h5 class="center-block lighter">
@@ -59,11 +69,19 @@
                     </h5>
                 </div>
                 <div class="card-content">
+                    {% for observation in observations %}
+                        <div class="col s12">
+                            <span>Obsrevation : </span><br>
+                            <a href="{{ path('view_observation', { "id" : observation.id}) }}">{{ observation.bird.vernacularName }}</a><i> ({{ observation.bird.lbName }})</i>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
 
-        <div class="col s12 l4">
+        {#---- Validation ----#}
+        {% if is_granted('ROLE_NATURALIST') or is_granted('ROLE_ADMIN') %}
+        <div class="col s12 l{{ col_width }}">
             <div class="card-panel card-profile">
                 <div class="card-title valign-wrapper">
                     <h5 class="center-block lighter">
@@ -71,10 +89,41 @@
                     </h5>
                 </div>
                 <div class="card-content">
+                    {% for validation in validations %}
+                        <div class="col s12">
+                            <span>Obsrevation validé : </span><br>
+                            <a href="{{ path('view_observation', { "id" : validation.id}) }}">{{ validation.bird.vernacularName }}</a><i> ({{ validation.bird.lbName }})</i>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
+        {% endif %}
+
+        {#---- Article ----#}
+        {% if is_granted('ROLE_EDITOR') or is_granted('ROLE_ADMIN') %}
+        <div class="col s12 l{{ col_width }}">
+            <div class="card-panel card-profile">
+                <div class="card-title valign-wrapper">
+                    <h5 class="center-block lighter">
+                        Article
+                    </h5>
+                </div>
+                <div class="card-content">
+                    {% for article in articles %}
+                        <div class="col s12">
+                            <span>Article publié : </span><br>
+                            <a href="{{ path('blog-article', { "id" : article.id}) }}">{{ article.title }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
     </div>
+    </div>
+
     {% if app.user.id is same as(user.id) %}
         <div class="row center margin-t margin-b">
             <a href="{{ path('modify-profile') }}" class="btn btn-round btn-brown">Modifier le profil</a>
