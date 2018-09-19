@@ -18,16 +18,17 @@
                             <input type="text" id="family-input"  @input="searchFamily" class="autocomplete" autocomplete="off">
                             <label for="family-input">Famille</label>
 
-                            <!--select -->
+
 
                         </div>
                         <div class="input-field col s12">
                             <input type="text" id="bird-input"  @input="search" class="autocomplete" autocomplete="off">
                             <label for="bird-input">Critère de recherche (Nom - Famille - Ordre)</label>
-
-                            <!--select -->
-
                         </div>
+                        {{ form_start(form)}}
+                            {{ form_row(form.sort) }}
+                        {{ form_end(form) }}
+
                         <button class="btn btn-connexion center-align" type="submit"> Rechercher</button>
                     </div>
                 </div>

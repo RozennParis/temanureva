@@ -77,7 +77,6 @@ class BirdRepository extends ServiceEntityRepository
     public function findFamilyList($term)
     {
         $qb = $this->createQueryBuilder('b')
-            ->select('b.family')
             ->where('b.family LIKE :term')
             ->setParameter('term', '%' . $term . '%')
             ->distinct(true);
@@ -86,7 +85,6 @@ class BirdRepository extends ServiceEntityRepository
 
         return $families;
     }
-
 
     public function findByVernacularName($offset, $limit, $sorting)
     {
@@ -99,12 +97,14 @@ class BirdRepository extends ServiceEntityRepository
             ->getArrayResult();
     }
 
-    public function findByFamily($offset, $limit, $sorting)
+    public function findByFamily($offset, $limit, $sorting, $family)
     {
         return $qb = $this->createQueryBuilder('b')
             ->select('b')
+            ->where('b.family = :family')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
+            ->setParameter('family', $family)
             ->orderBy('b.vernacularName', $sorting)
             ->getQuery()
             ->getArrayResult();
