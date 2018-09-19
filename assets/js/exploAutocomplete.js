@@ -12,18 +12,20 @@ var exploCompletion = new Vue({
         map: {}
     },
 
+
     mounted () {
+
         $('input.autocomplete').autocomplete({
             onAutocomplete: (v) => {
                 let item = this.items.find(i => {
                     return i.name === v
                 })
-                axios.get('/observer-carte-oiseaux/rechercher?dataBird='+ item.id).then( //faire la requête qui retourne la liste des observations where bird.id = id (ou v)
+                axios.get('/observer-carte-oiseaux/rechercher?dataBird='+ item.id).then(
 
                     response => {
                         let list = response.data
                         list.map(o => {
-                            this.map.addMarker({lat: o.latitude, lon: o.longitude}) //à vérifier comment c'est dans leaflet
+                            L.marker({lat: o.latitude, lon: o.longitude}).addTo(this.map);
                         })
                     }
 
@@ -45,12 +47,12 @@ var exploCompletion = new Vue({
 
     },
     methods: {
-        search (v) {
-            axios.get('/autocomplete?dataBird='+v.target.value).then(
+        search(v) {
+            axios.get('/autocomplete?dataBird=' + v.target.value).then(
                 response => {
                     $('input.autocomplete').css('border-bottom', '1px solid green')
                     this.items = response.data
-                    if (this.items.length === 0){
+                    if (this.items.length === 0) {
                         $('input.autocomplete').css('border-bottom', '1px solid red')
                     }
                     let valuesObject = {}
@@ -63,5 +65,4 @@ var exploCompletion = new Vue({
                 }
             )
         }
-    }
-})
+    }})

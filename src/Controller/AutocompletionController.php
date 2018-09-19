@@ -49,14 +49,16 @@ class AutocompletionController extends Controller
     /**
      * @Route("/familyList", name="family-list", methods={"GET"})
      */
-    public function familyList(Request $request)
+    public function familyList()
     {
-        $term = $request->request->get('name');
+        $term = $_GET['name'];
+        //dump($term); die;
         $em = $this->getDoctrine()->getManager();
         $familyArray = $em->getRepository(Bird::class)->findFamilyList($term);
 
         $responseFamily = new JsonResponse($familyArray);
 
+        //dump($responseFamily); die;
         return $responseFamily;
     }
 

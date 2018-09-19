@@ -109,7 +109,6 @@ class BirdRepository extends ServiceEntityRepository
             ->getQuery()
             ->getArrayResult();
     }
-
     /*public function findByDescVernacularName($offset, $limit, $sorting)
     {
         return $qb = $this->createQueryBuilder('b')

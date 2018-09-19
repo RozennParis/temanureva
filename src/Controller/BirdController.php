@@ -54,7 +54,6 @@ class BirdController extends Controller
 
             if (isset($_GET['famille'])){
                 $birds = $birdRepository->findByFamily(($page - 1) * self::NBR_BIRDS_PER_PAGE, self::NBR_BIRDS_PER_PAGE, $sorting, $_GET['famille']);
-                //nbBirds pour chaque condition
 
             } else if (isset($_GET['id'])) {
                 // find bird by id
