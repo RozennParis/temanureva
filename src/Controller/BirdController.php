@@ -51,6 +51,7 @@ class BirdController extends Controller
 
             $sort = $form['sort']->getData();
             $sorting = $sort === 0 ? 'ASC' : 'DESC';
+            //dump($sorting);die;
             if (isset($_GET['famille'])){
                 $birds = $birdRepository->findByFamily(($page - 1) * self::NBR_BIRDS_PER_PAGE, self::NBR_BIRDS_PER_PAGE, $sorting, $_GET['famille']);
 

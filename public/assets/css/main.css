@@ -559,13 +559,17 @@ card-title-blog{
     line-height: 32px;
 }
 
-/*---- Map in add_observation----*/
+
 /*---- Map----*/
 
 #map{
     height: 42.0625rem;
     max-width: 66.5rem;
     margin: auto;
+}
+
+#mapObser {
+    height: 200px;
 }
 
 /*#observation-map {

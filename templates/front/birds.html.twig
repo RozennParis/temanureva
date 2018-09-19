@@ -13,6 +13,7 @@
             <li>
                 <div class="collapsible-header search">Rechercher<i class="material-icons">expand_more</i></div>
                 <div class="collapsible-body">
+                    {{ form_start(form) }}
                     <div class="row" id="bird-autocomplete">
                         <div class="input-field col s12">
                             <input type="text" id="family-input"  @input="searchFamily" class="autocomplete" autocomplete="off">
@@ -26,12 +27,13 @@
                             <label for="bird-input">Critère de recherche (Nom - Famille - Ordre)</label>
 
                             <!--select -->
-                            {{ form_start(form) }}
+
                             {{ form_row(form.sort) }}
-                            {{ form_end(form) }}
+
 
                         </div>
                         <button class="btn btn-connexion center-align" type="submit"> Rechercher</button>
+                        {{ form_end(form) }}
                     </div>
                 </div>
             </li>
