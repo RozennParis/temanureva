@@ -87,7 +87,9 @@ class FrontController extends Controller
             ->getRepository(Observation::class)
             ->findByBirdId($birdId);
 
-
+        if (null !== $observations) {
+            $this->addFlash('error', 'Erreur');
+        }
 
         foreach ($observations as $observation) {
             $result[] = [
