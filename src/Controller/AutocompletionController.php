@@ -58,7 +58,7 @@ class AutocompletionController extends Controller
 
         $responseFamily = new JsonResponse($familyArray);
 
-        dump($responseFamily); die;
+        //dump($responseFamily); die;
         return $responseFamily;
     }
 

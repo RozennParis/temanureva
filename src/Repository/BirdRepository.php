@@ -99,17 +99,18 @@ class BirdRepository extends ServiceEntityRepository
             ->getArrayResult();
     }
 
-    public function findByFamily($offset, $limit, $sorting)
+    public function findByFamily($offset, $limit, $sorting, $family)
     {
         return $qb = $this->createQueryBuilder('b')
             ->select('b')
+            ->where('b.family = :family')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
+            ->setParameter('family', $family)
             ->orderBy('b.vernacularName', $sorting)
             ->getQuery()
             ->getArrayResult();
     }
-
     /*public function findByDescVernacularName($offset, $limit, $sorting)
     {
         return $qb = $this->createQueryBuilder('b')

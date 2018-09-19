@@ -10,6 +10,7 @@ var exploCompletion = new Vue({
         items: [],
         observation: [],
         map: {}
+        name: 'Vue.js'
     },
 
 
@@ -20,12 +21,12 @@ var exploCompletion = new Vue({
                 let item = this.items.find(i => {
                     return i.name === v
                 })
-                axios.get('/observer-carte-oiseaux/rechercher?dataBird='+ item.id).then( //faire la requête qui retourne la liste des observations where bird.id = id (ou v)
+                axios.get('/observer-carte-oiseaux/rechercher?dataBird='+ item.id).then(
 
                     response => {
                         let list = response.data
                         list.map(o => {
-                            L.marker({lat: o.latitude, lon: o.longitude}).addTo(this.map); //à vérifier comment c'est dans leaflet
+                            L.marker({lat: o.latitude, lon: o.longitude}).addTo(this.map);
                         })
                     }
 
@@ -65,5 +66,4 @@ var exploCompletion = new Vue({
                 }
             )
         }
-    }
 })

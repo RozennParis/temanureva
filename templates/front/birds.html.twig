@@ -26,6 +26,9 @@
                             <label for="bird-input">Critère de recherche (Nom - Famille - Ordre)</label>
 
                             <!--select -->
+                            {{ form_start(form) }}
+                            {{ form_row(form.sort) }}
+                            {{ form_end(form) }}
 
                         </div>
                         <button class="btn btn-connexion center-align" type="submit"> Rechercher</button>

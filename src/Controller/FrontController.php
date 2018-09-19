@@ -82,9 +82,12 @@ class FrontController extends Controller
         $birdId = intval($_GET['dataBird']); // intval pour transformer en integer et GET pour prendre le param dataBird qui était en string
         //dump($birdId); die();
         $result = [];
+
         $observations = $this->getDoctrine()->getManager()
             ->getRepository(Observation::class)
             ->findByBirdId($birdId);
+
+
 
         foreach ($observations as $observation) {
             $result[] = [
