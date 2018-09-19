@@ -62,9 +62,9 @@ var app = new Vue({
                     }
                     let valuesObject = {} //let : variable de bloc, uniquement utilisable dans le bloc en question; ex : for, if...
                     let mapfn = i => { //map <=> foreach, retourne une fonction avec l'élément de l'itération en paramètre
-                        valuesObject[i.family] = ''
+                        valuesObject[i.family] = ''  //pour rajouter une image >>> = i.attribut image
                     }
-                    this.items.map(mapfn)
+                    this.items.map(mapfn) // il injecte l'élément en tant que paramètre de la fonction à exécuter
 
                     $('input#family-input').autocomplete('updateData', valuesObject);
                 }
