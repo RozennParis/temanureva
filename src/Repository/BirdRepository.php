@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Bird;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Bird|null find($id, $lockMode = null, $lockVersion = null)
  * @method Bird|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,14 +15,12 @@ class BirdRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Bird::class);
     }
-
     public function findBirdById($id)
     {
         $qb = $this->createQueryBuilder('b')
             ->andWhere('b.id = :id')
             ->setParameter('id', $id)
             ->getQuery();
-
         return $qb->getSingleResult();
     }
     /**
@@ -35,8 +30,8 @@ class BirdRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('b');
         $qb ->select('b.vernacularName', 'b.id') //'b.nameOrder' pour afficher le champ
-            ->where('b.vernacularName LIKE :term') // ou bien machin, ou bien truc, ou bien bidule
-            ->setParameter('term', '%' . $term . '%')
+        ->where('b.vernacularName LIKE :term') // ou bien machin, ou bien truc, ou bien bidule
+        ->setParameter('term', '%' . $term . '%')
             ->orderBy('b.vernacularName', 'ASC');
         $birds = $qb->getQuery()
             ->getResult();
@@ -47,10 +42,8 @@ class BirdRepository extends ServiceEntityRepository
             //$res['image'] = $bird['image'];
             $result[] = $res;
         }
-
         return $result;
     }
-
     public function findAllByMultipleCriteria($term){
         $qb = $this->createQueryBuilder('b');
         $qb ->select('b.vernacularName', 'b.id', 'b.nameOrder', 'b.family')
@@ -70,22 +63,19 @@ class BirdRepository extends ServiceEntityRepository
             //$res['image'] = $bird['image'];
             $result[] = $res;
         }
-
         return $result;
     }
-
     public function findFamilyList($term)
     {
         $qb = $this->createQueryBuilder('b')
+            ->select('b.family')
             ->where('b.family LIKE :term')
             ->setParameter('term', '%' . $term . '%')
             ->distinct(true);
         $families = $qb->getQuery()
-                ->getResult();
-
+            ->getResult();
         return $families;
     }
-
     public function findByVernacularName($offset, $limit, $sorting)
     {
         return $qb = $this->createQueryBuilder('b')
@@ -96,7 +86,6 @@ class BirdRepository extends ServiceEntityRepository
             ->getQuery()
             ->getArrayResult();
     }
-
     public function findByFamily($offset, $limit, $sorting, $family)
     {
         return $qb = $this->createQueryBuilder('b')
@@ -119,30 +108,24 @@ class BirdRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }*/
-
     /*public function countByID($id){
         $qb = $this->createQueryBuilder('o')
             ->innerJoin('o.bird', 'b')
             ->where('b.id = :id')
             ->setParameter('id', $id);
-
         $qb->select($qb->expr()->count('o.id'));
-
         return $qb->getQuery()->getSingleScalarResult();
     }*/
-
     public function findByNbObservation($offset, $limit, $sorting)
     {
-       $qb = $this->createQueryBuilder('b')
+        $qb = $this->createQueryBuilder('b')
             ->innerJoin('b.observations', 'o')
             ->select('b')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
             ->orderBy(count('o.bird'), $sorting);
-
-         return $qb->getQuery()->getResult();
+        return $qb->getQuery()->getResult();
     }
-
     /*public function findByDescNbObservation($offset, $limit)
     {
         $qb = $this->createQueryBuilder('b')
@@ -151,14 +134,11 @@ class BirdRepository extends ServiceEntityRepository
             ->setFirstResult($offset)
             ->setMaxResults($limit)
             ->orderBy(count('o.bird'), 'DESC');
-
         return $qb->getQuery()->getResult();
     }*/
-
     public function getNumberBirds(){
         $qb = $this->createQueryBuilder('b');
         $qb->select($qb->expr()->count('b.id'));
-
         return $qb->getQuery()->getSingleScalarResult();
     }
 }
