@@ -10,7 +10,6 @@ var exploCompletion = new Vue({
         items: [],
         observation: [],
         map: {}
-        name: 'Vue.js'
     },
 
 
@@ -48,12 +47,12 @@ var exploCompletion = new Vue({
 
     },
     methods: {
-        search (v) {
-            axios.get('/autocomplete?dataBird='+v.target.value).then(
+        search(v) {
+            axios.get('/autocomplete?dataBird=' + v.target.value).then(
                 response => {
                     $('input.autocomplete').css('border-bottom', '1px solid green')
                     this.items = response.data
-                    if (this.items.length === 0){
+                    if (this.items.length === 0) {
                         $('input.autocomplete').css('border-bottom', '1px solid red')
                     }
                     let valuesObject = {}
@@ -66,4 +65,4 @@ var exploCompletion = new Vue({
                 }
             )
         }
-})
+    }})
