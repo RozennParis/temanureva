@@ -137,7 +137,7 @@
                 <a href="#" class="btn btn-round btn-brown">Gérer Utilisateur </a>
                 <a href="{{ path('waiting-demand') }}" class="btn btn-round btn-brown">Certifier un naturlaiste</a>
             {% endif %}
-            <a href="#" class="btn btn-round btn-brown">Déconnexion</a>
+            <a href="{{ path('security_logout') }}" class="btn btn-round btn-brown">Déconnexion</a>
         </div>
     {% endif %}
 {% endblock %}
