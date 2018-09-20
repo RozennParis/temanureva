@@ -35,28 +35,8 @@ class FrontController extends Controller
             'observations' => $observations,
         ]);
     }
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/profil/{id}", name="profil", requirements={"id"="\d+$"})
-     */
-    public function connectedInterface($id = -1)
-    {
-        //J'ai doullé de ouf
-        if($id === -1){
-            return $this->redirectToRoute('profil',['id' => $this->getUser()->getId()]);
-        }
-        $user = $this->getDoctrine()->getRepository(User::class)->findById($id);
-        $observations = $this->getDoctrine()->getRepository(Observation::class)->findByObserver($user->getId(),0, 3);
-        $validations = $this->getDoctrine()->getRepository(Observation::class)->findByValidator($user->getId(),0, 3);
-        $articles = $this->getDoctrine()->getRepository(Article::class)->findByAuthor($user->getId(),0, 3);
 
-        return $this->render('back/index.html.twig', [
-            'user' => $user,
-            'observations' => $observations,
-            'validations' => $validations,
-            'articles' => $articles
-        ]);
-    }
+
     /**
      * @return JsonResponse|Response
      * @Route("/observer-carte-oiseaux", name="explorer")
@@ -68,6 +48,7 @@ class FrontController extends Controller
         return $this->render('front/exploration.html.twig', [
             'breadcrumb' => $breadcrumb->getBreadcrumb()]);
     }
+
     /**
      * @return JsonResponse
      * @Route("/observer-carte-oiseaux/rechercher", name="exploration_json_bird", methods={"GET", "POST"})
@@ -99,6 +80,7 @@ class FrontController extends Controller
         //dump($result);die();
         return new JsonResponse($result);
     }
+
     /**
      * @return Response
      * @Route("/presentation-association-protection-amis-oiseaux", name="presentation")
@@ -109,6 +91,7 @@ class FrontController extends Controller
             ->add('presentation', 'Notre association');
         return $this->render('front/presentation.html.twig',['breadcrumb' => $breadcrumb->getBreadcrumb()]);
     }
+
     /**
      * @param Request $request
      * @param MailManager $mail
@@ -137,6 +120,7 @@ class FrontController extends Controller
             'form' => $form->createView()
         ]);
     }
+
     /**
      * @Route("/don-association-reduction-impots-amis-oiseaux", name="donation")
      */
@@ -147,6 +131,7 @@ class FrontController extends Controller
             'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
     }
+
     /**
      * @Route("/mentions-legales", name="mentions")
      */
@@ -158,6 +143,7 @@ class FrontController extends Controller
             'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
     }
+
     /**
      * @Route("/FAQ", name="faq")
      */
