@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use App\Entity\Article;
 use App\Entity\User;
 use App\Entity\Observation;
 use App\Form\ContactType;
@@ -28,7 +29,7 @@ class FrontController extends Controller
         foreach ($observations as $observation)
         {
             $count = $em->getRepository(Observation::class)->countObservation($observation->getBird()->getId()); //écrire requête  pour récupérer le nombre de bird id
-            dump($count);
+            //dump($count);
         }
         return $this->render('front/index.html.twig', [
             'observations' => $observations,
@@ -45,7 +46,16 @@ class FrontController extends Controller
             return $this->redirectToRoute('profil',['id' => $this->getUser()->getId()]);
         }
         $user = $this->getDoctrine()->getRepository(User::class)->findById($id);
-        return $this->render('back/index.html.twig', ['user' => $user]);
+        $observations = $this->getDoctrine()->getRepository(Observation::class)->findByObserver($user->getId(),0, 3);
+        $validations = $this->getDoctrine()->getRepository(Observation::class)->findByValidator($user->getId(),0, 3);
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findByAuthor($user->getId(),0, 3);
+
+        return $this->render('back/index.html.twig', [
+            'user' => $user,
+            'observations' => $observations,
+            'validations' => $validations,
+            'articles' => $articles
+        ]);
     }
     /**
      * @return JsonResponse|Response

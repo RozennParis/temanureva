@@ -22,6 +22,7 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 class ObservationController extends Controller
 {
     const NBR_MY_OBSERVATIONS_PER_PAGE = 6;
+    const NBR_WAITING_OBSERVATIONS_PER_PAGE = 3;
 
     const PAGINATION_DISPLAY_OBSERVATIONS = 5;
     const PAGINATION_DISPLAY_MANAGE = 5;
@@ -159,5 +160,29 @@ class ObservationController extends Controller
                 'observation' => $observation
             ]);
         }
+    }
+
+    /**
+     * @Route("/observation-attente/{page}", name="waiting-observation", requirements={"page" = "\d+"})
+     */
+    public function waitingObservation($page=1){
+
+        $repository = $this->getDoctrine()->getRepository(Observation::class);
+        $nbObservations = $repository->countWaintingObservation();
+        $observations = $repository->findWaitingObservation(($page-1)*self::NBR_WAITING_OBSERVATIONS_PER_PAGE,self::NBR_WAITING_OBSERVATIONS_PER_PAGE);
+
+        $pagination = new PaginationManager($page, $nbObservations, self::NBR_WAITING_OBSERVATIONS_PER_PAGE, self::PAGINATION_DISPLAY_OBSERVATIONS, 'waiting-observation');
+
+        //Insert breadcrumb
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('profil', 'Mon profil')
+            ->add('waiting-observation', 'Obervations en attente');
+
+        return $this->render('back/waiting_observation.html.twig',[
+            'breadcrumb' => $breadcrumb->getBreadcrumb(),
+            'observations'=> $observations,
+            'pagination' => $pagination
+        ]);
     }
 }

@@ -74,6 +74,19 @@ class ArticleRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    public function findByAuthor($author, $offset, $limit){
+        $qb = $this->createQueryBuilder('a')
+            ->innerJoin('a.user', 'u')
+            ->where('a.user = :author')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->setParameter('author', $author)
+            ->orderBy('a.publishing_date', 'DESC')
+            ->getQuery();
+
+        return $qb->getResult();
+    }
+
 //    /**
 //     * @return Article[] Returns an array of Article objects
 //     */

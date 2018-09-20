@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Observation en attente - NAO{% endblock %}
+
+{% block body %}
+    {{ include('common/header.html.twig', {'title' : 'Observations en attentes'}) }}
+    {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
+    <div class="row container margin-t">
+        {% for observation in observations %}
+            <div class="col s12 l4">
+                <div class="card card-wait-obs">
+                    <div class="card-image">
+                        <div class="center">
+                            <img src="
+                        {% if observation.image is null %}
+                            http://via.placeholder.com/750x350
+                        {% else %}
+                            {{ image_observation_directory}}/{{ observation.image }}
+                        {% endif %}
+                    " alt="article_">
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-content">
+                            <p class="center card-title card-title-blog">{{ observation.bird.vernacularName }}</p>
+                            <p class="center card-author">Observation envoyée le {{ observation.addingDate|date("d/m/Y") }}</p>
+                        </div>
+                        <div class="center card-action">
+                            <a href="{{ path('view_observation', {'id': observation.id}) }}" class="btn btn-round btn-teal">Voir l'observation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row center">
+        {{ include('common/pagination.html.twig', {'paginaion' : pagination}) }}
+    </div>
+{% endblock %}

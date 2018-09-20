@@ -85,6 +85,52 @@ class ObservationRepository extends ServiceEntityRepository
             ->getResult();
 
     }
+
+    public function findByObserver($observer, $offset, $limit){
+        $qb = $this->createQueryBuilder('o')
+            ->innerJoin('o.observer', 'observer')
+            ->where('o.observer = :observer')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->setParameter('observer', $observer)
+            ->orderBy('o.addingDate', 'DESC')
+            ->getQuery();
+
+        return $qb->getResult();
+    }
+
+    public function findByValidator($validator, $offset, $limit){
+        $qb = $this->createQueryBuilder('o')
+            ->innerJoin('o.validator', 'v')
+            ->where('o.validator = :validator')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->setParameter('validator', $validator)
+            ->orderBy('o.validationDate', 'DESC')
+            ->getQuery();
+
+        return $qb->getResult();
+    }
+
+    public function findWaitingObservation($offset, $limit){
+        $qb = $this->createQueryBuilder('o')
+            ->where('o.status = false')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->orderBy('o.addingDate', 'DESC')
+            ->getQuery();
+
+        return $qb->getResult();
+    }
+
+    public function countWaintingObservation(){
+        $qb = $this->createQueryBuilder('o')
+            ->where('o.status = false');
+        $qb->select($qb->expr()->count('o.id'));
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
 //    /**
 //     * @return Observation[] Returns an array of Observation objects
 //     */

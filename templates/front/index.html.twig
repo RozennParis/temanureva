@@ -27,15 +27,20 @@
                     </li>
                     <li>
                         <img src="{{ asset('assets/img/bg-restez-informes.jpg') }}" alt="Restez informer"> <!-- Informez vous image -->
-                        <div class="caption center-align center row">
+                        <div class="caption center-align center row newsletter">
                             <h2 class="lighter">Restez informé</h2>
                             <div class="container col s12">
+                                {% set formNews = form_newsletter.getForm().createView() %}
+                                {{ form_start(formNews) }}
                                 <div class="col s12 l7">
-                                    <input type="email" placeholder="Inscrivez-vous à la Newsletter">
+                                    {{ form_row(formNews.email) }}
+                                    {#<input type="email" placeholder="Inscrivez-vous à la Newsletter">#}
                                 </div>
                                 <div class="col S12 l5">
-                                    <button class="btn btn-round btn-brown">S'inscrire</button>
+                                    {{ form_row(formNews.submit, { 'attr' : { 'class' : 'btn-round btn-brown'}}) }}
+                                    {#<button class="btn btn-round btn-brown">S'inscrire</button>#}
                                 </div>
+                                {{ form_end(formNews) }}
                             </div>
                         </div>
                     </li>
