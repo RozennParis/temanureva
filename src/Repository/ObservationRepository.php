@@ -199,6 +199,11 @@ class ObservationRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * @param $offset
+     * @param $limit
+     * @return mixed
+     */
     public function findLastThreeObservations($offset, $limit)
     {
         return $this->createQueryBuilder('o')
