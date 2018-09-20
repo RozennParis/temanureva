@@ -70,6 +70,13 @@ class FrontController extends Controller
         $observations = $this->getDoctrine()->getManager()
             ->getRepository(Observation::class)
             ->findByBirdId($birdId);
+
+
+        if (null !== $observations) {
+            $this->addFlash('error', 'Erreur');
+        }
+
+
         foreach ($observations as $observation) {
             $result[] = [
                 'id' => $observation->getId(),
