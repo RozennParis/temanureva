@@ -33,7 +33,7 @@ class ObservationController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function addObservation(Request $request, EntityManagerInterface $em, ObservationManager $observationManager)
+    public function addObservation(Request $request, AuthorizationCheckerInterface $checker, ObservationManager $observationManager)
     {
         $observation = new Observation();
         $form = $this->createForm(ObservationType::class, $observation);
@@ -49,6 +49,14 @@ class ObservationController extends Controller
              */
             $currentObserver = $this->getUser();
             $observation->setObserver($currentObserver);
+
+
+            if (true === $checker->isGranted(['ROLE_ADMIN', 'ROLE_NATURALIST'])){
+                $observation->setStatus(1);
+                $observation->setValidator($currentObserver);
+                $observation->setValidationDate(new \DateTime());
+
+            }
 
             /**
              * to store image in db
@@ -115,7 +123,7 @@ class ObservationController extends Controller
     public function viewObservation(Request $request, AuthorizationCheckerInterface $checker, ObservationManager $observationManager,$id){
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
-            ->add('exploration', 'Exploration')
+            ->add('explorer', 'Exploration')
             ->add('view_observation', 'Observation');
 
         $observation = $this->getDoctrine()

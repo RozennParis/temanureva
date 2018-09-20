@@ -1,35 +1,39 @@
 <?php
-
 namespace App\Controller;
-
-use App\Entity\Article;
 use App\Entity\User;
+use App\Entity\Observation;
 use App\Form\ContactType;
-
 use App\Form\ExploSearchType;
+use App\Repository\ObservationRepository;
 use App\Service\BreadcrumbManager;
 use App\Service\MailManager;
 use App\Utility\Contact;
 use App\Entity\Bird;
-use App\Entity\Observation;
 use PhpParser\Node\Expr\Array_;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 class FrontController extends Controller
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      * @Route("/", name="homepage")
      */
     public function index()
     {
-        return $this->render('front/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $observations = $em->getRepository(Observation::class)->findLastThreeObservations(0, 3);
+        foreach ($observations as $observation)
+        {
+            $count = $em->getRepository(Observation::class)->countObservation($observation->getBird()->getId()); //écrire requête  pour récupérer le nombre de bird id
+            dump($count);
+        }
+        return $this->render('front/index.html.twig', [
+            'observations' => $observations,
+        ]);
     }
-
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/profil/{id}", name="profil", requirements={"id"="\d+$"})
@@ -40,100 +44,44 @@ class FrontController extends Controller
         if($id === -1){
             return $this->redirectToRoute('profil',['id' => $this->getUser()->getId()]);
         }
-
         $user = $this->getDoctrine()->getRepository(User::class)->findById($id);
-        $observations = $this->getDoctrine()->getRepository(Observation::class)->findByObserver($user->getId(),0, 3);
-        $validations = $this->getDoctrine()->getRepository(Observation::class)->findByValidator($user->getId(),0, 3);
-        $articles = $this->getDoctrine()->getRepository(Article::class)->findByAuthor($user->getId(),0, 3);
-
-        return $this->render('back/index.html.twig', [
-            'user' => $user,
-            'observations' => $observations,
-            'validations' => $validations,
-            'articles' => $articles
-            ]);
+        return $this->render('back/index.html.twig', ['user' => $user]);
     }
-
     /**
-     * @param Request $request
      * @return JsonResponse|Response
      * @Route("/observer-carte-oiseaux", name="explorer")
      */
-    public function exploration(Request $request)
+    public function exploration()
     {
-        $form = $this->createForm(ExploSearchType::class);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            //dump( $form->get('bird'));die();
-
-            $birdId = $form->get('bird');
-
-            $result = [];
-
-            if (!empty($birdId)) {
-                $observations = $this->getDoctrine()
-                    ->getRepository(Observation::class)
-                    ->findByBirdId($birdId);
-            } else {
-                $observations = $this->getDoctrine()
-                    ->getRepository(Observation::class)
-                    ->findAllValidateBirds();
-            }
-
-            foreach ($observations as $observation) {
-                $result[] = [
-                    'id' => $observation->getId(),
-                    'vernacularName' => $observation->getBird()->getVernacularName(),
-                    'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
-                    'latitude' => $observation->getLatitude(),
-                    'longitude' => $observation->getLongitude(),
-                ];
-            }
-
-            dump($result);die();
-            return new JsonResponse($result);
-        }
-
-        /*if ($form->isSubmitted() && $form->isValid()) {
-
-            $birdId = $form->get('bird')->getData();
-
-            $result = [];
-
-            if (!empty($birdId)) {
-                $observations = $this->getDoctrine()
-                    ->getRepository(Observation::class)
-                    ->findByBirdId($birdId);
-            } else {
-                $observations = $this->getDoctrine()
-                    ->getRepository(Observation::class)
-                    ->findAllValidateBirds();
-            }
-
-            foreach ($observations as $observation) {
-                $result[] = [
-                    'id' => $observation->getId(),
-                    'vernacularName' => $observation->getBird()->getVernacularName(),
-                    'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
-                    'latitude' => $observation->getLatitude(),
-                    'longitude' => $observation->getLongitude(),
-                ];
-            }
-            return new JsonResponse($result);
-
-        }*/
-
-
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb->add('exploration', 'Exploration');
-
         return $this->render('front/exploration.html.twig', [
-            'form' => $form->createView(),
             'breadcrumb' => $breadcrumb->getBreadcrumb()]);
     }
-
+    /**
+     * @return JsonResponse
+     * @Route("/observer-carte-oiseaux/rechercher", name="exploration_json_bird", methods={"GET", "POST"})
+     */
+    public function explorationSearchBirdAction()
+    {
+        $birdId = intval($_GET['dataBird']); // intval pour transformer en integer et GET pour prendre le param dataBird qui était en string
+        //dump($birdId); die();
+        $result = [];
+        $observations = $this->getDoctrine()->getManager()
+            ->getRepository(Observation::class)
+            ->findByBirdId($birdId);
+        foreach ($observations as $observation) {
+            $result[] = [
+                'id' => $observation->getId(),
+                'vernacularName' => $observation->getBird()->getVernacularName(),
+                'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
+                'latitude' => $observation->getLatitude(),
+                'longitude' => $observation->getLongitude(),
+            ];
+        }
+        //dump($result);die();
+        return new JsonResponse($result);
+    }
     /**
      * @return Response
      * @Route("/presentation-association-protection-amis-oiseaux", name="presentation")
@@ -142,10 +90,8 @@ class FrontController extends Controller
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
             ->add('presentation', 'Notre association');
-
         return $this->render('front/presentation.html.twig',['breadcrumb' => $breadcrumb->getBreadcrumb()]);
     }
-
     /**
      * @param Request $request
      * @param MailManager $mail
@@ -173,55 +119,17 @@ class FrontController extends Controller
             'breadcrumb' => $breadcrumb->getBreadcrumb(),
             'form' => $form->createView()
         ]);
-
     }
-
-    /**
-     * @param Request $request
-     * @return JsonResponse
-     * @Route("/observer-carte-oiseaux/rechercher", name="exploration_json_bird")
-     */
-    public function explorationSearchBirdAction(Request $request)
-    {
-
-        $birdId = (int) $request->request->get('explo_search_bird');
-        $result = [];
-
-        //dump($birdId);
-        if (!empty($birdId)) {
-            $observations = $this->getDoctrine()
-                ->getRepository(Observation::class)
-                ->findByBirdId($birdId);
-        } else {
-            $observations = $this->getDoctrine()
-                ->getRepository(Observation::class)
-                ->findAllValidateBirds();
-        }
-
-        foreach ($observations as $observation) {
-            $result[] = [
-                'id' => $observation->getId(),
-                'vernacularName' => $observation->getBird()->getVernacularName(),
-                'observationDate' => $observation->getObservationDate()->format('d/m/Y'),
-                'latitude' => $observation->getLatitude(),
-                'longitude' => $observation->getLongitude(),
-            ];
-        }
-        return new JsonResponse($result);
-    }
-
     /**
      * @Route("/don-association-reduction-impots-amis-oiseaux", name="donation")
      */
     public function donation() {
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb->add('donation', 'Faire un don');
-
         return $this->render('front/donation.html.twig', [
             'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
     }
-
     /**
      * @Route("/mentions-legales", name="mentions")
      */
@@ -229,12 +137,10 @@ class FrontController extends Controller
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
             ->add('mentions', 'Mentions légales');
-
         return $this->render('front/legalMentions.html.twig', [
             'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);
     }
-
     /**
      * @Route("/FAQ", name="faq")
      */
@@ -242,7 +148,6 @@ class FrontController extends Controller
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
             ->add('faq', 'FAQ');
-
         return $this->render('front/faq.html.twig', [
             'breadcrumb' => $breadcrumb->getBreadcrumb()
         ]);

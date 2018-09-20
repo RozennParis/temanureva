@@ -38,7 +38,18 @@ class ObservationRepository extends ServiceEntityRepository
             ->innerJoin('o.bird', 'b')
             ->where('b.id = :id')
             ->setParameter('id', $id);
-        $qb->select($qb->expr()->count('o.id'));
+        $qb->select($qb->expr()->count('o.bird'));
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    public function countObservation($id) {
+        $qb = $this->createQueryBuilder('o')
+            ->select('o.bird')
+            ->where('o.status = 1')
+            ->andWhere('o.bird = :id')
+            ->setParameter('id', $id);
+        $qb->select($qb->expr()->count('o.bird'));
 
         return $qb->getQuery()->getSingleScalarResult();
     }
@@ -59,7 +70,7 @@ class ObservationRepository extends ServiceEntityRepository
             ->setMaxResults($limit)
             ->where('o.observer = :id')
             ->setParameter('id', $id)
-            ->orderBy('o.id', 'ASC')
+            ->orderBy('o.id', 'DESC')
             ->getQuery()
             ->getResult();
     }
@@ -149,6 +160,10 @@ class ObservationRepository extends ServiceEntityRepository
     }
     */
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function findByBirdId($id)
     {
         return $this->createQueryBuilder('o')
@@ -158,9 +173,37 @@ class ObservationRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    public function findObservationsByBirdId($id, $offset, $limit)
+    {
+        return $this->createQueryBuilder('o')
+            ->setFirstResult( $offset )
+            ->setMaxResults( $limit )
+            ->where('o.bird = :id', 'o.status = 1')
+            ->setParameter('id', $id)
+            ->orderBy('o.observationDate', 'desc')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return mixed
+     * For functionality test
+     */
     public function findAllValidateBirds()
     {
         return $this->createQueryBuilder('o')
+            ->where('o.status = 1')
+            ->orderBy('o.observationDate', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findLastThreeObservations($offset, $limit)
+    {
+        return $this->createQueryBuilder('o')
+            ->setFirstResult( $offset )
+            ->setMaxResults( $limit )
             ->where('o.status = 1')
             ->orderBy('o.observationDate', 'DESC')
             ->getQuery()

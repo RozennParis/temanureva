@@ -148,48 +148,24 @@
                 <div class="container row margin-top margin-bottom">
                     <h2 class="center lighter">Dernières observations</h2>
                     <div class="margin-top">
+                        {% for observation in observations %}
                         <div class="col s12 l4">
                             <div class="card card-radius card-height">
                                 <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" src="{{ asset('assets/img/512b2625bb3e37312c8b3faf83a6deee.jpeg') }}">
+                                    <img class="activator" src="{{ image_observation_directory}}/{{ observation.image }}">
                                 </div>
                                 <div class="card-content center">
-                                    <h6>Nom de l'oiseau (Nom Scientifique)</h6>
+                                    <h6>{{ observation.bird.vernacularName }} - ({{ observation.bird.lbName }})</h6>
                                     <p>
-                                        Animal observé XX fois
+                                        Animal observé
+                                           {# {{ count }}#}
+                                        fois
                                     </p>
-                                    <a href="#"><button class="btn btn-voir-plus" type="button">Voir plus</button></a>
+                                    <a href="{{ path('view_observation', {'id': observation.id}) }}"><button class="btn btn-voir-plus" type="button">Voir plus</button></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 l4">
-                            <div class="card card-radius card-height">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" src="{{ asset('assets/img/23b8e9f369cfc26db82f7e4113d3be27.jpeg') }}">
-                                </div>
-                                <div class="card-content center">
-                                    <h6>Nom de l'oiseau (Nom Scientifique)</h6>
-                                    <p>
-                                        Animal observé XX fois
-                                    </p>
-                                    <a href="#"><button class="btn btn-voir-plus" type="button">Voir plus</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 l4">
-                            <div class="card card-radius card-height">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" src="{{ asset('assets/img/994bd428180d3a67f3215cc1248f132e.jpeg') }}">
-                                </div>
-                                <div class="card-content center">
-                                    <h6>Nom de l'oiseau (Nom Scientifique)</h6>
-                                    <p>
-                                        Animal observé XX fois
-                                    </p>
-                                    <a href="#"><button class="btn btn-voir-plus" type="button">Voir plus</button></a>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
         {% endblock %}
