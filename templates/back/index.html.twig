@@ -71,7 +71,7 @@
                 <div class="card-content">
                     {% for observation in observations %}
                         <div class="col s12">
-                            <span>Obsrevation : </span><br>
+                            <span>Observation : </span><br>
                             <a href="{{ path('view_observation', { "id" : observation.id}) }}">{{ observation.bird.vernacularName }}</a><i> ({{ observation.bird.lbName }})</i>
                         </div>
                     {% endfor %}
@@ -91,7 +91,7 @@
                 <div class="card-content">
                     {% for validation in validations %}
                         <div class="col s12">
-                            <span>Obsrevation validé : </span><br>
+                            <span>Observation validé : </span><br>
                             <a href="{{ path('view_observation', { "id" : validation.id}) }}">{{ validation.bird.vernacularName }}</a><i> ({{ validation.bird.lbName }})</i>
                         </div>
                     {% endfor %}
