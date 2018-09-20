@@ -917,4 +917,7 @@ footer a, footer h4 {
     padding: 0;
 }
 
-
+/*---- 404 page ----*/
+.error-text {
+    font: 300 2.0em "Roboto";
+}

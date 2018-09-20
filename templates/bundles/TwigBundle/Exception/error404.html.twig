@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page non trouvée{% endblock %}
+{% block body %}
+
+    <div class="center">
+        <h1 class="header-text">Erreur 404</h1>
+    </div>
+
+    <div class="row margin-bottom margin-top">
+        <div class="center">
+            <img src="{{ asset('assets/img/img-404.jpg') }}" alt="image erreur">
+        </div>
+    </div>
+
+    <div class="margin-bottom">
+        <div class="center error-text">
+            Désolé ! Cette page<br/>
+
+            n'a pas pu être trouvée
+        </div>
+    </div>
+
+
+{% endblock %}
