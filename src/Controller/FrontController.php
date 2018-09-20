@@ -28,7 +28,7 @@ class FrontController extends Controller
         foreach ($observations as $observation)
         {
             $count = $em->getRepository(Observation::class)->countObservation($observation->getBird()->getId()); //écrire requête  pour récupérer le nombre de bird id
-            dump($count);
+            //dump($count);
         }
         return $this->render('front/index.html.twig', [
             'observations' => $observations,
