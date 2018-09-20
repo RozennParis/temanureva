@@ -20,7 +20,7 @@
                         <a href="{{ path('mes_observations') }}" class="btn btn-round btn-brown">Mes observations</a>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a href="#" class="btn btn-round btn-brown">Observation en attente</a>
+                        <a href="{{ path('waiting-observation') }}" class="btn btn-round btn-brown">Observation en attente</a>
                     {% endif %}
                     {% if is_granted('ROLE_EDITOR') or is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('gerer-articles') }}" class="btn btn-round btn-brown">Gérer les articles</a>
@@ -131,7 +131,7 @@
                 <a href="{{ path('demand') }}" class="btn btn-round btn-brown">Demande naturlaiste</a>
             {% endif %}
             {% if is_granted('ROLE_NATURALIST') %}
-                <a href="#" class="btn btn-round btn-brown">Observation en attente</a>
+                <a href="{{ path('waiting-observation') }}" class="btn btn-round btn-brown">Observation en attente</a>
             {% endif %}
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="#" class="btn btn-round btn-brown">Gérer Utilisateur </a>

@@ -82,7 +82,7 @@ class ObservationRepository extends ServiceEntityRepository
             ->setFirstResult($offset)
             ->setMaxResults($limit)
             ->setParameter('observer', $observer)
-            ->orderBy('o.observationDate', 'DESC')
+            ->orderBy('o.addingDate', 'DESC')
             ->getQuery();
 
         return $qb->getResult();
@@ -100,6 +100,26 @@ class ObservationRepository extends ServiceEntityRepository
 
         return $qb->getResult();
     }
+
+    public function findWaitingObservation($offset, $limit){
+        $qb = $this->createQueryBuilder('o')
+            ->where('o.status = false')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->orderBy('o.addingDate', 'DESC')
+            ->getQuery();
+
+        return $qb->getResult();
+    }
+
+    public function countWaintingObservation(){
+        $qb = $this->createQueryBuilder('o')
+            ->where('o.status = false');
+        $qb->select($qb->expr()->count('o.id'));
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
 //    /**
 //     * @return Observation[] Returns an array of Observation objects
 //     */
