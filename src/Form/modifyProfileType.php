@@ -41,8 +41,8 @@ class modifyProfileType extends AbstractType
             ])
             ->add('gender', ChoiceType::class, [
                 'label' => 'Genre',
-                'attr' => ['id' => 'gender'],
-                'expanded' => true,
+                'attr' => ['class' => 'gender'],
+                'expanded' => false,
                 'multiple' => false,
                 'choices' => [
                     'Masculin' => 'M',

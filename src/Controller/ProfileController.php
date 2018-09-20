@@ -23,8 +23,8 @@ class ProfileController extends Controller
 
         $user = $this->getDoctrine()
             ->getRepository(User::class)
-            ->findById($this->getUser()->getId())
-;        $form =  $this->createForm(modifyProfileType::class, $user);
+            ->findById($this->getUser()->getId());
+        $form =  $this->createForm(modifyProfileType::class, $user);
 
         return $this->render('back/modify_profile.html.twig',[
             'form' => $form->createView()
