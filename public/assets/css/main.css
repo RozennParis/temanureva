@@ -921,3 +921,8 @@ footer a, footer h4 {
 .error-text {
     font: 300 2.0em "Roboto";
 }
+
+.error-header {
+    border-bottom: 3px #01796F solid;
+    padding-bottom: 2.5rem;
+}
