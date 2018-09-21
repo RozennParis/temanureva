@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -84,10 +85,13 @@ class Observation
      */
     private $bird;
 
+    private $em;
 
-    public function __construct()
+
+    public function __construct(EntityManagerInterface $em)
     {
         $this->addingDate = new \DateTime();
+        $this->em = $em;
     }
 
     public function getId()
@@ -225,4 +229,10 @@ class Observation
 
         return $this;
     }
+
+   /* public function countSameBirdObservation()
+    {
+        $em = $this->em;
+        $count = $em->getRepository(Observation::class)->countObservation($this->getBird()->getId());
+    }*/
 }

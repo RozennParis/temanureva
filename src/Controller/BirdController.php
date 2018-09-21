@@ -32,6 +32,7 @@ class BirdController extends Controller
     // rajouter l'ordre de tri >>> dans l'url
     public function showAllBirds($page = 1, $sorting = 'ASC', Request $request, BirdRepository $birdRepository)
     {
+
         //Insert breadcrumb
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb

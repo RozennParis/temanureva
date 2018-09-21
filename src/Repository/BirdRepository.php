@@ -1,6 +1,7 @@
 <?php
 namespace App\Repository;
 use App\Entity\Bird;
+use Doctrine\ORM\Query\Expr;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 /**
@@ -78,13 +79,24 @@ class BirdRepository extends ServiceEntityRepository
     }
     public function findByVernacularName($offset, $limit, $sorting)
     {
-        return $qb = $this->createQueryBuilder('b')
-            ->select('b')
+        /*return $qb = $this->createQueryBuilder('b')
+            ->select('b, count(o) as b.nbObsValid')
+            ->leftJoin('b.observations', 'o')
+            ->where('o.status = 1')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
             ->orderBy('b.vernacularName', $sorting)
             ->getQuery()
-            ->getArrayResult();
+            ->getArrayResult();*/
+        return $qb = $this->createQueryBuilder('b')
+            ->select('b, count(o) as nbObsValid')
+            ->leftJoin('b.observations', 'o',  Expr\Join::WITH, 'o.bird = b.id AND o.status =1')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->groupBy('b')
+            ->orderBy('b.vernacularName', $sorting)
+            ->getQuery()
+            ->getResult();
     }
     public function findByFamily($offset, $limit, $sorting, $family)
     {
