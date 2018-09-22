@@ -7,7 +7,7 @@
         <div class="center-block full-width">
             <div class="row">
                 <div class="col offset-s2 s8 offset-l5 l2">
-                    <img src="{% if user.image is same as(null) %}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{% endif %}" alt="Photo_profil" class="responsive-img circle"/>
+                    <img src="{% if user.image is same as(null) %}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{{ image_profile_directory }}/{{ user.image }}{% endif %}" alt="Photo_profil" class="responsive-img circle"/>
                 </div>
             </div>
             <div class="row">
