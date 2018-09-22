@@ -55,7 +55,8 @@ class modifyProfileType extends AbstractType
             ])
             ->add('newImage', FileType::class, [
                 'label' => 'Chargez votre image',
-                'required' => false])
+                'required' => false,
+                'help' => "L'image doit etre de 300 x 300 px"])
             ->add('submit', SubmitType::class, ['label' => 'Valider modification'])
         ;
     }

@@ -88,7 +88,14 @@ class User implements UserInterface, \Serializable
     private $token_date;
 
     /**
-     * @Assert\Image(allowLandscape = false, allowPortrait = false)
+     * @Assert\Image(
+     *     allowLandscape = false,
+     *     allowPortrait = false,
+     *     minHeight=300,
+     *     minWidth=300,
+     *     maxHeight=300,
+     *     maxWidth=300
+     *)
      */
     private $new_image;
 

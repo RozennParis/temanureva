@@ -43,6 +43,10 @@ h1 {
     margin-bottom: 1.25rem;
 }
 
+.help-text{
+    color: #a1a1a1;
+}
+
 footer {
     margin-bottom: 0 !important;
     margin-top: 2.5rem;

@@ -7,12 +7,13 @@
     <div class="container">
         {{ form_start(form) }}
         <div class="row">
-            <div class="col offset-s2 s8 offset-l4 l4">
+            <div class="col offset-s2 s8 offset-l5 l2">
                 <img src="{% if user.image is same as(null) %}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{{ image_profile_directory }}/{{ user.image }}{% endif %}" alt="profile" class="responsive-img circle">
             </div>
         </div>
         <div class="row margin-b">
             <div class="col s12 offset-l4 l4">
+                {{ form_help(form.newImage) }}
                 {{ form_row(form.newImage) }}
             </div>
         </div>
