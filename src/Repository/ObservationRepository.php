@@ -45,7 +45,7 @@ class ObservationRepository extends ServiceEntityRepository
 
     public function countObservation($id) {
         $qb = $this->createQueryBuilder('o')
-            ->select('o.bird')
+            ->select('o.bird, count(o)')
             ->where('o.status = 1')
             ->andWhere('o.bird = :id')
             ->setParameter('id', $id);
@@ -207,6 +207,7 @@ class ObservationRepository extends ServiceEntityRepository
     public function findLastThreeObservations($offset, $limit)
     {
         return $this->createQueryBuilder('o')
+            ->select('o')
             ->setFirstResult( $offset )
             ->setMaxResults( $limit )
             ->where('o.status = 1')

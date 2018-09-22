@@ -17,15 +17,23 @@
                 <div class="row">
                     <h3 class="col s12">
                         {% if observation.status == 0 %}
-                            {{ form_row(form.bird) }}
+                            <div class="col s12 m6" id="observation-autocomplete">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" id="autocomplete-input"  @input="search" class="autocomplete" autocomplete="off" placeholder="{{ observation.bird.vernacularName }}">
+                                        <label for="autocomplete-input">Nom de l'espèce</label>
+                                    </div>
+                                </div>
+                                {{ form_row(form.bird) }}
+                            </div>
                         {% else %}
-                            {{ observation.bird.lbName }}
+                            {{ observation.bird.vernacularName }}
                         {% endif %}
                     </h3>
                     <div class="col s12 margin-y">Observateur : <a href="{{ path('profil', {'id' : observation.observer.id}) }}">{{ observation.observer.lastname }} {{ observation.observer.firstname }}</a></div>
                     <div class="col s12 margin-y">Date d'observation : {{ observation.observationDate|date("d/m/Y") }} </div>
                     <div class="col s12 margin-y">Date d'ajout : {{ observation.addingDate|date("d/m/Y") }}</div>
-                    <div class="col s12 margin-y">Localisation : </div>
+                    <div class="col s12 margin-y">Latitude/longitude : {{ observation.latitude }}/{{ observation.longitude }}</div>
                     {% if observation.status == 0 %}
                         <div class="col s12 margin-y">
                             Demande en cours de validation
@@ -45,4 +53,8 @@
             <div id="mapObser"></div>
         </div>
     </div>
+{% endblock %}
+
+{% block autocomplete %}
+    <script src="{{ asset('build/app.js') }}"></script>
 {% endblock %}
