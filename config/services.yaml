@@ -9,6 +9,7 @@ parameters:
     image_article_directory: '/assets/img/articles'
     image_observation_directory: '/assets/img/observation'
     demand_file_directory: '/assets/files/demand'
+    image_profile_directory: '/assets/profile/img'
 
 services:
     # default configuration for services in *this* file
@@ -45,3 +46,6 @@ services:
     App\Service\ObservationManager:
         arguments:
             $directory: '%image_observation_directory%'
+    App\Service\ProfileManager:
+        arguments:
+            $directory: '%image_profile_directory%'

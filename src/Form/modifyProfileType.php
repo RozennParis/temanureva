@@ -13,8 +13,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,11 +30,13 @@ class modifyProfileType extends AbstractType
             ->add('firstname', TextType::class, ['label' => 'Prénom'])
             ->add('username', TextType::class, ['label' => 'Nom d\'utilisateur'])
             ->add('email', EmailType::class, ['label' => 'Saisir de nouveau votre email'])
-            ->add('password', RepeatedType::class, [
+            ->add('newPassword', RepeatedType::class, [
+                'required' => false,
                 'type' => PasswordType::class,
                 'first_options' => ['label' => 'Nouveau mot de passe'],
                 'second_options' => ['label' => 'Confirmer mot de passe'],
             ])
+//            ->add('password', PasswordType::class, ['label' => 'Mot de passe actuel'])
             ->add('date_of_birth', DateType::class, [
                 'label' => 'Date de naissance',
                 'attr' => ['class' => 'datepicker'],
@@ -45,10 +49,14 @@ class modifyProfileType extends AbstractType
                 'expanded' => true,
                 'multiple' => false,
                 'choices' => [
-                    'Masculin' => 'M',
-                    'Féminin' =>  'F',
+                    'Masculin' => '1',
+                    'Féminin' =>  '0',
                 ]
             ])
+            ->add('newImage', FileType::class, [
+                'label' => 'Chargez votre image',
+                'required' => false])
+            ->add('submit', SubmitType::class, ['label' => 'Valider modification'])
         ;
     }
 
@@ -56,7 +64,7 @@ class modifyProfileType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'validation_groups' => array('registration'),
+//            'validation_groups' => array('registration'),
         ]);
     }
 }
