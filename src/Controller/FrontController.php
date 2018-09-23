@@ -25,7 +25,7 @@ class FrontController extends Controller
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
-        $observations = $em->getRepository(Observation::class)->findLastThreeObservations(0, 3);
+        $observations = $em->getRepository(Observation::class)->findLastThreeObservations(3);
 
         return $this->render('front/index.html.twig', [
             'observations' => $observations,

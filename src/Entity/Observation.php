@@ -86,6 +86,11 @@ class Observation
     private $bird;
 
 
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->addingDate = new \DateTime();
+    }
+
 
     public function getId()
     {
@@ -223,9 +228,4 @@ class Observation
         return $this;
     }
 
-   /* public function countSameBirdObservation()
-    {
-        $em = $this->em;
-        $count = $em->getRepository(Observation::class)->countObservation($this->getBird()->getId());
-    }*/
 }
