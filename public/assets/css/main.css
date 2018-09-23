@@ -32,6 +32,10 @@ a {
 h1 {
     font: 300 4.188em "Open Sans";
 }
+
+.little-h1 {
+    font-size: 2.92em;
+}
 .big-header {
     height: 19.6875rem;
     width: 100%;
