@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Observation;
+use Doctrine\ORM\Query\Expr;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -49,7 +50,6 @@ class ObservationRepository extends ServiceEntityRepository
             ->where('o.status = 1')
             ->andWhere('o.bird = :id')
             ->setParameter('id', $id);
-        $qb->select($qb->expr()->count('o.bird'));
 
         return $qb->getQuery()->getSingleScalarResult();
     }
@@ -204,13 +204,15 @@ class ObservationRepository extends ServiceEntityRepository
      * @param $limit
      * @return mixed
      */
-    public function findLastThreeObservations($offset, $limit)
+    public function findLastThreeObservations($limit)
     {
         return $this->createQueryBuilder('o')
-            ->select('o')
-            ->setFirstResult( $offset )
+            ->select('o, count(obs) as nbValidObs')
+            -> innerJoin('o.bird', 'b')
+            ->leftJoin('b.observations', 'obs',  Expr\Join::WITH, 'o.bird = b.id AND obs.status =1')
             ->setMaxResults( $limit )
             ->where('o.status = 1')
+            ->groupBy('o')
             ->orderBy('o.observationDate', 'DESC')
             ->getQuery()
             ->getResult();
