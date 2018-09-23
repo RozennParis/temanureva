@@ -85,14 +85,7 @@ class Observation
      */
     private $bird;
 
-    private $em;
 
-
-    public function __construct(EntityManagerInterface $em)
-    {
-        $this->addingDate = new \DateTime();
-        $this->em = $em;
-    }
 
     public function getId()
     {
