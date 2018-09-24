@@ -16,7 +16,7 @@
             </div>
             <div class="col s12 m7">
                 <div class="row no-mad-bot">
-                    <h3>{{ bird.vernacularName }}</h3>
+                    <h1 class="little-h1">{{ bird.vernacularName }}</h1>
                     <div class="row">
                         <div class="height-tabs">
                             <ul class="row tabs">
@@ -126,6 +126,9 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
+        var location = [];
+
+
         var map = L.map('mapSpecies', {
             center: [46.70973594407157, 2.6367187500000004],
             zoom: 5,

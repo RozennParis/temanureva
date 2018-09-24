@@ -41,50 +41,29 @@
     </div>
 
 
-    <div class="row container">
-        {% for bird in birds %}
+    <div class="row">
+        {% for result in birds %}
             <div class="col s12 m4 l2">
                 <div class="card-species card-radius">
-                    <div class="card-image-species  center">
+                    <div class="card-image-species center">
                         <img src="
-                                {% if bird.image %}
-                                    {{ image_birds_directory}}/{{ bird.image }}
+                               {% if result.0.image %}
+                                    {{ image_birds_directory}}/{{ result.0.image }}
                                 {% else %}
                                     {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}
                                 {% endif %}
                             " class="card-image responsive-img">
                     </div>
-                    <div class="card-content-species center padding-15">
-                        <h6 class="center">{{ bird.vernacularName }}</h6>
-                        <p>Animal observé XX fois</p>
-                        <a href="{{ path('oiseau', {'id': bird.id}) }}"  class="btn-small btn-round btn-teal btn-species">Voir plus</a>
+                    <div class="card-content-species center">
+                        <h6 class="center">{{ result.0.vernacularName }}</h6>
+                        <p>Animal observé {{ result.nbObsValid }} fois</p>
+                        <a href="{{ path('oiseau', {'id': result.0.id}) }}"  class="btn-round btn-teal btn-small btn-species">Voir plus</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
 
-    {#<div class="row">
-        {% for bird in birds %}
-            <div class="col s12 m4 l2">
-                <div class="card "><!--card-species-->
-                    <div class="materialboxed card-image waves-effect waves-block waves-light"> <!--image-species center-->
-                            <img src="
-                                {% if bird.image %}
-                                    {{ image_birds_directory}}/{{ bird.image }}
-                                {% else %}
-                                    {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}
-                                {% endif %}
-                            ">
-                    </div>
-                    <div class="card-content center"><!--content-species center-->
-                        <p class="center">Animal observé XX fois</p>
-                        <a href="{{ path('oiseau', {'id': bird.id}) }}"  class="waves-effect waves-light btn-small btn-species">Voir plus</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>#}
     <div class="row">
         <div class="center-align">
             {{ include('common/pagination.html.twig', {'paginaion' : pagination}) }}

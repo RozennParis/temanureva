@@ -17,7 +17,19 @@ var app = new Vue({
                 let item = this.items.find(i => {
                     return i.name === v
                 })
-                $('#observation_bird').val(item.id) // il récupère l'id pour le mettre dans  #observation-bird (champ caché)
+                $('#observation_bird').val(item.id)
+                // il récupère l'id pour le mettre dans  #observation-bird (champ caché)
+                //tester avec l'ajout d'un autre $('#gnagna...)
+            }
+        });
+
+        $('input.autocomplete').autocomplete({
+            onAutocomplete: (v) => { // function (v) {return v} >>> on clique, ça fait quelque chose
+                let item = this.items.find(i => {
+                    return i.name === v
+                })
+                $('#valide_observation_bird').setValue(item.id)
+                // il récupère l'id pour le mettre dans  #observation-bird (champ caché)
                 //tester avec l'ajout d'un autre $('#gnagna...)
             }
         });

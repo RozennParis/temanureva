@@ -1,6 +1,8 @@
 <?php
 namespace App\Repository;
+
 use App\Entity\Bird;
+use Doctrine\ORM\Query\Expr;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 /**
@@ -11,10 +13,21 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class BirdRepository extends ServiceEntityRepository
 {
+    /**
+     * BirdRepository constructor.
+     * @param RegistryInterface $registry
+     */
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Bird::class);
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function findBirdById($id)
     {
         $qb = $this->createQueryBuilder('b')
@@ -44,6 +57,11 @@ class BirdRepository extends ServiceEntityRepository
         }
         return $result;
     }
+
+    /**
+     * @param $term
+     * @return Bird[] Returns an array of Bird objects for autocomplete
+     */
     public function findAllByMultipleCriteria($term){
         $qb = $this->createQueryBuilder('b');
         $qb ->select('b.vernacularName', 'b.id', 'b.nameOrder', 'b.family')
@@ -65,6 +83,11 @@ class BirdRepository extends ServiceEntityRepository
         }
         return $result;
     }
+
+    /**
+     * @param $term
+     * @return mixed
+     */
     public function findFamilyList($term)
     {
         $qb = $this->createQueryBuilder('b')
@@ -76,16 +99,33 @@ class BirdRepository extends ServiceEntityRepository
             ->getResult();
         return $families;
     }
+
+    /**
+     * @param $offset
+     * @param $limit
+     * @param $sorting
+     * @return mixed
+     */
     public function findByVernacularName($offset, $limit, $sorting)
     {
         return $qb = $this->createQueryBuilder('b')
-            ->select('b')
+            ->select('b, count(o) as nbObsValid')
+            ->leftJoin('b.observations', 'o',  Expr\Join::WITH, 'o.bird = b.id AND o.status =1')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
+            ->groupBy('b')
             ->orderBy('b.vernacularName', $sorting)
             ->getQuery()
-            ->getArrayResult();
+            ->getResult();
     }
+
+    /**
+     * @param $offset
+     * @param $limit
+     * @param $sorting
+     * @param $family
+     * @return array
+     */
     public function findByFamily($offset, $limit, $sorting, $family)
     {
         return $qb = $this->createQueryBuilder('b')

@@ -152,16 +152,16 @@
                         <div class="col s12 l4">
                             <div class="card card-radius card-height">
                                 <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" src="{{ image_observation_directory}}/{{ observation.image }}">
+                                    <img class="activator" src="{{ image_observation_directory}}/{{ observation.0.image }}">
                                 </div>
                                 <div class="card-content center">
-                                    <h6>{{ observation.bird.vernacularName }} - ({{ observation.bird.lbName }})</h6>
+                                    <h6>{{ observation.0.bird.vernacularName }} - ({{ observation.0.bird.lbName }})</h6>
                                     <p>
                                         Animal observé
-                                           {# {{ count }}#}
+                                           {{ observation.nbValidObs }}
                                         fois
                                     </p>
-                                    <a href="{{ path('view_observation', {'id': observation.id}) }}"><button class="btn btn-voir-plus" type="button">Voir plus</button></a>
+                                    <a href="{{ path('view_observation', {'id': observation.0.id}) }}"><button class="btn btn-voir-plus" type="button">Voir plus</button></a>
                                 </div>
                             </div>
                         </div>
