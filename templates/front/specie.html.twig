@@ -56,7 +56,6 @@
 
                     </div>
                 </div>
-                <div class="" id="mapSpecies"></div>
             </div>
         </div>
         <div class="row">
@@ -67,59 +66,6 @@
             {% endfor %}
         </div>
     </div>
-
-
-
-    {#<div class="container-my-observations margin-t">
-        <div class="row">
-            <div class="col s12 m6 specie-picture responsive-img border-teal">
-                <img src="
-                    {% if bird.image %}
-                        {{ image_birds_directory}}/{{ bird.image }}" alt="photo-especes" class="responsive-img border-teal">
-                    {% else %}
-                        {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}" alt="photo-especes" class="responsive-img border-teal">
-                    {% endif %}
-            </div>
-            <div class="col s12 m6">
-                    <h3 class="col s12">{{ bird.vernacularName }}</h3>
-                <div class="row">
-                    <ul class="tabs">
-                        <li class="tab col s12 m4"><a href="#last-observations">Dernières observations</a></li>
-                        <li class="tab col s12 m4"><a href="#a-propos">&Agrave; propos</a></li>
-                        <li class="tab col s12 m4"><a href="#identity">Fiche d'identité</a></li>
-                    </ul>
-                    <div id="last-observations" class="col s12">
-                        <ul>
-                            {% for observation in observations %}
-                               <li> Observé le {{ observation.observationDate|date("d/m/Y") }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div id="a-propos" class="col s12">
-                        <div class="row">
-                            <div class="col s8">
-                                <img src="{{ asset('assets/img/Logo_inpn.jpg') }}">
-                            </div>
-                            <div class="col s4 center" style="margin: auto">
-                                <a href="https://inpn.mnhn.fr/espece/cd_nom/{{ bird.cdName }}" target="_blank"><button class="btn btn-brown btn-round">Voir plus sur INPN</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="identity" class="col s12">Test 3</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            {% for observation in observations %}
-                <div class="col s6 m4 l2">
-                    <img src="{{ image_observation_directory}}/{{ observation.image }}" alt="photo-{{ observation.bird.vernacularName }}" class="border-teal specie-observation">
-                </div>
-            {% endfor %}
-        </div>
-    </div>#}
-
-
-
 
 {% endblock %}
 
