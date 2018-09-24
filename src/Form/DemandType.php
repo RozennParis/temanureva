@@ -28,7 +28,8 @@ class DemandType extends AbstractType
                 'attr' => [
                     'class' => 'datepicker'
                 ],
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'format' => 'dd/MM/yyyy',
             ])
             ->add('certificate', FileType::class, [
                 'label' => "Copie de l'asttestation",
