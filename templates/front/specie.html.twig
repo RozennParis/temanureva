@@ -126,6 +126,9 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
+        var location = [];
+
+
         var map = L.map('mapSpecies', {
             center: [46.70973594407157, 2.6367187500000004],
             zoom: 5,
