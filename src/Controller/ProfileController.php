@@ -25,8 +25,8 @@ class ProfileController extends Controller
 
         $user = $this->getDoctrine()
             ->getRepository(User::class)
-            ->findById($this->getUser()->getId())
-;        $form =  $this->createForm(modifyProfileType::class, $user);
+            ->findById($this->getUser()->getId());
+        $form =  $this->createForm(modifyProfileType::class, $user);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
