@@ -72,7 +72,18 @@
                     {% for observation in observations %}
                         <div class="col s12">
                             <span>Observation : </span><br>
-                            <a href="{{ path('view_observation', { "id" : observation.id}) }}">{{ observation.bird.vernacularName }}</a><i> ({{ observation.bird.lbName }})</i>
+                            <a href="{{ path('view_observation', { "id" : observation.id}) }}">
+                                {% if observation.bird == null %}
+                                    Espèce non connue
+                                {% else %}
+                                    {{ observation.bird.vernacularName }}
+                                {% endif %}
+                            </a><i> (
+                            {% if observation.bird == null %}
+                                -
+                            {% else %}
+                                {{ observation.bird.lbName }}
+                            {% endif %})</i>
                         </div>
                     {% endfor %}
                 </div>
@@ -91,7 +102,7 @@
                 <div class="card-content">
                     {% for validation in validations %}
                         <div class="col s12">
-                            <span>Observation validé : </span><br>
+                            <span>Observation validée : </span><br>
                             <a href="{{ path('view_observation', { "id" : validation.id}) }}">{{ validation.bird.vernacularName }}</a><i> ({{ validation.bird.lbName }})</i>
                         </div>
                     {% endfor %}
@@ -128,7 +139,7 @@
         <div class="row center margin-t margin-b">
             <a href="{{ path('modify-profile') }}" class="btn btn-round btn-brown">Modifier le profil</a>
             {% if is_granted('ROLE_PARTICULAR') %}
-                <a href="{{ path('demand') }}" class="btn btn-round btn-brown">Demande naturlaiste</a>
+                <a href="{{ path('demand') }}" class="btn btn-round btn-brown">Demande naturaliste</a>
             {% endif %}
             {% if is_granted('ROLE_NATURALIST') %}
                 <a href="{{ path('waiting-observation') }}" class="btn btn-round btn-brown">Observation en attente</a>
