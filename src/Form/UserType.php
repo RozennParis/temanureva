@@ -35,7 +35,7 @@ class UserType extends AbstractType
                 'label' => 'Date de naissance',
                 'attr' => ['class' => 'datepicker'],
                 'widget' => 'single_text',
-                'format'=> 'dd-MM-yyyy',
+                'format'=> 'dd/MM/yyyy',
             ])
             ->add('gender', ChoiceType::class, [
                 'label' => 'Genre',

@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Validator\Constraint as Assert;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -86,6 +86,52 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $token_date;
+
+    /**
+     * @Assert\Image(
+     *     allowLandscape = false,
+     *     allowPortrait = false,
+     *     minHeight=300,
+     *     minWidth=300,
+     *     maxHeight=300,
+     *     maxWidth=300
+     *)
+     */
+    private $new_image;
+
+    private $new_password;
+
+    /**
+     * @return mixed
+     */
+    public function getNewPassword()
+    {
+        return $this->new_password;
+    }
+
+    /**
+     * @param mixed $new_password
+     */
+    public function setNewPassword($new_password): void
+    {
+        $this->new_password = $new_password;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNewImage()
+    {
+        return $this->new_image;
+    }
+
+    /**
+     * @param mixed $new_image
+     */
+    public function setNewImage($new_image): void
+    {
+        $this->new_image = $new_image;
+    }
 
 
     public function getId()

@@ -48,6 +48,17 @@ class UserRepository extends ServiceEntityRepository
         return $qb->getOneOrNullResult();
     }
 
+    public function findByIdWithPassword($id, $password){
+        $qd = $this->createQueryBuilder('u')
+            ->andWhere('u.id = :id')
+            ->andWhere('u.password = :password')
+            ->setParameter('id', $id)
+            ->setParameter('password', $password)
+            ->getQuery();
+
+        return $qd->getOneOrNullResult();
+    }
+
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */

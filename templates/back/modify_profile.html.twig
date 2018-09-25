@@ -1,11 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier profil - NAO{% endblock %}
+{% block title %}Modifier mon profil - NAO{% endblock %}
 
 {% block body %}
-    {{ include('common/header.html.twig', {'title' : 'Modifier profil'}) }}
+    {{ include('common/header.html.twig', {'title' : 'Modifier mon profil'}) }}
     <div class="container">
         {{ form_start(form) }}
+        <div class="row">
+            <div class="col offset-s2 s8 offset-l5 l2">
+                <img src="{% if user.image is same as(null) %}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{{ image_profile_directory }}/{{ user.image }}{% endif %}" alt="profile" class="responsive-img circle">
+            </div>
+        </div>
+        <div class="row margin-b">
+            <div class="col s12 offset-l4 l4">
+                {{ form_help(form.newImage) }}
+                {{ form_row(form.newImage) }}
+            </div>
+        </div>
         <div class="row">
             <div class="col s12 l6">
                 {{ form_row(form.lastname) }}
@@ -31,23 +42,21 @@
             <div class="col s12 l6">
                 {{ form_row(form.username) }}
             </div>
-            <div class="col s12 l6">
-            </div>
+            {#<div class="col s12 l6">#}
+                {#{{ form_row(form.password) }}#}
+            {#</div>#}
         </div>
         <div class="row">
             <div class="col s12 l6">
-                {{ form_row(form.password.first) }}
+                {{ form_row(form.newPassword.first) }}
             </div>
             <div class="col s12 l6">
-                {{ form_row(form.password.second) }}
+                {{ form_row(form.newPassword.second) }}
             </div>
         </div>
-
-        <div class="row center margin-bottom">
-            <button class="btn btn-round btn-brown" type="submit">Valider les modifications</button>
+        <div class="center-align">
+            {{ form_widget(form.submit, { 'attr' : { 'class' : 'btn-round btn-brown'}}) }}
         </div>
-
-
         {{ form_end(form) }}
     </div>
 {% endblock %}

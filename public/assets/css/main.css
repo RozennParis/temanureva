@@ -47,6 +47,10 @@ h1 {
     margin-bottom: 1.25rem;
 }
 
+.help-text{
+    color: #a1a1a1;
+}
+
 footer {
     margin-bottom: 0 !important;
 }
@@ -100,6 +104,11 @@ footer h4 {
 .collapsible {
     margin: 0;
     border-color: #A1887F;
+}
+
+.collapsible-header, i{
+    text-align: center;
+    display: block;
 }
 
 /*---- Navigation ----*/
@@ -580,9 +589,9 @@ card-title-blog{
     transition: -webkit-box-shadow .25s;
     transition: box-shadow .25s;
     transition: box-shadow .25s, -webkit-box-shadow .25s;
-    border-radius: 2px;
-    height: 23.689rem;
-    width: 15.563rem;
+    /*border-radius: 2px;*/
+    /*height: 23.689rem;*/
+    /*width: 15.563rem;*/
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
@@ -754,7 +763,8 @@ card-title-blog{
 }
 
 .btn-species {
-
+    width: 8.3rem;
+    min-width: unset;
 }
 
 .file-btn {
@@ -807,10 +817,13 @@ footer a, footer h4 {
     background-position: center center;
 }
 .card-species {
-    height: 23.689rem!important;
+    /*height: 23.689rem!important;*/
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 
+}
+.card-species h6{
+    height: 2rem;
 }
 .image-species {
     border-top-left-radius: 15px;

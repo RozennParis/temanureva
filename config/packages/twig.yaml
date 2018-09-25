@@ -8,4 +8,5 @@ twig:
         image_article_directory: '%image_article_directory%'
         image_observation_directory: '%image_observation_directory%'
         demand_file_directory: '%demand_file_directory%'
+        image_profile_directory: '%image_profile_directory%'
         form_newsletter: '@App\Service\NewsletterForm'

@@ -3,10 +3,10 @@
 {% block title %} Espèces {% endblock %}
 
 {% block body %}
-    <div class="valign-wrapper big-header" id="species_header">
-        <h1>Espèces</h1>
-    </div>
-    {#{{ include('common/header.html.twig', {'asset' : 'assets/img/bg-blog.jpg', 'alt' : 'header_blog', 'title' : 'Blog'}) }}#}
+    {#<div class="valign-wrapper big-header" id="species_header">#}
+        {#<h1>Espèces</h1>#}
+    {#</div>#}
+    {{ include('common/header.html.twig', {'asset' : 'assets/img/bg-especes.jpg', 'alt' : 'header_espece', 'title' : 'Espèces'}) }}
     {{ include('common/breadcrumb.html.twig', {'breadcrumb' : breadcrumb }) }}
     <div>
         <ul class="collapsible">
@@ -43,8 +43,8 @@
 
     <div class="row">
         {% for result in birds %}
-            <div class="col s12 m2">
-                <div class="card-species">
+            <div class="col s12 m4 l2">
+                <div class="card-species card-radius">
                     <div class="card-image-species center">
                         <img src="
                                {% if result.0.image %}
@@ -52,12 +52,12 @@
                                 {% else %}
                                     {{ asset('assets/img/bg_espece_inconnue_gris_2.jpg') }}
                                 {% endif %}
-                            ">
+                            " class="card-image responsive-img">
                     </div>
                     <div class="card-content-species center">
                         <h6 class="center">{{ result.0.vernacularName }}</h6>
-                        Animal observé {{ result.nbObsValid }} fois
-                        <a href="{{ path('oiseau', {'id': result.0.id}) }}"  class="waves-effect waves-light btn-small btn-species">Voir plus</a>
+                        <p>Animal observé {{ result.nbObsValid }} fois</p>
+                        <a href="{{ path('oiseau', {'id': result.0.id}) }}"  class="btn-round btn-teal btn-small btn-species">Voir plus</a>
                     </div>
                 </div>
             </div>
