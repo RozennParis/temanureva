@@ -555,6 +555,10 @@ card-title-blog{
     min-height: 11.9375rem;
 }
 
+#height-species-tabs {
+    height: 265px;
+}
+
 #height-species-img {
     height: 140px !important;
 }
@@ -563,9 +567,13 @@ card-title-blog{
     margin-bottom: 0 !important;
 }
 
+.mini-margin {
+    margin-top: 25px;
+}
+
 #again-mesure {
-    height: 295px;
-    width: 295px;
+    height: 140px;
+    width: 140px;
 }
 
 .card-image-species img {
