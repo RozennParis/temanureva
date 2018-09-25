@@ -43,8 +43,8 @@ class UserType extends AbstractType
                 'expanded' => false,
                 'multiple' => false,
                 'choices' => [
-                    'Masculin' => 'M',
-                    'Féminin' =>  'F',
+                    'Masculin' => '1',
+                    'Féminin' =>  '0',
                 ]
             ])
         ;

@@ -94,6 +94,7 @@ class BirdController extends Controller
         $observations = $this->getDoctrine()
             ->getRepository(Observation::class)
             ->findObservationsByBirdId($id, self::BEGIN_DISPLAY_OBSERVATION , self::NBR_OBSERVATIONS_PER_PAGE);
+
         return $this->render('front/specie.html.twig', [
             'bird' => $bird,
             'observations' => $observations,
