@@ -12,6 +12,7 @@ use App\Entity\Article;
 use App\Entity\Observation;
 use App\Entity\User;
 use App\Form\modifyProfileType;
+use App\Service\BreadcrumbManager;
 use App\Service\ProfileManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -75,6 +76,23 @@ class ProfileController extends Controller
         return $this->render('back/modify_profile.html.twig',[
             'user' =>$user,
             'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/profil/gerer-utilisateur", name="manage-user")
+     */
+    public function manageUser(){
+        //Insert breadcrumb
+        $breadcrumb = new BreadcrumbManager();
+        $breadcrumb
+            ->add('profil', 'Mon profil')
+            ->add('manage-user', 'Gérer utilisateur');
+
+        $users = $this->getDoctrine()->getRepository(User::class)->findWithOffset(0, 6);
+        return $this->render('back/manage_user.html.twig', [
+            'breadcrumb' => $breadcrumb->getBreadcrumb(),
+            'users' => $users,
         ]);
     }
 }

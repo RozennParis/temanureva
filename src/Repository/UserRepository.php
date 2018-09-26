@@ -59,6 +59,17 @@ class UserRepository extends ServiceEntityRepository
         return $qd->getOneOrNullResult();
     }
 
+    public function findWithOffset(int $offset, int $limit)
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->orderBy('u.registration_date', 'DESC')
+            ->getQuery();
+
+        return $qb->getResult();
+    }
+
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */
