@@ -58,9 +58,9 @@ window.onload = function(){
      */
     myMarker.on('dragend', function(e) {
         var newCoordinates = myMarker.getLatLng();
-        $('#observation_latitude').val(newCoordinates.lat);
-        $('#observation_longitude').val(newCoordinates.lng);
-        $('#location-input').val(newCoordinates.lat + '/ ' + newCoordinates.lng);
+        $('#observation_latitude').focus().val(newCoordinates.lat);
+        $('#observation_longitude').focus().val(newCoordinates.lng);
+        $('#location-input').focus().val(newCoordinates.lat + '/ ' + newCoordinates.lng);
     });
 
     /**
