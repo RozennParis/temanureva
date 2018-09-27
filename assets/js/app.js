@@ -19,20 +19,31 @@ var app = new Vue({
                 })
                 $('#observation_bird').val(item.id)
                 // il récupère l'id pour le mettre dans  #observation-bird (champ caché)
-                //tester avec l'ajout d'un autre $('#gnagna...)
+
             }
         });
 
-        $('input.autocomplete').autocomplete({
+        $('input#autocomplete-valid-input').autocomplete({
+            onAutocomplete: (v) => {
+                let item = this.items.find(i => {
+                    return i.name === v
+                })
+                console.log (item.id)
+                $('#valide_observation_bird').val(item.id)
+            }
+        });
+
+        /*$('input.autocomplete').autocomplete({
             onAutocomplete: (v) => { // function (v) {return v} >>> on clique, ça fait quelque chose
                 let item = this.items.find(i => {
                     return i.name === v
                 })
-                $('#valide_observation_bird').setValue(item.id)
+                console.log(item.id)
+                $('#valide_observation_bird').val(item.id);
                 // il récupère l'id pour le mettre dans  #observation-bird (champ caché)
-                //tester avec l'ajout d'un autre $('#gnagna...)
+
             }
-        });
+        });*/
     },
     /**
      * methods >>> on met tout ce que l'on veut exécuter
@@ -53,6 +64,25 @@ var app = new Vue({
                     this.items.map(mapfn) // il injecte l'élément en tant que paramètre de la fonction à exécuter
 
                     $('input.autocomplete').autocomplete('updateData', valuesObject);
+                }
+            )
+        },
+
+        searchBird(v) {  // "lié" à @input = search dans html.twig >>> passe l'élément en entier (v = event)
+            axios.get('/autocomplete?dataBird='+v.target.value).then( //.then permet d'attendre la réponse de la fonction asynchrone axios.get
+                response => {
+                    $('input#autocomplete-valid-input').css('border-bottom', '1px solid green')
+                    this.items = response.data // on récupère l'array d'objet
+                    if (this.items.length === 0){
+                        $('input#autocomplete-valid-input').css('border-bottom', '1px solid red')
+                    }
+                    let valuesObject = {} //let : variable de bloc, uniquement utilisable dans le bloc en question; ex : for, if...
+                    let mapfn = i => { //map <=> foreach, retourne une fonction avec l'élément de l'itération en paramètre
+                        valuesObject[i.name] = ''  //pour rajouter une image >>> = i.attribut image
+                    }
+                    this.items.map(mapfn) // il injecte l'élément en tant que paramètre de la fonction à exécuter
+
+                    $('input#autocomplete-valid-input').autocomplete('updateData', valuesObject);
                 }
             )
         }

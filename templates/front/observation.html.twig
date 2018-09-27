@@ -20,8 +20,13 @@
                             <div class="col s12 m6" id="observation-autocomplete">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input type="text" id="autocomplete-input"  @input="search" class="autocomplete" autocomplete="off" placeholder="{{ observation.bird.vernacularName }}">
-                                        <label for="autocomplete-input">Nom de l'espèce</label>
+                                        <input type="text" id="autocomplete-valid-input"  @input="searchBird" class="autocomplete" autocomplete="off" placeholder=
+                                        {% if observation.bird == null %}
+                                            "Espèce non connue">
+                                        {% else %}
+                                            "{{ observation.bird.vernacularName }}">
+                                        {% endif %}
+                                        <label for="autocomplete-valid-input">Nom de l'espèce</label>
                                     </div>
                                 </div>
                                 {{ form_row(form.bird) }}
