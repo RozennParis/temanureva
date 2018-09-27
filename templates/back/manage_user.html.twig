@@ -11,10 +11,10 @@
     </div>
     <div class="row container">
         {% for user in users %}
-            <div class="col s12 l4">
+            <div class="col s12 m6 l3">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{% if user.image is null%}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{{ image_profile_directory }}/{{ user.image }}{% endif %}" alt="photo_profil">
+                        <img src="{% if user.image is null%}{{ asset('assets/img/profile-placeholder.jpg') }}{% else %}{{ image_profile_directory }}/{{ user.image }}{% endif %}" alt="photo_profil" class="responsive-img">
                     </div>
                     <div class="card-content center">
                         <div class="card-title">{{ user.lastname|upper }} {{ user.firstname }}</div>

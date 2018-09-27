@@ -21,6 +21,8 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class ProfileController extends Controller
 {
+    const NBR_USER_MANAGE = 8;
+    const PAGINATION_DISPLAY_MANAGE = 5;
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -80,16 +82,16 @@ class ProfileController extends Controller
     }
 
     /**
-     * @Route("/profil/gerer-utilisateur", name="manage-user")
+     * @Route("/profil/gerer-utilisateur/{page}", name="manage-user", requirements={"page"="\d+$"})
      */
-    public function manageUser(){
+    public function manageUser($page =1){
         //Insert breadcrumb
         $breadcrumb = new BreadcrumbManager();
         $breadcrumb
             ->add('profil', 'Mon profil')
             ->add('manage-user', 'Gérer utilisateur');
 
-        $users = $this->getDoctrine()->getRepository(User::class)->findWithOffset(0, 6);
+        $users = $this->getDoctrine()->getRepository(User::class)->findWithOffset(($page-1)*self::NBR_USER_MANAGE,self::NBR_USER_MANAGE);
         return $this->render('back/manage_user.html.twig', [
             'breadcrumb' => $breadcrumb->getBreadcrumb(),
             'users' => $users,
