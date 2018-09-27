@@ -145,7 +145,7 @@
                 <a href="{{ path('waiting-observation') }}" class="btn btn-round btn-brown">Observation en attente</a>
             {% endif %}
             {% if is_granted('ROLE_ADMIN') %}
-                <a href="#" class="btn btn-round btn-brown">Gérer Utilisateur </a>
+                <a href="{{ path('manage-user') }}" class="btn btn-round btn-brown">Gérer Utilisateur </a>
                 <a href="{{ path('waiting-demand') }}" class="btn btn-round btn-brown">Certifier un naturlaiste</a>
             {% endif %}
             <a href="{{ path('security_logout') }}" class="btn btn-round btn-brown">Déconnexion</a>
