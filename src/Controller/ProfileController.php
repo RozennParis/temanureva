@@ -24,6 +24,8 @@ class ProfileController extends Controller
     const NBR_USER_MANAGE = 8;
     const PAGINATION_DISPLAY_MANAGE = 5;
 
+    const NBR_PROFILE_HISTORY = 3;
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/profil/{id}", name="profil", requirements={"id"="\d+$"})
@@ -35,9 +37,9 @@ class ProfileController extends Controller
             return $this->redirectToRoute('profil',['id' => $this->getUser()->getId()]);
         }
         $user = $this->getDoctrine()->getRepository(User::class)->findById($id);
-        $observations = $this->getDoctrine()->getRepository(Observation::class)->findByObserver($user->getId(),0, 3);
-        $validations = $this->getDoctrine()->getRepository(Observation::class)->findByValidator($user->getId(),0, 3);
-        $articles = $this->getDoctrine()->getRepository(Article::class)->findByAuthor($user->getId(),0, 3);
+        $observations = $this->getDoctrine()->getRepository(Observation::class)->findByObserver($user->getId(),0, self::NBR_PROFILE_HISTORY);
+        $validations = $this->getDoctrine()->getRepository(Observation::class)->findByValidator($user->getId(),0, self::NBR_PROFILE_HISTORY);
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findByAuthor($user->getId(),0, self::NBR_PROFILE_HISTORY);
 
         return $this->render('back/index.html.twig', [
             'user' => $user,
