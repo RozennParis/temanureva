@@ -59,6 +59,13 @@ class UserRepository extends ServiceEntityRepository
         return $qd->getOneOrNullResult();
     }
 
+    public function getNumberUser(){
+        $qb = $this->createQueryBuilder('u');
+        $qb->select($qb->expr()->count('u.id'));
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
     public function findWithOffset(int $offset, int $limit)
     {
         $qb = $this->createQueryBuilder('u')

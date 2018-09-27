@@ -13,6 +13,7 @@ use App\Entity\Observation;
 use App\Entity\User;
 use App\Form\modifyProfileType;
 use App\Service\BreadcrumbManager;
+use App\Service\PaginationManager;
 use App\Service\ProfileManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -94,9 +95,15 @@ class ProfileController extends Controller
             ->add('manage-user', 'Gérer utilisateur');
 
         $users = $this->getDoctrine()->getRepository(User::class)->findWithOffset(($page-1)*self::NBR_USER_MANAGE,self::NBR_USER_MANAGE);
+        $nbrUser = $this->getDoctrine()->getRepository(User::class)->getNumberUser();
+
+        //Pagination
+        $pagination =  new PaginationManager($page, $nbrUser,self::NBR_USER_MANAGE,self::PAGINATION_DISPLAY_MANAGE, 'manage-user');
+
         return $this->render('back/manage_user.html.twig', [
             'breadcrumb' => $breadcrumb->getBreadcrumb(),
             'users' => $users,
+            'pagination' => $pagination
         ]);
     }
 }
