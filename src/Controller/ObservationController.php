@@ -138,6 +138,7 @@ class ObservationController extends Controller
 
                 if ($form->isSubmitted() && $form->isValid()){
                     if ($form->getClickedButton()->getName() == 'valide'){
+
                         $observationManager->valide($observation);
                         $this->redirectToRoute('profil');
                     }

@@ -67,7 +67,20 @@
                 </div>
             {% endfor %}
         </div>
+        {% if app.user.id is same as(user.id) %}
+            <div class="row center-align">
+                {% if is_granted('ROLE_ADMIN') %}
+                    {{ form_start(form) }}
 
+                    {% if form.image is defined %}
+                        {{ form_widget(form.image) }}
+                    {% endif %}
+                    {% if form.delete_image is defined %}
+                        {{ form_widget(form.delete_image) }}
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 
 
