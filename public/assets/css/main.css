@@ -457,6 +457,10 @@ card-title-blog{
     padding-top: 18px !important;
 }
 
+.card-profile i{
+    display: unset;
+}
+
 .card .card-content {
     padding: 0 !important;
 }
