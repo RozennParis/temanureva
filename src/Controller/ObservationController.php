@@ -118,7 +118,7 @@ class ObservationController extends Controller
      * @param ObservationManager $observationManager
      * @param $id
      * @return Response
-     * @Route("/observation/{id}", name="view_observation")
+     * @Route("/observation/{id}", name="view_observation", requirements={"id"="\d+"})
      */
     public function viewObservation(Request $request, AuthorizationCheckerInterface $checker, ObservationManager $observationManager,$id){
         $breadcrumb = new BreadcrumbManager();
@@ -143,6 +143,7 @@ class ObservationController extends Controller
                         $this->redirectToRoute('profil');
                     }
                     elseif ($form->getClickedButton()->getName() == 'delete'){
+                        //finir la logique TODO
                     }
                 }
                 return $this->render('front/observation.html.twig',[
